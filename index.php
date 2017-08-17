@@ -3,6 +3,8 @@ $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrL
 
 // Get POST body content
 $content = file_get_contents('php://input');
+$json = file_get_contents('data.json');
+$data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
@@ -12,8 +14,8 @@ if (!is_null($events['events'])) {
   // Reply only when message sent is in 'text' format
   if ($event['type'] == 'message' && $event['message']['type'] == 'sticker' || $event['type'] == 'message' && $event['message']['type'] == 'text') {
    // Get text sent
-//    $text = $event['message']['text'];
-   $text = "hello world!";
+   $text = $event['template']['actions'];
+//    $text = "hello world!";
    
    // Get replyToken
    $replyToken = $event['replyToken'];
