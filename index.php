@@ -13,7 +13,12 @@ if (!is_null($events['events'])) {
   if ($event['type'] == 'message' && $event['message']['type'] == 'sticker' || $event['type'] == 'message' && $event['message']['type'] == 'text') {
    // Get text sent
 //    $text = $event['message']['text'];
-   $text ="hello world!";
+   $text ="{
+  "type": "sticker",
+  "packageId": "1",
+  "stickerId": "1"
+}";
+   
    // Get replyToken
    $replyToken = $event['replyToken'];
 
