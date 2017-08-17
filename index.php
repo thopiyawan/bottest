@@ -27,17 +27,13 @@ if (!is_null($events['events'])) {
     'packageId'=> '1',
     'stickerId'=> '424'
    ];
-   $messages1 = [
-    'type' => 'text',
-    'text' => $text
-   ];
+
 
    // Make a POST Request to Messaging API to reply to sender
    $url = 'https://api.line.me/v2/bot/message/reply';
    $data = [
     'replyToken' => $replyToken,
     'messages' => [$messages],
-    'messages' => [$messages1],
    ];
    $post = json_encode($data);
    $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
