@@ -1,7 +1,7 @@
 
  <?php
  define('LINE_API',"https://notify-api.line.me/api/notify");
-define('LINE_TOKEN','ไม่บอก');
+define('LINE_TOKEN','GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=');
 
 function notify_message($message){
 
