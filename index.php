@@ -18,8 +18,8 @@ if (!is_null($events['events'])) {
    // Get text sent
 //    $text = $event['template'];
    $text = "hello world!";
-   $st1 = $events['message']['packageId'];
-   $st2 = $events['message']['stickerId'];
+   $st1 = $events['events'][0]['message']['packageId'];
+   $st2 = $events['events'][0]['message']['stickerId'];
    // Get replyToken
    $replyToken = $event['replyToken'];
 
