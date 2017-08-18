@@ -29,8 +29,10 @@ if (!is_null($events['events'])) {
     'packageId'=> $st1,
     'stickerId'=> $st2
    ];
-   
+     
   elseif( $event['message']['text'] == "สวัสดี" ){
+   
+      $replyToken = $event['replyToken'];
       $text = "hello world!";
       $messages = [
         'type' => 'text',
