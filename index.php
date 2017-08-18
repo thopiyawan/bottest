@@ -23,8 +23,12 @@ if (!is_null($events['events'])) {
       ];
      echo result($messages,$replyToken);
   }
-  
-  
+    $text = "ว่าไงนะ";
+    $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+     echo result($messages,$replyToken);
   
   
   
