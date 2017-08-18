@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-      result($messages,$replyToken);
+     echo result($messages,$replyToken);
   }
   
   
