@@ -21,22 +21,6 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-   
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
-     // Get text sent
-   //    $text = $event['template'];
-   //    $text = "hello world!";
-   $st1 = $events['events'][0]['message']['packageId'];
-   $st2 = $events['events'][0]['message']['stickerId'];
-   // Get replyToken
-   $replyToken = $event['replyToken'];
-
-   // Build message to reply back
-   $messages = [
-    'type'=> 'sticker',
-    'packageId'=> $st1,
-    'stickerId'=> $st2
-   ];
   }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
