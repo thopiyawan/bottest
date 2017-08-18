@@ -8,6 +8,8 @@ $content = file_get_contents('php://input');
 $data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
+$st1 = $arrJson['message']['packageId'];
+$st2 = $arrJson['message']['stickerId'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
@@ -24,8 +26,8 @@ if (!is_null($events['events'])) {
    // Build message to reply back
    $messages = [
     'type'=> 'sticker',
-    'packageId'=> '1',
-    'stickerId'=> '424'
+    'packageId'=> $st1,
+    'stickerId'=> $st2
    ];
 
 
