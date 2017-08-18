@@ -39,17 +39,10 @@ if (!is_null($events['events'])) {
    
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
   
-      $tem = [
-          {
+      $messages  = [
             "type"  => "message",
             "label" => "Yes",
             "text"  => "yes"
-          },
-          {
-            "type"  => "message",
-            "label" => "No",
-            "text"  => "no"
-          }
       ]
    
    
