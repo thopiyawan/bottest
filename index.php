@@ -14,7 +14,7 @@ if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-  if ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
+  if ($event['message']['type'] == 'sticker') {
    // Get text sent
    //    $text = $event['template'];
    //    $text = "hello world!";
@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
     'stickerId'=> $st2
    ];
    
-  elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "สวัสดี" ){
+  elseif( $event['message']['text'] == "สวัสดี" ){
       $text = "hello world!";
       $messages = [
         'type' => 'text',
