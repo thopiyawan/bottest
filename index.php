@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
         'text' => $text
       ];
    
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker' && $event['message']['text'] == "สวัสดี") {
+  }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
    //    $text = $event['template'];
    //    $text = "hello world!";
