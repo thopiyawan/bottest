@@ -8,8 +8,7 @@ $content = file_get_contents('php://input');
 $data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
-$st1 = $arrJson['message']['packageId'];
-$st2 = $arrJson['message']['stickerId'];
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
@@ -19,7 +18,8 @@ if (!is_null($events['events'])) {
    // Get text sent
 //    $text = $event['template'];
    $text = "hello world!";
-   
+   $st1 = $events['message']['packageId'];
+   $st2 = $events['message']['stickerId'];
    // Get replyToken
    $replyToken = $event['replyToken'];
 
