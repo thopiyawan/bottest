@@ -36,6 +36,26 @@ if (!is_null($events['events'])) {
     'packageId'=> $st1,
     'stickerId'=> $st2
    ];
+   
+  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
+  
+      $tem = [
+          {
+            "type"  => "message",
+            "label" => "Yes",
+            "text"  => "yes"
+          },
+          {
+            "type"  => "message",
+            "label" => "No",
+            "text"  => "no"
+          }
+      ]
+   
+   
+   
+   
+   
   }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
