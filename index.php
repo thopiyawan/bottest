@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-     fc($replyToken, $messages);
+   
   }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
@@ -29,13 +29,13 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-    fc($replyToken, $messages);
+    
   }
 
   
  }
 }
-function fc( $replyToken, $messages) {
+
   // Make a POST Request to Messaging API to reply to sender
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
@@ -54,7 +54,7 @@ function fc( $replyToken, $messages) {
          curl_close($ch);
          echo $result . "\r\n";
  
-}
+
 echo "OK"; 
 
 
