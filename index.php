@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-      fc($messages,$replyToken);
+      result($messages,$replyToken);
   }
   
   
@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
   
   
   
-function fc($messages,$replyToken){
+function result($messages,$replyToken){
          // Make a POST Request to Messaging API to reply to sender
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
