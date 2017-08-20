@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
     'stickerId'=> $st2
    ];
    
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "buttons") {
+  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ปุ่ม") {
      $replyToken = $event['replyToken'];
         $messages = [
         'type' => 'template',
@@ -60,7 +60,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
- } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
+ } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ยืนยัน") {
     $replyToken = $event['replyToken'];
     $messages = [
        'type' => 'template',
@@ -82,7 +82,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-} elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "carousel") {
+} elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ทดสอบ") {
     $replyToken = $event['replyToken'];
  $messageData = [
         'type' => 'template',
