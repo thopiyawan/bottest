@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
     'stickerId'=> $st2
    ];
    
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เลือก") {
+  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "buttons") {
      $replyToken = $event['replyToken'];
         $messages = [
         'type' => 'template',
@@ -60,7 +60,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
- } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
+ } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
     $replyToken = $event['replyToken'];
     $messages = [
        'type' => 'template',
@@ -82,7 +82,50 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-   
+} elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "carousel") {
+    $replyToken = $event['replyToken'];
+ $messageData = [
+        'type' => 'template',
+        'altText' => 'カルーセル',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+                [
+                    'title' => 'カルーセル1',
+                    'text' => 'カルーセル1です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '美容の口コミ広場を見る',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'カルーセル2',
+                    'text' => 'カルーセル2です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '女美会を見る',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ];
+      
    
    
   }else{
