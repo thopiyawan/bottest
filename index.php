@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
             "label" => "Yes",
             "text"  => "yes"
       ];
- } elseif ($message->{"text"} == 'อากาศเป็นไง') {
+ } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
  
     $messages = [
         'type' => 'template',
