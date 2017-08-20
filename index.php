@@ -47,25 +47,31 @@ if (!is_null($events['events'])) {
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
  
     $messages = [
-        "type" => "template",
-        "altText" => "this is a buttons template",
-        "template" => [
-            "type" => "buttons",
-            "title" => "Menu",
-            "text" => "Please select",
-            "actions" => [
-                [
-                    "type" => "postback",
-                    "label" => "Add to cart",
-                    "data" => "value"
-                ],
-                [
-                    "type" => "uri",
-                    "label" => "View detail",
-                    "uri" => "https://google.com"
-                ]
-            ]
-        ]
+       "type" => "template",
+  "altText"=> "this is a buttons template",
+  "template"=> {
+      "type"=> "buttons",
+      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+      "title"=> "Menu",
+      "text"=> "Please select",
+      "actions"=> [
+          {
+            "type"=> "postback",
+            "label"=> "Buy",
+            "data"=> "action=buy&itemid=123"
+          },
+          {
+            "type"=> "postback",
+            "label"=> "Add to cart",
+            "data"=> "action=add&itemid=123"
+          },
+          {
+            "type"=> "uri",
+            "label"=> "View detail",
+            "uri"=> "http://example.com/page/123"
+          }
+      ]
+
     ];  
    
    
@@ -103,6 +109,7 @@ if (!is_null($events['events'])) {
          curl_close($ch);
          echo $result . "\r\n";
  
+
 
 echo "OK"; 
 
