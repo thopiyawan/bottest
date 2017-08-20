@@ -38,14 +38,14 @@ if (!is_null($events['events'])) {
    ];
    
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
-  
+     $replyToken = $event['replyToken'];
       $messages  = [
             "type"  => "message",
             "label" => "Yes",
             "text"  => "yes"
       ];
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
- 
+    $replyToken = $event['replyToken'];
     $messages = [
        'type' => 'template',
         'altText' => 'this is a confirm template',
