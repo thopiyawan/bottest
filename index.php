@@ -83,8 +83,8 @@ if (!is_null($events['events'])) {
         ]
     ];
 } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ทดสอบ") {
-    $replyToken = $event['replyToken'];
- $messageData = [
+ $replyToken = $event['replyToken'];
+ $messages = [
         'type' => 'template',
         'altText' => 'カルーセル',
         'template' => [
