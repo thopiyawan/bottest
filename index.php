@@ -44,7 +44,29 @@ if (!is_null($events['events'])) {
             "label" => "Yes",
             "text"  => "yes"
       ];
-   
+ } elseif ($message->{"text"} == 'อากาศเป็นไง') {
+ 
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a buttons template',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'Menu',
+            'text' => 'Please select',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => 'Add to cart',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'View detail',
+                    'uri' => 'https://google.com'
+                ]
+            ]
+        ]
+    ];  
    
    
    
