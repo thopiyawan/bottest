@@ -47,22 +47,22 @@ if (!is_null($events['events'])) {
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
  
     $messages = [
-        'type' => 'template',
-        'altText' => 'this is a buttons template',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'Menu',
-            'text' => 'Please select',
-            'actions' => [
+        "type" => "template",
+        "altText" => "this is a buttons template",
+        "template" => [
+            "type" => "buttons",
+            "title" => "Menu",
+            "text" => "Please select",
+            "actions" => [
                 [
-                    'type' => 'postback',
-                    'label' => 'Add to cart',
-                    'data' => 'value'
+                    "type" => "postback",
+                    "label" => "Add to cart",
+                    "data" => "value"
                 ],
                 [
-                    'type' => 'uri',
-                    'label' => 'View detail',
-                    'uri' => 'https://google.com'
+                    "type" => "uri",
+                    "label" => "View detail",
+                    "uri" => "https://google.com"
                 ]
             ]
         ]
@@ -105,8 +105,4 @@ if (!is_null($events['events'])) {
  
 
 echo "OK"; 
-
-
-
-
 
