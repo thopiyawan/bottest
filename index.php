@@ -47,13 +47,13 @@ if (!is_null($events['events'])) {
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เมนู") {
  
     $messages = [
-       "type" => "template",
-  "altText"=> "this is a buttons template",
-  "template"=> [
-      "type"=> "buttons",
-      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-      "title"=> "Menu",
-      "text"=> "Please select",
+      "type" => "template",
+      "altText"=> "this is a buttons template",
+      "template"=> [
+          "type"=> "buttons",
+          "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+          "title"=> "Menu",
+          "text"=> "Please select",
       "actions"=> [
           [
             "type"=> "postback",
@@ -69,11 +69,10 @@ if (!is_null($events['events'])) {
             "type"=> "uri",
             "label"=> "View detail",
             "uri"=> "http://example.com/page/123"
-          ]
-       ]
-     ]
-    ];  
-   
+          ],
+         ]
+        ]
+    ];
    
    
    
