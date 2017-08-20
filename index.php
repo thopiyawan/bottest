@@ -48,20 +48,20 @@ if (!is_null($events['events'])) {
  
     $messages = [
        'type' => 'template',
-        'altText' => '確認ダイアログ',
+        'altText' => 'this is a confirm template',
         'template' => [
             'type' => 'confirm',
-            'text' => '元気ですかー？',
+            'text' => 'Are you sure?',
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => '元気です',
-                    'text' => '元気です'
+                    'label' => 'yes',
+                    'text' => 'yes'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'まあまあです',
-                    'text' => 'まあまあです'
+                    'label' => 'no',
+                    'text' => 'no'
                 ],
             ]
         ]
