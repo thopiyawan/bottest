@@ -37,9 +37,9 @@ if (!is_null($events['events'])) {
     'stickerId'=> $st2
    ];
    
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "confirm") {
+  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "เลือก") {
      $replyToken = $event['replyToken'];
-        $message = [
+        $messages = [
         'type' => 'template',
         'altText' => 'ボタン',
         'template' => [
