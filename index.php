@@ -143,7 +143,7 @@ if (!is_null($events['events'])) {
  $replyToken = $event['replyToken'];
    
     $x_tra = str_replace("หา","", $_msg);
-    $search =str_replace("","",$pieces);
+    $search =str_replace("","",$pieces[0]);
     //Post New Data
      $result = $width/($height*$height);
     $messages = [
