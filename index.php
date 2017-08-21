@@ -44,17 +44,17 @@ if (!is_null($events['events'])) {
         'altText' => 'ボタン',
         'template' => [
             'type' => 'buttons',
-            'title' => 'タイトルです',
-            'text' => '選択してね',
+            'title' => 'อากาศเป็นไงบ้าง',
+            'text' => 'อากาศ',
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => 'webhookにpost送信',
+                    'label' => 'good',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'googleへ移動',
+                    'label' => 'google',
                     'uri' => 'https://google.com'
                 ]
             ]
@@ -86,38 +86,39 @@ if (!is_null($events['events'])) {
  $replyToken = $event['replyToken'];
  $messages = [
         'type' => 'template',
-        'altText' => 'カルーセル',
+        'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
             'columns' => [
                 [
-                    'title' => 'カルーセル1',
-                    'text' => 'カルーセル1です',
+                    'thumbnailImageUrl': 'https://example.com/bot/images/item1.jpg',
+                    'title' => 'this is menu',
+                    'text' => 'description',
                     'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => 'webhookにpost送信',
+                            'label' => 'buy',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'uri',
-                            'label' => '美容の口コミ広場を見る',
+                            'label' => 'add to cart',
                             'uri' => 'http://clinic.e-kuchikomi.info/'
                         ]
                     ]
                 ],
                 [
-                    'title' => 'カルーセル2',
-                    'text' => 'カルーセル2です',
+                    'title' => 'this is menu',
+                    'text' => 'description',
                     'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => 'webhookにpost送信',
+                            'label' => 'buy',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'uri',
-                            'label' => '女美会を見る',
+                            'label' => 'add to catr',
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
@@ -131,7 +132,7 @@ if (!is_null($events['events'])) {
    
     $x_tra = str_replace("คำนวณ","", $_msg);
     $pieces = explode(":", $x_tra);
-    $hight =str_replace("","",$pieces[0]);
+    $height =str_replace("","",$pieces[0]);
     $width =str_replace("","",$pieces[1]);
     //Post New Data
      $result = $width/($hight*$hight);
