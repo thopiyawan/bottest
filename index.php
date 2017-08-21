@@ -143,7 +143,7 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://www.google.com/search?q='.$x_tra;
-    $results = php_get_contents($url);
+    $results = readfile($url);
     $messages = [
           'type' => 'text',
           'text' => $results
