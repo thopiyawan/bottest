@@ -143,11 +143,7 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
    
-     $match = preg_match('/&q=([a-zA-Z0-9+-]+)/',$x_tra, $output);
-     $querystring = $output[0];
-     $querystring = str_replace('&q=','',$querystring);
-     $keywords = explode('+',$querystring);
-     $re = $keywords[0];
+    search_engine_query_string($x_tra);
    $messages = [
           'type' => 'text',
           'text' => $re
@@ -186,7 +182,21 @@ if (!is_null($events['events'])) {
          curl_close($ch);
          echo $result . "\r\n";
  
+function search_engine_query_string($url = false) {
+if(!$url) {
+$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
+}
+if($url == false) {
+return '';
+}
 
+$parts = parse_url($url);
+parse_str($parts['query'], $query);
+
+$search_engines = array(
+'about' => 'terms',
+'alice' => 'qs',
+'alltheweb' => 'q',
 
 echo "OK"; 
 
