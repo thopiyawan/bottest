@@ -140,19 +140,13 @@ if (!is_null($events['events'])) {
           'text' => $result
         ];
  } elseif (strpos($_msg, 'หา') !== false) {
-   $opts = array(
-  'http'=>array(
-    'method'=>"GET",
-    'header'=>"Accept-language: en\r\n" .
-              "Cookie: foo=bar\r\n"
-  )
-);
 
-$context = stream_context_create($opts);
+
+
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://www.google.com/search?q='.$x_tra;
-    $results = file_get_contents($url, false, $context);
+    $results = file_get_contents($url, false);
     $messages = [
           'type' => 'text',
           'text' => $results
