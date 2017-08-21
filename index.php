@@ -131,8 +131,8 @@ if (!is_null($events['events'])) {
    
     $x_tra = str_replace("คำนวณ","", $_msg);
     $pieces = explode(":", $x_tra);
-    $hight =str_replace($pieces[0]);
-    $width =str_replace($pieces[1]);
+    $hight =str_replace("","",$pieces[0]);
+    $width =str_replace("","",$pieces[1]);
     //Post New Data
     $messages = [
           'type' => 'text',
