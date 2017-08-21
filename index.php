@@ -134,9 +134,10 @@ if (!is_null($events['events'])) {
     $hight =str_replace("","",$pieces[0]);
     $width =str_replace("","",$pieces[1]);
     //Post New Data
+     $result = $width/$hight*$hight
     $messages = [
           'type' => 'text',
-          'text' => $width
+          'text' => $result
         ];
    
   }else{
