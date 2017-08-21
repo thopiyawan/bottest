@@ -140,15 +140,17 @@ if (!is_null($events['events'])) {
           'text' => $result
         ];
  } elseif (strpos($_msg, 'หา') !== false) {
- $replyToken = $event['replyToken'];
-   
+    $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-//     $search =str_replace("","",$pieces[0]);
-    //Post New Data
-     $result = $width/($height*$height);
-    $messages = [
+   
+     $match = preg_match('/&q=([a-zA-Z0-9+-]+)/',$x_tra, $output);
+     $querystring = $output[0];
+     $querystring = str_replace('&q=','',$querystring);
+     $keywords = explode('+',$querystring);
+     $re = $keywords[0];
+   $messages = [
           'type' => 'text',
-          'text' => $x_tra
+          'text' => $re
         ];
      
  }else{
