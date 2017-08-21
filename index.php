@@ -146,7 +146,7 @@ if (!is_null($events['events'])) {
     $results = file_get_contents($url);
     $messages = [
           'type' => 'text',
-          'text' => $results
+          'text' => $url 
         ];
      
  }else{
