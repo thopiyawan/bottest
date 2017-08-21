@@ -46,7 +46,7 @@ if (!is_null($events['events'])) {
             'type' => 'buttons',
             'title' => 'タイトルです',
             'text' => '選択してね',
-//             'actions' => [
+            'actions' => [
 //                 [
 //                     'type' => 'postback',
 //                     'label' => 'webhookにpost送信',
@@ -57,7 +57,7 @@ if (!is_null($events['events'])) {
 //                     'label' => 'googleへ移動',
 //                     'uri' => 'https://google.com'
 //                 ]
-//             ]
+            ]
         ]
     ];
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ยืนยัน") {
