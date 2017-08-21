@@ -142,7 +142,18 @@ if (!is_null($events['events'])) {
  } elseif (strpos($_msg, 'หา') !== false) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-    header ('Location: http://www.google.com');
+    <script>
+  (function() {
+    var cx = '001414574216934202161:6_gkztrgobq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
    $messages = [
           'type' => 'text',
           'text' => $re
