@@ -91,7 +91,7 @@ if (!is_null($events['events'])) {
             'type' => 'carousel',
             'columns' => [
                 [
-                    'thumbnailImageUrl': 'https://example.com/bot/images/item1.jpg',
+                    'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
@@ -118,7 +118,7 @@ if (!is_null($events['events'])) {
                         ],
                         [
                             'type' => 'uri',
-                            'label' => 'add to catr',
+                            'label' => 'add to catrt',
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
@@ -135,7 +135,7 @@ if (!is_null($events['events'])) {
     $height =str_replace("","",$pieces[0]);
     $width =str_replace("","",$pieces[1]);
     //Post New Data
-     $result = $width/($hight*$hight);
+     $result = $width/($height*$height);
     $messages = [
           'type' => 'text',
           'text' => $result
