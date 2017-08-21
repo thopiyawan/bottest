@@ -46,18 +46,18 @@ if (!is_null($events['events'])) {
             'type' => 'buttons',
             'title' => 'タイトルです',
             'text' => '選択してね',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => 'webhookにpost送信',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'googleへ移動',
-                    'uri' => 'https://google.com'
-                ]
-            ]
+//             'actions' => [
+//                 [
+//                     'type' => 'postback',
+//                     'label' => 'webhookにpost送信',
+//                     'data' => 'value'
+//                 ],
+//                 [
+//                     'type' => 'uri',
+//                     'label' => 'googleへ移動',
+//                     'uri' => 'https://google.com'
+//                 ]
+//             ]
         ]
     ];
  } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ยืนยัน") {
