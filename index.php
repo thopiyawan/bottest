@@ -91,7 +91,7 @@ if (!is_null($events['events'])) {
             'type' => 'carousel',
             'columns' => [
                 [
-                    'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+                    'thumbnailImageUrl'=> 'https://hilight.kapook.com/img_cms2/user/klangjai/2559/January/week4/weather1.jpg',
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
