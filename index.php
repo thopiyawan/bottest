@@ -139,8 +139,19 @@ if (!is_null($events['events'])) {
           'type' => 'text',
           'text' => $result
         ];
+ } elseif (strpos($_msg, 'หา') !== false) {
+ $replyToken = $event['replyToken'];
    
-  }else{
+    $x_tra = str_replace("หา","", $_msg);
+    $search =str_replace("","",$pieces);
+    //Post New Data
+     $result = $width/($height*$height);
+    $messages = [
+          'type' => 'text',
+          'text' => $search 
+        ];
+     
+ }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
     $messages = [
