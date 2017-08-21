@@ -197,6 +197,6 @@ $search_engines = array(
 'about' => 'terms',
 'alice' => 'qs',
 'alltheweb' => 'q',
-
+ }
 echo "OK"; 
 
