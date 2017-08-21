@@ -126,7 +126,7 @@ if (!is_null($events['events'])) {
         ]
     ];
       
-} elseif (strpos($_msg, 'สอนเป็ด') !== false) {
+} elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
  $messages = [
         'type' => 'template',
