@@ -142,8 +142,7 @@ if (!is_null($events['events'])) {
  } elseif (strpos($_msg, 'หา') !== false) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-   
-    search_engine_query_string($x_tra);
+    header ('Location: http://www.google.com');
    $messages = [
           'type' => 'text',
           'text' => $re
@@ -182,67 +181,5 @@ if (!is_null($events['events'])) {
          curl_close($ch);
          echo $result . "\r\n";
  
-function search_engine_query_string($url = false) {
-if(!$url) {
-$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
-}
-if($url == false) {
-return '';
-}
-
-$parts = parse_url($url);
-parse_str($parts['query'], $query);
-
-$search_engines = array(
-'about' => 'terms',
-'alice' => 'qs',
-'alltheweb' => 'q',
-'altavista' => 'q', 
-'aol' => 'q',
-'aol.' => 'query',
-'aol..' => 'encquery',
-'answers' => 's',
-'aolsearch' => 'q',
-'ask' => 'q',
-'baidu'	=> 'wd',
-'bing' => 'q',
-'cnn' => 'query',
-'daum' =>'q', 
-'eniro' => 'search_word',
-'ekolay' => 'q',
-'google' => 'q',
-'google.se' => 'as_q', // seen on google.se
-'images.google' => 'q', 
-'kvasir' => 'q',
-'live' => 'q', 
-'lycos' => 'query',
-'mamma' => 'query',
-'msn' => 'q', 
-'mynet' => 'q', 
-'naver' => 'query',
-'najdi' => 'q', 
-'netscape' => 'query',
-'onet' => 'qt',
-'ozu' => 'q', 
-'pchome' => 'q', 
-'rambler' => 'words', 
-'search' => 'q', 
-'sesam' => 'q',
-'seznam' => 'q',
-'sNOWsh'	=> 'q', 
-'szukacz' => 'q',
-'terra' => 'query',
-'voila' => 'rdata',
-'virgilio' => 'qs',
-'wp' => 'szukaj', 
-'yahoo' => 'p',
-'yam' => 'k',
-'yandex' => 'text',
-);
-preg_match('/(' . implode('|', array_keys($search_engines)) . ')\./', $parts['host'], $matches);
-
-$keywords = isset($matches[1]) && isset($query[$search_engines[$matches[1]]]) ? $query[$search_engines[$matches[1]]] : '';
-return str_in($keywords);
-}
 echo "OK"; 
 
