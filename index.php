@@ -142,8 +142,8 @@ if (!is_null($events['events'])) {
  } elseif (strpos($_msg, 'หา') !== false) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-    $search = new iMarc\GoogleCustomSearch(SEARCH_ENGINE_ID, API_KEY);
-    $results = $search->search($x_tra);
+    $url = 'http://www.google.com/search?q='.$x_tra;
+    $results = file_get_contents($url);
     $messages = [
           'type' => 'text',
           'text' => $results
