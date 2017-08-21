@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
   // Reply only when message sent is in 'text' format
   if (strpos($_msg, 'สวัสดี') !== false) {
       $replyToken = $event['replyToken'];
-      $text = "hello world!";
+      $text = "สวัสดีค่ะ";
       $messages = [
         'type' => 'text',
         'text' => $text
