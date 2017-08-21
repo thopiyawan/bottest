@@ -128,50 +128,16 @@ if (!is_null($events['events'])) {
       
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
- $messages = [
-        'type' => 'template',
-        'altText' => 'カルーセル',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-                [
-                    'title' => 'カルーセル1',
-                    'text' => 'カルーセル1です',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'webhookにpost送信',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => '美容の口コミ広場を見る',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'カルーセル2',
-                    'text' => 'カルーセル2です',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'webhookにpost送信',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => '女美会を見る',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
-            ]
-        ]
-    ];
-      
    
-      
+    $x_tra = str_replace("คำนวณ","", $_msg);
+    $pieces = explode(":", $x_tra);
+    $hight =str_replace($pieces[0]);
+    $width =str_replace($pieces[1]);
+    //Post New Data
+    $messages = [
+          'type' => 'text',
+          'text' => $width
+        ];
    
   }else{
     $replyToken = $event['replyToken'];
