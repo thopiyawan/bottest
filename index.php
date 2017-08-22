@@ -150,12 +150,12 @@ if (!is_null($events['events'])) {
     $dom = new DOMDocument();
     $dom->loadHTML($url);
     $nodes = $dom->getElementsByTagName('.com');
-    $parts = parse_url($url);
+//     $parts = parse_url($url);
 //     $output = [];
 //     parse_str($parts['query'], $output);
     $messages = [
           'type' => 'text',
-          'text' =>   $parts 
+          'text' => $nodes 
         ];
      
  }else{
