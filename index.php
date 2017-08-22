@@ -149,13 +149,13 @@ if (!is_null($events['events'])) {
 //     $results = var_dump(parse_url($url));
     $dom = new DOMDocument();
     $dom->loadHTML($url);
-    $nodes = $dom->getElementsByTagName('.com');
+    $nodes = $dom->getElementsByTagName('com');
 //     $parts = parse_url($url);
 //     $output = [];
 //     parse_str($parts['query'], $output);
     $messages = [
           'type' => 'text',
-          'text' => $nodes 
+          'text' => $dom
         ];
      
  }else{
