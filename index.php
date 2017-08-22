@@ -147,9 +147,9 @@ if (!is_null($events['events'])) {
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
 //     $results = var_dump(parse_url($url));
-//    $dom = new DOMDocument();
-// $dom->loadHTML($html);
-// $nodes = $dom->getElementsByTagName('h3');
+    $dom = new DOMDocument();
+    $dom->loadHTML($url);
+    $nodes = $dom->getElementsByTagName('.com');
     $parts = parse_url($url);
 //     $output = [];
 //     parse_str($parts['query'], $output);
