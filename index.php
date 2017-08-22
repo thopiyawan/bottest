@@ -147,8 +147,8 @@ if (!is_null($events['events'])) {
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
     $a = [];
-    foreach($url->find('a') as $element) 
-       echo  $a = $element->href . '<br>';
+    foreach($url->find('com') as $element) 
+         $a = $element;
    
     $messages = [
           'type' => 'text',
