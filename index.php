@@ -149,10 +149,10 @@ if (!is_null($events['events'])) {
 //     $results = var_dump(parse_url($url));
     $parts = parse_url($url);
     $output = [];
-    $results = parse_str($parts['query'], $output);
+    parse_str($parts['query'], $output);
     $messages = [
           'type' => 'text',
-          'text' =>  $results
+          'text' =>  $output 
         ];
      
  }else{
