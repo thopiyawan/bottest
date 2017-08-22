@@ -146,7 +146,10 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-    $results = var_dump(parse_url($url));
+//     $results = var_dump(parse_url($url));
+    $parts = parse_url($url);
+    $output = [];
+    $results = parse_str($parts['query'], $output);
     $messages = [
           'type' => 'text',
           'text' =>  $results
