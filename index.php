@@ -146,13 +146,21 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-    $a = [];
-    foreach($url->find('com') as $element) 
-         $a = $element;
+    include("simple_html_dom.php");
+    $html = file_get_html($url);
+    $i = 0;
+    foreach($html->find('li[class=g]') as $element) {
+        foreach($element->find('h3[class=r]') as $h3) 
+        {
+            $title[$i] = '<h1>'.$h3->plaintext.'</h1>' ;
+        }
+           $i++;
+    }
+    print_r($title);
    
     $messages = [
           'type' => 'text',
-          'text' => $a
+          'text' => $title
         ];
      
  }else{
