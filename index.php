@@ -146,10 +146,13 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-    $results = ob_get_contents();
+    $a = []
+    foreach($url->find('a') as $element) 
+       echo  $a = $element->href . '<br>';
+   
     $messages = [
           'type' => 'text',
-          'text' => $results
+          'text' => $a
         ];
      
  }else{
