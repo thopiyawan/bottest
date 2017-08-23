@@ -146,10 +146,10 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-
+    $re = strpos($url, $x_tra);
     $messages = [
           'type' => 'text',
-          'text' =>  $url 
+          'text' =>  $re 
         ];
      
  }else{
