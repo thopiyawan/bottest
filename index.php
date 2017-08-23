@@ -148,11 +148,24 @@ if (!is_null($events['events'])) {
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
     $body = file_get_contents($url);
     $json = json_decode($body);
-    $messages = [
-          'type' => 'text',
-          'text' =>  $json
-        ];
+   for($x=0;$x<count($json->responseData->results);$x++){
+         echo "<b>Result ".($x+1)."</b>";
+         echo "<br>URL: ";
+         echo $json->responseData->results[$x]->url;
+         echo "<br>VisibleURL: ";
+         echo $json->responseData->results[$x]->visibleUrl;
+         echo "<br>Title: ";
+         echo $json->responseData->results[$x]->title;
+         echo "<br>Content: ";
+         echo $json->responseData->results[$x]->content;
+         echo "<br><br>";
+      $messages = [
+              'type' => 'text',
+              'text' =>  $json
+            ];
      
+         }
+  
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
