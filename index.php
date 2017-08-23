@@ -148,9 +148,9 @@ if (!is_null($events['events'])) {
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
     $body = file_get_contents($url);
     $json = json_decode($body);
-         $data = [
-          'replyToken' => $replyToken,
-          'messages' => [$json],
+         $messages = [
+           'type' => 'text',
+           'text' => [$result]
          ];
      
   
