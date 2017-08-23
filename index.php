@@ -148,39 +148,11 @@ if (!is_null($events['events'])) {
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
     $body = file_get_contents($url);
     $json = json_decode($body);
-   for($x=0;$x<count($json->responseData->results);$x++){
-         echo "<b>Result ".($x+1)."</b>";
-         echo "<br>URL: ";
-         echo $json->responseData->results[$x]->url;
-         echo "<br>VisibleURL: ";
-         echo $json->responseData->results[$x]->visibleUrl;
-         echo "<br>Title: ";
-         echo $json->responseData->results[$x]->title;
-         echo "<br>Content: ";
-         echo $json->responseData->results[$x]->content;
-         echo "<br><br>";
- 
-     
-         }
-    
-     
-       $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
           'messages' => [$json],
          ];
-         error_log(json_encode($data));
-         $post = json_encode($data);
-         $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-         $ch = curl_init($url);
-         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-         $result = curl_exec($ch);
-         curl_close($ch);
-         echo $result . "\r\n";
+     
   
  }else{
     $replyToken = $event['replyToken'];
