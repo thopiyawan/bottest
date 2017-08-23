@@ -152,7 +152,18 @@ if (!is_null($events['events'])) {
            'type' => 'text',
            'text' => [$result]
          ];
-     
+     <script>
+  (function() {
+    var cx = '011030528095328264272:_0c9oat4ztq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+   </script>
+//    <gcse:search></gcse:search>
   
  }else{
     $replyToken = $event['replyToken'];
