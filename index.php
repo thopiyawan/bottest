@@ -146,12 +146,12 @@ if (!is_null($events['events'])) {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-    a($x_tra);
-//     $body = file_get_contents($url);
-//     $json = json_decode($body);
+    $body = file_get_contents($url);
+    $json = json_decode($body);
+
          $messages = [
            'type' => 'text',
-           'text' => $result
+           'text' => $json
          ];
 
   
@@ -191,17 +191,4 @@ if (!is_null($events['events'])) {
 echo "OK"; 
 ?>
 
-  <script>
-  (function a($x_tra) {
-   
-//     var cx = '011030528095328264272:_0c9oat4ztq';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + $x_tra;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-   </script>
-<gcse:search></gcse:search>
   
