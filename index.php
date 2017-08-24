@@ -149,23 +149,21 @@ if (!is_null($events['events'])) {
     $body = file_get_contents($url);
     $messages = json_decode($body);
    
-    $elements = query($x_tra);
+    $address = "Brooklyn+NY+USA";
 
-     if (!is_null($elements)) {
-       foreach ($elements as $element) {
-         echo "<br/>[". $element->nodeName. "]";
+//set map api url
+    $url = "http://maps.google.com/maps/api/geocode/json?address=$address";
 
-         $nodes = $element->childNodes;
-         foreach ($nodes as $node) {
-           echo $node->nodeValue. "\n";
-         }
-       }
-     }
-
-//          $messages = [
-//            'type' => 'text',
-//            'text' => $json
-//          ];
+    //call api
+    $json = file_get_contents($url);
+    $json = json_decode($json);
+    $lat = $json->results[0]->geometry->location->lat;
+    $lng = $json->results[0]->geometry->location->lng;
+    echo "Latitude: " . $lat . ", Longitude: " . $lng;
+         $messages = [
+           'type' => 'text',
+           'text' => $lng 
+         ];
 
   
  }else{
