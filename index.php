@@ -149,7 +149,7 @@ if (!is_null($events['events'])) {
     $body = file_get_contents($url);
     $messages = json_decode($body);
    
-    $address = "Brooklyn+NY+USA";
+    $address = "Bangkok";
 
 //set map api url
     $url = "http://maps.google.com/maps/api/geocode/json?address=$address";
