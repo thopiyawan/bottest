@@ -148,6 +148,19 @@ if (!is_null($events['events'])) {
     $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
     $body = file_get_contents($url);
     $messages = json_decode($body);
+   
+    $elements = query($x_tra);
+
+     if (!is_null($elements)) {
+       foreach ($elements as $element) {
+         echo "<br/>[". $element->nodeName. "]";
+
+         $nodes = $element->childNodes;
+         foreach ($nodes as $node) {
+           echo $node->nodeValue. "\n";
+         }
+       }
+     }
 
 //          $messages = [
 //            'type' => 'text',
