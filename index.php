@@ -145,24 +145,13 @@ if (!is_null($events['events'])) {
 
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-    $url = 'http://search.pantip.com/ss?ac=0&q='.$x_tra;
-//     $body = file_get_contents($url);
-//     $messages = json_decode($body);
-   
-//     $address = "Bangkok";
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
+    $json= file_get_contents($url);
+    $re = $json['kind'];
 
-//set map api url
-//     $url = "http://maps.google.com/maps/api/geocode/json?address=$address";
-
-    //call api
-    $json = file_get_contents($url);
-    $json = json_decode($json);
-    $lat = $json->text[0];
-    $lng = $json->text[0];
-//     echo "Latitude: " . $lat . ", Longitude: " . $lng;
          $messages = [
            'type' => 'text',
-           'text' => $lng 
+           'text' => $re 
          ];
 
   
