@@ -148,7 +148,7 @@ if (!is_null($events['events'])) {
     $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
     $json= file_get_contents($url);
     $events = json_decode($json, true);
-    $re = $events['url'];
+    $re = $events['kind'];
 
          $messages = [
            'type' => 'text',
