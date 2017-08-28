@@ -150,11 +150,18 @@ if (!is_null($events['events'])) {
     $events = json_decode($json, true);
     $title= $events['items'][0]['title'];
     $link = $events['items'][0]['link'];
+    $items = $events['items'];
    // $re = $events['kind'];
    //          $messages = [
    //            'type' => 'text',
    //            'text' =>  $title
    //          ];
+  
+//         foreach($mydata->values as $values)
+//         {
+//             echo $values->value . "\n";
+//         }
+
    $messages = [
         'type' => 'template',
         'altText' => 'template',
@@ -163,11 +170,11 @@ if (!is_null($events['events'])) {
             'title' =>  $x_tra,
             'text' =>   $title,
             'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => 'good',
-                    'data' => 'value'
-                ],
+//                 [
+//                     'type' => 'postback',
+//                     'label' => 'good',
+//                     'data' => 'value'
+//                 ],
                 [
                     'type' => 'uri',
                     'label' => 'ไปยังลิงค์',
