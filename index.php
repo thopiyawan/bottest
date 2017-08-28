@@ -47,11 +47,11 @@ if (!is_null($events['events'])) {
             'title' => 'อากาศเป็นไงบ้าง',
             'text' => 'อากาศ',
             'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => 'good',
-                    'data' => 'value'
-                ],
+//                 [
+//                     'type' => 'postback',
+//                     'label' => 'good',
+//                     'data' => 'value'
+//                 ],
                 [
                     'type' => 'uri',
                     'label' => 'google',
