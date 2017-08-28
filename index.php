@@ -151,10 +151,31 @@ if (!is_null($events['events'])) {
     $title= $events['items'][0]['title'];
     $link = $events['items'][0]['link'];
    // $re = $events['kind'];
-         $messages = [
-           'type' => 'text',
-           'text' =>  $title
-         ];
+   //          $messages = [
+   //            'type' => 'text',
+   //            'text' =>  $title
+   //          ];
+   $messages = [
+        'type' => 'template',
+        'altText' => 'ボタン',
+        'template' => [
+            'type' => 'buttons',
+            'title' => $title,
+            'text' => ' ',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => 'good',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'google',
+                    'uri' => $link
+                ]
+            ]
+        ]
+    ];
 
   
  }else{
