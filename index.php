@@ -153,7 +153,7 @@ if (!is_null($events['events'])) {
    // $re = $events['kind'];
          $messages = [
            'type' => 'text',
-           'text' =>  $link
+           'text' =>  $title
          ];
 
   
