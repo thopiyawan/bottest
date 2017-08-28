@@ -157,7 +157,7 @@ if (!is_null($events['events'])) {
    //          ];
    $messages = [
         'type' => 'template',
-        'altText' => 'ボタン',
+        'altText' => 'template',
         'template' => [
             'type' => 'buttons',
             'title' =>  $x_tra,
@@ -170,7 +170,7 @@ if (!is_null($events['events'])) {
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'google',
+                    'label' => 'ไปยังลิงค์',
                     'uri' => $link
                 ]
             ]
