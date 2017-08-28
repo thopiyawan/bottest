@@ -160,8 +160,8 @@ if (!is_null($events['events'])) {
         'altText' => 'ボタン',
         'template' => [
             'type' => 'buttons',
-            'title' => $title,
-            'text' => ' ',
+            'title' =>  $x_tra,
+            'text' =>   $title,
             'actions' => [
                 [
                     'type' => 'postback',
