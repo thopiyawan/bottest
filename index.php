@@ -152,7 +152,7 @@ if (!is_null($events['events'])) {
     $link = $events['items'][0]['link'];
     $items = $events['items'];
     $data1 = array(); 
-   
+    $val = array();
          foreach($events->items as $mydata)
 
     {
@@ -163,7 +163,7 @@ if (!is_null($events['events'])) {
                 "label" => $mydata->title,
                 "uri" => $mydata->link
                 );
-           array_push($data,$val);
+           //array_push($data,$val);
           
     }
   
@@ -177,11 +177,6 @@ if (!is_null($events['events'])) {
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
                         [
                             'type' => 'uri',
                             'label' => 'add to cart',
