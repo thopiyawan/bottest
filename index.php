@@ -158,13 +158,18 @@ if (!is_null($events['events'])) {
     {
 //           $mydata->title. "\n";
 //           $mydata->link. "\n"; 
-          $val = array(
-                "type" => "uri",
-                "label" => $mydata->title,
-                "uri" => $mydata->link
+        
+        $val = array(
+                "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
+                "title" => $mydata->title,
+                 "actions" => array(
+                                "type"=> "uri",
+                                "label" => $mydata->title,
+                                "uri" => $mydata->link
+                     )
+                
                 );
-           //array_push($data,$val);
-          
+        array_push($data,$val);
     }
   
    $messages = [
@@ -172,14 +177,10 @@ if (!is_null($events['events'])) {
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [$val]
-                ],
+            'columns' => $data
                
-            ]
+               
+            
         ]
     ];
    //$re = $events['kind'];
