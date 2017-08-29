@@ -153,75 +153,50 @@ if (!is_null($events['events'])) {
     $items = $events['items'];
     $data1 = array(); 
     $val = array();
-         foreach($events->items as $mydata)
+$data = [];
+ $val = [];
+$g = [];
+$x = [];
+$action = [];
+    foreach($events->items as $mydata)
 
     {
-//           $mydata->title. "\n";
-//           $mydata->link. "\n"; 
+//        echo $mydata->title;
+//        echo $mydata->link;
+        $z = array( 'type' => 'uri',
+                    'label' => 'Click for detail',
+                    'uri' => $mydata->link
+                  );
+        array_push($action,$z);
+        $x = array ( 'title' => $mydata->title,
+                    'text' => 'description',
+                    'actions' => $action
+                  );
+        array_push($g,$x);
+        $action = [];
         
-                $val = array(
-                "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
-                "title" => $mydata->title,
-                 "actions" => array(array(
-                                "type"=> "uri",
-                                "label" => $mydata->title,
-                                "uri" => $mydata->link
-                     ))
-                
-                );
-        array_push($data,$val);
+        //echo $mydata->title. "\n";
+        //echo $mydata->link. "\n"; 
+
+
+//        $val = array(
+//                "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
+//                "title" => $mydata->title
+////                 "actions" => [{
+////                                "type"=> "uri",
+////                                "label" => $mydata->title,
+////                                "uri" => $mydata->link
+////                                }]
+//                
+//                );
+//        array_push($data,$val);
     }
-
-//$data = json.encode($data);
-
-  $data = json_encode($data); 
-   
-   $a = [];
-$c = array('type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value');
-$d = array('type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/');
-array_push($a,$c);
-array_push($a,$d);
-
-//$a = [];
-//array_push($a,$b);
-   
-   
-  
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => $a
-    
-                ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
-            ]
-        ]
-    ];
+$msg = array('type' => 'template',
+            'altText' => 'this is a carousel template',
+            'template' => array ('type' => 'carousel',
+                                 'columns' => $g
+                                )
+            );
    //$re = $events['kind'];
     
   
