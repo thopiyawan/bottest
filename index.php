@@ -151,6 +151,7 @@ if (!is_null($events['events'])) {
     $title= $events['items'][0]['title'];
     $link = $events['items'][0]['link'];
     $items = $events['items'];
+    $data1 = array(); 
          foreach($events->items as $mydata)
 
     {
