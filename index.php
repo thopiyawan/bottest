@@ -171,7 +171,7 @@ $action = [];
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
                     'text' => 'description',
-                    'actions' => $action
+                    'actions' => [$action]
                   );
         array_push($g,$x);
         $action = [];
@@ -192,14 +192,14 @@ $action = [];
 //                );
 //        array_push($data,$val);
     }
-   /*
+   
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
             'template' => array ('type' => 'carousel',
-                                 'columns' => $g
+                                 'columns' => [$g]
                                 )
             );
-   */
+   
    $a = [];
 
 $d = array('type' => 'uri',
@@ -207,9 +207,7 @@ $d = array('type' => 'uri',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
 //array_push($a,$c);
 array_push($a,$d);
-   $a = "[['type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/']]";
+/*
    //$a = json_encode($a);
     $messages = [
         'type' => 'template',
@@ -236,6 +234,8 @@ array_push($a,$d);
             ]
         ]
     ];
+   
+   */
    //$re = $events['kind'];
     
   
