@@ -218,14 +218,16 @@ $messages = array('type' => 'template',
             );
    
    $a = [];
-
+*/
 $d = array('type' => 'uri',
                             'label' => 'add to cart',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
+   /*
 //array_push($a,$c);
 array_push($a,$d); */
 /*
    //$a = json_encode($a);
+   */
     $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
@@ -233,7 +235,7 @@ array_push($a,$d); */
             'type' => 'carousel',
             'columns' => [
                [
-                    'title' => 'this is menu',
+                    'title' => 'Hello world',
                     'text' => 'description',
                     'actions' => [$d]
                     ],
@@ -251,7 +253,7 @@ array_push($a,$d); */
             ]
         ]
     ];
-   
+   /*
    */
    //$re = $events['kind'];
     
