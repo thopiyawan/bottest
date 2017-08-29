@@ -166,7 +166,7 @@ $action = [];
 //        echo $mydata->link;
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => $mydata->link
+                    'uri' => 'http://clinic.e-kuchikomi.info/'
                   );
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
