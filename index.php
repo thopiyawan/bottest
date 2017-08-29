@@ -217,8 +217,13 @@ array_push($a,$d);
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => $a
-                ],
+                    'actions' => [
+                     [
+                    'type' => 'uri',
+                    'label' => 'google',
+                    'uri' => 'https://google.com'
+                      ]
+                    ],
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
