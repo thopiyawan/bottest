@@ -175,7 +175,21 @@ if (!is_null($events['events'])) {
 //$data = json.encode($data);
 
   $data = json_encode($data); 
-    
+   
+   $b = [];
+$c = array('type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value');
+$d = array('type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/');
+array_push($b,$c);
+array_push($b,$d);
+
+$a = [];
+array_push($a,$b);
+   
+   
   
    $messages = [
         'type' => 'template',
@@ -186,17 +200,7 @@ if (!is_null($events['events'])) {
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
+                    'actions' => $a
                     ]
                 ],
                 [
