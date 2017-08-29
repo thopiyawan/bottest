@@ -157,6 +157,7 @@ $data = [];
  $val = [];
 $g = [];
 $x = [];
+   $z = [];
 $action = [];
 // $eventsdata = array_slice($events->items,5);
     foreach($events->items as $mydata)
@@ -166,8 +167,9 @@ $action = [];
 //        echo $mydata->link;
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => 'http://clinic.e-kuchikomi.info/'
+                    'uri' => $mydata->link
                   );
+     
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
                     'text' => 'description',
@@ -218,7 +220,7 @@ $messages = array('type' => 'template',
             );
    
    $a = [];
-*/
+
 $d = array('type' => 'uri',
                             'label' => 'add to cart',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
@@ -227,7 +229,7 @@ $d = array('type' => 'uri',
 array_push($a,$d); */
 /*
    //$a = json_encode($a);
-   */
+   
     $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
