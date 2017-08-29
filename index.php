@@ -176,18 +176,18 @@ if (!is_null($events['events'])) {
 
   $data = json_encode($data); 
    
-   $b = [];
+   $a = [];
 $c = array('type' => 'postback',
                             'label' => 'buy',
                             'data' => 'value');
 $d = array('type' => 'uri',
                             'label' => 'add to cart',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
-array_push($b,$c);
-array_push($b,$d);
+array_push($a,$c);
+array_push($a,$d);
 
-$a = [];
-array_push($a,$b);
+//$a = [];
+//array_push($a,$b);
    
    
   
