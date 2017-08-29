@@ -159,18 +159,44 @@ if (!is_null($events['events'])) {
 //           $mydata->title. "\n";
 //           $mydata->link. "\n"; 
           $val = array(
-                "titel" => $mydata->title,
-                "link" => $mydata->link
+                "type" => "uri",
+                "label" => $mydata->title,
+                "uri" => $mydata->link
                 );
            array_push($data,$val);
           
     }
   
-    $messages = [
-        'type' => 'text',
-        'text' => $data 
-      ];
-    
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => $data
+                ],
+            ]
+        ]
+    ];
    //$re = $events['kind'];
     
   
