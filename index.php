@@ -151,38 +151,44 @@ if (!is_null($events['events'])) {
     $title= $events['items'][0]['title'];
     $link = $events['items'][0]['link'];
     $items = $events['items'];
-   // $re = $events['kind'];
-   //          $messages = [
-   //            'type' => 'text',
-   //            'text' =>  $title
-   //          ];
+         foreach($events->items as $mydata)
+
+    {
+         $a = $mydata->title. "\n";
+         $b = $mydata->link. "\n";  
+    }
+   //$re = $events['kind'];
+    $messages = [
+              'type' => 'text',
+             'text' =>  $a
+           ];
   
 //         foreach($mydata->values as $values)
 //         {
 //             echo $values->value . "\n";
 //         }
 
-   $messages = [
-        'type' => 'template',
-        'altText' => 'template',
-        'template' => [
-            'type' => 'buttons',
-            'title' =>  $x_tra,
-            'text' =>   $title,
-            'actions' => [
+//    $messages = [
+//         'type' => 'template',
+//         'altText' => 'template',
+//         'template' => [
+//             'type' => 'buttons',
+//             'title' =>  $x_tra,
+//             'text' =>   $title,
+//             'actions' => [
+// //                 [
+// //                     'type' => 'postback',
+// //                     'label' => 'good',
+// //                     'data' => 'value'
+// //                 ],
 //                 [
-//                     'type' => 'postback',
-//                     'label' => 'good',
-//                     'data' => 'value'
-//                 ],
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์',
-                    'uri' => $link
-                ]
-            ]
-        ]
-    ];
+//                     'type' => 'uri',
+//                     'label' => 'ไปยังลิงค์',
+//                     'uri' => $link
+//                 ]
+//             ]
+//         ]
+//     ];
 
   
  }else{
