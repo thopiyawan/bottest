@@ -220,9 +220,7 @@ array_push($a,$d);
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => [['type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/']]
+                    'actions' => $d
                     ],
                 [
                     'title' => 'this is menu',
