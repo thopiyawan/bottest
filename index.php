@@ -159,7 +159,7 @@ if (!is_null($events['events'])) {
 //           $mydata->title. "\n";
 //           $mydata->link. "\n"; 
         
-        $val = array(
+                $val = array(
                 "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
                 "title" => $mydata->title,
                  "actions" => array(array(
@@ -171,6 +171,11 @@ if (!is_null($events['events'])) {
                 );
         array_push($data,$val);
     }
+
+//$data = json.encode($data);
+
+  $data = json_encode($data); 
+    
   
    $messages = [
         'type' => 'template',
