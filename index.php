@@ -182,9 +182,12 @@ if (!is_null($events['events'])) {
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => $data
-               
-               
+            'columns' => [
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+            "title": "this is menu",
+            "text": "description",
+          }]
             
         ]
     ];
