@@ -207,9 +207,9 @@ $d = array('type' => 'uri',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
 //array_push($a,$c);
 array_push($a,$d);
-   $a = [['type' => 'uri',
+   $a = "[['type' => 'uri',
                             'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/']];
+                            'uri' => 'http://clinic.e-kuchikomi.info/']]";
    $a = json_encode($a);
     $messages = [
         'type' => 'template',
