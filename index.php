@@ -159,6 +159,7 @@ if (!is_null($events['events'])) {
          $data[] =  $mydata->link. "\n"; 
           
     }
+   var_dump($data1);
     $messages = [
         'type' => 'text',
         'text' => $data1 
