@@ -174,20 +174,7 @@ $eventsdata = array_slice($events->items,5);
                     'actions' => [$action]
                   );
      
-     $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => $mydata->title,
-                    'text' => 'description',
-                    'actions' => [$z]
-               ]
-            ]
-        ]
-    ];
+     
         array_push($g,$x);
         $action = [];
         
@@ -207,6 +194,21 @@ $eventsdata = array_slice($events->items,5);
 //                );
 //        array_push($data,$val);
     }
+   
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => [$z]
+               ]
+            ]
+        ]
+    ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
