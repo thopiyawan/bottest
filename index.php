@@ -158,6 +158,7 @@ $data = [];
 $g = [];
 $x = [];
 $action = [];
+
     foreach($events->items as $mydata)
 
     {
@@ -191,7 +192,7 @@ $action = [];
 //                );
 //        array_push($data,$val);
     }
-$msg = array('type' => 'template',
+$messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
             'template' => array ('type' => 'carousel',
                                  'columns' => $g
