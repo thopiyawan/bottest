@@ -192,13 +192,14 @@ $action = [];
 //                );
 //        array_push($data,$val);
     }
+   /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
             'template' => array ('type' => 'carousel',
                                  'columns' => $g
                                 )
             );
-   
+   */
    $a = [];
 
 $d = array('type' => 'uri',
