@@ -207,6 +207,9 @@ $d = array('type' => 'uri',
                             'uri' => 'http://clinic.e-kuchikomi.info/');
 //array_push($a,$c);
 array_push($a,$d);
+   $a = [['type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/']];
    $a = json_encode($a);
     $messages = [
         'type' => 'template',
@@ -217,23 +220,17 @@ array_push($a,$d);
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => [
-                     {
-                        'type' => 'uri',
-                        'label' => 'google',
-                        'uri' => 'https://google.com'
-                     }
-                     ]
+                    'actions' => $a
                     ],
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
-                     {
+                     [
                             'type' => 'uri',
                             'label' => 'add to catrt',
                             'uri' => 'https://jobikai.com/'
-                     }
+                     ]
                     ]
                 ],
             ]
