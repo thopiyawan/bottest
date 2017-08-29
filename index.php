@@ -220,7 +220,7 @@ array_push($a,$d);
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => $d
+                    'actions' => [$d]
                     ],
                 [
                     'title' => 'this is menu',
