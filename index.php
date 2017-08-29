@@ -219,20 +219,16 @@ array_push($a,$d);
                     'text' => 'description',
                     'actions' => [
                      [
-                    'type' => 'uri',
-                    'label' => 'google',
-                    'uri' => 'https://google.com'
+                        'type' => 'uri',
+                        'label' => 'google',
+                        'uri' => 'https://google.com'
                       ]
+                     ]
                     ],
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
                         [
                             'type' => 'uri',
                             'label' => 'add to catrt',
