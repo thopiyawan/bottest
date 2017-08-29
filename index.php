@@ -162,11 +162,11 @@ if (!is_null($events['events'])) {
         $val = array(
                 "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
                 "title" => $mydata->title,
-                 "actions" => array(
+                 "actions" => array(array(
                                 "type"=> "uri",
                                 "label" => $mydata->title,
                                 "uri" => $mydata->link
-                     )
+                     ))
                 
                 );
         array_push($data,$val);
