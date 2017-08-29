@@ -152,17 +152,23 @@ if (!is_null($events['events'])) {
     $link = $events['items'][0]['link'];
     $items = $events['items'];
     $data1 = array(); 
+   
          foreach($events->items as $mydata)
 
     {
-         $data1[] =  $mydata->title. "\n";
-         $data[] =  $mydata->link. "\n"; 
+//           $mydata->title. "\n";
+//           $mydata->link. "\n"; 
+          $val = array(
+                "titel" => $mydata->title,
+                "link" => $mydata->link
+                );
+           array_push($data,$val);
           
     }
-   var_dump($data1);
+  
     $messages = [
         'type' => 'text',
-        'text' => $data1 
+        'text' => $data 
       ];
     
    //$re = $events['kind'];
