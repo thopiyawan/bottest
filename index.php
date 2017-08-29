@@ -154,11 +154,11 @@ if (!is_null($events['events'])) {
          foreach($events->items as $mydata)
 
     {
-         $a = $mydata->title. "\n";
-         $b = $mydata->link. "\n"; 
+         $mydata->title. "\n";
+         $mydata->link. "\n"; 
           $messages = [
               'type' => 'text',
-             'text' =>  $a
+             'text' =>  $mydata->title
            ];
     }
    //$re = $events['kind'];
