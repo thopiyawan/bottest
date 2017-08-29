@@ -183,7 +183,7 @@ $eventsdata = array_slice($events->items,5);
                [
                     'title' => $mydata->title,
                     'text' => 'description',
-                    'actions' => [$action]
+                    'actions' => [$z]
                ]
             ]
         ]
