@@ -218,22 +218,22 @@ array_push($a,$d);
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
-                     [
+                     {
                         'type' => 'uri',
                         'label' => 'google',
                         'uri' => 'https://google.com'
-                      ]
+                     }
                      ]
                     ],
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
-                        [
+                     {
                             'type' => 'uri',
                             'label' => 'add to catrt',
                             'uri' => 'https://jobikai.com/'
-                        ]
+                     }
                     ]
                 ],
             ]
