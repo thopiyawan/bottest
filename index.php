@@ -176,7 +176,7 @@ if (!is_null($events['events'])) {
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => $val
+                    'actions' => [$val]
                 ],
                
             ]
