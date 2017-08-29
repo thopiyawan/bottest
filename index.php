@@ -160,7 +160,7 @@ if (!is_null($events['events'])) {
     }
     $messages = [
         'type' => 'text',
-        'text' => $data1[] 
+        'text' => $data1 
       ];
     
    //$re = $events['kind'];
