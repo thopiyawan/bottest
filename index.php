@@ -201,10 +201,9 @@ $action = [];
     }
    
 
-              $val= array(  
-                               "type"=> "uri",
-                               "label" => $mydata->title,
-                               "uri" => $mydata->link
+              $val= array(  "type"=> "uri",
+                            "label" => $title,
+                            "uri" => $link
                                );
     
    $messages = [
