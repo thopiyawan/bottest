@@ -165,10 +165,10 @@ $action = [];
     {
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $z = ['type' => 'uri',
-              'label' => 'Click for detail',
-              'uri' => $link
-                  ];
+        $z =array ('type' => 'uri',
+                   'label' => 'Click for detail',
+                   'uri' => $link
+                  );
      
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
@@ -206,13 +206,7 @@ $action = [];
                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => [
-                        [
-                        'type' => 'uri',
-                        'label' => 'Click for detail',
-                        'uri' => $link
-                        ],
-                    ]
+                    'actions' => [$action]
                 ],
    
             ]
