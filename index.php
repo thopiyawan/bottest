@@ -202,13 +202,7 @@ $action = [];
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'hello',
-                    'text' => 'description',
-                    'actions' => [$z]
-               ]
-            ]
+            'columns' => [$z]
         ]
     ];
    /*
