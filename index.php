@@ -200,16 +200,13 @@ $action = [];
 //        array_push($data,$val);
     }
    
-  $val = array(
-               "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
-               "title" => $mydata->title
-                "actions" => [
+
+              $val= array(  
                                "type"=> "uri",
                                "label" => $mydata->title,
                                "uri" => $mydata->link
-                               ]
-               
-               );
+                               );
+    
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
