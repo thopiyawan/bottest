@@ -182,47 +182,7 @@ $action = [];
         array_push($g,$x);
         $action = [];
      
-       $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
-            ]
-        ]
-    ];
+      
         //echo $mydata->title. "\n";
         //echo $mydata->link. "\n"; 
 
@@ -239,21 +199,31 @@ $action = [];
 //                );
 //        array_push($data,$val);
     }
-  
-//    $messages = [
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [
-//                [
-//                     'title' => 'hello',
-//                     'text' => 'description',
-//                     'actions' => $po
-//                ]
-//             ]
-//         ]
-//     ];
+   
+  $val = array(
+               "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
+               "title" => $mydata->title
+                "actions" => [
+                               "type"=> "uri",
+                               "label" => $mydata->title,
+                               "uri" => $mydata->link
+                               ]
+               
+               );
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => $val
+               ]
+            ]
+        ]
+    ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
