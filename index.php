@@ -219,22 +219,7 @@ $action = [];
                         ]
                     ]
                 ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
+   
             ]
         ]
     ];
