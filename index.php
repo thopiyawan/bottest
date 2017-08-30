@@ -177,7 +177,27 @@ $action = [];
  
         array_push($g,$x);
         $action = [];
-        
+        $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => $mydata->title,
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'uri',
+                            'label' => 'buy',
+                            'uri' => '$mydata->link'
+                        ],
+                    ]
+                ],
+
+            ]
+        ]
+    ];
         //echo $mydata->title. "\n";
         //echo $mydata->link. "\n"; 
 
@@ -195,20 +215,20 @@ $action = [];
 //        array_push($data,$val);
     }
    
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'hello',
-                    'text' => 'description',
-                    'actions' => $action
-               ]
-            ]
-        ]
-    ];
+//    $messages = [
+//         'type' => 'template',
+//         'altText' => 'this is a carousel template',
+//         'template' => [
+//             'type' => 'carousel',
+//             'columns' => [
+//                [
+//                     'title' => 'hello',
+//                     'text' => 'description',
+//                     'actions' => $action
+//                ]
+//             ]
+//         ]
+//     ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
