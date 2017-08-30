@@ -155,7 +155,7 @@ if (!is_null($events['events'])) {
    for ($i=0;$i<=5;$i++){
       $title= $events['items'][$i]['title'];
       $link = $events['items'][$i]['link'];
-      $r = [$title]
+      $r = [$title];
     $messages = [
         'type' => 'text',
         'text' =>  $r
