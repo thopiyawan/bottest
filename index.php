@@ -165,13 +165,15 @@ $action = [];
     {
 //        echo $mydata->title;
 //        echo $mydata->link;
+     $title= $events['items'][0]['title'];
+     $link = $events['items'][0]['link'];
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => $mydata->link
+                    'uri' => $link
                   );
      
         array_push($action,$z);
-        $x = array ( 'title' => $mydata->title,
+        $x = array ( 'title' => $title,
                     'text' => 'description',
                     'actions' => [$action]
                   );
