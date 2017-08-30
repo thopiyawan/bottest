@@ -153,35 +153,34 @@ if (!is_null($events['events'])) {
     $items = $events['items'];
     $data1 = array(); 
     $val = array();
-
+$data = [];
+ $val = [];
+$g = [];
+$x = [];
+   $z = [];
+$action = [];
 // $eventsdata = array_slice($events->items,5);
-    foreach($events->items as $mydata){
+    foreach($events->items as $mydata)
+
+    {
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $title= $mydata->title;
-        $link = $mydata->link;
+        $z = array( 'type' => 'uri',
+                    'label' => 'Click for detail',
+                    'uri' => $mydata->link
+                  );
      
-        $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => $title,
+        array_push($action,$z);
+        $x = array ( 'title' => $mydata->title,
                     'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'uri',
-                            'label' => 'buy',
-                            'uri' => $link
-                        ],
-                    ]
-                ],
-
-            ]
-        ]
-    ];
+                    'actions' => [$action]
+                  );
+     
+     
+        array_push($g,$x);
+        $action = [];
+        
+        
         //echo $mydata->title. "\n";
         //echo $mydata->link. "\n"; 
 
@@ -198,21 +197,21 @@ if (!is_null($events['events'])) {
 //                );
 //        array_push($data,$val);
     }
-   
-//    $messages = [
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [
-//                [
-//                     'title' => 'hello',
-//                     'text' => 'description',
-//                     'actions' => $action
-//                ]
-//             ]
-//         ]
-//     ];
+  $po =  json_encode($z);
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => [$po]
+               ]
+            ]
+        ]
+    ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
