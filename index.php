@@ -208,15 +208,10 @@ $action = [];
                     'text' => 'description',
                     'actions' => [
                         [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
+                        'type' => 'uri',
+                        'label' => 'Click for detail',
+                        'uri' => $link
                         ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
                     ]
                 ],
    
