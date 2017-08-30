@@ -201,10 +201,10 @@ $action = [];
     }
    
 
-              $val= [{"type"=> "uri",
-                     "label" => $title,
-                     "uri" => $link
-                     }];
+              $val= array( "type"  => "uri",
+                           "label" => $title,
+                           "uri"   => $link
+                     );
     
    $messages = [
         'type' => 'template',
