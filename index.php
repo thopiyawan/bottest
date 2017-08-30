@@ -167,7 +167,7 @@ $action = [];
 //        echo $mydata->link;
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => $mydata->link
+                    'uri' => 'https://jobikai.com/' 
                   );
      
         array_push($action,$z);
@@ -202,7 +202,7 @@ $action = [];
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => $z
+            'columns' => [$z]
         ]
     ];
    /*
