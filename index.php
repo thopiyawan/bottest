@@ -197,7 +197,7 @@ $action = [];
 //                );
 //        array_push($data,$val);
     }
-  $po =  json_encode($z);
+  $po =  json_encode($action);
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
