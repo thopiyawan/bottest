@@ -157,7 +157,9 @@ $data = [];
  $val = [];
 $g = [];
 $x = [];
-   $z = [];
+   $z = ['type' => 'uri',
+                   'label' => 'Click for detail',
+                   'uri' => $link ];
 $action = [];
 // $eventsdata = array_slice($events->items,5);
     foreach($events->items as $mydata)
@@ -165,10 +167,11 @@ $action = [];
     {
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $z = array ('type' => 'uri',
-                   'label' => 'Click for detail',
-                   'uri' => $link
-                  );
+     
+//         $z = array ('type' => 'uri',
+//                    'label' => 'Click for detail',
+//                    'uri' => $link
+//                   );
      
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
