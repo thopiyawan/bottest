@@ -155,28 +155,11 @@ if (!is_null($events['events'])) {
    for ($i=0;$i<=5;$i++){
       $title= $events['items'][$i]['title'];
       $link = $events['items'][$i]['link'];
- 
-    $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => $title,
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => $link
-                        ]
-                    ]
-                ],
-               
-            ]
-        ]
-    ];
+      $b = array($title);
+     $messages = [
+        'type' => 'text',
+        'text' => $b
+      ];
     
   }
 
