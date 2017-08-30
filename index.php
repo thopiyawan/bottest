@@ -154,29 +154,27 @@ if (!is_null($events['events'])) {
     $data1 = array(); 
     $val = array();
 $data = [];
- $val = [];
+$val = [];
 $g = [];
 $x = [];
-   $z = [];
+$z = [];
 $action = [];
 // $eventsdata = array_slice($events->items,5);
-    foreach($events->items as $mydata)
-
-    {
+    foreach($events->items as $mydata){
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $z = [ 'type' => 'uri',
-                    'label' => 'Click for detail',
-                    'uri' => $mydata->link
-                  ];
-     
+        $z = [[ 'type'  => 'uri',
+               'label' => 'Click for detail',
+               'uri'   =>  $mydata->link
+             ]];
         array_push($action,$z);
-        $x = [ 'title' => $mydata->title,
-                    'text' => 'description',
-                    'actions' => [$action]
-              ];
      
+        $x = [[ 'title' => $mydata->title,
+                    'text'    => 'description',
+                    'actions' => $action
+             ]];
      
+ 
         array_push($g,$x);
         $action = [];
         
