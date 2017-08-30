@@ -145,7 +145,7 @@ if (!is_null($events['events'])) {
 
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
     $events = json_decode($json, true);
     $title= $events['items'][0]['title'];
@@ -167,7 +167,7 @@ $action = [];
 //        echo $mydata->link;
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => 'https://jobikai.com/' 
+                    'uri' => $link
                   );
      
         array_push($action,$z);
@@ -202,7 +202,13 @@ $action = [];
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => [$z]
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => [$z]
+               ]
+            ]
         ]
     ];
    /*
@@ -317,5 +323,3 @@ array_push($a,$d); */
  
 echo "OK"; 
 ?>
-
-  
