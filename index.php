@@ -207,7 +207,7 @@ $action = [];
                [
                     'title' => 'hello',
                     'text' => 'description',
-                    'actions' => [$po]
+                    'actions' => $po
                ]
             ]
         ]
