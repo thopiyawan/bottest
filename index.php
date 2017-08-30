@@ -165,10 +165,10 @@ $action = [];
     {
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $z = array( 'type' => 'uri',
-                    'label' => 'Click for detail',
-                    'uri' => $link
-                  );
+        $z = ['type' => 'uri',
+              'label' => 'Click for detail',
+              'uri' => $link
+                  ];
      
         array_push($action,$z);
         $x = array ( 'title' => $mydata->title,
