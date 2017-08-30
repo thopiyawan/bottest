@@ -145,26 +145,147 @@ if (!is_null($events['events'])) {
 
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("หา","", $_msg);
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
     $events = json_decode($json, true);
-//     $title= $events['items'][0]['title'];
-//     $link = $events['items'][0]['link'];
-    
-  $b = array();
-   for ($i=0;$i<=5;$i++){
-      $title= $events['items'][$i]['title'];
-      $link = $events['items'][$i]['link'];
-      $b = array($title);
-     $messages = [
-        'type' => 'text',
-        'text' => $b
-      ];
-    
-  }
+    $title= $events['items'][0]['title'];
+    $link = $events['items'][0]['link'];
+    $items = $events['items'];
+    $data1 = array(); 
+    $val = array();
+$data = [];
+ $val = [];
+$g = [];
+$x = [];
+   $z = [];
+$action = [];
+// $eventsdata = array_slice($events->items,5);
+    foreach($events->items as $mydata)
 
+    {
+//        echo $mydata->title;
+//        echo $mydata->link;
+        $z = array( 'type' => 'uri',
+                    'label' => 'Click for detail',
+                    'uri' => $mydata->link
+                  );
+     
+        array_push($action,$z);
+        $x = array ( 'title' => $mydata->title,
+                    'text' => 'description',
+                    'actions' => [$action]
+                  );
+     
+     
+        array_push($g,$x);
+        $action = [];
+        
+        //echo $mydata->title. "\n";
+        //echo $mydata->link. "\n"; 
+
+
+//        $val = array(
+//                "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
+//                "title" => $mydata->title
+////                 "actions" => [{
+////                                "type"=> "uri",
+////                                "label" => $mydata->title,
+////                                "uri" => $mydata->link
+////                                }]
+//                
+//                );
+//        array_push($data,$val);
+    }
    
- 
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => [$z]
+               ]
+            ]
+        ]
+    ];
+   /*
+$messages = array('type' => 'template',
+            'altText' => 'this is a carousel template',
+            'template' => array ('type' => 'carousel',
+                                 'columns' => [$g]
+                                )
+            );
+   
+   $a = [];
+
+$d = array('type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/');
+   /*
+//array_push($a,$c);
+array_push($a,$d); */
+/*
+   //$a = json_encode($a);
+   
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'Hello world',
+                    'text' => 'description',
+                    'actions' => [$d]
+                    ],
+                [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                     [
+                            'type' => 'uri',
+                            'label' => 'add to catrt',
+                            'uri' => 'https://jobikai.com/'
+                     ]
+                    ]
+                ],
+            ]
+        ]
+    ];
+   /*
+   */
+   //$re = $events['kind'];
+    
+  
+//         foreach($mydata->values as $values)
+//         {
+//             echo $values->value . "\n";
+//         }
+
+//    $messages = [
+//         'type' => 'template',
+//         'altText' => 'template',
+//         'template' => [
+//             'type' => 'buttons',
+//             'title' =>  $x_tra,
+//             'text' =>   $title,
+//             'actions' => [
+// //                 [
+// //                     'type' => 'postback',
+// //                     'label' => 'good',
+// //                     'data' => 'value'
+// //                 ],
+//                 [
+//                     'type' => 'uri',
+//                     'label' => 'ไปยังลิงค์',
+//                     'uri' => $link
+//                 ]
+//             ]
+//         ]
+//     ];
 
   
  }else{
