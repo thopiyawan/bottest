@@ -197,17 +197,44 @@ $action = [];
 //        array_push($data,$val);
     }
    
-   $messages = [
+   $messages =  [
         'type' => 'template',
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
             'columns' => [
                [
-                    'title' => 'hello',
+                    'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => $action
-               ]
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to catrt',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
             ]
         ]
     ];
