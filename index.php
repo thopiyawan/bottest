@@ -153,30 +153,14 @@ if (!is_null($events['events'])) {
     $items = $events['items'];
     $data1 = array(); 
     $val = array();
-$data = [];
-$val = [];
-$g = [];
-$x = [];
-$z = [];
-$action = [];
+
 // $eventsdata = array_slice($events->items,5);
     foreach($events->items as $mydata){
 //        echo $mydata->title;
 //        echo $mydata->link;
-        $z = [[ 'type'  => 'uri',
-               'label' => 'Click for detail',
-               'uri'   =>  $mydata->link
-             ]];
-        array_push($action,$z);
+        $title= $mydata->title;
+        $link = $mydata->link;
      
-        $x = [[ 'title' => $mydata->title,
-                    'text'    => 'description',
-                    'actions' => $action
-             ]];
-     
- 
-        array_push($g,$x);
-        $action = [];
         $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
