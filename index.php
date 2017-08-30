@@ -184,13 +184,13 @@ $action = [];
             'type' => 'carousel',
             'columns' => [
                [
-                    'title' => $mydata->title,
+                    'title' => $title,
                     'text' => 'description',
                     'actions' => [
                         [
                             'type' => 'uri',
                             'label' => 'buy',
-                            'uri' => '$mydata->link'
+                            'uri' => $link
                         ],
                     ]
                 ],
