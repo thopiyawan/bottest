@@ -242,25 +242,25 @@ $action = [];
     }
    
 
-              $val= array( "type"  => "uri",
-                           "label" => $title,
-                           "uri"   => $link
-                     );
+//               $val= array( "type"  => "uri",
+//                            "label" => $title,
+//                            "uri"   => $link
+//                      );
     
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'hello',
-                    'text' => 'description',
-                    'actions' => [$val]
-               ]
-            ]
-        ]
-    ];
+//    $messages = [
+//         'type' => 'template',
+//         'altText' => 'this is a carousel template',
+//         'template' => [
+//             'type' => 'carousel',
+//             'columns' => [
+//                [
+//                     'title' => 'hello',
+//                     'text' => 'description',
+//                     'actions' => [$val]
+//                ]
+//             ]
+//         ]
+//     ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
