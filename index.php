@@ -203,12 +203,12 @@ $action = [];
         'template' => [
             'type' => 'carousel',
             'columns' => [
-               [
-                    'title' => 'hello',
-                    'text' => 'description',
-                    'actions' => [$z]
-               ]
-            ]
+              {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/123"
+              }
+           ]
         ]
     ];
    /*
