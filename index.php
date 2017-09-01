@@ -196,7 +196,7 @@ if (!is_null($events['events'])) {
 //                );
 //        array_push($data,$val);
  //   }
-   
+   $i = 1;
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
@@ -205,7 +205,8 @@ if (!is_null($events['events'])) {
             'columns' => [
                 
             foreach($events->items as $mydata){
-               [
+            if(i<=5){
+                [
                     'title' => 'this is menu',
                     'text' => $mydata->title,
                     'actions' => [
@@ -216,6 +217,9 @@ if (!is_null($events['events'])) {
                         ]
                     ]
                 ],
+            }
+                $i++;
+               
             }
                
             ]
