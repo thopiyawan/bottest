@@ -224,7 +224,7 @@ $val = [];
             'type' => 'carousel',
             'columns' => [
            
-               [
+              " [
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
@@ -256,7 +256,7 @@ $val = [];
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
-                ],
+                ],"
             ]
         ]
     ];
