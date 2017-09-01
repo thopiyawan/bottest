@@ -197,16 +197,11 @@ if (!is_null($events['events'])) {
 //        array_push($data,$val);
  //   }
    $i = 1;
-      
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-            foreach($events->items as $mydata){
+      $data = [];
+$val = [];
+          foreach($events->items as $mydata){
                 if($i <= 5){
-                [
+               $val = [
                     'title' => $mydata->title,
                     'text' => 'description',
                     'actions' => [    
@@ -216,11 +211,20 @@ if (!is_null($events['events'])) {
                             'uri' => $mydata->link
                         ]  
                     ]
-                ],
+                ];
+                array_push($data,$val);    
                 }
                 $i++;
             }
-                
+      
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+        
+                $data
               
             ]
         ]
