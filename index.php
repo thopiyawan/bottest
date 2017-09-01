@@ -165,15 +165,13 @@ $action = [];
     {
 //        echo $mydata->title;
 //        echo $mydata->link;
-     $title= $events['items'][0]['title'];
-     $link = $events['items'][0]['link'];
         $z = array( 'type' => 'uri',
                     'label' => 'Click for detail',
-                    'uri' => $link
+                    'uri' => $mydata->link
                   );
      
         array_push($action,$z);
-        $x = array ( 'title' => $title,
+        $x = array ( 'title' => $mydata->title,
                     'text' => 'description',
                     'actions' => [$action]
                   );
@@ -181,49 +179,7 @@ $action = [];
      
         array_push($g,$x);
         $action = [];
-      $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
-            ]
-        ]
-    ];
-      
-      
+        
         //echo $mydata->title. "\n";
         //echo $mydata->link. "\n"; 
 
@@ -241,26 +197,20 @@ $action = [];
 //        array_push($data,$val);
     }
    
-
-//               $val= array( "type"  => "uri",
-//                            "label" => $title,
-//                            "uri"   => $link
-//                      );
-    
-//    $messages = [
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [
-//                [
-//                     'title' => 'hello',
-//                     'text' => 'description',
-//                     'actions' => [$val]
-//                ]
-//             ]
-//         ]
-//     ];
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'hello',
+                    'text' => 'description',
+                    'actions' => [$z]
+               ]
+            ]
+        ]
+    ];
    /*
 $messages = array('type' => 'template',
             'altText' => 'this is a carousel template',
