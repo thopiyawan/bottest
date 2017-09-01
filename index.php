@@ -224,7 +224,17 @@ $val = [];
             'type' => 'carousel',
             'columns' => [
         
-                $data
+              [
+                    'title' => $mydata->title,
+                    'text' => 'description',
+                    'actions' => [    
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => $mydata->link
+                        ]  
+                    ]
+                ],
               
             ]
         ]
