@@ -196,70 +196,30 @@ if (!is_null($events['events'])) {
 //                );
 //        array_push($data,$val);
  //   }
-  // $i = 1;
+   $i = 1;
+      
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
             'columns' => [
-            
+            foreach($events->items as $mydata){
+                if($i <= 5){
                 [
-                    'title' => 'this is menu',
+                    'title' => $mydata->title,
                     'text' => 'description',
                     'actions' => [    
                         [
                             'type' => 'uri',
                             'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                            'uri' => $mydata->link
                         ]  
                     ]
                 ],
-                 [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]  
-                    ]
-                ],
-                 [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]  
-                    ]
-                ],
-                 [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]  
-                    ]
-                ],
-                 [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]  
-                    ]
-                ],
-                
+                }
+                $i++;
+            }
                 
               
             ]
