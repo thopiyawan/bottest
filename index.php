@@ -203,7 +203,7 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
-              for($i=0;$i<=2;$i++){
+            
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
@@ -215,7 +215,7 @@ if (!is_null($events['events'])) {
                         ]  
                     ]
                 ],
-              }
+              
             ]
         ]
     ];
