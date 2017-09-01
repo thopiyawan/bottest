@@ -208,12 +208,14 @@ if (!is_null($events['events'])) {
             //if(i<=5){
                 [
                     'title' => 'this is menu',
-                    'text' => $mydata->title,
+                      'text' => '$mydata->title',
+                   // 'text' => $mydata->title,
                     'actions' => [
                         [
                             'type' => 'uri',
                             'label' => 'read more...',
-                            'uri' => $mydata->link
+                           // 'uri' => $mydata->link
+                            'uri' => '$mydata->link'
                         ]
                     ]
                 ],
