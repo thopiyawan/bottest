@@ -223,9 +223,38 @@ $val = [];
         'template' => [
             'type' => 'carousel',
             'columns' => [
-        
-                $data
-              
+               [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to catrt',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
             ]
         ]
     ];
