@@ -197,33 +197,47 @@ if (!is_null($events['events'])) {
 //        array_push($data,$val);
  //   }
    
-   $messages = {
-                  "type": "template",
-                  "altText": "this is a buttons template",
-                  "template": {
-                      "type": "buttons",
-                      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-                      "title": "Menu",
-                      "text": "Please select",
-                      "actions": [
-                          {
-                            "type": "postback",
-                            "label": "Buy",
-                            "data": "action=buy&itemid=123"
-                          },
-                          {
-                            "type": "postback",
-                            "label": "Add to cart",
-                            "data": "action=add&itemid=123"
-                          },
-                          {
-                            "type": "uri",
-                            "label": "View detail",
-                            "uri": "http://example.com/page/123"
-                          }
-                      ]
-                  }
-                };
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+               [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'this is menu',
+                    'text' => 'description',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'buy',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => 'add to catrt',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ];
 
   
  }else{
