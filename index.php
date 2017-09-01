@@ -196,26 +196,26 @@ if (!is_null($events['events'])) {
 //                );
 //        array_push($data,$val);
  //   }
-   $i = 1;
+  // $i = 1;
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
             'columns' => [
-               [
+              for($i=0;$i<=2;$i++){
+                [
                     'title' => 'this is menu',
                     'text' => 'description',
-                    'actions' => [
-              
+                    'actions' => [    
                         [
                             'type' => 'uri',
                             'label' => 'add to cart',
                             'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
+                        ]  
                     ]
                 ],
-       
+              }
             ]
         ]
     ];
