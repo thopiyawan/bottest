@@ -203,22 +203,20 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
+                
+            foreach($events->items as $mydata){
                [
                     'title' => 'this is menu',
-                    'text' => 'description',
+                    'text' => $mydata->title,
                     'actions' => [
                         [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
                             'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                            'label' => 'read more...',
+                            'uri' => $mydata->link
                         ]
                     ]
                 ],
+            }
                
             ]
         ]
