@@ -223,6 +223,7 @@ $val = [];
         'template' => [
             'type' => 'carousel',
             'columns' => [
+            for($j=0;$j<=3;$j++){
                [
                     'title' => 'this is menu',
                     'text' => 'description',
@@ -239,6 +240,7 @@ $val = [];
                         ]
                     ]
                 ],
+            }
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
