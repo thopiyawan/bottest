@@ -204,8 +204,8 @@ if (!is_null($events['events'])) {
             'type' => 'carousel',
             'columns' => [
                 
-            foreach($events->items as $mydata){
-            if(i<=5){
+            //foreach($events->items as $mydata){
+            //if(i<=5){
                 [
                     'title' => 'this is menu',
                     'text' => $mydata->title,
@@ -217,10 +217,10 @@ if (!is_null($events['events'])) {
                         ]
                     ]
                 ],
-            }
-                $i++;
+           // }
+            //    $i++;
                
-            }
+           // }
                
             ]
         ]
