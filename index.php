@@ -212,10 +212,12 @@ if (!is_null($events['events'])) {
                    // 'text' => $mydata->title,
                     'actions' => [
                         [
+                            {
                             'type' => 'uri',
                             'label' => 'read more...',
                            // 'uri' => $mydata->link
                             'uri' => '$mydata->link'
+                            }
                         ]
                     ]
                 ],
