@@ -201,7 +201,7 @@ if (!is_null($events['events'])) {
 $val = [];
           foreach($events->items as $mydata){
                 if($i <= 5){
-               $val = [
+               $val = array(
                     'title' => $mydata->title,
                     'text' => 'description',
                     'actions' => [    
@@ -211,7 +211,7 @@ $val = [];
                             'uri' => $mydata->link
                         ]  
                     ]
-                ];
+               );
                 array_push($data,$val);    
                 }
                 $i++;
@@ -224,17 +224,7 @@ $val = [];
             'type' => 'carousel',
             'columns' => [
         
-              [
-                    'title' => $mydata->title,
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => $mydata->link
-                        ]  
-                    ]
-                ],
+                $data
               
             ]
         ]
