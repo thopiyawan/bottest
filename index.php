@@ -203,29 +203,19 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
-                
-            //foreach($events->items as $mydata){
-            //if(i<=5){
-                [
+               [
                     'title' => 'this is menu',
-                      'text' => '$mydata->title',
-                   // 'text' => $mydata->title,
+                    'text' => 'description',
                     'actions' => [
+              
                         [
-                            {
                             'type' => 'uri',
-                            'label' => 'read more...',
-                           // 'uri' => $mydata->link
-                            'uri' => '$mydata->link'
-                            }
+                            'label' => 'add to cart',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
                         ]
                     ]
                 ],
-           // }
-            //    $i++;
-               
-           // }
-               
+       
             ]
         ]
     ];
