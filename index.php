@@ -198,107 +198,32 @@ if (!is_null($events['events'])) {
  //   }
    
    $messages = {
-  "type": "template",
-  "altText": "this is a buttons template",
-  "template": {
-      "type": "buttons",
-      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-      "title": "Menu",
-      "text": "Please select",
-      "actions": [
-          {
-            "type": "postback",
-            "label": "Buy",
-            "data": "action=buy&itemid=123"
-          },
-          {
-            "type": "postback",
-            "label": "Add to cart",
-            "data": "action=add&itemid=123"
-          },
-          {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/123"
-          }
-      ]
-  }
-}
-   /*
-$messages = array('type' => 'template',
-            'altText' => 'this is a carousel template',
-            'template' => array ('type' => 'carousel',
-                                 'columns' => [$g]
-                                )
-            );
-   
-   $a = [];
-
-$d = array('type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/');
-   /*
-//array_push($a,$c);
-array_push($a,$d); */
-/*
-   //$a = json_encode($a);
-   
-    $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'Hello world',
-                    'text' => 'description',
-                    'actions' => [$d]
-                    ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                     [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                     ]
-                    ]
-                ],
-            ]
-        ]
-    ];
-   /*
-   */
-   //$re = $events['kind'];
-    
-  
-//         foreach($mydata->values as $values)
-//         {
-//             echo $values->value . "\n";
-//         }
-
-//    $messages = [
-//         'type' => 'template',
-//         'altText' => 'template',
-//         'template' => [
-//             'type' => 'buttons',
-//             'title' =>  $x_tra,
-//             'text' =>   $title,
-//             'actions' => [
-// //                 [
-// //                     'type' => 'postback',
-// //                     'label' => 'good',
-// //                     'data' => 'value'
-// //                 ],
-//                 [
-//                     'type' => 'uri',
-//                     'label' => 'ไปยังลิงค์',
-//                     'uri' => $link
-//                 ]
-//             ]
-//         ]
-//     ];
+                  "type": "template",
+                  "altText": "this is a buttons template",
+                  "template": {
+                      "type": "buttons",
+                      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+                      "title": "Menu",
+                      "text": "Please select",
+                      "actions": [
+                          {
+                            "type": "postback",
+                            "label": "Buy",
+                            "data": "action=buy&itemid=123"
+                          },
+                          {
+                            "type": "postback",
+                            "label": "Add to cart",
+                            "data": "action=add&itemid=123"
+                          },
+                          {
+                            "type": "uri",
+                            "label": "View detail",
+                            "uri": "http://example.com/page/123"
+                          }
+                      ]
+                  }
+                };
 
   
  }else{
