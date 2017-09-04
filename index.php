@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
      $replyToken = $event['replyToken'];
         $messages = [
         'type' => 'template',
-        'altText' => 'ボタン',
+        'altText' => 'ปุ่ม',
         'template' => [
             'type' => 'buttons',
             'title' => 'อากาศเป็นไงบ้าง',
@@ -136,6 +136,9 @@ if (!is_null($events['events'])) {
     //Post New Data
 
     $result = $width/($height*$height);
+   
+   
+   echo "<a herf="te.html?val =<? .$result. ? >  ">";
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
