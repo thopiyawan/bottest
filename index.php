@@ -135,10 +135,24 @@ if (!is_null($events['events'])) {
     $width =str_replace("","",$pieces[1]);
     //Post New Data
      $result = $width/($height*$height);
-    $messages = [
-          'type' => 'text',
-          'text' => $result
-        ];
+ 
+        $messages = [
+        'type' => 'template',
+        'altText' => 'a',
+        'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/te.html',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'อากาศเป็นไงบ้าง',
+            'text' => 'อากาศ',
+            'actions' => [
+                [
+                    'type' => 'uri',
+                    'label' => 'google',
+                    'uri' => 'https://bottest14.herokuapp.com/te.html'
+                ]
+            ]
+        ]
+    ];
  } elseif (strpos($_msg, 'หา') !== false) {
 
 
