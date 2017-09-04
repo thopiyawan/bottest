@@ -139,15 +139,15 @@ if (!is_null($events['events'])) {
         $messages = [
         'type' => 'template',
         'altText' => 'a',
-        'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/te.html',
+        'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
         'template' => [
             'type' => 'buttons',
-            'title' => 'อากาศเป็นไงบ้าง',
-            'text' => 'อากาศ',
+            'title' => 'BMI',
+            'text' => $result ,
             'actions' => [
                 [
                     'type' => 'uri',
-                    'label' => 'google',
+                    'label' => 'chart',
                     'uri' => 'https://bottest14.herokuapp.com/te.html'
                 ]
             ]
