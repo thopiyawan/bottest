@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
     //Post New Data
    
     $result = $width/($height*$height);
-    echo "<meta http-equiv='refresh' content='url=ReadTH.php?NextFile =".$result."' />";
+    echo "<meta http-equiv='refresh' content='url=te.html?NextFile =".$result."' />";
         $messages = [
         'type' => 'template',
         'altText' => 'a',
