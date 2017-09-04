@@ -139,9 +139,9 @@ if (!is_null($events['events'])) {
         $messages = [
         'type' => 'template',
         'altText' => 'a',
-        'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
         'template' => [
             'type' => 'buttons',
+            'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
             'title' => 'BMI',
             'text' => $result ,
             'actions' => [
