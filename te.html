@@ -4,8 +4,9 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-       var text = "<?= $result; ?>"
+      
       function drawChart() {
+         var text = "<?= $result; ?>"
           w1 = text;
           w2 = 20;
           w3 = 30;
