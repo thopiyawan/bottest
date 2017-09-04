@@ -139,7 +139,7 @@ if (!is_null($events['events'])) {
     echo "<meta http-equiv='refresh' content='url=te.html?NextFile =".$result."' />";
         $messages = [
         'type' => 'template',
-        'altText' => 'a',
+        'altText' => 'BMI chart',
         'template' => [
             'type' => 'buttons',
             'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
