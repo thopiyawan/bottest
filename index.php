@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
         'altText' => 'a',
         'template' => [
             'type' => 'buttons',
-            'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
+            'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/te.html',
             'title' => 'BMI',
             'text' => $result ,
             'actions' => [
