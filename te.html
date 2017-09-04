@@ -5,9 +5,9 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       
-      function drawChart(t) {
-         var t = "<?= $result; ?>"
-          w1 = t;
+      function drawChart(result) {
+       
+          w1 = result;
           w2 = 20;
           w3 = 30;
           w4 = 15;
