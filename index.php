@@ -128,16 +128,14 @@ if (!is_null($events['events'])) {
       
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
-     session_start();
+     
     $x_tra = str_replace("คำนวณ","", $_msg);
     $pieces = explode(":", $x_tra);
     $height =str_replace("","",$pieces[0]);
     $width =str_replace("","",$pieces[1]);
     //Post New Data
-   
+
     $result = $width/($height*$height);
- 
-    session_register($result); 
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
