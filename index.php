@@ -134,8 +134,9 @@ if (!is_null($events['events'])) {
     $height =str_replace("","",$pieces[0]);
     $width =str_replace("","",$pieces[1]);
     //Post New Data
-     $result = $width/($height*$height);
- 
+   
+    $result = $width/($height*$height);
+    echo "<meta http-equiv='refresh' content='url=ReadTH.php?NextFile =".$result."' />";
         $messages = [
         'type' => 'template',
         'altText' => 'a',
