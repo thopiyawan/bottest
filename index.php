@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
         'altText' => 'a',
         'template' => [
             'type' => 'buttons',
-            'thumbnailImageUrl'=> 'http://d386abn1q7bvvp.cloudfront.net/makeweb/r_0x0,g_se/mWBBLorpF/illustration/bmi_categories_med.jpeg'
+            'thumbnailImageUrl'=> 'http://d386abn1q7bvvp.cloudfront.net/makeweb/r_0x0,g_se/mWBBLorpF/illustration/bmi_categories_med.jpeg',
             'title' => 'BMI',
             'text' => $result ,
             'actions' => [
