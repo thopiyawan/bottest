@@ -174,7 +174,7 @@ if (!is_null($events['events'])) {
   'template'=> [
       'type'=> 'carousel',
       'columns'=> [
-          [ for (i = 0 ; i < count($events['item'] ; i++)){
+          [ for ($i = 0 ; $i < count($events['item'] ; $i++)){
 	  
             //'thumbnailImageUrl'=> 'https://botbot1234.herokuapp.com/images/luffy.jpg',
             'title' =>  'อะโล่',
