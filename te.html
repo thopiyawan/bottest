@@ -1,6 +1,10 @@
 <html>
   <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <?php 
+session_start();
+echo $_SESSION['myValue'];
+?> 
+<!--     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -31,7 +35,7 @@
 
         chart.draw(data, options);
       }
-    </script>
+    </script> -->
   </head>
   <body>
     <?php 
