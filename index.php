@@ -137,8 +137,6 @@ if (!is_null($events['events'])) {
 
     $result = $width/($height*$height);
    
-   
-    <a herf="te.html?val =$result ">
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
