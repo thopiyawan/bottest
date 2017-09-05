@@ -35,7 +35,8 @@
   </head>
   <body>
     <?php 
-echo $_GET['varname1']; 
+session_start();
+echo $_SESSION['myValue'];
 ?> 
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
   </body>
