@@ -137,7 +137,7 @@ if (!is_null($events['events'])) {
 
     $result = $width/($height*$height);
    
-    echo "<input type="hidden" name="foo" value="<?php echo $result;?>" />";
+   <input type="hidden" name="foo" value="<?php echo $result;?>" />
    
     $result
         $messages = [
