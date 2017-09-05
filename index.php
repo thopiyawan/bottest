@@ -190,8 +190,8 @@ if (!is_null($events['events'])) {
                     'label'=> 'ไปยังลิงค์',
                     'uri'=> 'WWW.GOOGLE.COM'
                 ]
-             }]
-          ]
+             ]
+	  }]
 	  ]]];
    
    
