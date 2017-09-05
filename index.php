@@ -137,9 +137,7 @@ if (!is_null($events['events'])) {
 
     $result = $width/($height*$height);
    
-   
-   
-    $result
+
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
