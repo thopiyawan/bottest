@@ -5,17 +5,17 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       
-      alert(data);
+//       alert(data);
       
-      function drawChart(result) {
+      function drawChart() {
        
-          w1 = result;
+          w1 = 5;
           w2 = 20;
           w3 = 30;
           w4 = 15;
         var data = google.visualization.arrayToDataTable([
           ['week', 'BMI'],
-          ['1', t ],
+          ['1', w1 ],
           ['2', w2 ],
           ['3', w3 ],
           ['4', w4 ]
