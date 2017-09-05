@@ -137,10 +137,9 @@ if (!is_null($events['events'])) {
 
     $result = $width/($height*$height);
    
-    session_start();
-    $_SESSION['myValue']= $result ; 
+    echo "<a href='te.html?phone= $result'></a>";
    
-   
+    $result
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
