@@ -178,7 +178,7 @@ if (!is_null($events['events'])) {
 	  
             //'thumbnailImageUrl'=> 'https://botbot1234.herokuapp.com/images/luffy.jpg',
             'title' =>  'อะโล่',
-            'text' =>   $events['items'][$i]['title'];,
+            'text' =>   $events['items'][$i]['title'] ,
             'actions'=> [
                 [
                     'type'=> 'postback',
@@ -192,7 +192,7 @@ if (!is_null($events['events'])) {
                 ]
              }]
           ]
-	  ]];
+	  ]]];
    
    
    
