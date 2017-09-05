@@ -137,7 +137,7 @@ if (!is_null($events['events'])) {
 
     $result = $width/($height*$height);
    
-    echo "<a href='te.html?phone= $result'></a>";
+    echo "<input type="hidden" name="foo" value="<?php echo $result;?>" />";
    
     $result
         $messages = [
