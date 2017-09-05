@@ -167,6 +167,52 @@ if (!is_null($events['events'])) {
     $title= $events['items'][0]['title'];
     $link = $events['items'][0]['link'];
     $items = $events['items'];
+   
+   $messages = [ 
+  'type'=> 'template',
+  'altText'=> 'this is a carousel template',
+  'template'=> [
+      'type'=> 'carousel',
+      'columns'=> [
+          [ for (i = 0 ; i < count($events['item'] ; i++)){
+	  
+            //'thumbnailImageUrl'=> 'https://botbot1234.herokuapp.com/images/luffy.jpg',
+            'title' =>  'อะโล่',
+            'text' =>   $events['items'][$i]['title'];,
+            'actions'=> [
+                [
+                    'type'=> 'postback',
+                    'label'=> 'OK',
+                    'data'=> 'action=buy&itemid=111'
+                ],
+                [
+                    'type'=> 'uri',
+                    'label'=> 'ไปยังลิงค์',
+                    'uri'=> 'WWW.GOOGLE.COM'
+                ]
+             }]
+          ]
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
   //  $data1 = array(); 
   //  $val = array();
 //$data = [];
@@ -212,70 +258,70 @@ if (!is_null($events['events'])) {
 //                );
 //        array_push($data,$val);
  //   }
-   $i = 1;
-      $data = [];
-$val = [];
-          foreach($events->items as $mydata){
-                if($i <= 5){
-               $val = array(
-                    'title' => $mydata->title,
-                    'text' => 'description',
-                    'actions' => [    
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => $mydata->link
-                        ]  
-                    ]
-               );
-                array_push($data,$val);    
-                }
-                $i++;
-            }
+//    $i = 1;
+//       $data = [];
+// $val = [];
+//           foreach($events->items as $mydata){
+//                 if($i <= 5){
+//                $val = array(
+//                     'title' => $mydata->title,
+//                     'text' => 'description',
+//                     'actions' => [    
+//                         [
+//                             'type' => 'uri',
+//                             'label' => 'add to cart',
+//                             'uri' => $mydata->link
+//                         ]  
+//                     ]
+//                );
+//                 array_push($data,$val);    
+//                 }
+//                 $i++;
+//             }
       
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
+//    $messages = [
+//         'type' => 'template',
+//         'altText' => 'this is a carousel template',
+//         'template' => [
+//             'type' => 'carousel',
+//             'columns' => [
            
-              " [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
+//               " [
+//                     'title' => 'this is menu',
+//                     'text' => 'description',
+//                     'actions' => [
+//                         [
+//                             'type' => 'postback',
+//                             'label' => 'buy',
+//                             'data' => 'value'
+//                         ],
+//                         [
+//                             'type' => 'uri',
+//                             'label' => 'add to cart',
+//                             'uri' => 'http://clinic.e-kuchikomi.info/'
+//                         ]
+//                     ]
+//                 ],
         
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],"
-            ]
-        ]
-    ];
+//                 [
+//                     'title' => 'this is menu',
+//                     'text' => 'description',
+//                     'actions' => [
+//                         [
+//                             'type' => 'postback',
+//                             'label' => 'buy',
+//                             'data' => 'value'
+//                         ],
+//                         [
+//                             'type' => 'uri',
+//                             'label' => 'add to catrt',
+//                             'uri' => 'https://jobikai.com/'
+//                         ]
+//                     ]
+//                 ],"
+//             ]
+//         ]
+//     ];
 
   
  }else{
