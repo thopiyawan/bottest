@@ -55,10 +55,11 @@ if (!is_null($events['events'])) {
                                   'uri' => $events['items'][$i]['link']
                               ]
                             ]
-                          ];
+                          ]
                         ]
-                      ];
-                    }
+                      ]
+                     ]
+    }
 
     } else {
         $replyToken = $event['replyToken'];
@@ -71,8 +72,6 @@ if (!is_null($events['events'])) {
     }
   }
 }
-
-
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
