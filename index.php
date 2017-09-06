@@ -215,7 +215,7 @@ if (!is_null($events['events'])) {
                         [
                             'type' => 'uri',
                             'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
+                            'uri' => $events['items'][$i]['link']
                         ]
                     ]
 	       ],
