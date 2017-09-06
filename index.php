@@ -202,10 +202,9 @@ if (!is_null($events['events'])) {
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => 
-		for ($i = 0 ; $i<5 ; $i++){
-		[
+            'columns' => [
                 [
+	     for ($i = 0 ; $i<5 ; $i++){
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
@@ -220,8 +219,8 @@ if (!is_null($events['events'])) {
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
-		],
-            ]}
+	       }],
+            ]
         ]
     ];
    
