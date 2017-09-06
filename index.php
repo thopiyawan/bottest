@@ -214,6 +214,10 @@ if (!is_null($events['events'])) {
                     ]
               ],] ;
 	   
+  
+   
+   }
+
      $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
@@ -222,10 +226,6 @@ if (!is_null($events['events'])) {
             'columns' => $me
         ]
     ];
-   
-   }
-
-  
  
    
    
