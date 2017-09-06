@@ -195,15 +195,9 @@ if (!is_null($events['events'])) {
 // 	  }]
 // 	  ]]];
    
-   
-   $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-for ($i = 0 ; $i<5 ; $i++){
-                [
+   for ($i = 0 ; $i<5 ; $i++){
+                
+	   $me =         [
                     'title' => $events['items'][$i]['title'],
                     'text' => 'description',
                     'actions' => [
@@ -218,9 +212,15 @@ for ($i = 0 ; $i<5 ; $i++){
                             'uri' => $events['items'][$i]['link']
                         ]
                     ]
-              ], }
+              ], 
+   }
 
-            ]
+   $messages = [
+        'type' => 'template',
+        'altText' => 'this is a carousel template',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [$me]
         ]
     ];
    
