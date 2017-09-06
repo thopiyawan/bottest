@@ -195,7 +195,7 @@ if (!is_null($events['events'])) {
 // 	  }]
 // 	  ]]];
 
-   for ($i = 0 ; $i<=5 ; $i++){
+   for ($i = 0 ; $i<5 ; $i++){
 
 	   $me = [
                     'title' => $events['items'][$i]['title'],
@@ -224,7 +224,7 @@ $messages = [
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => [$me]
+            'columns' => [$me ,]
         ]
     ];
    
