@@ -35,7 +35,7 @@ if (!is_null($events['events'])) {
 
 
    for ($i = 0 ; $i<5 ; $i++){
-        $a = [
+        $a = [[
                           'type' => 'postback',
                           'label' => 'buy',
                           'data' => 'value'
@@ -44,8 +44,7 @@ if (!is_null($events['events'])) {
                           'type' => 'uri',
                           'label' => 'add to catrt',
                           'uri' => $events['items'][$i]['link']
-                      ];
-
+                      ]];
             $me = [
                     'title' => $events['items'][$i]['title'],
                     'text' => 'description',
