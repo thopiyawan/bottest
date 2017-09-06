@@ -195,42 +195,9 @@ if (!is_null($events['events'])) {
 // 	  }]
 // 	  ]]];
 
-//    for ($i = 0 ; $i<5 ; $i++){
+   for ($i = 0 ; $i<5 ; $i++){
 
-// 	   $me = [
-//                     'title' => $events['items'][$i]['title'],
-//                     'text' => 'description',
-//                     'actions' => [
-//                         [
-//                             'type' => 'postback',
-//                             'label' => 'buy',
-//                             'data' => 'value'
-//                         ],
-//                         [
-//                             'type' => 'uri',
-//                             'label' => 'add to catrt',
-//                             'uri' => $events['items'][$i]['link']
-//                         ]
-//                     ]
-//                  ] ;
-	   
-// 	$messages = [
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [$me]
-//         ]
-//     ];
-  
-   
-//    }
-//////////////////////////////////////// TEST DATA ////////////////////////////////////////////////
-            
-    $me = [];
-    $messages = [];
-       for ($i = 0 ; $i<5 ; $i++){
-        array_push($me,[
+	   $me = [
                     'title' => $events['items'][$i]['title'],
                     'text' => 'description',
                     'actions' => [
@@ -245,20 +212,53 @@ if (!is_null($events['events'])) {
                             'uri' => $events['items'][$i]['link']
                         ]
                     ]
-                 ]);
-
-  
-   
-   }
-
-   array_push($messages,[
+                 ] ;
+	   
+	$messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
             'columns' => [$me]
         ]
-    ]);
+    ];
+  
+   
+//    }
+//////////////////////////////////////// TEST DATA ////////////////////////////////////////////////
+            
+//     $me = [];
+//     $messages = [];
+//        for ($i = 0 ; $i<5 ; $i++){
+//         array_push($me,[
+//                     'title' => $events['items'][$i]['title'],
+//                     'text' => 'description',
+//                     'actions' => [
+//                         [
+//                             'type' => 'postback',
+//                             'label' => 'buy',
+//                             'data' => 'value'
+//                         ],
+//                         [
+//                             'type' => 'uri',
+//                             'label' => 'add to catrt',
+//                             'uri' => $events['items'][$i]['link']
+//                         ]
+//                     ]
+//                  ]);
+
+  
+   
+//    }
+
+//    array_push($messages,[
+//         'type' => 'template',
+//         'altText' => 'this is a carousel template',
+//         'template' => [
+//             'type' => 'carousel',
+//             'columns' => [$me]
+//         ]
+//     ]);
    
    
    
