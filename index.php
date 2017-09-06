@@ -203,22 +203,6 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
