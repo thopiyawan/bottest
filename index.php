@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
       $link = $events['items'][0]['link'];
       $items = $events['items'];
 
-    $a = [];
+
     for ($i = 0 ; $i<5 ; $i++){
             $me = [
                     'title' => $events['items'][$i]['title'],
@@ -51,7 +51,6 @@ if (!is_null($events['events'])) {
                       ]
                     ]
                   ];
-                  array_push($a,$me);
           }
       // for ($i = 0 ; $i<5 ; $i++){
     	 //  $me = [
@@ -76,7 +75,7 @@ if (!is_null($events['events'])) {
                         'altText' => 'this is a carousel template',
                         'template' => [
                             'type' => 'carousel',
-                            'columns' => [$a]
+                            'columns' => [$me]
                         ]
                       ];
      } else {
