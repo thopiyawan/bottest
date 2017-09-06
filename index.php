@@ -202,7 +202,7 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
- for ($i = 0 ; $i<5 ; $i++){
+for ($i = 0 ; $i<5 ; $i++){
                 [
                     'title' => $events['items'][$i]['title'],
                     'text' => 'description',
@@ -218,7 +218,8 @@ if (!is_null($events['events'])) {
                             'uri' => $events['items'][$i]['link']
                         ]
                     ]
-              ],}
+              ],
+}
             ]
         ]
     ];
