@@ -194,10 +194,7 @@ if (!is_null($events['events'])) {
 //              ]
 // 	  }]
 // 	  ]]];
-   
-   for ($i = 0 ; $i<5 ; $i++){
-           
-     $messages = [
+        $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
         'template' => [
@@ -205,6 +202,9 @@ if (!is_null($events['events'])) {
             'columns' => $me
         ]
     ];
+   for ($i = 0 ; $i<=5 ; $i++){
+           
+
 	   
 	   $me = [[
                     'title' => $events['items'][$i]['title'],
