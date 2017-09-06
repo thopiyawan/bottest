@@ -196,7 +196,7 @@ if (!is_null($events['events'])) {
 // 	  ]]];
    
    
-   
+  for ($i = 0 ; $i<5 ; $i++){
    $messages = [
         'type' => 'template',
         'altText' => 'this is a carousel template',
@@ -204,7 +204,6 @@ if (!is_null($events['events'])) {
             'type' => 'carousel',
             'columns' => [
                 [
-	     for ($i = 0 ; $i<5 ; $i++){
                     'title' => 'this is menu',
                     'text' => 'description',
                     'actions' => [
@@ -219,12 +218,12 @@ if (!is_null($events['events'])) {
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
-	       }],
+	       ],
             ]
         ]
     ];
    
-   
+  }
    
    
    
