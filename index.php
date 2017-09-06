@@ -204,7 +204,7 @@ if (!is_null($events['events'])) {
             'type' => 'carousel',
             'columns' => [
                 [
-                    'title' => 'this is menu',
+                    'title' => $events['items'][$i]['title'],
                     'text' => 'description',
                     'actions' => [
                         [
