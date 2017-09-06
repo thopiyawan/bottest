@@ -203,6 +203,7 @@ if (!is_null($events['events'])) {
         'template' => [
             'type' => 'carousel',
             'columns' => [
+		for ($i = 0 ; $i<5 ; $i++){
                 [
                     'title' => 'this is menu',
                     'text' => 'description',
@@ -218,7 +219,7 @@ if (!is_null($events['events'])) {
                             'uri' => 'https://jobikai.com/'
                         ]
                     ]
-                ],
+		],}
             ]
         ]
     ];
