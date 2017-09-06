@@ -212,7 +212,7 @@ if (!is_null($events['events'])) {
                             'uri' => $events['items'][$i]['link']
                         ]
                     ]
-                 ] ;
+                 ], ;
 	   
   
    
@@ -224,7 +224,7 @@ $messages = [
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => [$me ,]
+            'columns' => [$me]
         ]
     ];
    
