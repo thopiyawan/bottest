@@ -9,7 +9,7 @@ $events = json_decode($content, true);
 print_r($events);
 $_msg = $events['events'][0]['message']['text'];
 
-$_msg = 'หาที่พัก';
+// $_msg = 'หาที่พัก';
 // $events['events'] = ['replyToken',2,3,4,5,6,7,8,9];
 
 // Validate parsed JSON data
@@ -34,33 +34,31 @@ if (!is_null($events['events'])) {
       $title= $events['items'][0]['title'];
       $link = $events['items'][0]['link'];
       $items = $events['items'];
-
       for ($i = 0 ; $i<5 ; $i++){
-    	  $me = [
-                'title' => $events['items'][$i]['title'],
-                'text' => 'description',
-                'actions' => [
-                  [
-                      'type' => 'postback',
-                      'label' => 'buy',
-                      'data' => 'value'
-                  ],
-                  [
-                      'type' => 'uri',
-                      'label' => 'add to catrt',
-                      'uri' => $events['items'][$i]['link']
-                  ]
-                ]
-              ];
-      }	   
         	$messages = [
                         'type' => 'template',
                         'altText' => 'this is a carousel template',
                         'template' => [
                             'type' => 'carousel',
-                            'columns' => $me
+                            'columns' => [
+                            'title' => $events['items'][$i]['title'],
+                            'text' => 'description',
+                            'actions' => [
+                              [
+                                  'type' => 'postback',
+                                  'label' => 'buy',
+                                  'data' => 'value'
+                              ],
+                              [
+                                  'type' => 'uri',
+                                  'label' => 'add to catrt',
+                                  'uri' => $events['items'][$i]['link']
+                              ]
+                            ]
+                          ];
                         ]
                       ];
+                    }
 
     } else {
         $replyToken = $event['replyToken'];
