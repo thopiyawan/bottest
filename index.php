@@ -56,7 +56,7 @@ if (!is_null($events['events'])) {
                         'altText' => 'this is a carousel template',
                         'template' => [
                             'type' => 'carousel',
-                            'columns' => [$a]
+                            'columns' => [$me]
                         ]
                       ];
      } else {
