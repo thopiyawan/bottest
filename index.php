@@ -33,35 +33,52 @@ if (!is_null($events['events'])) {
       $link = $events['items'][0]['link'];
       $items = $events['items'];
 
-           for ($i = 0 ; $i<5 ; $i++){
-        	   $me = [
-                            'title' => $events['items'][$i]['title'],
-                            'text' => 'description',
-                            'actions' => [
-                                [
-                                    'type' => 'postback',
-                                    'label' => 'buy',
-                                    'data' => 'value'
-                                ],
-                                [
-                                    'type' => 'uri',
-                                    'label' => 'add to catrt',
-                                    'uri' => $events['items'][$i]['link']
-                                ]
-                            ]
-                         ] ;
-        	   
+    $a = [];
+    for ($i = 0 ; $i<5 ; $i++){
+            $me = [
+                    'title' => $events['items'][$i]['title'],
+                    'text' => 'description',
+                    'actions' => [
+                      [
+                          'type' => 'postback',
+                          'label' => 'buy',
+                          'data' => 'value'
+                      ],
+                      [
+                          'type' => 'uri',
+                          'label' => 'add to catrt',
+                          'uri' => $events['items'][$i]['link']
+                      ]
+                    ]
+                  ];
+                  array_push($a,$me);
+          }
+      // for ($i = 0 ; $i<5 ; $i++){
+    	 //  $me = [
+      //           'title' => $events['items'][$i]['title'],
+      //           'text' => 'description',
+      //           'actions' => [
+      //             [
+      //                 'type' => 'postback',
+      //                 'label' => 'buy',
+      //                 'data' => 'value'
+      //             ],
+      //             [
+      //                 'type' => 'uri',
+      //                 'label' => 'add to catrt',
+      //                 'uri' => $events['items'][$i]['link']
+      //             ]
+      //           ]
+      //         ];
+      // }	   
         	$messages = [
-                'type' => 'template',
-                'altText' => 'this is a carousel template',
-                'template' => [
-                    'type' => 'carousel',
-                    'columns' => [$me]
-                ]
-            ];
-          
-           
-           }
+                        'type' => 'template',
+                        'altText' => 'this is a carousel template',
+                        'template' => [
+                            'type' => 'carousel',
+                            'columns' => [$a]
+                        ]
+                      ];
      } else {
         $replyToken = $event['replyToken'];
         $text = "ว่าไงนะ";
