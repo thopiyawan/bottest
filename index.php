@@ -33,24 +33,24 @@ if (!is_null($events['events'])) {
       $link = $events['items'][0]['link'];
       $items = $events['items'];
 
-    for ($i = 0 ; $i<5 ; $i++){
-            $me = [
-                    'title' => $events['items'][$i]['title'],
-                    'text' => 'description',
-                    'actions' => [
-                      [
-                          'type' => 'postback',
-                          'label' => 'buy',
-                          'data' => 'value'
-                      ],
-                      [
-                          'type' => 'uri',
-                          'label' => 'add to catrt',
-                          'uri' => $events['items'][$i]['link']
-                      ]
-                    ]
-                  ];
-          }
+      for ($i = 0 ; $i<5 ; $i++){
+    	  $me = [
+                'title' => $events['items'][$i]['title'],
+                'text' => 'description',
+                'actions' => [
+                  [
+                      'type' => 'postback',
+                      'label' => 'buy',
+                      'data' => 'value'
+                  ],
+                  [
+                      'type' => 'uri',
+                      'label' => 'add to catrt',
+                      'uri' => $events['items'][$i]['link']
+                  ]
+                ]
+              ];
+  
         	$messages = [
                         'type' => 'template',
                         'altText' => 'this is a carousel template',
@@ -59,6 +59,8 @@ if (!is_null($events['events'])) {
                             'columns' => [$me]
                         ]
                       ];
+       
+             }	 
      } else {
         $replyToken = $event['replyToken'];
         $text = "ว่าไงนะ";
