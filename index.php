@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
     //Post New Data
 
     $result = $width/($height*$height);
-     echo "<a href=te.php?id=<? echo $result;?>>";
+     $a = echo " = <a href=te.php?id=<? echo $result;?>>";
 
         $messages = [
         'type' => 'template',
@@ -150,7 +150,7 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'uri',
                     'label' => 'chart',
-                    'uri' => 'https://bottest14.herokuapp.com/te.php'
+                    'uri' => $a
                 ]
             ]
         ]
