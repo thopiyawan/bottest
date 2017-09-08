@@ -4,7 +4,7 @@ $id = $_GET["id"];
  var_dump($id ); ;
 ?>
 
-<!-- <html>
+<html>
   <head>
    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -16,7 +16,7 @@ $id = $_GET["id"];
       
       function drawChart() {
        
-          w1 = 5;
+      var w1 = <?php echo json_encode($id) ?>;
           w2 = 20;
           w3 = 30;
           w4 = 15;
@@ -46,4 +46,4 @@ $id = $_GET["id"];
 
 
   </body>
-</html> -->
+</html>
