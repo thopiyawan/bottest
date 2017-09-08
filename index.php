@@ -144,7 +144,7 @@ if (!is_null($events['events'])) {
 	    
 	    
 	    
-    $result = $width/($height*$height);
+//     $result = $width/($height*$height);
     
         $messages = [
         'type' => 'template',
