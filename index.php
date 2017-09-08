@@ -136,8 +136,7 @@ if (!is_null($events['events'])) {
     //Post New Data
 
     $result = $width/($height*$height);
-     $a = " = <a href=te.php?id=<? echo $result;?>>";
-
+    
         $messages = [
         'type' => 'template',
         'altText' => 'BMI chart',
@@ -150,7 +149,7 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'uri',
                     'label' => 'chart',
-                    'uri' => $a
+                    'uri' => 'https://bottest14.herokuapp.com/te.php?$result'
                 ]
             ]
         ]
