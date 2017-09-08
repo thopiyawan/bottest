@@ -149,7 +149,7 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'uri',
                     'label' => 'chart',
-                    'uri' => 'https://bottest14.herokuapp.com/te.php?$result'
+                    'uri' => 'https://bottest14.herokuapp.com/te.php?id=$result'
                 ]
             ]
         ]
