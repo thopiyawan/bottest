@@ -136,11 +136,9 @@ if (!is_null($events['events'])) {
 //********ใส่ 5 ค่าลง array********//	 
     $x_tra =  str_replace("คำนวณ","", $_msg);
     $pieces = explode(":", $x_tra);
-    $a = str_replace("","",$pieces[0]);
-    $b  = str_replace("","",$pieces[1]);
-    $c  = str_replace("","",$pieces[2]);
-    $d  = str_replace("","",$pieces[3]);
-    $array = array($a,$b,$c,$d);
+    $height = str_replace("","",$pieces[0]);
+    $width  = str_replace("","",$pieces[1]);
+    $array = array($height,$width);
 	    
 	    
 	    
