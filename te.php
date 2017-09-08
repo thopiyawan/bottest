@@ -1,7 +1,9 @@
 
  <?php
-$id = $_GET["id"];
- echo $id  ;
+$data1 = $_GET["data1"];
+$data2 = $_GET["data2"];
+ echo $data1;
+ echo $data2;
 ?>
 
 <html>
@@ -16,8 +18,8 @@ $id = $_GET["id"];
       
       function drawChart() {
        
-          w1 = <?php  echo $id; ?> ;
-          w2 = 20;
+          w1 = <?php  echo $data1; ?> ;
+          w2 = <?php  echo $data2; ?>;
           w3 = 30;
           w4 = 15;
         var data = google.visualization.arrayToDataTable([
