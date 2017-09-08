@@ -138,7 +138,7 @@ if (!is_null($events['events'])) {
     $pieces = explode(":", $x_tra);
     $height = str_replace("","",$pieces[0]);
     $width  = str_replace("","",$pieces[1]);
-    $array = array($height,$width);
+//     $array = array($height,$width);
 	    
 	    
 	    
@@ -156,7 +156,7 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'uri',
                     'label' => 'chart',
-                    'uri' => 'https://bottest14.herokuapp.com/te.php?id='.$array
+                    'uri' => 'https://bottest14.herokuapp.com/te.php?id='.$height.'&a='.$width
                 ]
             ]
         ]
