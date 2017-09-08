@@ -16,7 +16,7 @@ $id = $_GET["id"];
       
       function drawChart() {
        
-      var w1 = <?php json_encode($id) ?>;
+          w1 =1 >;
           w2 = 20;
           w3 = 30;
           w4 = 15;
