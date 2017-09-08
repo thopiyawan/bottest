@@ -4,7 +4,7 @@ $id = $_GET["id"];
 echo $id;
 ?>
 
-<html>
+<!-- <html>
   <head>
    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -46,4 +46,4 @@ echo $id;
 
 
   </body>
-</html>
+</html> -->
