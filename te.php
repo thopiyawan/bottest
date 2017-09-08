@@ -1,7 +1,7 @@
 
  <?php
-$id = $_GET["id"];
- echo $id  ;
+// $id = $_GET["id"];
+//  echo $id  ;
 ?>
 
 <html>
@@ -16,7 +16,7 @@ $id = $_GET["id"];
       
       function drawChart() {
        
-          w1 = <?php $id ?> ;
+          w1 =  <?php $id = $_GET["id"]; ?>;
           w2 = 20;
           w3 = 30;
           w4 = 15;
