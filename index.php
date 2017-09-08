@@ -128,13 +128,22 @@ if (!is_null($events['events'])) {
       
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
-     
-    $x_tra = str_replace("คำนวณ","", $_msg);
+//********คำวณBMI********//
+//     $x_tra =  str_replace("คำนวณ","", $_msg);
+//     $pieces = explode(":", $x_tra);
+//     $height = str_replace("","",$pieces[0]);
+//     $width  = str_replace("","",$pieces[1]);
+//********ใส่ 5 ค่าลง array********//	 
+    $x_tra =  str_replace("คำนวณ","", $_msg);
     $pieces = explode(":", $x_tra);
-    $height =str_replace("","",$pieces[0]);
-    $width =str_replace("","",$pieces[1]);
-    //Post New Data
-
+    $a = str_replace("","",$pieces[0]);
+    $b  = str_replace("","",$pieces[1]);
+    $c  = str_replace("","",$pieces[2]);
+    $d  = str_replace("","",$pieces[3]);
+    $array = array($a,$b,$c,$d)
+	    
+	    
+	    
     $result = $width/($height*$height);
     
         $messages = [
@@ -149,7 +158,7 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'uri',
                     'label' => 'chart',
-                    'uri' => 'https://bottest14.herokuapp.com/te.php?id='.$result
+                    'uri' => 'https://bottest14.herokuapp.com/te.php?id='.$array
                 ]
             ]
         ]
