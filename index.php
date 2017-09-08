@@ -140,7 +140,7 @@ if (!is_null($events['events'])) {
     $b  = str_replace("","",$pieces[1]);
     $c  = str_replace("","",$pieces[2]);
     $d  = str_replace("","",$pieces[3]);
-    $array = array($a,$b,$c,$d)
+    $array = array($a,$b,$c,$d);
 	    
 	    
 	    
