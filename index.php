@@ -138,7 +138,7 @@ if (!is_null($events['events'])) {
     $pieces = explode(":", $x_tra);
     $height = str_replace("","",$pieces[0]);
     $width  = str_replace("","",$pieces[1]);
-    $a = array_push($height , $width);
+    $a = $width;
 //     $array = array($height,$width);
 	    
 	    
