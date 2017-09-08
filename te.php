@@ -16,7 +16,7 @@ $id = $_GET["id"];
       
       function drawChart() {
        
-          w1 = $id ;
+          w1 = <?php $id ?> ;
           w2 = 20;
           w3 = 30;
           w4 = 15;
