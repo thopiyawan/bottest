@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
     //Post New Data
 
     $result = $width/($height*$height);
-     $a = echo " = <a href=te.php?id=<? echo $result;?>>";
+     $a = " = <a href=te.php?id=<? echo $result;?>>";
 
         $messages = [
         'type' => 'template',
