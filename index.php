@@ -201,7 +201,7 @@ if (!is_null($events['events'])) {
 // 	  ]]];
 	  
       for ($i = 0 ; $i<3 ; $i++){
-            $me[$i] = array ([
+            $me[$i] =      [
                                 'title' => $events['items'][$i]['title'],
                                 'text' => 'description',
                                 'actions' => [
@@ -216,7 +216,7 @@ if (!is_null($events['events'])) {
                                         'uri' => $events['items'][$i]['link']
                                     ]
                                 ]
-                             ],);
+                             ];
 
   
           }  
@@ -226,7 +226,7 @@ if (!is_null($events['events'])) {
                     'altText' => 'this is a carousel template',
                     'template' => [
                         'type' => 'carousel',
-                        'columns' => $me
+                        'columns' => [$me]
                     ]
                 ];
   
