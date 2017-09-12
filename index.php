@@ -227,7 +227,7 @@ $me = [[
         'altText' => 'this is a carousel template',
         'template' => [
             'type' => 'carousel',
-            'columns' => $me
+            'columns' => $i
         ]
     ];
   
