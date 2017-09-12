@@ -1,4 +1,15 @@
 <?php
+  header("Content-Type: text/html; charset=UTF-8");
+      
+    $host="127.0.0.1";
+    $user="root"; // MySql Username
+    $pass=""; // MySql Password
+    $dbname="test"; // Database Name
+  
+    $conn=mysql_connect($host,$user,$pass) or die("ไม่สามารถเชื่อมต่อฐานข้อมูลได้"); // เชื่อมต่อ ฐานข้อมูล
+    mysql_select_db($dbname,$conn); // เลือกฐานข้อมูล
+    mysql_query("SET NAMES utf8"); // กำหนด charset ให้ฐานข้อมูล เพื่ออ่านภาษาไทย
+   
 $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
