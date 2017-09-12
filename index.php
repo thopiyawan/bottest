@@ -201,7 +201,7 @@ if (!is_null($events['events'])) {
 // 	  ]]];
 	  
        for ($i = 0 ; $i<5 ; $i++){
-$me[$i] = [[
+$me[$i] = [
                     'title' => $events['items'][$i]['title'],
                     'text' => 'description',
                     'actions' => [
@@ -216,7 +216,7 @@ $me[$i] = [[
                             'uri' => $events['items'][$i]['link']
                         ]
                     ]
-                 ]];
+                 ];
 
   
    
