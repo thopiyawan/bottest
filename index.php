@@ -162,10 +162,10 @@ if (!is_null($events['events'])) {
     $x_tra = str_replace("หา","", $_msg);
    
 //     $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyCdlIPgeHwexorxeKsVvjrW1fwh4SOjOjI&q='.$x_tra;
+   // $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyCdlIPgeHwexorxeKsVvjrW1fwh4SOjOjI&q='.$x_tra;
     //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyAzNh-0u0rojtkaQvmBlCg44f7oGIvFWdw&q='.$x_tra;
     //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyAACKRpkX5IcqTtZeQAY0i4MGM8Gx2_Xrk&q='.$x_tra;
-    
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
     //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
     $events = json_decode($json, true);
@@ -201,7 +201,7 @@ if (!is_null($events['events'])) {
 // 	  ]]];
 	  
       for ($i = 0 ; $i<3 ; $i++){
-            $me[$i] =      [
+            $me[$i] =[
                                 'title' => $events['items'][$i]['title'],
                                 'text' => 'description',
                                 'actions' => [
@@ -216,20 +216,22 @@ if (!is_null($events['events'])) {
                                         'uri' => $events['items'][$i]['link']
                                     ]
                                 ]
-                             ];
+                      ];
 
-  
+
+          
           }  
-	      
+
+              // array_push($g,$me);
                $messages = [
                     'type' => 'template',
                     'altText' => 'this is a carousel template',
                     'template' => [
                         'type' => 'carousel',
-                        'columns' => $me
+                        'columns' =>$me
                     ]
                 ];
-  
+
    
    
 //////////////////////////////////////// TEST DATA ////////////////////////////////////////////////
