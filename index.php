@@ -216,7 +216,7 @@ if (!is_null($events['events'])) {
                                         'uri' => $events['items'][$i]['link']
                                     ]
                                 ]
-                             ];
+                             ,];
 
   
           }  
