@@ -129,7 +129,26 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-      
+} elseif (strpos($_msg, 'บันทึก') !== false) {
+ $replyToken = $event['replyToken'];
+//********คำวณBMI********//
+    $x_tra =  str_replace("บันทึก","", $_msg);
+    $pieces = explode(":", $x_tra);
+//     $height = str_replace("","",$pieces[0]);
+//     $width  = str_replace("","",$pieces[1]);
+//********ใส่ 5 ค่าลง array********//
+	  
+	        
+$result = pg_query($db_connection, "CREATE TABLE MyGuests (
+			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			firstname VARCHAR(30) NOT NULL,
+			lastname VARCHAR(30) NOT NULL,
+			email VARCHAR(50),
+			reg_date TIMESTAMP
+			)");
+	  
+	  
+   
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
