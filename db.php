@@ -1,5 +1,5 @@
 <?php
-$Setup_Server = 'localhost';
+$Setup_Server = '127.0.0.1:3307';
 $Setup_User = 'root';
 $Setup_Pwd = '';
 
