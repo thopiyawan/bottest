@@ -137,7 +137,14 @@ if (!is_null($events['events'])) {
     $height = str_replace("","",$pieces[0]);
     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//	 
-  
+$sql = "CREATE TABLE persons(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    email VARCHAR(70) NOT NULL UNIQUE
+)";
+mysqli_query($conn, $sql)
+
 	  
 	  
     $result = $width/($height*$height);
