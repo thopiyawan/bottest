@@ -148,12 +148,12 @@ c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");
 // 			reg_date TIMESTAMP
 // 			)");
 	  
- $sql = "CREATE TABLE data_test.MyGuests (
+ $sql = """CREATE TABLE "data_test"."MyGuests" (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50),
-    reg_date TIMESTAMP";
+    reg_date TIMESTAMP""";
 
  $retval = mysql_query( $sql, $conn );	  
    
