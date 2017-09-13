@@ -137,8 +137,7 @@ if (!is_null($events['events'])) {
     $height = str_replace("","",$pieces[0]);
     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//	 
-   $sql = 'CREATE Database test_db';
-   $retval = mysql_query( $sql, $conn );
+  
 	  
 	  
     $result = $width/($height*$height);
