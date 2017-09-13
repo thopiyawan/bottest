@@ -138,9 +138,9 @@ if (!is_null($events['events'])) {
 //     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
 	  
-$db_connection = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=db user=njppbbukwreesq password=
+$db_connection = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
 c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");	        
-$result = pg_query($db_connection, "CREATE TABLE 'dchdrsngrf50pd'.'MyGuests' (
+$result = pg_query($db_connection, "CREATE TABLE 'public'.'MyGuests' (
 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			firstname VARCHAR(30) NOT NULL,
 			lastname VARCHAR(30) NOT NULL,
