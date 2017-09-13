@@ -2,8 +2,8 @@
 
 $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=';
 
-$db_connection = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
-c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");
+// $db_connection = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
+// c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");
 
 
 $content = file_get_contents('php://input');
@@ -138,14 +138,15 @@ if (!is_null($events['events'])) {
 //     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
 	  
-	        
-$result = pg_query($db_connection, "CREATE TABLE MyGuests (
+$db_connection = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=db user=njppbbukwreesq password=
+c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");	        
+$result = pg_query($db_connection, """CREATE TABLE "dchdrsngrf50pd"."MyGuests" (
 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			firstname VARCHAR(30) NOT NULL,
 			lastname VARCHAR(30) NOT NULL,
 			email VARCHAR(50),
 			reg_date TIMESTAMP
-			)");
+			)""");
 	  
 	  
    
