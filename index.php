@@ -140,15 +140,13 @@ if (!is_null($events['events'])) {
 //********ใส่ 5 ค่าลง array********//
 	  
 	        
-include('db.php');  
-$conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "CREATE TABLE persons(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    email VARCHAR(70) NOT NULL UNIQUE
-)";
-mysqli_query($conn, $sql);
+$result = pg_query($conn, "CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP
+)");
 
 	  
 	  
