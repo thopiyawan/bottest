@@ -143,7 +143,7 @@ $sql = "CREATE TABLE persons(
     last_name VARCHAR(30) NOT NULL,
     email VARCHAR(70) NOT NULL UNIQUE
 )";
-mysqli_query($conn, $sql)
+mysqli_query($conn, $sql);
 
 	  
 	  
