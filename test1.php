@@ -4,15 +4,24 @@ $dbconn = pg_pconnect($conn_string);
 if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql="CREATE TABLE data_test.hi (
+
+$sql1 ="CREATE TABLE data_test.user (
 id varchar(5),
-name varchar(20), 
-middle varchar(20),
-last varchar(20),
-address varchar(50),
-expir date,
-pass varchar(20),
-PRIMARY KEY(id)
+user_id varchar(100),
+name varchar(20),
+date_of_birth varchar(20), 
+PRIMARY KEY(id),
+)"; 
+pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
+
+$sql="CREATE TABLE data_test.history (
+id varchar(5),
+width varchar(20), 
+height varchar(20),
+date_history varchar(20),
+user_id varchar(100),
+PRIMARY KEY(id),
+FOREIGN KEY (user_id) REFERENCES user(user_id)
 )";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 ?>
