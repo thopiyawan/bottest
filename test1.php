@@ -12,7 +12,7 @@ userID varchar(100),
 date_history DATE,
 weight DOUBLE,
 height DOUBLE,
-PRIMARY KEY(HistoryID)";
+PRIMARY KEY(HistoryID))";
     
 //     $dbconn2 = pg_connect($sql);
 //     
