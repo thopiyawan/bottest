@@ -6,11 +6,10 @@ if (!$dbconn) {
 }
 
 $sql1 ="CREATE TABLE data_test.user (
-id varchar(5),
 user_id varchar(100),
 name varchar(20),
 date_of_birth varchar(20), 
-PRIMARY KEY(id)
+PRIMARY KEY(user_id)
 )"; 
 
 
