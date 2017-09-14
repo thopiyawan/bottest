@@ -25,20 +25,36 @@ if (!$dbconn) {
 // FOREIGN KEY(user_id) REFERENCES user(user_id)
 // )";
 
-$sql="CREATE TABLE History_1 (
-HistoryID varchar(100),
-userID varchar(100), 
-date_history DATE,
-weight INT,
-height INT,
-PRIMARY KEY(HistoryID),
-FOREIGN KEY(userID) REFERENCES user(user_id)
-)";   
+// $sql="CREATE TABLE History_1 (
+// HistoryID varchar(100),
+// userID varchar(100), 
+// date_history DATE,
+// weight INT,
+// height INT,
+// PRIMARY KEY(HistoryID),
+// FOREIGN KEY(userID) REFERENCES user(user_id)
+// )";   
 
 
+// $sql="CREATE TABLE History (
+// HistoryID varchar(100),
+// userID varchar(100), 
+// date_history DATE,
+// weight INT,
+// height INT,
+// PRIMARY KEY(HistoryID),
+// FOREIGN KEY(userID) REFERENCES Users(userID)
+//)";   
 
-
-
-
+$sql="CREATE TABLE users (
+userid varchar(100),
+name varchar(50),
+date_of_birth DATE,
+PRIMARY KEY(userid)
+)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
+
+
+
+// pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 ?>
