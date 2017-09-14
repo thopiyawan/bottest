@@ -10,7 +10,7 @@ id varchar(5),
 user_id varchar(100),
 name varchar(20),
 date_of_birth varchar(20), 
-PRIMARY KEY(id),
+PRIMARY KEY(id)
 )"; 
 pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
