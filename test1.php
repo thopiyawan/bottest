@@ -8,6 +8,12 @@
 
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=dc6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
 $dbconn4 = pg_connect($conn_string);
+
+  if(!$dbconn4) {
+      echo "Error : Unable to open database\n";
+   } else {
+      echo "Opened database successfully\n";
+   }
 // if ($conn->connect_error) {
 //     die("Connection failed: " . $conn->connect_error);
 // } 
