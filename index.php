@@ -130,10 +130,10 @@ if (!is_null($events['events'])) {
         ]
     ];
 } elseif (strpos($_msg, 'บันทึก') !== false) {
- $replyToken = $event['replyToken'];
+//  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
-    $x_tra =  str_replace("บันทึก","", $_msg);
-    $pieces = explode(":", $x_tra);
+//     $x_tra =  str_replace("บันทึก","", $_msg);
+//     $pieces = explode(":", $x_tra);
 //     $height = str_replace("","",$pieces[0]);
 //     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
@@ -154,8 +154,24 @@ c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50),
     reg_date TIMESTAMP )";
-
- $retval = mysql_query( $sql, $conn );	  
+if(mysql_query($sql, $conn)){
+    $replyToken = $event['replyToken'];
+      $text = "บันทึกสำเร็จ";
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+}
+else{
+      $replyToken = $event['replyToken'];
+      $text = "บันทึกไม่สำเร็จ";
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+  
+}
+//  $retval = mysql_query( $sql, $conn );	  
    
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
