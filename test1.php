@@ -54,7 +54,7 @@ if (!$dbconn) {
 
 $sql="CREATE TABLE test (
 historyid varchar(100),
-userid varchar(100), 
+userid varchar(100)
 )";   
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
