@@ -36,14 +36,14 @@ if (!$dbconn) {
 // )";   
 
 //*************************
-// $sql="CREATE TABLE history (
-// historyid varchar(100),
-// userid varchar(100), 
-// date_history DATE,
-// width INT,
-// height INT,
-// PRIMARY KEY(historyid)
-// )";   
+$sql="CREATE TABLE history (
+historyid int NOT NULL AUTO_INCREMENT,
+userid varchar(100), 
+date_history varchar(15),
+width varchar(3),
+height varchar(3),
+PRIMARY KEY(historyid)
+)";   
 //FOREIGN KEY(userid) REFERENCES users(userid)
 // $sql="CREATE TABLE users (
 // userid varchar(100),
@@ -52,10 +52,10 @@ if (!$dbconn) {
 // PRIMARY KEY(userid)
 //)";
 
-$sql="CREATE TABLE test (
-historyid varchar(100),
-userid varchar(100)
-)";   
+// $sql="CREATE TABLE test (
+// historyid varchar(100),
+// userid varchar(100)
+// )";   
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
