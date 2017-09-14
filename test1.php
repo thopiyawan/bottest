@@ -35,23 +35,22 @@ if (!$dbconn) {
 // FOREIGN KEY(userID) REFERENCES user(user_id)
 // )";   
 
-
+//*************************
 $sql="CREATE TABLE history (
 historyid varchar(100),
 userid varchar(100), 
 date_history DATE,
-weight INT,
+width INT,
 height INT,
 PRIMARY KEY(historyid),
-FOREIGN KEY(userid) REFERENCES users(userid)
 )";   
-
+//FOREIGN KEY(userid) REFERENCES users(userid)
 // $sql="CREATE TABLE users (
 // userid varchar(100),
 // name varchar(50),
 // date_of_birth DATE,
 // PRIMARY KEY(userid)
-// )";
+)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
