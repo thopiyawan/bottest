@@ -16,32 +16,20 @@ $dbconn = pg_connect($conn_string);
     
 //  echo " successfully";
 
-
-   if(!$dbconn) {
-      echo "Error : Unable to open database\n";
-   } else {
-      echo "Opened database successfully\n";
-   }
-
-   $sql =<<<EOF
-      INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
-      VALUES (1, 'Paul', 32, 'California', 20000.00 );
-
-      INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
-      VALUES (2, 'Allen', 25, 'Texas', 15000.00 );
-
-      INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
-      VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );
-
-      INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
-      VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );
+  $sql =<<<EOF
+      CREATE TABLE COMPANY
+      (ID INT PRIMARY KEY     NOT NULL,
+      NAME           TEXT    NOT NULL,
+      AGE            INT     NOT NULL,
+      ADDRESS        CHAR(50),
+      SALARY         REAL);
 EOF;
 
    $ret = pg_query($db, $sql);
    if(!$ret) {
       echo pg_last_error($db);
    } else {
-      echo "Records created successfully\n";
+      echo "Table created successfully\n";
    }
    pg_close($db);
 ?>
