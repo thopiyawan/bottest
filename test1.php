@@ -23,8 +23,11 @@ lastname VARCHAR(30) NOT NULL,
 email VARCHAR(50),
 reg_date TIMESTAMP
 )");
-if (!$result) {
-  echo "tttttohuvyk.\n";
-  exit;
-}
+ if  (!$result) {
+    echo "query did not execute";
+  }
+  $rs = pg_fetch_assoc($result);
+  if (!$rs) {
+    echo "0 records"
+  }
 ?>
