@@ -50,7 +50,7 @@ PRIMARY KEY(historyid)
 // name varchar(50),
 // date_of_birth DATE,
 // PRIMARY KEY(userid)
-)";
+//)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
