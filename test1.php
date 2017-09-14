@@ -10,8 +10,8 @@ $sql = "CREATE TABLE History (
 HistoryID varchar(100),
 userID varchar(100), 
 date_history DATE,
-weight DOUBLE,
-height DOUBLE,
+weight DOUBLE(5),
+height DOUBLE(5),
 PRIMARY KEY(HistoryID))";
     
 //     $dbconn2 = pg_connect($sql);
