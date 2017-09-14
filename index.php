@@ -147,13 +147,18 @@ c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");
 // 			email VARCHAR(50),
 // 			reg_date TIMESTAMP
 // 			)");
-	  
- $sql = "CREATE TABLE 'data_test'.'MyGuests' (
+$hostname = "ec2-54-163-233-201.compute-1.amazonaws.com" ;
+$Dbuser = "njppbbukwreesq" ;
+$Dbpwd = "dc6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04" ;
+$Dbname = "dchdrsngrf50pd" ;
+ mysql_connect($hostname, $Dbuser, $Dbpwd ,$Dbname ) 	  
+ $sql = "CREATE TABLE MyGuests (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50),
     reg_date TIMESTAMP )";
+	  
 if(mysql_query($sql, $conn)){
     $replyToken = $event['replyToken'];
       $text = "บันทึกสำเร็จ";
