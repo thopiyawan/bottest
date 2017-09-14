@@ -6,7 +6,13 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')";
+$sql = "CREATE TABLE History (
+HistoryID varchar(100),
+userID varchar(100), 
+date_history DATE,
+weight DOUBLE,
+height DOUBLE,
+PRIMARY KEY(HistoryID)";
     
 //     $dbconn2 = pg_connect($sql);
 //     
