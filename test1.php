@@ -4,7 +4,7 @@ $dbconn = pg_pconnect($conn_string);
 if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql="CREATE TABLE test (
+$sql="CREATE TABLE data_test.test (
 id varchar(5),
 name varchar(20), 
 middle varchar(20),
