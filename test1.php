@@ -24,7 +24,7 @@ email VARCHAR(50),
 reg_date TIMESTAMP
 )");
 if (!$result) {
-  echo "tttttttttttttttttt.\n";
+  echo "tttttohuvyk.\n";
   exit;
 }
 ?>
