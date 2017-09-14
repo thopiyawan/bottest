@@ -5,7 +5,7 @@ $dbconn = pg_pconnect($conn_string);
 if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')";
+
 // $sql = "CREATE TABLE History(History_ID INT NOT NULL AUTO_INCREMENT,
 // userID VARCHAR (100),
 // date_history DATE,
@@ -15,8 +15,8 @@ $sql = "INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50
 // )";
     
 //     $dbconn2 = pg_connect($sql);
-    
+//     
  //echo " successfully";
 
-//$ResId = pg_exec("INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')", $dbconn);
+$ResId = pg_exec("INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')", $dbconn);
 ?>
