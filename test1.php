@@ -16,12 +16,13 @@ PRIMARY KEY(user_id)
 // pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
 $sql="CREATE TABLE data_test.history (
-id varchar(5),
+id_his varchar(5),
 width varchar(20), 
 height varchar(20),
 date_history varchar(20),
-user_id varchar(100) FOREIGN KEY REFERENCES user(user_id),
-PRIMARY KEY(id)
+user_id varchar(100),
+PRIMARY KEY(id_his),
+FOREIGN KEY (user_id) REFERENCES data_test.user(user_id)
 )";
 
 
