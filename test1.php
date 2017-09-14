@@ -36,15 +36,15 @@ if (!$dbconn) {
 // )";   
 
 
-// $sql="CREATE TABLE History (
-// HistoryID varchar(100),
-// userID varchar(100), 
-// date_history DATE,
-// weight INT,
-// height INT,
-// PRIMARY KEY(HistoryID),
-// FOREIGN KEY(userID) REFERENCES Users(userID)
-//)";   
+$sql="CREATE TABLE history (
+historyid varchar(100),
+userid varchar(100), 
+date_history DATE,
+weight INT,
+height INT,
+PRIMARY KEY(historyid),
+FOREIGN KEY(userid) REFERENCES users(userid)
+)";   
 
 $sql="CREATE TABLE users (
 userid varchar(100),
