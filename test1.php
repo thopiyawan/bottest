@@ -46,12 +46,12 @@ PRIMARY KEY(historyid),
 FOREIGN KEY(userid) REFERENCES users(userid)
 )";   
 
-$sql="CREATE TABLE users (
-userid varchar(100),
-name varchar(50),
-date_of_birth DATE,
-PRIMARY KEY(userid)
-)";
+// $sql="CREATE TABLE users (
+// userid varchar(100),
+// name varchar(50),
+// date_of_birth DATE,
+// PRIMARY KEY(userid)
+// )";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
