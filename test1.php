@@ -16,5 +16,5 @@ $dbconn = pg_connect($conn_string);
     
 //  echo " successfully";
 
-$ResId = pg_exec ("CREATE TABLE MyGuests", $dbconn);
+$ResId = pg_exec("CREATE TABLE data_test.MyGuests", $dbconn);
 ?>
