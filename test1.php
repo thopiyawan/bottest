@@ -26,8 +26,5 @@ reg_date TIMESTAMP
  if  (!$result) {
     echo "query did not execute";
   }
-  $rs = pg_fetch_assoc($result);
-  if (!$rs) {
-    echo "0 records"
-  }
+
 ?>
