@@ -13,6 +13,7 @@ $data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
@@ -132,40 +133,40 @@ if (!is_null($events['events'])) {
 } elseif (strpos($_msg, 'บันทึก') !== false) {
 //  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
-//     $x_tra =  str_replace("บันทึก","", $_msg);
-//     $pieces = explode(":", $x_tra);
-//     $height = str_replace("","",$pieces[0]);
-//     $width  = str_replace("","",$pieces[1]);
-//********ใส่ 5 ค่าลง array********//
+    $x_tra =  str_replace("บันทึก","", $_msg);
+    $pieces = explode(":", $x_tra);
+    $height = str_replace("","",$pieces[0]);
+    $width  = str_replace("","",$pieces[1]);
+//********ใส่ 5 ค่าลง array********//	
+$user = $events['events'][0]['source']['userId'];
+$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
+$dbconn = pg_pconnect($conn_string);
+
+$sql="INSERT INTO history (historyid, userid,  date_history, weight, height)
+VALUES ('1', $user , '', 'Stavanger', $height ,  $width )";
 	  
-// $conn = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
-// c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");	        
-// $result = pg_query($db_connection, "CREATE TABLE data_test.MyGuests (
-// 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-// 			firstname VARCHAR(30) NOT NULL,
-// 			lastname VARCHAR(30) NOT NULL,
-// 			email VARCHAR(50),
-// 			reg_date TIMESTAMP
-// 			)");
-$hostname = "ec2-54-163-233-201.compute-1.amazonaws.com" ;
-$Dbuser = "njppbbukwreesq" ;
-$Dbpwd = "dc6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04" ;
-$Dbname = "dchdrsngrf50pd" ;
-mysql_connect($hostname, $Dbuser, $Dbpwd  ); 
-if( mysql_select_db($Dbname)){
-          $replyToken = $event['replyToken'];
-      $text = "บันทึกสำเร็จ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
-}else{ 
-	 $replyToken = $event['replyToken'];
-      $text = "บันทึกไม่สำเร็จ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ]; }
+pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+// if( mysql_select_db($Dbname)){
+//           $replyToken = $event['replyToken'];
+//       $text = "บันทึกสำเร็จ";
+//       $messages = [
+//         'type' => 'text',
+//         'text' => $text
+//       ];
+// }else{ 
+// 	 $replyToken = $event['replyToken'];
+//       $text = "บันทึกไม่สำเร็จ";
+//       $messages = [
+//         'type' => 'text',
+//         'text' => $text
+//       ]; }
 
 
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
