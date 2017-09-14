@@ -138,8 +138,8 @@ if (!is_null($events['events'])) {
 //     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
 	  
-$conn = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
-c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");	        
+// $conn = pg_connect("host=ec2-54-163-233-201.compute-1.amazonaws.com dbname=dchdrsngrf50pd user=njppbbukwreesq password=
+// c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04");	        
 // $result = pg_query($db_connection, "CREATE TABLE data_test.MyGuests (
 // 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 // 			firstname VARCHAR(30) NOT NULL,
@@ -151,8 +151,28 @@ $hostname = "ec2-54-163-233-201.compute-1.amazonaws.com" ;
 $Dbuser = "njppbbukwreesq" ;
 $Dbpwd = "dc6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04" ;
 $Dbname = "dchdrsngrf50pd" ;
- mysql_connect($hostname, $Dbuser, $Dbpwd ,$Dbname ) 	  
- $sql = "CREATE TABLE MyGuests (
+mysql_connect($hostname, $Dbuser, $Dbpwd  ); 
+if( mysql_select_db($Dbname)){
+          $replyToken = $event['replyToken'];
+      $text = "บันทึกสำเร็จ";
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+}else{ 
+	 $replyToken = $event['replyToken'];
+      $text = "บันทึกไม่สำเร็จ";
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ]; }
+?> 	 
+<!--  $sql = "CREATE TABLE MyGuests ( $replyToken = $event['replyToken'];
+      $text = "บันทึกไม่สำเร็จ";
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
@@ -174,9 +194,9 @@ if(mysql_query($sql, $conn)){
         'text' => $text
       ];
   
-}
-//  $retval = mysql_query( $sql, $conn );	  
-   
+} -->
+<!-- //$retval = mysql_query( $sql, $conn );	  
+    -->
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
