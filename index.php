@@ -166,37 +166,8 @@ if( mysql_select_db($Dbname)){
         'type' => 'text',
         'text' => $text
       ]; }
-?> 	 
-<!--  $sql = "CREATE TABLE MyGuests ( $replyToken = $event['replyToken'];
-      $text = "บันทึกไม่สำเร็จ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    firstname VARCHAR(30) NOT NULL,
-    lastname VARCHAR(30) NOT NULL,
-    email VARCHAR(50),
-    reg_date TIMESTAMP )";
-	  
-if(mysql_query($sql, $conn)){
-    $replyToken = $event['replyToken'];
-      $text = "บันทึกสำเร็จ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
-}else{
-      $replyToken = $event['replyToken'];
-      $text = "บันทึกไม่สำเร็จ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
-  
-} -->
-<!-- //$retval = mysql_query( $sql, $conn );	  
-    -->
+
+
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
