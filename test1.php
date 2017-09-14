@@ -5,35 +5,35 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql1 ="CREATE TABLE user (
-user_id varchar(100),
-name varchar(20),
-date_of_birth varchar(20), 
-PRIMARY KEY(user_id)
-)"; 
+// $sql1 ="CREATE TABLE user (
+// user_id varchar(100),
+// name varchar(20),
+// date_of_birth varchar(20), 
+// PRIMARY KEY(user_id)
+// )"; 
 
 
-pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
+// pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
-$sql="CREATE TABLE history (
-id_his varchar(5),
-width varchar(20), 
-height varchar(20),
-date_history varchar(20),
-user_id varchar(100),
-PRIMARY KEY(id_his),
-FOREIGN KEY(user_id) REFERENCES user(user_id)
-)";
+// $sql="CREATE TABLE history (
+// id_his varchar(5),
+// width varchar(20), 
+// height varchar(20),
+// date_history varchar(20),
+// user_id varchar(100),
+// PRIMARY KEY(id_his),
+// FOREIGN KEY(user_id) REFERENCES user(user_id)
+// )";
 
-// $sql="CREATE TABLE History (
-// HistoryID varchar(100),
-// userID varchar(100), 
-// date_history DATE,
-// weight INT,
-// height INT,
-// PRIMARY KEY(HistoryID),
-// FOREIGN KEY(userID) REFERENCES Users(userID)
-// )";   
+$sql="CREATE TABLE History_1 (
+HistoryID varchar(100),
+userID varchar(100), 
+date_history DATE,
+weight INT,
+height INT,
+PRIMARY KEY(HistoryID),
+FOREIGN KEY(userID) REFERENCES user(user_id)
+)";   
 
 
 
