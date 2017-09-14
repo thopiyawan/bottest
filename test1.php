@@ -6,12 +6,13 @@ if (!$dbconn) {
 }
 
 $sql1 ="CREATE TABLE data_test.user (
-id varchar(5),
 user_id varchar(100),
 name varchar(20),
 date_of_birth varchar(20), 
-PRIMARY KEY(id)
+PRIMARY KEY(user_id)
 )"; 
+
+
 pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
 $sql="CREATE TABLE data_test.history (
@@ -23,5 +24,7 @@ user_id varchar(100),
 PRIMARY KEY(id),
 FOREIGN KEY (user_id) REFERENCES user(user_id)
 )";
+
+
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 ?>
