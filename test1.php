@@ -6,8 +6,7 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')", $dbconn
-)";
+$sql = "INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')";
     
 //     $dbconn2 = pg_connect($sql);
 //     
