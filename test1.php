@@ -42,7 +42,7 @@ userid varchar(100),
 date_history DATE,
 width INT,
 height INT,
-PRIMARY KEY(historyid),
+PRIMARY KEY(historyid)
 )";   
 //FOREIGN KEY(userid) REFERENCES users(userid)
 // $sql="CREATE TABLE users (
