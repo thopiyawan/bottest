@@ -144,7 +144,7 @@ $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname
 $dbconn = pg_pconnect($conn_string);
 
 $sql="INSERT INTO test (historyid, userid)
-VALUES ($height, $user  )";
+VALUES ($height,$date)";
 	  
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	  
