@@ -5,12 +5,13 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// $sql1 ="CREATE TABLE data_test.user (
-// user_id varchar(100),
-// name varchar(20),
-// date_of_birth varchar(20), 
-// PRIMARY KEY(user_id)
-// )"; 
+$sql1 ="CREATE TABLE data_test.user (
+id varchar(5),
+user_id varchar(100),
+name varchar(20),
+date_of_birth varchar(20), 
+PRIMARY KEY(id)
+)"; 
 
 
 // pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
@@ -20,9 +21,8 @@ id varchar(5),
 width varchar(20), 
 height varchar(20),
 date_history varchar(20),
-user_id varchar(100),
-PRIMARY KEY(id),
-FOREIGN KEY (user_id) REFERENCES user(user_id)
+user_id varchar(100) FOREIGN KEY REFERENCES user(user_id),
+PRIMARY KEY(id)
 )";
 
 
