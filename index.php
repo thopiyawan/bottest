@@ -147,7 +147,7 @@ $dbconn = pg_pconnect($conn_string);
 // VALUES ($height,$date)";
 
 	  
-$sql="INSERT INTO history(userid,date_history,width,height)VALUES ($replyToken, NOW() ,$width,$height)";
+$sql="INSERT INTO history(userid,date_history,width,height)VALUES ('2',NOW(),$width,$height)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
 // if( mysql_select_db($Dbname)){
