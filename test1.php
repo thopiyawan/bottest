@@ -15,7 +15,7 @@ if (!$dbconn) {
     
 //     $dbconn2 = pg_connect($sql);
     
-//  echo " successfully";
+ echo " successfully";
 
 //$ResId = pg_exec("INSERT INTO data_test.history (id, name,width,height) VALUES ('001', '50.00', '160.00')", $dbconn);
 ?>
