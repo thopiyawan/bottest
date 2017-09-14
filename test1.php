@@ -5,15 +5,15 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql1 ="CREATE TABLE data_test.user (
-user_id varchar(100),
-name varchar(20),
-date_of_birth varchar(20), 
-PRIMARY KEY(user_id)
-)"; 
+// $sql1 ="CREATE TABLE data_test.user (
+// user_id varchar(100),
+// name varchar(20),
+// date_of_birth varchar(20), 
+// PRIMARY KEY(user_id)
+// )"; 
 
 
-pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
+// pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
 $sql="CREATE TABLE data_test.history (
 id varchar(5),
