@@ -58,7 +58,7 @@ if (!$dbconn) {
 // )";   
 $user = "U243424324ghjkjhgf";
 $height = "33";
-$weight = 344";
+$weight = "344";
 $sql="INSERT INTO history(userid,date_history,weight,height) VALUES( $user,NOW() , $weight, $height )";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
