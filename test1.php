@@ -38,7 +38,7 @@ if (!$dbconn) {
 //*************************
 $sql="CREATE TABLE history (
 historyid  SERIAL,
-users varchar(225), 
+user_id varchar(225), 
 date_history DATE,
 weight varchar(3),
 height varchar(3),
