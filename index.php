@@ -146,7 +146,7 @@ $dbconn = pg_pconnect($conn_string);
 // $sql="INSERT INTO test (historyid, userid)
 // VALUES ($height,$date)";
 
-$date = NOW();	  
+$date = DATE();	  
 $sql="INSERT INTO history(userid,date_history,width,height) VALUES('13',  $date , $width , $height)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
