@@ -40,7 +40,7 @@ $sql="CREATE TABLE history (
 historyid  SERIAL,
 userid varchar(100), 
 date_history varchar(10),
-width varchar(3),
+weight varchar(3),
 height varchar(3),
 PRIMARY KEY(historyid)
 )";   
