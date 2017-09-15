@@ -147,7 +147,7 @@ $dbconn = pg_pconnect($conn_string);
 
 $user = "U243424324ghjkjhgfd";
 
-$sql="INSERT INTO history(date_history,weight,height,userid) VALUES( NOW() , $weight, $height ,'U243424324ghjkjhgfd')";
+$sql="INSERT INTO history(date_history,weight,height,userid) VALUES( NOW() , $weight, $height , $user)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
 // if( mysql_select_db($Dbname)){
