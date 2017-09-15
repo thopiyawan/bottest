@@ -145,9 +145,9 @@ if (!is_null($events['events'])) {
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
 $dbconn = pg_pconnect($conn_string);
 
-$user = "U243424324ghjkjhgfd";
+$user = 'U243424324ghjkjhgf';
 
-$sql="INSERT INTO history(date_history,weight,height,userid) VALUES( NOW() , $weight, $height , $events['events'][0]['source']['userId'])";
+$sql="INSERT INTO history(date_history,weight,height,userid) VALUES( NOW() , $weight, $height ,)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
 // if( mysql_select_db($Dbname)){
