@@ -66,7 +66,7 @@ if (!$dbconn) {
 
 
 
-$user = "3hh3";
+$user = "h 3";
 $height = "33";
 $weight = "344";
 $sql="INSERT INTO history(user_s,date_history,weight,height) VALUES($user,NOW() , $weight, $height )";
