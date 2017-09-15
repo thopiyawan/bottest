@@ -56,7 +56,7 @@ if (!$dbconn) {
 // historyid varchar(100),
 // userid varchar(100)
 // )";   
-$user = "33";
+$user = "3hh3";
 $height = "33";
 $weight = "344";
 $sql="INSERT INTO history(userid,date_history,weight,height) VALUES($user,NOW() , $weight, $height )";
