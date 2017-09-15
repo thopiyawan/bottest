@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
       $text = "สวัสดีค่ะ";
       $messages = [
         'type' => 'text',
-        'text' => $user
+        'text' => $text
       ];
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
@@ -140,7 +140,7 @@ if (!is_null($events['events'])) {
 
 //********ใส่ 5 ค่าลง array********//	
 // $user_id= $events['events'][0]['source']['userId'];
-$events = json_decode($content, true);
+
 $user = $events['events'][0]['source']['userId'];
 $tmp =  json_encode($user);
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
