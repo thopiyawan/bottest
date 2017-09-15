@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
     $x_tra =  str_replace("บันทึก","", $_msg);
     $pieces = explode(":", $x_tra);
     $height = str_replace("","",$pieces[0]);
-    $width  = str_replace("","",$pieces[1]);
+    $weight  = str_replace("","",$pieces[1]);
 
 //********ใส่ 5 ค่าลง array********//	
 $user = $events['events'][1]['source']['userId'];
@@ -146,8 +146,7 @@ $dbconn = pg_pconnect($conn_string);
 // $sql="INSERT INTO test (historyid, userid)
 // VALUES ($height,$date)";
 
-$date = DATE();	  
-$sql="INSERT INTO history(userid,date_history,width,height) VALUES('13',  $date , $width , $height)";
+$sql="INSERT INTO history(userid,date_history,weight,height) VALUES('13',  CURDATE() , $weight, $height)";
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
 // if( mysql_select_db($Dbname)){
