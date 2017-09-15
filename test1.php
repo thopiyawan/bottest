@@ -36,14 +36,14 @@ if (!$dbconn) {
 // )";   
 
 //*************************
-// $sql="CREATE TABLE history (
-// historyid  SERIAL,
-// userid VARCHAR(225), 
-// date_history DATE,
-// weight varchar(3),
-// height varchar(3),
-// PRIMARY KEY(historyid)
-// )";   
+$sql="CREATE TABLE history (
+historyid  SERIAL,
+user VARCHAR(225), 
+date_history DATE,
+weight varchar(3),
+height varchar(3),
+PRIMARY KEY(historyid)
+)";   
 //FOREIGN KEY(userid) REFERENCES users(userid)
 // $sql="CREATE TABLE users (
 // userid varchar(100),
@@ -56,14 +56,19 @@ if (!$dbconn) {
 // historyid varchar(100),
 // userid varchar(100)
 // )";   
-$user = "3hh3";
-$height = "33";
-$weight = "344";
-$sql="INSERT INTO history(userid,date_history,weight,height) VALUES($user,NOW() , $weight, $height )";
+ 
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 
-// pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
 
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
+
+
+
+
+// $user = "3hh3";
+// $height = "33";
+// $weight = "344";
+// $sql="INSERT INTO history(userid,date_history,weight,height) VALUES($user,NOW() , $weight, $height )";
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 ?>
