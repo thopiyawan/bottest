@@ -13,7 +13,7 @@ $data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
-$user = $events['events'][0]['source']['userId'];
+$user = $events['events'][0]['replyToken'];
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
       $text = "สวัสดีค่ะ";
       $messages = [
         'type' => 'text',
-        'text' => $text
+        'text' => $user
       ];
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
