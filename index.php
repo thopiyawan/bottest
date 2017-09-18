@@ -148,6 +148,8 @@ $dbconn = pg_pconnect($conn_string);
 // $user = 'U243424324ghjkjhgf';
 
 $sql="INSERT INTO history(date_history,user_id,weight,height) VALUES( NOW() ,'U2dc636d2cd052e82c29f5284e00f69b9' , $weight, $height )";
+
+
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
 // if( mysql_select_db($Dbname)){
@@ -175,9 +177,9 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
 	  
-	  
-	  
-    $result = $width/($height*$height);
+$weight = "SELECT weight FROM history where user_id = 'U2dc636d2cd052e82c29f5284e00f69b9'";	  
+pg_exec($dbconn, $sql) or die(pg_errormessage());	  
+    $result = $weight/($height*$height);
     
         $messages = [
         'type' => 'template',
