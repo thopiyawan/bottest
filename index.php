@@ -454,11 +454,11 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
 //         ]
 //     ];
 
-}elseif (strpos($_msg, 'ต้องการ') !== false) {
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'ขอทราบข้อมูลเบื้องต้นก่อนนะค่ะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
-                      ];
+// }elseif (strpos($_msg, 'ต้องการ') !== false) {
+//                  $messages = [
+//                         'type' => 'text',
+//                         'text' => 'ขอทราบข้อมูลเบื้องต้นก่อนนะค่ะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
+//                       ];
        
  }else{
     $replyToken = $event['replyToken'];
