@@ -105,29 +105,29 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
         ]
     ];
  
-}elseif ($event['message']['label'] == "ต้องการ" ) {
+}elseif ($event['message']['text'] == "สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
                       ];
- }elseif ($event['message']['label'] == "ไม่ต้องการ" ) {
+ }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
                       ];  
-}elseif ($event['message']['label'] == "อายุถูกต้อง" ) {
+}elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ (กรุณาตอบประมาณวันที่และเดือนเป็นตัวเลขนะคะ เช่น 17 04 คือ วันที่17 เมษายน)'
                       ];
- }elseif ($event['message']['label'] == "อายุไม่ถูกต้อง" ) {
+ }elseif ($event['message']['text'] == "อายุไม่ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => ''
+                        'text' => 'กรุณาพิมพ์ใหม่'
                       ];  
  }elseif (strpos($_msg, 'เกิด') !== false) {
   
