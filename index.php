@@ -105,17 +105,29 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
         ]
     ];
  
-}elseif ($event['message']['text'] == "ต้องการ" ) {
+}elseif ($event['message']['label'] == "ต้องการ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
                       ];
- }elseif ($event['message']['text'] == "ไม่ต้องการ" ) {
+ }elseif ($event['message']['label'] == "ไม่ต้องการ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
+                      ];  
+}elseif ($event['message']['label'] == "อายุถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ (กรุณาตอบประมาณวันที่และเดือนเป็นตัวเลขนะคะ เช่น 17 04 คือ วันที่17 เมษายน)'
+                      ];
+ }elseif ($event['message']['label'] == "อายุไม่ถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => ''
                       ];  
  }elseif (strpos($_msg, 'เกิด') !== false) {
   
@@ -124,9 +136,9 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
     $age = ($curr_years+ 543)- $birth_years;
     $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
 
-                 $replyToken = $event['replyToken'];
-                     $messages = [
-       'type' => 'template',
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
         'altText' => 'this is a confirm template',
         'template' => [
             'type' => 'confirm',
@@ -134,18 +146,55 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => 'ใช่',
+                    'label' => 'อายุถูกต้อง',
                     'text' => 'ใช่'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'ไม่ใช่',
+                    'label' => 'อายุไม่ถูกต้อง',
                     'text' => 'ไม่ใช่'
                 ],
             ]
         ]
     ];   
-   
+  }elseif (strpos($_msg, 'วันที่') !== false) {
+  
+    $birth_years =  str_replace("วันที่","", $_msg);
+    $pieces = explode(" ", $x_tra);
+    $date = str_replace("","",$pieces[0]);
+    $month  = str_replace("","",$pieces[1]);
+    $date_today = date("d"); 
+    $month_today = date("m");  
+        if ($date>$date_today){
+            $date_pre = $date-$date_today ;
+        }else{
+            $date_pre = $date_today-$date;
+        }
+    $month_pre = ($month_today-$month)*4 ;
+    $age_pre = 'คุณมีอายุครรภ์'.$month_pre.'สัปดาห์'.$date_pre.'วัน' ;
+
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'อายุครรภ์ถูกต้อง',
+                    'text' => 'ใช่'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'อายุครรภ์ไม่ถูกต้อง',
+                    'text' => 'ไม่ใช่'
+                ],
+            ]
+        ]
+    ];   
+     
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
