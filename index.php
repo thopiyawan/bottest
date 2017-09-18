@@ -457,14 +457,9 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
 }elseif (strpos($_msg, 'ต้องการ') !== false) {
                  $messages = [
                         'type' => 'text',
-                        'text' => $text
+                        'text' => 'ขอทราบข้อมูลเบื้องต้นก่อนนะค่ะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
                       ];
-          }else{
-                   $messages = [
-                        'type' => 'text',
-                        'text' => $text
-                      ];
-          } 
+       
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
