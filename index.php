@@ -143,10 +143,15 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' => 'ขออนุญาตถามน้ำหนักปกติก่อนตั้งครรภ์ของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยกิโลกรัม เช่น น้ำหนัก50)'
                       ];
+  }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร ส่วนสูง160)'
+                      ];  
 
-
-  }elseif (strpos($_msg, 'หนัก') !== false)  {
-                 $weight =  str_replace("หนัก","", $_msg);
+  }elseif (strpos($_msg, 'น้ำหนัก') !== false)  {
+                 $weight =  str_replace("น้ำหนัก","", $_msg);
                  $weight_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
                  $replyToken = $event['replyToken'];
                  $messages = [
@@ -169,12 +174,13 @@ if (!is_null($events['events'])) {
                                     ]
                                  ]     
                              ];   
-  }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
+  }elseif ($event['message']['text'] == "ส่วนสูงถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร ส่วนสูง160)'
+                        'text' => 'สรุป'
                       ];  
+
   }elseif (strpos($_msg, 'ส่วนสูง') !== false) {
                  $height =  str_replace("ส่วนสูง","", $_msg);
                  $height_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$height.'กิโลกรัมถูกต้องหรือไม่คะ';
