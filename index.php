@@ -109,7 +109,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
+                        'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)'
                       ];
  }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
@@ -121,7 +121,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ (กรุณาตอบประมาณวันที่และเดือนเป็นตัวเลขนะคะ เช่น 17 04 คือ วันที่17 เมษายน)'
+                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
                       ];
  }elseif ($event['message']['text'] == "อายุไม่ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
