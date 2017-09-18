@@ -458,13 +458,13 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขอทราบข้อมูลเบื้องต้นก่อนนะค่ะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
+                        'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ'
                       ];
  }elseif ($event['message']['text'] == "ไม่ต้องการ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:)'
+                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
                       ];      
  }else{
     $replyToken = $event['replyToken'];
