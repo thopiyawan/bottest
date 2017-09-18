@@ -177,7 +177,7 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
     $width  = str_replace("","",$pieces[1]);
 //********ใส่ 5 ค่าลง array********//
 	  
-$weight = "SELECT weight FROM history where user_id = 'U2dc636d2cd052e82c29f5284e00f69b9'";	  
+$weight = "SELECT weight FROM history ";	  
 pg_exec($dbconn, $weight) or die(pg_errormessage());	  
     $result = $weight/($height*$height);
     
