@@ -32,12 +32,12 @@ if (!is_null($events['events'])) {
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => 'yes',
+                    'label' => 'ต้องการ',
                     'text' => 'ต้องการ'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'no',
+                    'label' => 'ไม่ต้องการ',
                     'text' => 'ไม่ต้องการ'
                 ],
             ]
