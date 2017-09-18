@@ -183,7 +183,7 @@ if (!is_null($events['events'])) {
 
   }elseif (strpos($_msg, 'ส่วนสูง') !== false) {
                  $height =  str_replace("ส่วนสูง","", $_msg);
-                 $height_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$height.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $height_mes = 'ปัจจุบัน คุณสูง '.$height.'ถูกต้องหรือไม่คะ';
                  $replyToken = $event['replyToken'];
                  $messages = [
                                 'type' => 'template',
