@@ -33,27 +33,17 @@ if (!is_null($events['events'])) {
                 [
                     'type' => 'message',
                     'label' => 'yes',
-                    'text' => 'yes'
+                    'text' => 'ต้องการ'
                 ],
                 [
                     'type' => 'message',
                     'label' => 'no',
-                    'text' => 'no'
+                    'text' => 'ไม่ต้องการ'
                 ],
             ]
         ]
     ];
-          // if(('text' => 'yes') == true){
-          //        $messages = [
-          //               'type' => 'text',
-          //               'text' => $text
-          //             ];
-          // }else{
-          //          $messages = [
-          //               'type' => 'text',
-          //               'text' => $text
-          //             ];
-          // }
+        
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
    //    $text = $event['template'];
@@ -464,7 +454,17 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
 //         ]
 //     ];
 
-  
+}elseif (strpos($_msg, 'ต้องการ') !== false) {
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $text
+                      ];
+          }else{
+                   $messages = [
+                        'type' => 'text',
+                        'text' => $text
+                      ];
+          } 
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
