@@ -160,7 +160,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
   }elseif (strpos($_msg, 'วันที่') !== false) {
   
     $birth_years =  str_replace("วันที่","", $_msg);
-    $pieces = explode(" ", $x_tra);
+    $pieces = explode(":", $x_tra);
     $date = str_replace("","",$pieces[0]);
     $month  = str_replace("","",$pieces[1]);
     $date_today = date("d"); 
@@ -183,13 +183,13 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => 'อายุครรภ์ถูกต้อง',
-                    'text' => 'ใช่'
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'อายุครรภ์ไม่ถูกต้อง',
-                    'text' => 'ไม่ใช่'
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'อายุครรภ์ไม่ถูกต้อง'
                 ],
             ]
         ]
