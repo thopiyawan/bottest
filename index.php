@@ -160,7 +160,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
   }elseif (strpos($_msg, 'วันที่') !== false) {
   
     $birth_years =  str_replace("วันที่","", $_msg);
-    $pieces = explode(":", $x_tra);
+    $pieces = explode(" ", $birth_years);
     $date = str_replace("","",$pieces[0]);
     $month  = str_replace("","",$pieces[1]);
     $date_today = date("d"); 
