@@ -63,8 +63,7 @@ if (!$dbconn) {
 
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
-$weight = "SELECT weight
-  FROM public.history ";	  
+$weight = "SELECT weight FROM public.history ";	  
 
 
 // $user = "h3";
