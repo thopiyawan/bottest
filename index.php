@@ -145,8 +145,8 @@ if (!is_null($events['events'])) {
                       ];
 
 
-  }elseif (strpos($_msg, 'น้ำหนัก') !== false)  {
-                 $weight =  str_replace("น้ำหนัก","", $_msg);
+  }elseif (strpos($_msg, 'หนัก') !== false)  {
+                 $weight =  str_replace("หนัก","", $_msg);
                  $weight_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
                  $replyToken = $event['replyToken'];
                  $messages = [
