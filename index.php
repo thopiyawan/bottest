@@ -122,13 +122,29 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
     $birth_years =  str_replace("เกิด","", $_msg);
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
-    $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ  ' ;
+    $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
 
                  $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' =>  $age_mes
-                      ];      
+                     $messages = [
+       'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' => $age_mes ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ใช่',
+                    'text' => 'ใช่'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ใช่',
+                    'text' => 'ไม่ใช่'
+                ],
+            ]
+        ]
+    ];   
    
  }else{
     $replyToken = $event['replyToken'];
