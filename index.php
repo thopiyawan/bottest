@@ -43,17 +43,17 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-          if(('text' => 'yes') == true){
-                 $messages = [
-                        'type' => 'text',
-                        'text' => $text
-                      ];
-          }else{
-                   $messages = [
-                        'type' => 'text',
-                        'text' => $text
-                      ];
-          }
+          // if(('text' => 'yes') == true){
+          //        $messages = [
+          //               'type' => 'text',
+          //               'text' => $text
+          //             ];
+          // }else{
+          //          $messages = [
+          //               'type' => 'text',
+          //               'text' => $text
+          //             ];
+          // }
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
    //    $text = $event['template'];
