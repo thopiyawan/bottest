@@ -43,93 +43,21 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-        
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
-     // Get text sent
-   //    $text = $event['template'];
-   //    $text = "hello world!";
-   $st1 = $events['events'][0]['message']['packageId'];
-   $st2 = $events['events'][0]['message']['stickerId'];
-   // Get replyToken
-   $replyToken = $event['replyToken'];
-
-   // Build message to reply back
-   $messages = [
-    'type'=> 'sticker',
-    'packageId'=> $st1,
-    'stickerId'=> $st2
-   ];
-   
-  
-} elseif (strpos($_msg, 'บันทึก') !== false) {
- $replyToken = $event['replyToken'];
-//********คำวณBMI********//
-    $x_tra =  str_replace("บันทึก","", $_msg);
-    $pieces = explode(":", $x_tra);
-    $height = str_replace("","",$pieces[0]);
-    $weight  = str_replace("","",$pieces[1]);
-
-
-$sql="INSERT INTO history(date_history,user_id,weight,height) VALUES( NOW() ,'U2dc636d2cd052e82c29f5284e00f69b9' , $weight, $height )";
-pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
-	 
-
-} elseif (strpos($_msg, 'คำนวณ') !== false) {
- $replyToken = $event['replyToken'];
-//********คำวณBMI********//
-    $x_tra =  str_replace("คำนวณ","", $_msg);
-    $pieces = explode(":", $x_tra);
-    $height = str_replace("","",$pieces[0]);
-    $width  = str_replace("","",$pieces[1]);
-//********ใส่ 5 ค่าลง array********//
-	  
-$weight = "SELECT weight FROM history ";	  
-pg_exec($dbconn, $weight) or die(pg_errormessage());	  
-    $result = $weight/($height*$height);
-    
-        $messages = [
-        'type' => 'template',
-        'altText' => 'BMI chart',
-        'template' => [
-            'type' => 'buttons',
-            'thumbnailImageUrl'=> 'https://bottest14.herokuapp.com/n_susu.png',
-            'title' => 'BMI',
-            'text' => $result ,
-            'actions' => [
-                [
-                    'type' => 'uri',
-                    'label' => 'chart',
-                    'uri' => 'https://bottest14.herokuapp.com/te.php?data1='.$result.'&data2='.$width 
-                ]
-            ]
-        ]
-    ];
- 
-}elseif ($event['message']['text'] == "สนใจ" ) {
+  }elseif ($event['message']['text'] == "สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)'
                       ];
- }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
+  }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
-                      ];  
-}elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
-                 $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
-                      ];
- }elseif ($event['message']['text'] == "อายุไม่ถูกต้อง" ) {
-                 $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'กรุณาพิมพ์ใหม่'
-                      ];  
- }elseif (strpos($_msg, 'เกิด') !== false) {
+                      ];          
+  
+   
+  }elseif (strpos($_msg, 'เกิด') !== false) {
   
     $birth_years =  str_replace("เกิด","", $_msg);
     $curr_years = date("Y"); 
@@ -152,11 +80,25 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                 [
                     'type' => 'message',
                     'label' => 'ไม่ถูกต้อง',
-                    'text' => 'อายุไม่ถูกต้อง'
+                    'text' => 'ไม่ถูกต้อง'
                 ],
             ]
         ]
-    ];   
+    ];     
+
+  }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
+                      ];
+  }elseif ($event['message']['text'] == "ไม่ถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'กรุณาพิมพ์ใหม่'
+                      ];  
+
   }elseif (strpos($_msg, 'วันที่') !== false) {
   
     $birth_years =  str_replace("วันที่","", $_msg);
@@ -189,15 +131,77 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                 [
                     'type' => 'message',
                     'label' => 'ไม่ถูกต้อง',
-                    'text' => 'อายุครรภ์ไม่ถูกต้อง'
+                    'text' => 'ไม่ถูกต้อง'
                 ],
             ]
         ]
     ];   
-     
- }else{
+    
+  }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขออนุญาตถามน้ำหนักปกติก่อนตั้งครรภ์ของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยกิโลกรัม เช่น น้ำหนัก50)'
+                      ];
+
+
+  }elseif ($event['message']['text'] == "น้ำหนัก" ) {
+                 $weight =  str_replace("น้ำหนัก","", $_msg);
+                 $weight_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $weight_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'น้ำหนักถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+  }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร ส่วนสูง160)'
+                      ];  
+  }elseif ($event['message']['text'] == "ส่วนสูง" ) {
+                 $height =  str_replace("ส่วนสูง","", $_msg);
+                 $height_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$height.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $height_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'ส่วนสูงถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+  }else{
     $replyToken = $event['replyToken'];
-    $text = "ว่าไงนะ";
+    $text = "ฉันไม่เข้าใจค่ะ";
     $messages = [
         'type' => 'text',
         'text' => $text
