@@ -60,94 +60,7 @@ if (!is_null($events['events'])) {
     'stickerId'=> $st2
    ];
    
-  }elseif($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ปุ่ม") {
-     $replyToken = $event['replyToken'];
-        $messages = [
-        'type' => 'template',
-        'altText' => 'ปุ่ม',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'อากาศเป็นไงบ้าง',
-            'text' => 'อากาศ',
-            'actions' => [
-//                 [
-//                     'type' => 'postback',
-//                     'label' => 'good',
-//                     'data' => 'value'
-//                 ],
-                [
-                    'type' => 'uri',
-                    'label' => 'google',
-                    'uri' => 'https://google.com'
-                ]
-            ]
-        ]
-    ];
- } elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ยืนยัน") {
-    $replyToken = $event['replyToken'];
-    $messages = [
-       'type' => 'template',
-        'altText' => 'this is a confirm template',
-        'template' => [
-            'type' => 'confirm',
-            'text' => 'Are you sure?',
-            'actions' => [
-                [
-                    'type' => 'message',
-                    'label' => 'yes',
-                    'text' => 'yes'
-                ],
-                [
-                    'type' => 'message',
-                    'label' => 'no',
-                    'text' => 'no'
-                ],
-            ]
-        ]
-    ];
-} elseif ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == "ทดสอบ") {
- $replyToken = $event['replyToken'];
- $messages = [
-        'type' => 'template',
-        'altText' => 'this is a carousel template',
-        'template' => [
-            'type' => 'carousel',
-            'columns' => [
-               [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to cart',
-                            'uri' => 'http://clinic.e-kuchikomi.info/'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'this is menu',
-                    'text' => 'description',
-                    'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'buy',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'uri',
-                            'label' => 'add to catrt',
-                            'uri' => 'https://jobikai.com/'
-                        ]
-                    ]
-                ],
-            ]
-        ]
-    ];
+  
 } elseif (strpos($_msg, 'บันทึก') !== false) {
  $replyToken = $event['replyToken'];
 //********คำวณBMI********//
@@ -156,35 +69,10 @@ if (!is_null($events['events'])) {
     $height = str_replace("","",$pieces[0]);
     $weight  = str_replace("","",$pieces[1]);
 
-//********ใส่ 5 ค่าลง array********//	
-// $user_id= $events['events'][0]['source']['userId'];
-
-
-// $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
-// $dbconn = pg_pconnect($conn_string);
-
-// $user = 'U243424324ghjkjhgf';
 
 $sql="INSERT INTO history(date_history,user_id,weight,height) VALUES( NOW() ,'U2dc636d2cd052e82c29f5284e00f69b9' , $weight, $height )";
-
-
 pg_exec($dbconn, $sql) or die(pg_errormessage()); 	  
 	 
-// if( mysql_select_db($Dbname)){
-//           $replyToken = $event['replyToken'];
-//       $text = "บันทึกสำเร็จ";
-//       $messages = [
-//         'type' => 'text',
-//         'text' => $text
-//       ];
-// }else{ 
-// 	 $replyToken = $event['replyToken'];
-//       $text = "บันทึกไม่สำเร็จ";
-//       $messages = [
-//         'type' => 'text',
-//         'text' => $text
-//       ]; }
-
 
 } elseif (strpos($_msg, 'คำนวณ') !== false) {
  $replyToken = $event['replyToken'];
@@ -216,244 +104,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
             ]
         ]
     ];
- } elseif (strpos($_msg, 'หา') !== false) {
-
-
-
-    $replyToken = $event['replyToken'];
-    $x_tra = str_replace("หา","", $_msg);
-   
-//     $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-   // $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyCdlIPgeHwexorxeKsVvjrW1fwh4SOjOjI&q='.$x_tra;
-    //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyAzNh-0u0rojtkaQvmBlCg44f7oGIvFWdw&q='.$x_tra;
-    //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyAACKRpkX5IcqTtZeQAY0i4MGM8Gx2_Xrk&q='.$x_tra;
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
-    //$url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $json= file_get_contents($url);
-    $events = json_decode($json, true);
-    $title= $events['items'][0]['title'];
-    $link = $events['items'][0]['link'];
-    $items = $events['items'];
-   
-//    $messages = [ 
-//   'type'=> 'template',
-//   'altText'=> 'this is a carousel template',
-//   'template'=> [
-//       'type'=> 'carousel',
-//       'columns'=> [
-//           [ 
-//       for ($i = 0 ; $i < 5 ; $i++){
-	  
-//             //'thumbnailImageUrl'=> 'https://botbot1234.herokuapp.com/images/luffy.jpg',
-//             'title' =>  'อะโล่',
-//             'text' =>   $events['items'][$i]['title'],
-//             'actions'=> [
-//                 [
-//                     'type'=> 'postback',
-//                     'label'=> 'OK',
-//                     'data'=> 'action=buy&itemid=111'
-//                 ],
-//                 [
-//                     'type'=> 'postback',
-//                     'label'=> 'OK',
-//                     'data'=> 'action=buy&itemid=111'
-//                 ]
-//              ]
-// 	  }]
-// 	  ]]];
-	  
-      for ($i = 0 ; $i<3 ; $i++){
-            $me[$i] =[
-                                'title' => $events['items'][$i]['title'],
-                                'text' => 'description',
-                                'actions' => [
-                                    [
-                                        'type' => 'postback',
-                                        'label' => 'buy',
-                                        'data' => 'value'
-                                    ],
-                                    [
-                                        'type' => 'uri',
-                                        'label' => 'add to catrt',
-                                        'uri' => $events['items'][$i]['link']
-                                    ]
-                                ]
-                      ];
-
-
-          
-          }  
-
-              // array_push($g,$me);
-               $messages = [
-                    'type' => 'template',
-                    'altText' => 'this is a carousel template',
-                    'template' => [
-                        'type' => 'carousel',
-                        'columns' =>$me
-                    ]
-                ];
-
-   
-   
-//////////////////////////////////////// TEST DATA ////////////////////////////////////////////////
-            
-//     $me = [];
-//     $messages = [];
-//        for ($i = 0 ; $i<5 ; $i++){
-//         array_push($me,[
-//                     'title' => $events['items'][$i]['title'],
-//                     'text' => 'description',
-//                     'actions' => [
-//                         [
-//                             'type' => 'postback',
-//                             'label' => 'buy',
-//                             'data' => 'value'
-//                         ],
-//                         [
-//                             'type' => 'uri',
-//                             'label' => 'add to catrt',
-//                             'uri' => $events['items'][$i]['link']
-//                         ]
-//                     ]
-//                  ]);
-
-  
-   
-//    }
-
-//    array_push($messages,[
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [$me]
-//         ]
-//     ]);
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-/////////////////////////////////////////////// END TEST /////////////////////////////////////////	  
-   
-  //  $data1 = array(); 
-  //  $val = array();
-//$data = [];
-//$val = [];
-//$g = [];
-//$x = [];
-//   $z = [];
-//$action = [];
-// $eventsdata = array_slice($events->items,5);
- //   foreach($events->items as $mydata)
-
-    //{
-//        echo $mydata->title;
-//        echo $mydata->link;
-       // $z = array( 'type' => 'uri',
-         //           'label' => 'Click for detail',
-         //           'uri' => $mydata->link
-          //        );
-     
-       // array_push($action,$z);
-      //  $x = array ( 'title' => $mydata->title,
-       //             'text' => 'description',
-       //             'actions' => [$action]
-       //           );
-     
-     
-        //array_push($g,$x);
-       // $action = [];
-        
-        //echo $mydata->title. "\n";
-        //echo $mydata->link. "\n"; 
-
-
-//        $val = array(
-//                "thumbnailImageUrl" => "https://example.com/bot/images/item1.jpg",
-//                "title" => $mydata->title
-////                 "actions" => [{
-////                                "type"=> "uri",
-////                                "label" => $mydata->title,
-////                                "uri" => $mydata->link
-////                                }]
-//                
-//                );
-//        array_push($data,$val);
- //   }
-//    $i = 1;
-//       $data = [];
-// $val = [];
-//           foreach($events->items as $mydata){
-//                 if($i <= 5){
-//                $val = array(
-//                     'title' => $mydata->title,
-//                     'text' => 'description',
-//                     'actions' => [    
-//                         [
-//                             'type' => 'uri',
-//                             'label' => 'add to cart',
-//                             'uri' => $mydata->link
-//                         ]  
-//                     ]
-//                );
-//                 array_push($data,$val);    
-//                 }
-//                 $i++;
-//             }
-      
-//    $messages = [
-//         'type' => 'template',
-//         'altText' => 'this is a carousel template',
-//         'template' => [
-//             'type' => 'carousel',
-//             'columns' => [
-           
-//               " [
-//                     'title' => 'this is menu',
-//                     'text' => 'description',
-//                     'actions' => [
-//                         [
-//                             'type' => 'postback',
-//                             'label' => 'buy',
-//                             'data' => 'value'
-//                         ],
-//                         [
-//                             'type' => 'uri',
-//                             'label' => 'add to cart',
-//                             'uri' => 'http://clinic.e-kuchikomi.info/'
-//                         ]
-//                     ]
-//                 ],
-        
-//                 [
-//                     'title' => 'this is menu',
-//                     'text' => 'description',
-//                     'actions' => [
-//                         [
-//                             'type' => 'postback',
-//                             'label' => 'buy',
-//                             'data' => 'value'
-//                         ],
-//                         [
-//                             'type' => 'uri',
-//                             'label' => 'add to catrt',
-//                             'uri' => 'https://jobikai.com/'
-//                         ]
-//                     ]
-//                 ],"
-//             ]
-//         ]
-//     ];
-
+ 
 }elseif ($event['message']['text'] == "ต้องการ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
@@ -465,7 +116,18 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                  $messages = [
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
+                      ];  
+ }elseif (strpos($_msg, 'เกิด') !== false) {
+  
+    $birth_years =  str_replace("เกิด","", $_msg);
+    $curr_years = date("Y"); 
+    $age = $curr_years- $birth_years;
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' =>  $age
                       ];      
+ }    
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
