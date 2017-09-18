@@ -71,4 +71,6 @@ $weight = "SELECT weight FROM history ";
 // $weight = "344";
 // $sql="INSERT INTO history(date_history,user_s,weight,height) VALUES(NOW(),$user , $weight, $height )";
 pg_exec($dbconn, $sql) or die(pg_errormessage());
+
+echo $weight;
 ?>
