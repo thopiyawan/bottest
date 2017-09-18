@@ -127,7 +127,7 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                         'type' => 'text',
                         'text' =>  $age
                       ];      
- }    
+   
  }else{
     $replyToken = $event['replyToken'];
     $text = "ว่าไงนะ";
