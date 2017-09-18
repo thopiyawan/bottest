@@ -121,11 +121,13 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
   
     $birth_years =  str_replace("เกิด","", $_msg);
     $curr_years = date("Y"); 
-    $age = $curr_years- $birth_years;
+    $age = ($curr_years+ 543)- $birth_years;
+    $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ  ' ;
+
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' =>  $age
+                        'text' =>  $age_mes
                       ];      
    
  }else{
