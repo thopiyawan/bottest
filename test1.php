@@ -63,14 +63,14 @@ if (!$dbconn) {
 
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
-echo $weight = "SELECT weight FROM history ";	  
+$weight = "SELECT weight FROM history ";	  
 
 
 // $user = "h3";
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(date_history,user_s,weight,height) VALUES(NOW(),$user , $weight, $height )";
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+$cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-echo $weight;
+echo $cd;
 ?>
