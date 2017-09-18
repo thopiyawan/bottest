@@ -1,14 +1,12 @@
 <?php
+//database
+$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
+$dbconn = pg_pconnect($conn_string);
+//
 
 $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=';
 
-$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
-$dbconn = pg_pconnect($conn_string);
-
 $content = file_get_contents('php://input');
-
-
-$data = json_decode($json,true);
 // Parse JSON
 $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
@@ -18,13 +16,44 @@ if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-  if (strpos($_msg, 'สวัสดี') !== false) {
+  if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'หวัดดี') !== false) {
       $replyToken = $event['replyToken'];
-      $text = "สวัสดีค่ะ";
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
+      $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยไหม";
+      // $messages = [
+      //   'type' => 'text',
+      //   'text' => $text
+      // ];
+        $messages = [
+       'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' => $text ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'yes',
+                    'text' => 'yes'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'no',
+                    'text' => 'no'
+                ],
+            ]
+        ]
+    ];
+          if(('text' => 'yes') == true){
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $text
+                      ];
+          }else{
+                   $messages = [
+                        'type' => 'text',
+                        'text' => $text
+                      ];
+          }
   }elseif($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
      // Get text sent
    //    $text = $event['template'];
