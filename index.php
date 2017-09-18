@@ -32,13 +32,13 @@ if (!is_null($events['events'])) {
             'actions' => [
                 [
                     'type' => 'message',
-                    'label' => 'ต้องการ',
-                    'text' => 'ต้องการ'
+                    'label' => 'สนใจ',
+                    'text' => 'สนใจ'
                 ],
                 [
                     'type' => 'message',
-                    'label' => 'ไม่ต้องการ',
-                    'text' => 'ไม่ต้องการ'
+                    'label' => 'ไม่สนใจ',
+                    'text' => 'ไม่สนใจ'
                 ],
             ]
         ]
@@ -117,13 +117,13 @@ pg_exec($dbconn, $weight) or die(pg_errormessage());
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
                       ];  
-}elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
+}elseif ($event['message']['text'] == "ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ (กรุณาตอบประมาณวันที่และเดือนเป็นตัวเลขนะคะ เช่น 17 04 คือ วันที่17 เมษายน)'
                       ];
- }elseif ($event['message']['text'] == "อายุไม่ถูกต้อง" ) {
+ }elseif ($event['message']['text'] == "ไม่ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
