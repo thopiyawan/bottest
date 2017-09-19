@@ -74,5 +74,5 @@ echo $result;
 
 
 // $cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
-print($cd );
+
 ?>
