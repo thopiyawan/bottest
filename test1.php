@@ -44,7 +44,8 @@ $user = "fdsgaegaeewt5444";
 $escaped = pg_escape_string($user);
 $height = "33";
 $weight = "344";
-$sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),$escaped,$weight,$height )";
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// $sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),'{$escaped}',$weight,$height )";
+ $sql =  pg_query("INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),'{$escaped}',$weight,$height )");
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 ?>
