@@ -69,8 +69,8 @@ if (!$dbconn) {
 
 $query .= "SELECT * FROM history;";
 
-$d = pg_query($dbconn, $query);
-print_r($d);
+$a = pg_query($dbconn, $query);
+var_dump($a);
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
