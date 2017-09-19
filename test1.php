@@ -66,7 +66,14 @@ if (!$dbconn) {
 // $weight = "SELECT weight FROM history ";	  
 
 $result = pg_query($dbconn, "SELECT weight FROM history");
-print ($result);
+
+ if  (!$result) {
+    echo "query did not execute";
+  }
+  $rs = pg_fetch_assoc($result);
+  if (!$rs) {
+    echo "0 records"
+  }
 // $user = "";
 // $height = "33";
 // $weight = "344";
