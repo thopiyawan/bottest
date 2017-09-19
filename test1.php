@@ -40,7 +40,7 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 
-$user = "ffdvfdav";
+$user = "33333";
 $height = "33";
 $weight = "344";
 $sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),$user,$weight,$height )";
