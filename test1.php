@@ -12,7 +12,7 @@ if (!$dbconn) {
 // PRIMARY KEY(user_id)
 // )"; 
 
- $sql="DROP TABLE IF EXISTS order_details, products";
+ $sql="DROP TABLE IF EXISTS history";
  pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
