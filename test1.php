@@ -69,7 +69,7 @@ if (!$dbconn) {
 $user = "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh23";
 $height = "33";
 $weight = "344";
-$sql="INSERT INTO history(date_history,user_s,weight,height) VALUES(NOW(),$user , $weight, $height )";
+$sql="INSERT INTO history(date_history,user_id,weight,height) VALUES(NOW(),$user , $weight, $height )";
 $cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
 print($cd );
 ?>
