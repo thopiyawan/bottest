@@ -66,15 +66,8 @@ if (!$dbconn) {
 // $weight = "SELECT weight FROM history ";	  
 
 $result = pg_query($dbconn, "SELECT weight FROM history");
-
- if  (!$result) {
-    echo "query did not execute";
-  }
-  $rs = pg_fetch_assoc($result);
-  if (!$rs) {
-    echo "0 records"
-  }
-// $user = "";
+$count = pg_fetch_result($result, 0, 'howManyUsersHaveThisName');
+echo $count;
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
