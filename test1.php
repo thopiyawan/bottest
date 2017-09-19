@@ -65,14 +65,14 @@ if (!$dbconn) {
 
 // $weight = "SELECT weight FROM history ";	  
 
+$result = pg_query($dbconn, "SELECT weight FROM history");
+echo $result;
+// $user = "";
+// $height = "33";
+// $weight = "344";
+// $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
 
 
-$user = "h3";
-$height = "33";
-$weight = "344";
-$sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
-
-
-$cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
+// $cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
 print($cd );
 ?>
