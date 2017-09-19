@@ -70,33 +70,33 @@ $result = pg_query($query);
 
 $i = 0;
 
-// while ($i < pg_num_fields($result))
-// {
-// 	$fieldName = pg_field_name($result, $i);
-// 	echo '<td>' . $fieldName . '</td>';
-// 	$i = $i + 1;
-// }
+while ($i < pg_num_fields($result))
+{
+	$fieldName = pg_field_name($result, $i);
+	echo  $fieldName ;
+	$i = $i + 1;
+}
 
 // $i = 0;
 
-while ($row = pg_fetch_row($result)) 
-{
-	echo '<tr>';
-	$count = count($row);
-	$y = 0;
-	while ($y < $count)
-	{
-		$c_row = current($row);
-		echo '<td>' . $c_row . '</td>';
-		next($row);
-		$y = $y + 1;
-	}
-	echo '</tr>';
-	$i = $i + 1;
-}
+// while ($row = pg_fetch_row($result)) 
+// {
+
+// 	$count = count($row);
+// 	$y = 0;
+// 	while ($y < $count)
+// 	{
+// 		$c_row = current($row);
+// 		echo $c_row;
+// 		next($row);
+// 		$y = $y + 1;
+// 	}
+
+// 	$i = $i + 1;
+// }
 pg_free_result($result);
 
-echo '</table></body></html>';
+// echo '</table></body></html>';
 
 
 
