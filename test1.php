@@ -12,6 +12,12 @@ if (!$dbconn) {
 // PRIMARY KEY(user_id)
 // )"; 
 
+ $sql="DROP TABLE IF EXISTS order_details, products";
+ pg_exec($dbconn, $sql) or die(pg_errormessage());
+
+
+
+
 
 // pg_exec($dbconn, $sql1) or die(pg_errormessage()); 
 
@@ -36,14 +42,14 @@ if (!$dbconn) {
 // )";   
 
 //*************************
-// $sql="CREATE TABLE history (
-// historyid  SERIAL,
-// date_history DATE,
-// user_id varchar(225), 
-// weight varchar(3),
-// height varchar(3),
-// PRIMARY KEY(historyid)
-// )";   
+$sql="CREATE TABLE history (
+historyid  SERIAL,
+date_history DATE,
+user_id text, 
+weight varchar(3),
+height varchar(3),
+PRIMARY KEY(historyid)
+)";   
 //FOREIGN KEY(userid) REFERENCES users(userid)
 // $sql="CREATE TABLE users (
 // userid varchar(100),
@@ -57,33 +63,22 @@ if (!$dbconn) {
 // userid varchar(100)
 // )";   
  
-// pg_exec($dbconn, $sql) or die(pg_errormessage()); 
+pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 
 
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 // $weight = "SELECT weight FROM history ";	  
-$query = 'select weight from history ';
 
-$result = pg_query($query);
-
-// $i = 0;
-
-// while ($i < pg_num_fields($result))
-// {
-// 	$fieldName = pg_field_name($result, $i);
-// 	echo '<td>' . $fieldName . '</td>';
-// 	$i = $i + 1;
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// $query = 'select weight from history ';
+// $result = pg_query($query);
+// while ($row = pg_fetch_row($result)) {
+//  $e =  "น้ำหนัก $row[0] ";
 // }
-
-// $i = 0;
-
-while ($row = pg_fetch_row($result)) {
- $e =  "น้ำหนัก $row[0] ";
-
-}
-echo $e;
+// echo $e;
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // $result = pg_query($dbconn, "SELECT * FROM history;");
