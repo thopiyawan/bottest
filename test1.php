@@ -8,10 +8,14 @@ if (!$dbconn) {
 
 //////////////////////////////////////////////////////////////////////
  $sql="DROP TABLE IF EXISTS users_data";
- $sql="DROP TABLE IF EXISTS Pregnancy_week_data";
- $sql="DROP TABLE IF EXISTS history_con";
- $sql="DROP TABLE IF EXISTS history_preg";
+ $sql1="DROP TABLE IF EXISTS Pregnancy_week_data";
+ $sql2="DROP TABLE IF EXISTS history_con";
+ $sql3="DROP TABLE IF EXISTS history_preg";
  pg_exec($dbconn, $sql) or die(pg_errormessage());
+ pg_exec($dbconn, $sql1) or die(pg_errormessage());
+ pg_exec($dbconn, $sql2) or die(pg_errormessage());
+ pg_exec($dbconn, $sql3) or die(pg_errormessage());
+
 //////////////////////////////////////////////////////////////////////
 
 //*************************
