@@ -66,11 +66,11 @@ if (!$dbconn) {
 // $weight = "SELECT weight FROM history ";	  
 
 
-$ResId = pg_exec("select * from history", $dbconn);
-pg_close ($dbconn);
-$row = pg_fetch_array ($ResId, 4);
-print($row);
 
+$query .= "SELECT * FROM history;";
+
+$d = pg_query($dbconn, $query);
+print($d);
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
