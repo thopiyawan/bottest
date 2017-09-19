@@ -80,11 +80,10 @@ $result = pg_query($query);
 // $i = 0;
 
 while ($row = pg_fetch_row($result)) {
-  echo "น้ำหนัก $row[0] ";
-  echo "<br />\n";
+ $e =  "น้ำหนัก $row[0] ";
+
 }
-
-
+echo $e;
 
 
 // $result = pg_query($dbconn, "SELECT * FROM history;");
