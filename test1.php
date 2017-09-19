@@ -65,7 +65,7 @@ if (!$dbconn) {
 
 // $weight = "SELECT weight FROM history ";	  
 
-$result = pg_query($dbconn, """SELECT weight FROM "public"."history" """);
+$result = pg_query($dbconn, "SELECT weight FROM public.history" );
 $count = pg_fetch_result($result, 0, 'howManyUsersHaveThisName');
 echo $count;
 
