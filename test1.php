@@ -64,16 +64,46 @@ if (!$dbconn) {
 // pg_exec($dbconn, $sql) or die(pg_errormessage()); 
 
 // $weight = "SELECT weight FROM history ";	  
+$query = 'select * from history';
 
+$result = pg_query($query);
 
-
-
-$result = pg_query($dbconn, "SELECT * FROM history;");
-if (!$result) {
-  echo "An error occurred.\n";
-  exit;
+$i = 0;
+echo '<html><body><table><tr>';
+while ($i < pg_num_fields($result))
+{
+	$fieldName = pg_field_name($result, $i);
+	echo '<td>' . $fieldName . '</td>';
+	$i = $i + 1;
 }
-var_dump($result);
+echo '</tr>';
+$i = 0;
+
+while ($row = pg_fetch_row($result)) 
+{
+	echo '<tr>';
+	$count = count($row);
+	$y = 0;
+	while ($y < $count)
+	{
+		$c_row = current($row);
+		echo '<td>' . $c_row . '</td>';
+		next($row);
+		$y = $y + 1;
+	}
+	echo '</tr>';
+	$i = $i + 1;
+}
+pg_free_result($result);
+
+echo '</table></body></html>';
+
+
+
+// $result = pg_query($dbconn, "SELECT * FROM history;");
+// $sql = "INSERT INTO interests (id, interests) VALUES ($1, $2)";
+// pg_prepare('my_query', $sql);
+// pg_execute('my_query', array($id, $int)) or die("Error while inserting.");
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
