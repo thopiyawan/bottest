@@ -205,6 +205,21 @@ if (!is_null($events['events'])) {
                                     ]
                                  ]     
                              ];   
+
+  }elseif ($event['message']['text'] == "ทดสอบ" ) {
+
+    $query = 'select weight from history ';
+    $result = pg_query($query);
+    while ($row = pg_fetch_row($result)) {
+     $e =  "น้ำหนัก $row[0] ";
+    }
+   
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $e 
+                      ];  
+
   }else{
     $replyToken = $event['replyToken'];
     $text = "ฉันไม่เข้าใจค่ะ";
