@@ -40,10 +40,11 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 
-$user = "33333";
+$user = "fdsgaegaeewt5444";
+$escaped = pg_escape_string($user);
 $height = "33";
 $weight = "344";
-$sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),$user,$weight,$height )";
+$sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),$escaped,$weight,$height )";
 pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 ?>
