@@ -7,8 +7,11 @@ if (!$dbconn) {
 
 
 //////////////////////////////////////////////////////////////////////
- // $sql="DROP TABLE IF EXISTS history";
- // pg_exec($dbconn, $sql) or die(pg_errormessage());
+ $sql="DROP TABLE IF EXISTS users_data";
+ $sql="DROP TABLE IF EXISTS Pregnancy_week_data";
+ $sql="DROP TABLE IF EXISTS history_con";
+ $sql="DROP TABLE IF EXISTS history_preg";
+ pg_exec($dbconn, $sql) or die(pg_errormessage());
 //////////////////////////////////////////////////////////////////////
 
 //*************************
@@ -79,7 +82,7 @@ his_preg_weight varchar(3),
 
 user_id  varchar(225),
 
-PRIMARY KEY(preg_id),
+PRIMARY KEY(his_preg_id),
 FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
 FOREIGN KEY (user_id) REFERENCES users_data(user_id)
 )";   
