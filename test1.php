@@ -69,7 +69,10 @@ if (!$dbconn) {
 
 
 $result = pg_query($dbconn, "SELECT * FROM history;");
-
+if (!$result) {
+  echo "An error occurred.\n";
+  exit;
+}
 var_dump($result);
 // $height = "33";
 // $weight = "344";
