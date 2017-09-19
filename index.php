@@ -43,18 +43,41 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];
-  }elseif ($event['message']['text'] == "สนใจ" ) {
+    if ($event['message']['text'] == "สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)'
                       ];
-  }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
+     }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
                       ];          
+    }
+
+
+
+
+
+
+
+
+
+
+  // }elseif ($event['message']['text'] == "สนใจ" ) {
+  //                $replyToken = $event['replyToken'];
+  //                $messages = [
+  //                       'type' => 'text',
+  //                       'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)'
+  //                     ];
+  // }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
+  //                $replyToken = $event['replyToken'];
+  //                $messages = [
+  //                       'type' => 'text',
+  //                       'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
+  //                     ];          
   
    
   }elseif (strpos($_msg, 'เกิด') !== false) {
