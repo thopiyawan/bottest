@@ -65,9 +65,18 @@ if (!$dbconn) {
 
 // $weight = "SELECT weight FROM history ";	  
 
-$result = pg_query($dbconn, "SELECT weight FROM history");
+$result = pg_query($dbconn, """SELECT weight FROM "public"."history" """);
 $count = pg_fetch_result($result, 0, 'howManyUsersHaveThisName');
 echo $count;
+
+
+$sql = 'SELECT fname, lname, country FROM user_details ORDER BY country';
+foreach ($connec->query($sql) as $row) 
+{
+print $row['fname'] . " ";
+print $row['lname'] . "-->";
+print $row['country'] . "<br>";
+}
 // $height = "33";
 // $weight = "344";
 // $sql="INSERT INTO history(historyid,date_history,user_id,weight,height) VALUES(historyid,NOW(),$user , $weight, $height )";
