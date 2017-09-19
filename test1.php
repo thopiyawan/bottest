@@ -20,7 +20,7 @@ if (!$dbconn) {
 $sql="CREATE TABLE history (
 historyid  SERIAL,
 date_history DATE,
-users text not null, 
+users text , 
 weight varchar(3),
 height varchar(3),
 PRIMARY KEY(historyid)
