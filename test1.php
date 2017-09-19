@@ -7,8 +7,8 @@ if (!$dbconn) {
 
 
 //////////////////////////////////////////////////////////////////////
- // $sql="DROP TABLE IF EXISTS history";
- // pg_exec($dbconn, $sql) or die(pg_errormessage());
+ $sql="DROP TABLE IF EXISTS history";
+ pg_exec($dbconn, $sql) or die(pg_errormessage());
 //////////////////////////////////////////////////////////////////////
 
 
@@ -17,14 +17,15 @@ if (!$dbconn) {
 
 
 //*************************
-// $sql="CREATE TABLE history (
-// historyid  SERIAL,
-// date_history DATE,
-// user_id text, 
-// weight varchar(3),
-// height varchar(3),
-// PRIMARY KEY(historyid)
-// )";   
+$sql="CREATE TABLE history (
+historyid  SERIAL,
+date_history DATE,
+users text not null, 
+weight varchar(3),
+height varchar(3),
+PRIMARY KEY(historyid)
+)";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 //**************************
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,12 +40,10 @@ if (!$dbconn) {
 
 
 
-$user = "ffdvfdav34333";
+$user = "ffdvfdav";
 $height = "33";
 $weight = "344";
-$sql="INSERT INTO history(date_history,user_id,weight,height) VALUES(NOW(),$user,$weight,$height )";
-
-
-$cd = pg_exec($dbconn, $sql) or die(pg_errormessage());
+$sql="INSERT INTO history(date_history,users,weight,height) VALUES(NOW(),$user,$weight,$height )";
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 ?>
