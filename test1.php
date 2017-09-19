@@ -65,7 +65,6 @@ if (!$dbconn) {
 
 // $weight = "SELECT weight FROM history ";	  
 
-$result = pg_query($dbconn, "SELECT weight FROM history WHERE weight='60'" );
 
 $ResId = pg_exec("select * from history", $dbconn);
 pg_close ($dbconn);
