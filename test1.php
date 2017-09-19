@@ -67,7 +67,7 @@ if (!$dbconn) {
 
 $result = pg_query($dbconn, "SELECT weight FROM public.history" );
 $count = pg_fetch_result($result, 0, 'howManyUsersHaveThisName');
-echo $count;
+echo $count = '1';
 
 
 // $height = "33";
