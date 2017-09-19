@@ -66,8 +66,10 @@ if (!$dbconn) {
 // $weight = "SELECT weight FROM history ";	  
 
 $result = pg_query($dbconn, "SELECT weight FROM history WHERE weight='60'" );
-$count = pg_fetch_result($result, 'howManyUsersHaveThisName');
-echo $count;
+
+$ResId = pg_exec("select * from history", $dbconn);
+pg_close ($dbconn);
+$row = pg_fetch_array ($ResId, 4);
 
 
 // $height = "33";
