@@ -69,7 +69,7 @@ if (!$dbconn) {
 $ResId = pg_exec("select * from history", $dbconn);
 pg_close ($dbconn);
 $row = pg_fetch_array ($ResId, 4);
-
+print($row);
 
 // $height = "33";
 // $weight = "344";
