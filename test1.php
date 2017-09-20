@@ -7,14 +7,14 @@ if (!$dbconn) {
 
 
 //////////////////////////////////////////////////////////////////////
- $sql="DROP TABLE IF EXISTS users_data";
- $sql1="DROP TABLE IF EXISTS Pregnancy_week_data";
- $sql2="DROP TABLE IF EXISTS history_con";
- $sql3="DROP TABLE IF EXISTS history_preg";
- pg_exec($dbconn, $sql) or die(pg_errormessage());
- pg_exec($dbconn, $sql1) or die(pg_errormessage());
- pg_exec($dbconn, $sql2) or die(pg_errormessage());
- pg_exec($dbconn, $sql3) or die(pg_errormessage());
+ // $sql="DROP TABLE IF EXISTS users_data";
+ // $sql1="DROP TABLE IF EXISTS Pregnancy_week_data";
+ // $sql2="DROP TABLE IF EXISTS history_con";
+ // $sql3="DROP TABLE IF EXISTS history_preg";
+ // pg_exec($dbconn, $sql) or die(pg_errormessage());
+ // pg_exec($dbconn, $sql1) or die(pg_errormessage());
+ // pg_exec($dbconn, $sql2) or die(pg_errormessage());
+ // pg_exec($dbconn, $sql3) or die(pg_errormessage());
 
 //////////////////////////////////////////////////////////////////////
 
@@ -72,7 +72,7 @@ $sql="CREATE TABLE history_con(
 his_id  SERIAL,
 user_id  varchar(225),
 his_message varchar(3),
-his_date varchar(3),
+his_date datetime,
 
 PRIMARY KEY(his_id),
 FOREIGN KEY (user_id) REFERENCES users_data(user_id)
