@@ -72,7 +72,7 @@ $sql="CREATE TABLE history_con(
 his_id  SERIAL,
 user_id  varchar(225),
 his_message varchar(3),
-his_date datetime,
+his_date timestamp ,
 
 PRIMARY KEY(his_id),
 FOREIGN KEY (user_id) REFERENCES users_data(user_id)
