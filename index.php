@@ -141,11 +141,11 @@ if (!is_null($events['events'])) {
 
     }else{
         $mes = 'กรอกไม่ถูกต้อง' ;
-         // $replyToken = $event['replyToken'];
-         //         $messages = [
-         //                'type' => 'text',
-         //                'text' => $mes
-         //              ];   
+         $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $mes
+                      ];   
     }
 
 
@@ -153,7 +153,7 @@ if (!is_null($events['events'])) {
 
 
 
-    $age_pre = 'คุณมีอายุครรภ์'.$month_pre.'สัปดาห์'.$date_pre.'วัน' ;
+    $age_pre = 'คุณมีอายุครรภ์'.$m.'สัปดาห์'.$d.'วัน' ;
 
     $replyToken = $event['replyToken'];
     $messages = [
