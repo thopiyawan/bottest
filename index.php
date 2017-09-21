@@ -113,9 +113,6 @@ if (!is_null($events['events'])) {
     //         $date_pre = $date_today-$date;
     //     }
     // $month_pre = ($month_today-$month)*4 ;
-
-
-
     if ($month<$month_today){
             if ($date>$date_today){
                 $date_pre = $date-$date_today;
@@ -143,8 +140,12 @@ if (!is_null($events['events'])) {
             }
 
     else{
-        $age_pre= 'กรอกไม่ถูกต้อง' ;
-         
+        $mes = 'กรอกไม่ถูกต้อง' ;
+         $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $mes
+                      ];   
     }
 
 
@@ -152,7 +153,7 @@ if (!is_null($events['events'])) {
 
 
 
-    $age_pre = 'คุณมีอายุครรภ์'.$m.'สัปดาห์'.$d.'วัน' ;
+    $age_pre = 'คุณมีอายุครรภ์'.$month_pre.'สัปดาห์'.$date_pre.'วัน' ;
 
     $replyToken = $event['replyToken'];
     $messages = [
