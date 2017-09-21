@@ -139,7 +139,7 @@ if (!is_null($events['events'])) {
 
             }
 
-    else{
+    }else{
         $mes = 'กรอกไม่ถูกต้อง' ;
          // $replyToken = $event['replyToken'];
          //         $messages = [
