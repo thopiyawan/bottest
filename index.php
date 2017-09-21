@@ -141,11 +141,11 @@ if (!is_null($events['events'])) {
 
     else{
         $mes = 'กรอกไม่ถูกต้อง' ;
-         $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => $mes
-                      ];   
+         // $replyToken = $event['replyToken'];
+         //         $messages = [
+         //                'type' => 'text',
+         //                'text' => $mes
+         //              ];   
     }
 
 
