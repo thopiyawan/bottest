@@ -121,35 +121,6 @@ if (!is_null($events['events'])) {
                     $d = $date_pre%7;
                     $w = $date_pre/7; 
                     $m = ($m_preg*4)+$w;
-                 }else{
-                    $d= $date_today-$date;
-                    $m = $month_today-$month;
-                 }
-
-            }else{
-            $date_pre = $date_today-$date;
-                 if ($date_pre>='7'){
-                    $d = $date_pre%7;
-                    $w = $date_pre/7; 
-                    $m = ($m_preg*4)+$w;
-                 }else{
-                    $d = $date_today-$date;
-                    $m = $month_today-$month;
-                 }
-
-            }
-
-    }else{
-        $mes = 'กรอกไม่ถูกต้อง' ;
-         $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => $mes
-                      ];   
-    }
-
-
-    // $month_pre = ($month_today-$month)*4 ;
 
 
 
@@ -176,6 +147,112 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];   
+                 }else{
+                    $d= $date_today-$date;
+                    $m = $month_today-$month;
+
+
+
+    $age_pre = 'คุณมีอายุครรภ์'.$m.'สัปดาห์'.$d.'วัน' ;
+
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];   
+                 }
+
+            }else{
+            $date_pre = $date_today-$date;
+                 if ($date_pre>='7'){
+                    $d = $date_pre%7;
+                    $w = $date_pre/7; 
+                    $m = ($m_preg*4)+$w;
+
+    $age_pre = 'คุณมีอายุครรภ์'.$m.'สัปดาห์'.$d.'วัน' ;
+
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];   
+                 }else{
+                    $d = $date_today-$date;
+                    $m = $month_today-$month;
+                    
+    $age_pre = 'คุณมีอายุครรภ์'.$m.'สัปดาห์'.$d.'วัน' ;
+
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];   
+                 }
+
+            }
+
+    }else{
+        $mes = 'กรอกไม่ถูกต้อง' ;
+         $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $mes
+                      ];   
+    }
+
+
+    // $month_pre = ($month_today-$month)*4 ;
+
+
+
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
