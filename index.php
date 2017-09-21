@@ -47,13 +47,16 @@ if (!is_null($events['events'])) {
   }elseif ($event['message']['text'] == "สนใจ" ) {
                  
                  $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
-            
-
+        
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => $text
                       ];
+
+                 $escaped = pg_escape_string($text);
+                 $sql =  pg_query("INSERT INTO history_con(his_id, user_id ,his_message) VALUES('1',$user_id,'{$escaped}')");
+                 pg_exec($dbconn, $sql) or die(pg_errormessage());
 
    
 
