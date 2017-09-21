@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
                       ];
 
                  $escaped = pg_escape_string($text);
-                 $sql =  pg_query("INSERT INTO history_con(his_id, user_id ,his_message) VALUES('1',$user_id,'{$escaped}')");
+                 $sql =  pg_query("INSERT INTO history_con(his_id, user_id ,his_message,his_date) VALUES('1',$user_id,'{$escaped}',NOW())");
                  pg_exec($dbconn, $sql) or die(pg_errormessage());
 
    
