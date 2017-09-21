@@ -11,6 +11,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
 $user = $events['events'][0]['source']['userId'];
+$user_id = pg_escape_string($user);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
@@ -45,10 +46,16 @@ if (!is_null($events['events'])) {
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
                  $replyToken = $event['replyToken'];
+                 $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
+                 $escaped = pg_escape_string($text);
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)'
+                        'text' => $text
                       ];
+
+    $sql =  pg_query("INSERT INTO history_con(user_id ,his_message) VALUES($user_id,'{$escaped}' )");
+     pg_exec($dbconn, $sql) or die(pg_errormessage());
+
   }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
