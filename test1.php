@@ -19,13 +19,13 @@ if (!$dbconn) {
 //////////////////////////////////////////////////////////////////////
 
 //*************************
-$sql="CREATE TABLE test(
-userid varchar(225),
-mes  varchar(225),
-date_his DATE,
-PRIMARY KEY(userid)
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// $sql="CREATE TABLE test(
+// userid varchar(225),
+// mes  varchar(225),
+// date_his DATE,
+// PRIMARY KEY(userid)
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 //**************************
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,6 +90,51 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 // )";   
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+$sql="CREATE TABLE sequents(
+id int(10) UNSIGNED NOT NULL,
+seqcode varchar(255),
+question varchar(255),
+answer varchar(255),
+nexttype int(11),
+nextseqcode varchar(255),
+created_at timestamp,
+updated_at timestamp,
+PRIMARY KEY(id)
+
+)";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
+
+
+$sql="CREATE TABLE sequentsteps(
+id int(10) UNSIGNED NOT NULL,
+sender_id varchar(30),
+seqcode varchar(30),
+answer varchar(255),
+nextseqcode varchar(255),
+status varchar(255),
+created_at timestamp,
+updated_at timestamp,
+PRIMARY KEY(id)
+
+)";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
+
+
+$sql="CREATE TABLE pregnants(
+id int(10) UNSIGNED NOT NULL,
+week int(11),
+title text,
+descript text,
+img text,
+
+created_at timestamp,
+updated_at timestamp,
+PRIMARY KEY(id)
+
+)";   
 
 
 ?>
