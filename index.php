@@ -107,17 +107,57 @@ if (!is_null($events['events'])) {
     $month  = str_replace("","",$pieces[1]);
     $date_today = date("d"); 
     $month_today = date("m");  
-        if ($date>$date_today){
-            $date_pre = $date-$date_today ;
-        }else{
+    //     if ($date>$date_today){
+    //         $date_pre = $date-$date_today ;
+    //     }else{
+    //         $date_pre = $date_today-$date;
+    //     }
+    // $month_pre = ($month_today-$month)*4 ;
+
+
+
+    if ($month<$month_today){
+        $m_preg = $month_today-$month;
+            
+            if ($date>$date_today){
+                $date_pre = $date-$date_today;
+                
+                 if ($date_pre>='7'){
+                    $d = $date_pre%7;
+                    $w = $date_pre/7; 
+                    $m = ($m_preg*4)+$w;
+                 }else{
+                    $date_pre = $date_today-$date;
+           
+                 }
+
+            }else{
             $date_pre = $date_today-$date;
-        }
-    $month_pre = ($month_today-$month)*4 ;
+                 if ($date_pre>='7'){
+                    $d = $date_pre%7;
+                    $w = $date_pre/7; 
+                    $m = ($m_preg*4)+$w;
+                 }else{
+                    $date_pre = $date_today-$date;
+           
+                 }
+
+            }
+
+    else{
+        $mes = 'กรอกไม่ถูกต้อง' ;
+    }
+
+
+    // $month_pre = ($month_today-$month)*4 ;
+
+
+
     $age_pre = 'คุณมีอายุครรภ์'.$month_pre.'สัปดาห์'.$date_pre.'วัน' ;
 
     $replyToken = $event['replyToken'];
     $messages = [
-        'type' => 'template',
+        'type' => 'template',-00
         'altText' => 'this is a confirm template',
         'template' => [
             'type' => 'confirm',
