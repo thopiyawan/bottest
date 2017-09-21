@@ -157,7 +157,7 @@ if (!is_null($events['events'])) {
 
     $replyToken = $event['replyToken'];
     $messages = [
-        'type' => 'template',-00
+        'type' => 'template',
         'altText' => 'this is a confirm template',
         'template' => [
             'type' => 'confirm',
