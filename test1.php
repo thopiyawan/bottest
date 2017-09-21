@@ -19,15 +19,13 @@ if (!$dbconn) {
 //////////////////////////////////////////////////////////////////////
 
 //*************************
-// $sql="CREATE TABLE history (
-// historyid  SERIAL,
-// date_history DATE,
-// users text , 
-// weight varchar(3),
-// height varchar(3),
-// PRIMARY KEY(historyid)
-// )";   
-// pg_exec($dbconn, $sql) or die(pg_errormessage());
+$sql="CREATE TABLE test(
+userid varchar(225),
+mes  varchar(225),
+date_his DATE,
+PRIMARY KEY(userid)
+)";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 //**************************
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,51 +45,51 @@ if (!$dbconn) {
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 //************************NEW_TABLE*******************************************************
-$sql="CREATE TABLE users_data (
-user_id  varchar(225),
-user_age varchar(2),
-user_weight varchar(3),
-user_height varchar(3),
-preg_week date,
+// $sql="CREATE TABLE users_data (
+// user_id  varchar(225),
+// user_age varchar(2),
+// user_weight varchar(3),
+// user_height varchar(3),
+// preg_week date,
 
-PRIMARY KEY(user_id)
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// PRIMARY KEY(user_id)
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-$sql="CREATE TABLE Pregnancy_week_data(
-week_preg varchar(3),
-des_preg text,
-picture_preg varchar(225),
+// $sql="CREATE TABLE Pregnancy_week_data(
+// week_preg varchar(3),
+// des_preg text,
+// picture_preg varchar(225),
 
-PRIMARY KEY(week_preg)
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// PRIMARY KEY(week_preg)
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
-$sql="CREATE TABLE history_con(
-his_id  SERIAL,
-user_id  varchar(225),
-his_message varchar(3),
-his_date timestamp ,
+// $sql="CREATE TABLE history_con(
+// his_id  SERIAL,
+// user_id  varchar(225),
+// his_message varchar(3),
+// his_date timestamp ,
 
-PRIMARY KEY(his_id),
-FOREIGN KEY (user_id) REFERENCES users_data(user_id)
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// PRIMARY KEY(his_id),
+// FOREIGN KEY (user_id) REFERENCES users_data(user_id)
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-$sql="CREATE TABLE history_preg(
-his_preg_id SERIAL,
-his_preg_week  varchar(2),
-his_preg_weight varchar(3),
+// $sql="CREATE TABLE history_preg(
+// his_preg_id SERIAL,
+// his_preg_week  varchar(2),
+// his_preg_weight varchar(3),
 
-user_id  varchar(225),
+// user_id  varchar(225),
 
-PRIMARY KEY(his_preg_id),
-FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
-FOREIGN KEY (user_id) REFERENCES users_data(user_id)
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
-
+// PRIMARY KEY(his_preg_id),
+// FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
+// FOREIGN KEY (user_id) REFERENCES users_data(user_id)
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ?>
