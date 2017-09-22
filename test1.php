@@ -108,19 +108,19 @@ if (!$dbconn) {
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
-// $sql="CREATE TABLE sequentsteps(
-// id SERIAL,
-// sender_id varchar(30),
-// seqcode varchar(30),
-// answer varchar(255),
-// nextseqcode varchar(255),
-// status varchar(255),
-// created_at timestamp,
-// updated_at timestamp,
-// PRIMARY KEY(id)
+$sql="CREATE TABLE sequentsteps(
+id SERIAL,
+sender_id varchar(50),
+seqcode varchar(30),
+answer varchar(255),
+nextseqcode varchar(255),
+status varchar(255),
+created_at timestamp,
+updated_at timestamp,
+PRIMARY KEY(id)
 
-// )";   
-// pg_exec($dbconn, $sql) or die(pg_errormessage());
+)";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 // $sql="CREATE TABLE pregnants(
@@ -190,8 +190,8 @@ if (!$dbconn) {
 
 
 
-  $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status, created_at,updated_at ) VALUES('1','1','1','1','1',NOW(),NOW())");
-                 $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
+  // $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status, created_at,updated_at ) VALUES('1','1','1','1','1',NOW(),NOW())");
+  //                $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 
