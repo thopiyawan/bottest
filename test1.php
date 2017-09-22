@@ -195,9 +195,9 @@ if (!$dbconn) {
 
 
 
-$result = pg_query($dbconn,"SELECT seqcode, MAX(updated_at) as tt FROM sequentsteps   ");
+$result = pg_query($dbconn,"SELECT seqcode FROM sequentsteps   ");
                 while ($row = pg_fetch_array($result)) {
-                  echo $seqcode =  $row;
+                  echo  $row;
              
                 } 
 
