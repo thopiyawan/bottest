@@ -183,8 +183,8 @@ if (!$dbconn) {
 
        $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '600'");
                 while ($row = pg_fetch_row($result)) {
-                 $seqcode =  $row[0] ;
-                 $question = $row[1] ;
+                 echo $seqcode =  $row[0] ;
+                 echo $question = $row[1] ;
                 }
                             
 
