@@ -94,7 +94,7 @@ if (!$dbconn) {
 
 
 $sql="CREATE TABLE sequents(
-id int(10) UNSIGNED NOT NULL,
+id int(10) SERIAL,
 seqcode varchar(255),
 question varchar(255),
 answer varchar(255),
@@ -109,7 +109,7 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 $sql="CREATE TABLE sequentsteps(
-id int(10) UNSIGNED NOT NULL,
+id int(10) SERIAL,
 sender_id varchar(30),
 seqcode varchar(30),
 answer varchar(255),
@@ -124,7 +124,7 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 $sql="CREATE TABLE pregnants(
-id int(10) UNSIGNED NOT NULL,
+id int(10) SERIAL,
 week int(11),
 title text,
 descript text,
