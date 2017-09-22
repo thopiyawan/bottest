@@ -195,7 +195,7 @@ if (!$dbconn) {
 
 
 
-$result = pg_query($dbconn,"SELECT seqcode, updated_at  FROM sequentsteps    ");
+$result = pg_query($dbconn,"SELECT seqcode, updated_at  FROM sequentsteps  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($result)) {
                   echo $seqcode =  $row[0];
                   echo $question = $row[1]; 
