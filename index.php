@@ -46,15 +46,16 @@ if (!is_null($events['events'])) {
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
 
-
+                $user = $events['events'][0]['source']['userId'];
+                $user_id = pg_escape_string($user);
 
 
              
 
                $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '0006'");
                 while ($row = pg_fetch_row($result)) {
-                  $seqcode =  $row[0];
-                  $question = $row[1];
+                  echo $seqcode =  $row[0];
+                  echo $question = $row[1];
                 }   
                  //$text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
                  $replyToken = $event['replyToken'];
@@ -63,7 +64,7 @@ if (!is_null($events['events'])) {
                         'text' => $question
                       ];
 
-                   $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('366','0006','1','0007','1',NOW(),NOW())");
+                   $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0006','1','0007','1',NOW(),NOW())");
                 $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
    
   }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
