@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
              $seqcode =  "$row[0]";
              $question =  "$row[1]";
             }
-
+             $question = 'bb';
                  // $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
         
                  $replyToken = $event['replyToken'];
