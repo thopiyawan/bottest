@@ -52,7 +52,7 @@ if (!is_null($events['events'])) {
             $result = pg_query($query);
             while ($row = pg_fetch_row($result)) {
              $seqcode =  "$row[0]";
-             $question =  "$row[0]";
+             $question =  "$row[1]";
             }
 
                  // $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
