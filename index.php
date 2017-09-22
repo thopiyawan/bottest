@@ -58,8 +58,10 @@ if (!is_null($events['events'])) {
                       ];
 
                  //$escaped = pg_escape_string($text);
-                 $sql =  pg_query($dbconn , "INSERT INTO sequents(sender_id,seqcode,answer,nextseqcode,status, created_at,updated_at ) VALUES('1','1','1','1','1',NOW(),NOW())");
-                 $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
+                    $sql =  pg_query($dbconn , "
+                        INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at ) 
+                        VALUES('{$user_id}','0006','','0007','1',NOW(),NOW())");
+                    $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
 
    
   }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
