@@ -98,7 +98,7 @@ id SERIAL,
 seqcode varchar(255),
 question varchar(255),
 answer varchar(255),
-nexttype int(11),
+nexttype integer(11),
 nextseqcode varchar(255),
 created_at timestamp,
 updated_at timestamp,
@@ -125,7 +125,7 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 $sql="CREATE TABLE pregnants(
 id SERIAL,
-week int(11),
+week  integer(11),
 title text,
 descript text,
 img text,
@@ -135,6 +135,6 @@ updated_at timestamp,
 PRIMARY KEY(id)
 
 )";   
-
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 ?>
