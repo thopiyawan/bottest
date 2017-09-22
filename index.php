@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-  if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี')) {
+  if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'หวัดดี') !== false) {
       $replyToken = $event['replyToken'];
       $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยไหม";
       // $messages = [
@@ -45,15 +45,7 @@ if (!is_null($events['events'])) {
         ]
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
- 
-            // $query = 'SELECT seqcode, question 
-            //           FROM sequents
-            //           WHERE seqcode = '0006'  ';
-            // $result = pg_query($query);
-            // while ($row = pg_fetch_row($result)) {
-            //  $e =  "น้ำหนัก $row[0] ";
-            // }
-
+                 
                  $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
         
                  $replyToken = $event['replyToken'];
