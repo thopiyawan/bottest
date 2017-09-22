@@ -108,19 +108,19 @@ if (!$dbconn) {
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
-$sql="CREATE TABLE sequentsteps(
-id SERIAL,
-sender_id varchar(50),
-seqcode varchar(30),
-answer varchar(255),
-nextseqcode varchar(255),
-status varchar(255),
-created_at timestamp,
-updated_at timestamp,
-PRIMARY KEY(id)
+// $sql="CREATE TABLE sequentsteps(
+// id SERIAL,
+// sender_id varchar(50),
+// seqcode varchar(30),
+// answer varchar(255),
+// nextseqcode varchar(255),
+// status varchar(255),
+// created_at timestamp,
+// updated_at timestamp,
+// PRIMARY KEY(id)
 
-)";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 // $sql="CREATE TABLE pregnants(
@@ -195,7 +195,11 @@ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
 
-
+$result = pg_query($dbconn,"SELECT seqcode FROM sequentsteps WHERE MAX (updated_at) ");
+                while ($row = pg_fetch_row($result)) {
+                  echo $seqcode =  $row[0];
+                  echo $question = $row[1];
+                } 
 
 
 
