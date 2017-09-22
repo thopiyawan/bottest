@@ -181,11 +181,11 @@ if (!$dbconn) {
 // (41, 41, 'สัปดาห์ที่ 41', 'As cozy as he is, your baby can not stay inside you much longer. You will go into labor or be induced soon.', '41', NULL, NULL)";
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-       $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '0006'");
-                while ($row = pg_fetch_row($result)) {
-                 echo $seqcode =  $row[0] ;
-                 echo $question = $row[1] ;
-                }
+       // $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '0006'");
+       //          while ($row = pg_fetch_row($result)) {
+       //           echo $seqcode =  $row[0] ;
+       //           echo $question = $row[1] ;
+       //          }
                             
 
 
