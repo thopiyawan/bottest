@@ -46,8 +46,8 @@ if (!is_null($events['events'])) {
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
 
-                $user = $events['events'][0]['source']['userId'];
-                $user_id = pg_escape_string($user);
+                // $user = $events['events'][0]['source']['userId'];
+                // $user_id = pg_escape_string($user);
 
 
              
@@ -64,8 +64,8 @@ if (!is_null($events['events'])) {
                         'text' =>  $user
                       ];
 
-                // $sql =  pg_query( "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES($user,'0006','1','0007','1',NOW(),NOW())");
-                // $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
+                $sql =  pg_query( "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0006','1','0007','1',NOW(),NOW())");
+                $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
    
   }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
