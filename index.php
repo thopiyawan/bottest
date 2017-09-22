@@ -45,18 +45,23 @@ if (!is_null($events['events'])) {
         ]
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
-                 
+                $query = 'select seqcode,question from sequents where seqcode='006'   ';
+                $result = pg_query($query);
+                while ($row = pg_fetch_row($result)) {
+                 $seqcode =  "$row[0] ";
+                 $question = "$row[1] ";
+                }
+
                  $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
-        
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => $text
+                        'text' => $question
                       ];
 
-                 $escaped = pg_escape_string($text);
-                 $sql =  pg_query("INSERT INTO history_con( userid,mes,date_his) VALUES('{$user_id}','{$escaped}',NOW())");
-                 pg_exec($dbconn, $sql) or die(pg_errormessage());
+                 // $escaped = pg_escape_string($text);
+                 // $sql =  pg_query("INSERT INTO history_con( userid,mes,date_his) VALUES('{$user_id}','{$escaped}',NOW())");
+                 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
    
 
