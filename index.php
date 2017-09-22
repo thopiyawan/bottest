@@ -47,8 +47,8 @@ if (!is_null($events['events'])) {
   }elseif ($event['message']['text'] == "สนใจ" ) {
                 $result = pg_query($conn,"SELECT seqcode,question FROM sequents WHERE seqcode = '600'");
                 while ($row = pg_fetch_row($result)) {
-                 $seqcode =  "$row[0] ";
-                 $question = "$row[1] ";
+                 $seqcode =  $row[0] ;
+                 $question = $row[1] ;
                 }
                                
                  //$text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
