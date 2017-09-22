@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
         ]
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
-                $query = 'select seqcode,question from sequents where seqcode=006 '  ;
+                $query = "select seqcode,question from sequents where seqcode = '600' "  ;
                 $result = pg_query($query);
                 while ($row = pg_fetch_row($result)) {
                  $seqcode =  "$row[0] ";
