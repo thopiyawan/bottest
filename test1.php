@@ -190,7 +190,7 @@ if (!$dbconn) {
 
 
 
-  $sql =  pg_query($dbconn , "INSERT INTO sequents(sender_id,seqcode,answer,nextseqcode,status, created_at,updated_at ) VALUES('1','1','1','1','1',NOW(),NOW())");
+  $sql =  pg_query( "INSERT INTO sequents(sender_id,seqcode,answer,nextseqcode,status ) VALUES('1','1','1','1','1')");
                  $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 
