@@ -1,7 +1,7 @@
 <?php
 //database
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
-$dbconn = pg_pconnect($conn_string);
+$conn = pg_pconnect($conn_string);
 //
 
 $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=';
@@ -45,14 +45,13 @@ if (!is_null($events['events'])) {
         ]
     ];
   }elseif ($event['message']['text'] == "สนใจ" ) {
-                $query = "select seqcode,question from sequents where seqcode = '600' "  ;
-                $result = pg_query($query);
+                $result = pg_query($conn,"SELECT seqcode,question FROM sequents WHERE seqcode = '600'");
                 while ($row = pg_fetch_row($result)) {
                  $seqcode =  "$row[0] ";
-                 $question = "ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530) ";
+                 $question = "$row[1] ";
                 }
-
-                 $text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
+                               
+                 //$text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
