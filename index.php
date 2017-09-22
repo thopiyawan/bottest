@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 
 
 
-                $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('002','0006','1','0007','1',NOW(),NOW())");
+                $sql =  pg_query($dbconn , "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES($user_id,'0006','1','0007','1',NOW(),NOW())");
                 $q = pg_exec($dbconn, $sql) or die(pg_errormessage());
 
                $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '0006'");
