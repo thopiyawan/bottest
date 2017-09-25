@@ -162,8 +162,8 @@ if (!is_null($events['events'])) {
     $month_pre = ($month_today-$month)*4 ;
   
     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
-    $am =  $month_pre.'/'.$date_pre;
-    $md = pg_escape_string($am );
+    $am =  $month_pre.$date_pre;
+    $md = pg_escape_string($am);
     $replyToken = $event['replyToken'];
     $messages = [
         'type' => 'template',
