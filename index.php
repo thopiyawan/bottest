@@ -117,7 +117,8 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];     
-$q = pg_exec($dbconn, "INSERT INTO sequentsteps(user_id ,user_age)VALUES('{$user_id}',$age") or die(pg_errormessage());
+$q = pg_exec($dbconn, "INSERT INTO users_data
+(user_id ,user_age)VALUES('{$user_id}',$age") or die(pg_errormessage());
 
 
 
