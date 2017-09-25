@@ -70,7 +70,7 @@ if (!is_null($events['events'])) {
                         'text' =>  $question
                       ];
 
-                $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0006','','0007','1',NOW(),NOW())") or die(pg_errormessage());
+                $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0006','','0007','0',NOW(),NOW())") or die(pg_errormessage());
    
   }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
                  $replyToken = $event['replyToken'];
@@ -81,9 +81,9 @@ if (!is_null($events['events'])) {
   
        
     
-  }elseif (strpos($_msg, 'เกิด') !== false) {
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0004" ) {
   
-    $birth_years =  str_replace("เกิด","", $_msg);
+    // $birth_years =  str_replace("เกิด","", $_msg);
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
     $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
