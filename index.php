@@ -9,6 +9,13 @@ $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrL
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+
+
+
+$curr_years = date("Y");
+$curr_y = ($curr_years+ 543)
+
+
 $_msg = $events['events'][0]['message']['text'];
 $user = $events['events'][0]['source']['userId'];
 $user_id = pg_escape_string($user);
@@ -81,7 +88,7 @@ if (!is_null($events['events'])) {
   
        
     
-  }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4) {
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && is_numeric($_msg)< $curr_y) {
   
     $birth_years = $_msg;
 
