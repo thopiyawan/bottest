@@ -124,6 +124,11 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
                       ];
+           $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008','','0009','0',NOW(),NOW())") or die(pg_errormessage());
+
+
+
+
   }elseif ($event['message']['text'] == "ไม่ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
@@ -131,8 +136,8 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่'
                       ];  
 
-  }elseif (strpos($_msg, 'วันที่') !== false) {
-  
+  }elseif (is_numeric($_msg) !== false  && strlen($_msg) == 5 ) {
+
     $birth_years =  str_replace("วันที่","", $_msg);
     $pieces = explode(" ", $birth_years);
     $date = str_replace("","",$pieces[0]);
