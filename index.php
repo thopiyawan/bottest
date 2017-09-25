@@ -88,7 +88,7 @@ if (!is_null($events['events'])) {
   
            
     
-  }elseif (strpos($_msg ,'') !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500" ) {
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500" ) {
   
     $birth_years = $_msg;
     $curr_years = date("Y"); 
@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่'
                       ];  
 
-  }elseif (is_numeric($_msg) !== false  && strlen($_msg) == 5 && $seqcode == "0008") {
+  }elseif ( strlen($_msg) == 5 && $seqcode == "0008") {
 
     $birth_years =  str_replace("วันที่","", $_msg);
     $pieces = explode(" ", $birth_years);
