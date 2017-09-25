@@ -195,12 +195,17 @@ if (!$dbconn) {
 
 
 
-$result = pg_query($dbconn,"SELECT seqcode, updated_at  FROM sequentsteps  order by updated_at desc limit 1   ");
+// $result = pg_query($dbconn,"SELECT seqcode, updated_at  FROM sequentsteps  order by updated_at desc limit 1   ");
+//                 while ($row = pg_fetch_row($result)) {
+//                   echo $seqcode =  $row[0];
+//                   echo $question = $row[1]; 
+//                 } 
+
+$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($result)) {
                   echo $seqcode =  $row[0];
-                  echo $question = $row[1]; 
+                  echo $sender = $row[2]; 
                 } 
-
 
 
 
