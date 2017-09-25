@@ -86,7 +86,7 @@ if (!is_null($events['events'])) {
                         'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
                       ];          
   
-       
+           
     
   }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500" ) {
   
@@ -117,6 +117,9 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];     
+$q = pg_exec($dbconn, "INSERT INTO sequentsteps(user_id ,user_age)VALUES('{$user_id}',$age") or die(pg_errormessage());
+
+
 
   }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
