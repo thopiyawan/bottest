@@ -81,12 +81,13 @@ if (!is_null($events['events'])) {
   
        
     
-  }elseif (is_numeric($_msg) !== false && $seqcode == "0006" ) {
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4) {
   
     $birth_years = $_msg;
+
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
-    $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
+    $age_mes = 'ปีนี้คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
 
     $replyToken = $event['replyToken'];
     $messages = [
