@@ -88,7 +88,7 @@ if (!is_null($events['events'])) {
   
        
     
-  }elseif (is_numeric($_msg) !== false && strpos($_msg) < $curr_y && $seqcode == "0006"  && strlen($_msg) == 4) {
+  }elseif (is_numeric($_msg) !== false && is_numeric($_msg) < $curr_y && $seqcode == "0006"  && strlen($_msg) == 4) {
   
     $birth_years = $_msg;
 
