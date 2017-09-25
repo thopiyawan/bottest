@@ -83,7 +83,7 @@ if (!is_null($events['events'])) {
     
   }elseif (is_numeric($_msg) !== false && $seqcode == "0006" ) {
   
-    // $birth_years =  str_replace("เกิด","", $_msg);
+    $birth_years = $_msg;
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
     $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
