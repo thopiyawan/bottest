@@ -26,12 +26,12 @@ if (!is_null($events['events'])) {
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
 
-if($seqcode == '0006'){
+if($event['message']['text'] == "5"){
 
        $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'สรุป'
+                        'text' => $seqcode
                       ];  
 
 
