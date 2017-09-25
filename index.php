@@ -13,68 +13,253 @@ $_msg = $events['events'][0]['message']['text'];
 $user = $events['events'][0]['source']['userId'];
 $user_id = pg_escape_string($user);
 
-$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = '{$user_id}'  order by updated_at desc limit 1   ");
+$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = '{$user}'  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
                   echo $sender = $row[2]; 
                 } 
 
+
+// Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-$seqcode = '0004';
-if($seqcode == '0004' && $event['message']['text'] == "สนใจ" ){
+  if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'หวัดดี') !== false) {
+      $replyToken = $event['replyToken'];
+      $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยไหม";
+      // $messages = [
+      //   'type' => 'text',
+      //   'text' => $text
+      // ];
+        $messages = [
+       'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' => $text ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'สนใจ',
+                    'text' => 'สนใจ'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่สนใจ',
+                    'text' => 'ไม่สนใจ'
+                ],
+            ]
+        ]
+    ];
+
+   $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());
+
+
+  }elseif ($event['message']['text'] == "สนใจ" && $check_q == '0004'  ) {
+
+               $result = pg_query($dbconn,"SELECT seqcode,question FROM sequents WHERE seqcode = '0006'");
+                while ($row = pg_fetch_row($result)) {
+                  echo $seqcode =  $row[0];
+                  echo $question = $row[1];
+                }   
+                 //$text = 'ขอเริ่มสอบถามข้อมูลเบื้องต้นก่อนนะคะ ขอทราบพ.ศ.เกิดของคุณเพื่อคำนวณอายุ (ตัวอย่างการพิมพ์ เกิด2530)';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' =>  $question
+                      ];
+
+                $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0006','','0007','1',NOW(),NOW())") or die(pg_errormessage());
+   
+  }elseif ($event['message']['text'] == "ไม่สนใจ" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
+                      ];          
+  
        
-       $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => '1'
-                      ];  
-elseif($seqcode == '0006'){
-
-       
-       $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => '2'
-                      ];  
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-else{
-     $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้างล่างด้วยนะคะ'
-                      ];  
-     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());
     
-}
+  }elseif (strpos($_msg, 'เกิด') !== false) {
+  
+    $birth_years =  str_replace("เกิด","", $_msg);
+    $curr_years = date("Y"); 
+    $age = ($curr_years+ 543)- $birth_years;
+    $age_mes = 'คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
 
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' => $age_mes ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];     
+
+  }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
+                      ];
+  }elseif ($event['message']['text'] == "ไม่ถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'กรุณาพิมพ์ใหม่'
+                      ];  
+
+  }elseif (strpos($_msg, 'วันที่') !== false) {
+  
+    $birth_years =  str_replace("วันที่","", $_msg);
+    $pieces = explode(" ", $birth_years);
+    $date = str_replace("","",$pieces[0]);
+    $month  = str_replace("","",$pieces[1]);
+    $date_today = date("d"); 
+    $month_today = date("m");  
+        if ($date>$date_today){
+            $date_pre = $date-$date_today ;
+        }else{
+            $date_pre = $date_today-$date;
+        }
+    $month_pre = ($month_today-$month)*4 ;
+  
+    $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
+
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];   
+
+    
+  }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขออนุญาตถามน้ำหนักปกติก่อนตั้งครรภ์ของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยกิโลกรัม เช่น น้ำหนัก50)'
+                      ];
+  }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร ส่วนสูง160)'
+                      ];  
+
+  }elseif (strpos($_msg, 'น้ำหนัก') !== false)  {
+                 $weight =  str_replace("น้ำหนัก","", $_msg);
+                 $weight_mes = 'ก่อนตั้งครรภ์ คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $weight_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'น้ำหนักถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+  }elseif ($event['message']['text'] == "ส่วนสูงถูกต้อง" ) {
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'สรุป'
+                      ];  
+
+  }elseif (strpos($_msg, 'ส่วนสูง') !== false) {
+                 $height =  str_replace("ส่วนสูง","", $_msg);
+                 $height_mes = 'ปัจจุบัน คุณสูง '.$height.'ถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $height_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'ส่วนสูงถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+
+  }elseif ($event['message']['text'] == "ทดสอบ" ) {
+
+    $query = 'select weight from history ';
+    $result = pg_query($query);
+    while ($row = pg_fetch_row($result)) {
+     $e =  "น้ำหนัก $row[0] ";
+    }
+   
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => $e 
+                      ];  
+
+  }else{
+    $replyToken = $event['replyToken'];
+    $text = "ฉันไม่เข้าใจค่ะ";
+    $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+    
   }
+
+  
  }
 }
 
-
-
-
-
-
-
-
-  
   // Make a POST Request to Messaging API to reply to sender
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
