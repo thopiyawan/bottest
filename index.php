@@ -162,7 +162,7 @@ if (!is_null($events['events'])) {
     $month_pre = ($month_today-$month)*4 ;
   
     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
-
+    $am =  $month_pre.' '.$date_pre;
     $replyToken = $event['replyToken'];
     $messages = [
         'type' => 'template',
@@ -184,7 +184,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];   
-
+   $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008', $am ,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
