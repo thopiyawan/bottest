@@ -13,7 +13,7 @@ $events = json_decode($content, true);
 
 
 $curr_years = date("Y");
-$curr_y = ($curr_years+ 543)
+$curr_y = ($curr_years+ 543);
 
 
 $_msg = $events['events'][0]['message']['text'];
