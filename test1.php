@@ -200,11 +200,11 @@ if (!$dbconn) {
 //                   echo $seqcode =  $row[0];
 //                   echo $question = $row[1]; 
 //                 } 
-
-$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
+$user = 'U2dc636d2cd052e82c29f5284e00f69b9';
+$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = 'U2dc636d2cd052e82c29f5284e00f69b9'  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
-                  echo $sender = $row[2]; 
+                  echo $sender = $row[1]; 
                 } 
 
 
