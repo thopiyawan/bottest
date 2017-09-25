@@ -19,8 +19,6 @@ $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequent
                   echo $sender = $row[2]; 
                 } 
 
-
-// Validate parsed JSON data
 if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
@@ -31,7 +29,7 @@ if($event['message']['text'] == "5"){
        $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => $seqcode
+                        'text' => 'fdv'
                       ];  
 
 
@@ -42,6 +40,14 @@ if($event['message']['text'] == "5"){
   }
  }
 }
+
+
+
+
+
+
+
+
   
   // Make a POST Request to Messaging API to reply to sender
          $url = 'https://api.line.me/v2/bot/message/reply';
