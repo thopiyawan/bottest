@@ -45,16 +45,17 @@ if (!$dbconn) {
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 //************************NEW_TABLE*******************************************************
-// $sql="CREATE TABLE users_data (
-// user_id  varchar(225),
-// user_age varchar(2),
-// user_weight varchar(3),
-// user_height varchar(3),
-// preg_week date,
+$sql="CREATE TABLE users_data(
+ id SERIAL,
+ user_id  varchar(225),
+ user_age varchar(2),
+ user_weight varchar(3),
+ user_height varchar(3),
+ preg_week date,
 
-// PRIMARY KEY(user_id)
-// )";   
-// pg_exec($dbconn, $sql) or die(pg_errormessage());
+ PRIMARY KEY(id)
+ )";   
+ pg_exec($dbconn, $sql) or die(pg_errormessage());
 
 // $sql="CREATE TABLE Pregnancy_week_data(
 // week_preg varchar(3),
@@ -200,12 +201,12 @@ if (!$dbconn) {
 //                   echo $seqcode =  $row[0];
 //                   echo $question = $row[1]; 
 //                 } 
-$user = 'U2dc636d2cd052e82c29f5284e00f69b9';
-$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
-                while ($row = pg_fetch_row($check_q)) {
-                  echo $seqcode =  $row[0];
-                  echo $sender = $row[1]; 
-                } 
+// $user = 'U2dc636d2cd052e82c29f5284e00f69b9';
+// $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
+//                 while ($row = pg_fetch_row($check_q)) {
+//                   echo $seqcode =  $row[0];
+//                   echo $sender = $row[1]; 
+//                 } 
 
 
 
