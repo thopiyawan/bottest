@@ -81,7 +81,7 @@ if (!is_null($events['events'])) {
   
        
     
-  }elseif (is_numeric($_msg) !== false && $seqcode == "0004" ) {
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0006" ) {
   
     // $birth_years =  str_replace("เกิด","", $_msg);
     $curr_years = date("Y"); 
