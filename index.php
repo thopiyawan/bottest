@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่'
                       ];  
 
-  }elseif ( strlen($_msg) == 5 && $seqcode == "0008") {
+  }elseif (is_numeric($_msg) !== false && strlen($_msg) == 5 && $seqcode == "0008") {
 
     $birth_years =  str_replace("วันที่","", $_msg);
     $pieces = explode(" ", $birth_years);
