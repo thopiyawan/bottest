@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-
+$seqcode = '0004';
 if($seqcode == '0004' && $event['message']['text'] == "สนใจ" ){
        
        $replyToken = $event['replyToken'];
