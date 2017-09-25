@@ -116,7 +116,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];     
-       $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}','0004','0','0','0') ") or die(pg_errormessage());      
+       $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}',$age,'0','0','0') ") or die(pg_errormessage());      
 
   }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
