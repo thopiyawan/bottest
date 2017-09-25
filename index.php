@@ -91,7 +91,6 @@ if (!is_null($events['events'])) {
   }elseif (is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500" ) {
   
     $birth_years = $_msg;
-
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
     $age_mes = 'ปีนี้คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
@@ -117,7 +116,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];     
-       $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}','0004','0','0','0') ") or die(pg_errormessage());      
+       // $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}','0004','0','0','0') ") or die(pg_errormessage());      
 
   }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
