@@ -24,18 +24,44 @@ if (!is_null($events['events'])) {
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
 
-if($event['message']['text'] == "5"){
-
+if($seqcode == '0004'){
+       
        $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => $seqcode
+                        'text' => '1'
+                      ];  
+elseif($seqcode == '0006'){
+
+       
+       $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => '2'
                       ];  
 
 
+}
 
 
 
+
+
+
+
+
+
+
+
+else{
+     $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้างล่างด้วยนะคะ'
+                      ];  
+     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());
+    
+}
 
   }
  }
