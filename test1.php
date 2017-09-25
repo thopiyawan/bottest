@@ -202,7 +202,7 @@ if (!$dbconn) {
 //                 } 
 
 $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
-                while ($row = pg_fetch_row($result)) {
+                while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
                   echo $sender = $row[2]; 
                 } 
