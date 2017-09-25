@@ -116,7 +116,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];     
-       $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}',$age,'0','0','0') ") or die(pg_errormessage());      
+       // $q = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}',$age,'0','0','0') ") or die(pg_errormessage());      
 
   }elseif ($event['message']['text'] == "อายุถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
@@ -125,7 +125,8 @@ if (!is_null($events['events'])) {
                         'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
                       ];
            $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008','','0009','0',NOW(),NOW())") or die(pg_errormessage());
-
+           
+           $q1 = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}',$age,'0','0','0') ") or die(pg_errormessage());   
 
 
 
@@ -136,10 +137,10 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่'
                       ];  
 
-  }elseif (is_numeric($_msg) !== false && strlen($_msg) == 5 && $seqcode == "0008") {
+  }elseif (strlen($_msg) == 5 && $seqcode == "0008") {
 
-    $birth_years =  str_replace("วันที่","", $_msg);
-    $pieces = explode(" ", $birth_years);
+    // $birth_years =  str_replace("วันที่","", $_msg);
+    $pieces = explode(" ", $_msg);
     $date = str_replace("","",$pieces[0]);
     $month  = str_replace("","",$pieces[1]);
     $date_today = date("d"); 
