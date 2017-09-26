@@ -190,7 +190,7 @@ if (!is_null($events['events'])) {
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
 
     $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
-    
+
                 while ($row = pg_fetch_row($check_q)) {
             
                   echo $answer = $row[3];  
@@ -204,7 +204,7 @@ if (!is_null($events['events'])) {
                       ];
     $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
 
-UPDATE films SET kind = 'Dramatic' WHERE kind = 'Drama';
+
   }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
