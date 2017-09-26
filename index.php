@@ -185,7 +185,7 @@ if (!is_null($events['events'])) {
             ]
         ]
     ];   
-   $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',  $am,'0009','0',NOW(),NOW())") or die(pg_errormessage());
+   $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',  $a,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
                  $replyToken = $event['replyToken'];
