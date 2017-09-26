@@ -333,39 +333,29 @@ if (!is_null($events['events'])) {
 
                     $replyToken = $event['replyToken'];
                     $text = "ฉันไม่เข้าใจค่ะ";
+                    $messages = [
+                        'type' => 'text',
+                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
+                      ];
                     $messages1 = [
-                        'type' => 'text',
-                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1
-                      ];
-                         $messages2 = [
-                        'type' => 'text',
-                        'text' =>  'ค่าดัชนีมวลกาย'.$bmi
-                      ];
-                         $messages3 = [
-                        'type' => 'text',
-                        'text' => 'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
-                      ];
-                    $messages4 = [
                         'type' => 'image',
                         'originalContentUrl' =>   'https://bottest14.herokuapp.com/n_susu.png',
                         'previewImageUrl' =>   'https://bottest14.herokuapp.com/n_susu.png',
                       ];
-
-
          $des_preg = pg_query($dbconn,"SELECT  descript,img FROM pregnants WHERE  week = $answer4  ");
               while ($row = pg_fetch_row($des_preg)) {
                   echo $des = $row[0]; 
                   echo $img = $row[1]; 
  
                 } 
-                    $messages5 = [
+                    $messages2 = [
                         'type' => 'text',
                         'text' =>  $des
                       ];
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
-          'messages' => [$messages1, $messages2, $messages3, $messages4,$messages5],
+          'messages' => [$messages, $messages1, $messages2],
          ];
          error_log(json_encode($data));
          $post = json_encode($data);
