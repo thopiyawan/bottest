@@ -162,7 +162,7 @@ if (!is_null($events['events'])) {
     $month_pre = ($month_today-$month)*4 ;
   
     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
-    $am =  $month_pre.''.$date_pre;
+    $am =  $month_pre.','.$date_pre;
 
     $replyToken = $event['replyToken'];
     $messages = [
