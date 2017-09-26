@@ -93,7 +93,7 @@ if (!is_null($events['events'])) {
     $birth_years = $_msg;
     $curr_years = date("Y"); 
     $age = ($curr_years+ 543)- $birth_years;
-    $age_mes = 'ปีนี้คุณอายุ'.$age.'ถูกต้องหรือไม่คะ' ;
+    $age_mes = 'ปีนี้คุณอายุ'.$age.'ปีถูกต้องหรือไม่คะ' ;
 
     $replyToken = $event['replyToken'];
     $messages = [
@@ -280,7 +280,7 @@ if (!is_null($events['events'])) {
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0012"  )  {
                  $weight =  $_msg;
-                 $weight_mes = 'ปุจจุบัน คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $weight_mes = 'ปัจจุบัน คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
                  $replyToken = $event['replyToken'];
                  $messages = [
                                 'type' => 'template',
@@ -341,7 +341,7 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' => 'สรุป'
                       ];  
-    $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE user_data SET user_height= $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '$answer','0015','0',NOW(),NOW())") or die(pg_errormessage());
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0014"  ) {
