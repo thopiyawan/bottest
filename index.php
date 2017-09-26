@@ -310,9 +310,6 @@ if (!is_null($events['events'])) {
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0012', $weight,'0013','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 
-
-
-
   }elseif ($event['message']['text'] == "ส่วนสูงถูกต้อง"  ) {
    $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
 
@@ -410,15 +407,47 @@ if (!is_null($events['events'])) {
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 
-  }else{
-
-    $replyToken = $event['replyToken'];
-    $text = "ฉันไม่เข้าใจค่ะ";
-    $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
-
+}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    
+     $replyToken = $event['replyToken'];
+     // Build message to reply back
+      $text = "ฉันไม่เข้าใจค่ะ";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ];
+  }else {
+   $replyToken = $event['replyToken'];
+      $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้างล่างด้วยนะคะ";
+          $messages = [
+                 'type' => 'template',
+                  'altText' => 'this is a confirm template',
+                  'template' => [
+                      'type' => 'confirm',
+                      'text' => $text ,
+                      'actions' => [
+                          [
+                              'type' => 'message',
+                              'label' => 'สนใจ',
+                              'text' => 'สนใจ'
+                          ],
+                          [
+                              'type' => 'message',
+                              'label' => 'ไม่สนใจ',
+                              'text' => 'ไม่สนใจ'
+                          ]
+                      ]
+                  ]
+              ]; 
+     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());         
+    // $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());
+    // }else{
+    //   $replyToken = $event['replyToken'];
+    //   $text = "ฉันไม่เข้าใจค่ะ";
+    //   $messages = [
+    //       'type' => 'text',
+    //       'text' => $text
+    //     ];
   }
 
   
