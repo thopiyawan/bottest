@@ -360,7 +360,7 @@ if (!is_null($events['events'])) {
                   echo $height = $row[2]; 
                   echo $answer4 = $row[3];  
                 } 
-                $height1 =$height*0.1;
+                $height1 =$height*0.01;
                 $bmi = $weight/($height1*$height1);
 
                    $replyToken = $event['replyToken'];
