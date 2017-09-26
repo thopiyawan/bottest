@@ -336,10 +336,6 @@ if (!is_null($events['events'])) {
                     $messages = [
                         'type' => 'text',
                         'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
-                      ],
-                      [
-                        'type' => 'text',
-                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
                       ];
 
 
@@ -378,7 +374,10 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-    
+    $c = [
+        'type' => 'text',
+        'text' => $text
+      ];
   }
 
   
@@ -389,7 +388,7 @@ if (!is_null($events['events'])) {
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
-          'messages' => [$messages],
+          'messages' => [$messages,$c],
          ];
          error_log(json_encode($data));
          $post = json_encode($data);
