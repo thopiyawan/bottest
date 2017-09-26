@@ -309,24 +309,6 @@ if (!is_null($events['events'])) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }elseif ($event['message']['text'] == "ส่วนสูงถูกต้อง"  ) {
    $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
 
@@ -339,7 +321,7 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'สรุป'
+                        'text' => 'รอการวิเคราะห์'
                       ];  
     $q1 = pg_exec($dbconn, "UPDATE user_data SET user_height= $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '$answer','0015','0',NOW(),NOW())") or die(pg_errormessage());
@@ -369,21 +351,28 @@ if (!is_null($events['events'])) {
                                  ]     
                              ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
-  }elseif ($event['message']['text'] == "ทดสอบ" ) {
+  }elseif ($event['message']['text'] == "รอการวิเคราะห์" ) {
+     $check_q = pg_query($dbconn,"SELECT  user_age, user_weight ,user_height ,preg_week  FROM user_data WHERE  user_id = '{$user_id}' order by updated_at desc limit 1   ");
 
-    $query = 'select weight from history ';
-    $result = pg_query($query);
-    while ($row = pg_fetch_row($result)) {
-     $e =  "น้ำหนัก $row[0] ";
-    }
-   
-                 $replyToken = $event['replyToken'];
-                 $messages = [
+                while ($row = pg_fetch_row($check_q)) {
+                  echo $answer1 = $row[0]; 
+                  echo $weight = $row[1]; 
+                  echo $height = $row[2]; 
+                  echo $answer4 = $row[3];  
+                } 
+
+                $bmi = $weight/($height*$height);
+
+                   $replyToken = $event['replyToken'];
+                    $text = "ฉันไม่เข้าใจค่ะ";
+                    $messages = [
                         'type' => 'text',
-                        'text' => $e 
-                      ];  
+                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
+                      ];
+
 
   }else{
+
     $replyToken = $event['replyToken'];
     $text = "ฉันไม่เข้าใจค่ะ";
     $messages = [
@@ -415,6 +404,5 @@ if (!is_null($events['events'])) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
- 
-echo "OK"; 
+
 ?>
