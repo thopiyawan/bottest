@@ -107,7 +107,7 @@ his_preg_weight varchar(3),
  -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
  -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
  )";   
-// pg_exec($dbconn, $sql) or die(pg_errormessage());
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
