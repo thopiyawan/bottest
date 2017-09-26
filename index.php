@@ -340,7 +340,7 @@ if (!is_null($events['events'])) {
                                         [
                                             'type' => 'message',
                                             'label' => 'ถูกต้อง',
-                                            'text' => 'ส่วนสูงถูกต้อง'
+                                            'text' => 'รอการวิเคราะห์'
                                         ],
                                         [
                                             'type' => 'message',
@@ -360,8 +360,8 @@ if (!is_null($events['events'])) {
                   echo $height = $row[2]; 
                   echo $answer4 = $row[3];  
                 } 
-
-                $bmi = $weight/($height*$height);
+                $height1 =$height*0.1;
+                $bmi = $weight/($height1*$height1);
 
                    $replyToken = $event['replyToken'];
                     $text = "ฉันไม่เข้าใจค่ะ";
