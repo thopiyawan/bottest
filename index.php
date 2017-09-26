@@ -331,12 +331,44 @@ if (!is_null($events['events'])) {
                 $height1 =$height*0.01;
                 $bmi = $weight/($height1*$height1);
 
-                   $replyToken = $event['replyToken'];
+                    $replyToken = $event['replyToken'];
                     $text = "ฉันไม่เข้าใจค่ะ";
                     $messages = [
                         'type' => 'text',
                         'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
                       ];
+                    $messages1 = [
+                        'type' => 'image',
+                        'originalContentUrl' =>   'https://bottest14.herokuapp.com/n_susu.png',
+                        'previewImageUrl' =>   'https://bottest14.herokuapp.com/n_susu.png',
+                      ];
+         $des_preg = pg_query($dbconn,"SELECT  descript,img FROM pregnants WHERE  week = $answer4  ");
+              while ($row = pg_fetch_row($des_preg)) {
+                  echo $des = $row[0]; 
+                  echo $img = $row[1]; 
+ 
+                } 
+                    $messages2 = [
+                        'type' => 'text',
+                        'text' =>  $des
+                      ];
+         $url = 'https://api.line.me/v2/bot/message/reply';
+         $data = [
+          'replyToken' => $replyToken,
+          'messages' => [$messages, $messages1, $messages2],
+         ];
+         error_log(json_encode($data));
+         $post = json_encode($data);
+         $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+         $ch = curl_init($url);
+         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+         $result = curl_exec($ch);
+         curl_close($ch);
+         echo $result . "\r\n";
 
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0014"  ) {
@@ -374,10 +406,7 @@ if (!is_null($events['events'])) {
         'type' => 'text',
         'text' => $text
       ];
-    $c = [
-        'type' => 'text',
-        'text' => $text
-      ];
+
   }
 
   
@@ -388,7 +417,7 @@ if (!is_null($events['events'])) {
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
-          'messages' => [$messages,$c],
+          'messages' => [$messages],
          ];
          error_log(json_encode($data));
          $post = json_encode($data);
