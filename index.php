@@ -316,43 +316,11 @@ if (!is_null($events['events'])) {
             
                   echo $answer = $row[3];  
                 } 
-
-
-                 $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'รอการวิเคราะห์'
-                      ];  
     $q1 = pg_exec($dbconn, "UPDATE user_data SET user_height= $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '$answer','0015','0',NOW(),NOW())") or die(pg_errormessage());
 
-  }elseif (is_numeric($_msg) !== false && $seqcode == "0014"  ) {
-                 $height =  str_replace("ส่วนสูง","", $_msg);
-                 $height_mes = 'ปัจจุบัน คุณสูง '.$height.'ถูกต้องหรือไม่คะ';
-                 $replyToken = $event['replyToken'];
-                 $messages = [
-                                'type' => 'template',
-                                'altText' => 'this is a confirm template',
-                                'template' => [
-                                    'type' => 'confirm',
-                                    'text' =>  $height_mes ,
-                                    'actions' => [
-                                        [
-                                            'type' => 'message',
-                                            'label' => 'ถูกต้อง',
-                                            'text' => 'รอการวิเคราะห์'
-                                        ],
-                                        [
-                                            'type' => 'message',
-                                            'label' => 'ไม่ถูกต้อง',
-                                            'text' => 'ไม่ถูกต้อง'
-                                        ],
-                                    ]
-                                 ]     
-                             ];   
-    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
-  }elseif ($event['message']['text'] == "รอการวิเคราะห์" ) {
-     $check_q = pg_query($dbconn,"SELECT  user_age, user_weight ,user_height ,preg_week  FROM user_data WHERE  user_id = '{$user_id}' order by updated_at desc limit 1   ");
+
+    $check_q = pg_query($dbconn,"SELECT  user_age, user_weight ,user_height ,preg_week  FROM user_data WHERE  user_id = '{$user_id}' ");
 
                 while ($row = pg_fetch_row($check_q)) {
                   echo $answer1 = $row[0]; 
@@ -369,6 +337,33 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
                       ];
+
+
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0014"  ) {
+                 $height =  str_replace("ส่วนสูง","", $_msg);
+                 $height_mes = 'ปัจจุบัน คุณสูง '.$height.'ถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $height_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'ส่วนสูงถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 
   }else{
