@@ -102,7 +102,7 @@ $sql="CREATE TABLE history_preg(
 his_preg_id SERIAL,
 user_id  varchar(225),
 his_preg_week  varchar(2),
-his_preg_weight varchar(3),
+his_preg_weight varchar(3)
  -- PRIMARY KEY(his_preg_id),
  -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
  -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
