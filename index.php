@@ -339,9 +339,17 @@ if (!is_null($events['events'])) {
                     $text = "ฉันไม่เข้าใจค่ะ";
                     $messages = [
                         'type' => 'text',
-                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1.'ค่าดัชนีมวลกาย'.$bmi.'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
+                        'text' =>  'ปัจจุบันคุณอายุ'.$answer1
                       ];
                     $messages1 = [
+                        'type' => 'text',
+                        'text' =>  'ค่าดัชนีมวลกาย'.$bmi
+                      ];
+                    $messages2 = [
+                        'type' => 'text',
+                        'text' => 'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
+                      ];
+                    $messages3 = [
                         'type' => 'image',
                         'originalContentUrl' =>   'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
                         'previewImageUrl' =>   'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
@@ -352,14 +360,14 @@ if (!is_null($events['events'])) {
                   echo $img = $row[1]; 
  
                 } 
-                    $messages2 = [
+                    $messages4 = [
                         'type' => 'text',
                         'text' =>  $des
                       ];
          $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
           'replyToken' => $replyToken,
-          'messages' => [$messages, $messages1, $messages2],
+          'messages' => [$messages, $messages1, $messages2,$messages3,$messages4],
          ];
          error_log(json_encode($data));
          $post = json_encode($data);
