@@ -204,7 +204,7 @@ if (!is_null($events['events'])) {
                       ];
     $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0010', '','0011','0',NOW(),NOW())") or die(pg_errormessage());
-
+    $q2 = pg_exec($dbconn, "INSERT INTO history_preg(user_id,his_preg_week,his_preg_weight )VALUES('{$user_id}',$answer ,'0') ") or die(pg_errormessage());   
   }elseif ($event['message']['text'] == "น้ำหนักก่อนตั้งครรภ์ถูกต้อง" ) {
 
          $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
@@ -221,7 +221,7 @@ if (!is_null($events['events'])) {
                       ];  
 
 
-    $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE user_data SET  user_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0012', '','0013','0',NOW(),NOW())") or die(pg_errormessage());
 
 
@@ -239,7 +239,7 @@ if (!is_null($events['events'])) {
                                         [
                                             'type' => 'message',
                                             'label' => 'ถูกต้อง',
-                                            'text' => 'น้ำหนักถูกต้อง'
+                                            'text' => 'น้ำหนักก่อนตั้งครรภ์ถูกต้อง'
                                         ],
                                         [
                                             'type' => 'message',
@@ -274,7 +274,7 @@ if (!is_null($events['events'])) {
 
     // $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
 
-    $q1 = pg_exec($dbconn, "INSERT INTO history_preg(user_id,his_preg_week,his_preg_weight )VALUES('{$user_id}',$answer,'0') ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE history_preg SET his_preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '','0015','0',NOW(),NOW())") or die(pg_errormessage());
 
 
@@ -292,7 +292,7 @@ if (!is_null($events['events'])) {
                                         [
                                             'type' => 'message',
                                             'label' => 'ถูกต้อง',
-                                            'text' => 'น้ำหนักถูกต้อง'
+                                            'text' => 'น้ำหนักปัจจุบันถูกต้อง'
                                         ],
                                         [
                                             'type' => 'message',
