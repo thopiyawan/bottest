@@ -154,13 +154,31 @@ if (!is_null($events['events'])) {
     $month  = str_replace("","",$pieces[1]);
     $date_today = date("d"); 
     $month_today = date("m");  
-        if ($date>$date_today){
+        
+
+//      if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
+//       if()
+//             $date_pre = $date-$date_today ;
+//         }else{
+//             $date_pre = $date_today-$date;
+//         }
+
+
+// is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
+
+
+
+    // $month_pre = ($month_today-$month)*4 ;
+  
+
+
+
+    if ($date>$date_today){
             $date_pre = $date-$date_today ;
         }else{
             $date_pre = $date_today-$date;
         }
     $month_pre = ($month_today-$month)*4 ;
-  
     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
 
 
@@ -331,7 +349,7 @@ if (!is_null($events['events'])) {
                 } 
                 $height1 =$height*0.01;
                 $bmi = $weight/($height1*$height1);
-
+                $bmi = number_format($bmi, 2, '.', '');
                     $replyToken = $event['replyToken'];
                     $text = "ฉันไม่เข้าใจค่ะ";
                     $messages = [
@@ -449,6 +467,7 @@ if (!is_null($events['events'])) {
     //       'text' => $text
     //     ];
   }
+  
 
   
  }
