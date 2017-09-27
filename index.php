@@ -157,22 +157,21 @@ if (!is_null($events['events'])) {
         
 
     if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-      if($date>31 && day <=0 && $month >12 && $month<=0 ){
-          
+       if($date>31 && day <=0 && $month >12 && $month<=0 ){
+           
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'เข้าลูป'
                       ];  
-
-
-
-      }else{
-       $replyToken = $event['replyToken'];
+       }else{
+          $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'คุณพิมพ์ไม่ถูกต้อง'
-                      ];  
+                      ]; 
+
+      } 
     }else{
               $replyToken = $event['replyToken'];
                  $messages = [
@@ -180,7 +179,7 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่ตามนี้ 17 02(วันที่ เดือน)'
                       ];  
         }
-    }
+  
 
 // is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
 
