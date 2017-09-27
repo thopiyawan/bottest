@@ -200,27 +200,27 @@ if (!is_null($events['events'])) {
 //     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
 
 
-    // $replyToken = $event['replyToken'];
-    // $messages = [
-    //     'type' => 'template',
-    //     'altText' => 'this is a confirm template',
-    //     'template' => [
-    //         'type' => 'confirm',
-    //         'text' =>  $age_pre ,
-    //         'actions' => [
-    //             [
-    //                 'type' => 'message',
-    //                 'label' => 'ถูกต้อง',
-    //                 'text' => 'อายุครรภ์ถูกต้อง'
-    //             ],
-    //             [
-    //                 'type' => 'message',
-    //                 'label' => 'ไม่ถูกต้อง',
-    //                 'text' => 'ไม่ถูกต้อง'
-    //             ],
-    //         ]
-    //     ]
-    // ];   
+    $replyToken = $event['replyToken'];
+    $messages = [
+        'type' => 'template',
+        'altText' => 'this is a confirm template',
+        'template' => [
+            'type' => 'confirm',
+            'text' =>  $age_pre ,
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => 'ถูกต้อง',
+                    'text' => 'อายุครรภ์ถูกต้อง'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => 'ไม่ถูกต้อง',
+                    'text' => 'ไม่ถูกต้อง'
+                ],
+            ]
+        ]
+    ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',   $month_pre,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
