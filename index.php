@@ -219,7 +219,7 @@ if (!is_null($events['events'])) {
 //             $date_pre = $date_today-$date;
 //         }
 //     $month_pre = ($month_today-$month)*4 ;
-    $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
+    $age_pre = 'คุณมีอายุครรภ์'.$re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
 
     $replyToken = $event['replyToken'];
