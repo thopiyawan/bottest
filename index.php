@@ -156,7 +156,8 @@ if (!is_null($events['events'])) {
     $month_today = date("m");  
         
 
-    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){      if($date>31 && $date <=00 && $month >12 && $month<=00 ){
+    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){      
+      if($date>31 && $date <=00 && $month >12 && $month<=00 ){
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
@@ -180,7 +181,7 @@ if (!is_null($events['events'])) {
                         'text' => 'กรุณาพิมพ์ใหม่ตามนี้ 17 02(วันที่ เดือน)'
                       ];  
         }
-    }
+  
 
 // is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
 
