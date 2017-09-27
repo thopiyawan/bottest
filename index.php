@@ -158,7 +158,7 @@ if (!is_null($events['events'])) {
 
     if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
       // if(($month <= $month_today) || ($month == $month_today && $date<$date_today ) ){
-       if($date<'31' && $date >='0' && $month <'12' && $month>='0'){
+       if($date<31 && $month <12 ){
            if($date>$date_today){
                $d_pre = $date - $date_today;
                 if($d_pre>=7){
@@ -207,7 +207,7 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' => 'กรุณาพิมพ์ใหม่ตามนี้ 17 02(วันที่ เดือน)'
                       ];  
-        }
+    }
   
     $age_pre = 'คุณมีอายุครรภ์'.$re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
