@@ -157,8 +157,8 @@ if (!is_null($events['events'])) {
         
 
     if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-      if(($month <= $month_today) || ($month == $month_today && $date<$date_today ) ){
-       if($date<31 && day >=00 && $month <12 && $month>=00){
+      // if(($month <= $month_today) || ($month == $month_today && $date<$date_today ) ){
+       if($date<31 && day >=0 && $month <12 && $month>=0 $month <= $month_today){
            if($date>$date_today){
                $d_pre = $date - $date_today;
                 if($d_pre>=7){
@@ -193,7 +193,7 @@ if (!is_null($events['events'])) {
 
            }
         
-      } }else{
+        }else{
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
