@@ -168,7 +168,7 @@ if (!is_null($events['events'])) {
                    $re_date_pre =  $d_pre%7;
                    $re_date_pre = number_format($re_date_pre);
                    $re_week_pre = $m_pre+$w_pre;
-                     $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
+                   $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
 
     $replyToken = $event['replyToken'];
@@ -366,7 +366,7 @@ if (!is_null($events['events'])) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
-    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',   $month_pre,'0009','0',NOW(),NOW())") or die(pg_errormessage());
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008', $re_week_pre ,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
 
