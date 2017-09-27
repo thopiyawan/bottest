@@ -156,13 +156,31 @@ if (!is_null($events['events'])) {
     $month_today = date("m");  
         
 
-//      if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-//       if()
-//             $date_pre = $date-$date_today ;
-//         }else{
-//             $date_pre = $date_today-$date;
-//         }
+    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
+      if($date>31 && day <=00 && $month >12 && $month<=00 ){
+          
+          $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'เข้าลูป'
+                      ];  
 
+
+
+      }else{
+       $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'คุณพิมพ์ไม่ถูกต้อง'
+                      ];  
+    }else{
+              $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'กรุณาพิมพ์ใหม่ตามนี้ 17 02(วันที่ เดือน)'
+                      ];  
+        }
+    }
 
 // is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
 
@@ -170,40 +188,39 @@ if (!is_null($events['events'])) {
 
     // $month_pre = ($month_today-$month)*4 ;
   
+// number_format($number)
+
+//     if ($date>$date_today){
+//             $date_pre = $date-$date_today ;
+//         }else{
+//             $date_pre = $date_today-$date;
+//         }
+//     $month_pre = ($month_today-$month)*4 ;
+//     $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
 
 
-
-    if ($date>$date_today){
-            $date_pre = $date-$date_today ;
-        }else{
-            $date_pre = $date_today-$date;
-        }
-    $month_pre = ($month_today-$month)*4 ;
-    $age_pre = 'คุณมีอายุครรภ์'. $month_pre.'สัปดาห์'. $date_pre .'วัน' ;
-
-
-    $replyToken = $event['replyToken'];
-    $messages = [
-        'type' => 'template',
-        'altText' => 'this is a confirm template',
-        'template' => [
-            'type' => 'confirm',
-            'text' =>  $age_pre ,
-            'actions' => [
-                [
-                    'type' => 'message',
-                    'label' => 'ถูกต้อง',
-                    'text' => 'อายุครรภ์ถูกต้อง'
-                ],
-                [
-                    'type' => 'message',
-                    'label' => 'ไม่ถูกต้อง',
-                    'text' => 'ไม่ถูกต้อง'
-                ],
-            ]
-        ]
-    ];   
-    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',   $month_pre,'0009','0',NOW(),NOW())") or die(pg_errormessage());
+    // $replyToken = $event['replyToken'];
+    // $messages = [
+    //     'type' => 'template',
+    //     'altText' => 'this is a confirm template',
+    //     'template' => [
+    //         'type' => 'confirm',
+    //         'text' =>  $age_pre ,
+    //         'actions' => [
+    //             [
+    //                 'type' => 'message',
+    //                 'label' => 'ถูกต้อง',
+    //                 'text' => 'อายุครรภ์ถูกต้อง'
+    //             ],
+    //             [
+    //                 'type' => 'message',
+    //                 'label' => 'ไม่ถูกต้อง',
+    //                 'text' => 'ไม่ถูกต้อง'
+    //             ],
+    //         ]
+    //     ]
+    // ];   
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',  $month_today ,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
 
