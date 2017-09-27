@@ -167,13 +167,13 @@ if (!is_null($events['events'])) {
 
 
       }else{
-       $replyToken = $event['replyToken'];
+                 $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'คุณพิมพ์ไม่ถูกต้อง'
                       ]; 
 
-                      } 
+           } 
     }else{
               $replyToken = $event['replyToken'];
                  $messages = [
