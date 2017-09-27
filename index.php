@@ -166,7 +166,7 @@ if (!is_null($events['events'])) {
                    $w_pre = number_format($w_pre)
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
-                   $re_date_pre = number_format($re_date_pre)
+                   $re_date_pre = number_format($re_date_pre);
                    $re_week_pre = $m_pre+$w_pre;
 
                 }else{
@@ -182,7 +182,7 @@ if (!is_null($events['events'])) {
                    $w_pre = number_format($w_pre)
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
-                   $re_date_pre = number_format($re_date_pre)
+                   $re_date_pre = number_format($re_date_pre);
                    $re_week_pre = $m_pre+$w_pre;
 
                 }else{
