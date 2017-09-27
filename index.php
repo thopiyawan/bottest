@@ -156,7 +156,7 @@ if (!is_null($events['events'])) {
     $month_today = date("m");  
         
 
-    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ) {
+    if (is_numeric($month) !== false &&is_numeric($date) !== false && strlen($date) == 2 && strlen($month) == 2  ) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
@@ -273,6 +273,23 @@ if (!is_null($events['events'])) {
     //         ]
     //     ]
     // ];   
+      $url = 'https://api.line.me/v2/bot/message/reply';
+         $data = [
+          'replyToken' => $replyToken,
+          'messages' => [$messages],
+         ];
+         error_log(json_encode($data));
+         $post = json_encode($data);
+         $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+         $ch = curl_init($url);
+         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+         $result = curl_exec($ch);
+         curl_close($ch);
+         echo $result . "\r\n";
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008',   $month_pre,'0009','0',NOW(),NOW())") or die(pg_errormessage());
     
   }elseif ($event['message']['text'] == "อายุครรภ์ถูกต้อง" ) {
