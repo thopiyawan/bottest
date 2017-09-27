@@ -163,8 +163,10 @@ if (!is_null($events['events'])) {
                 if($d_pre>=7){
                    $m_pre = ($month_today - $month)*4;
                    $w_pre =  $d_pre/7;
+                   $w_pre = number_format($w_pre)
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
+                   $re_date_pre = number_format($re_date_pre)
                    $re_week_pre = $m_pre+$w_pre;
 
                 }else{
@@ -177,8 +179,10 @@ if (!is_null($events['events'])) {
                 if($d_pre>=7){
                    $m_pre = ($month_today - $month)*4;
                    $w_pre =  $d_pre/7;
+                   $w_pre = number_format($w_pre)
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
+                   $re_date_pre = number_format($re_date_pre)
                    $re_week_pre = $m_pre+$w_pre;
 
                 }else{
@@ -204,21 +208,6 @@ if (!is_null($events['events'])) {
                       ];  
         }
   
-
-// is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
-
-
-
-    // $month_pre = ($month_today-$month)*4 ;
-  
-// number_format($number)
-
-//     if ($date>$date_today){
-//             $date_pre = $date-$date_today ;
-//         }else{
-//             $date_pre = $date_today-$date;
-//         }
-//     $month_pre = ($month_today-$month)*4 ;
     $age_pre = 'คุณมีอายุครรภ์'.$re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
 
