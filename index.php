@@ -156,9 +156,7 @@ if (!is_null($events['events'])) {
     $month_today = date("m");  
         
 
-    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-      // if(($month <= $month_today) || ($month == $month_today && $date<$date_today ) ){
-       if($date<31 && $month <12 ){
+    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  && $date<31 && $month <12 ){
            if($date>$date_today){
                $d_pre = $date - $date_today;
                 if($d_pre>=7){
@@ -192,15 +190,7 @@ if (!is_null($events['events'])) {
                 }
 
            }
-        
-        }else{
-          $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'กรุณาพิมพ์ใหม่'
-                      ]; 
-
-        } 
+      
     }else{
               $replyToken = $event['replyToken'];
                  $messages = [
