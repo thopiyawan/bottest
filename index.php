@@ -156,8 +156,7 @@ if (!is_null($events['events'])) {
     $month_today = date("m");  
         
 
-    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-      if($date>31 && day <=00 && $month >12 && $month<=00 ){
+    if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){      if($date>31 && $date <=00 && $month >12 && $month<=00 ){
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
@@ -171,7 +170,9 @@ if (!is_null($events['events'])) {
                  $messages = [
                         'type' => 'text',
                         'text' => 'คุณพิมพ์ไม่ถูกต้อง'
-                      ];  
+                      ]; 
+
+                      } 
     }else{
               $replyToken = $event['replyToken'];
                  $messages = [
