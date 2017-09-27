@@ -157,7 +157,7 @@ if (!is_null($events['events'])) {
         
 
     if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){
-       if($date>31 && day <=0 && $month >12 && $month<=0 ){
+       if($date>31 && day <=00 && $month >12 && $month<=00 ){
            
           $replyToken = $event['replyToken'];
                  $messages = [
@@ -168,7 +168,7 @@ if (!is_null($events['events'])) {
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'คุณพิมพ์ไม่ถูกต้อง'
+                        'text' => 'bg'
                       ]; 
 
       } 
