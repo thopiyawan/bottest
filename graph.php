@@ -43,221 +43,84 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 }                               
 </style>
 <script>
+var chartData = generateChartData();
+
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
-    "autoMarginOffset":20,
-    "marginRight":80,
-    "dataProvider": [{
-        "date": "2009-10-01",
-        "value": 3,
-        "fromValue": 2,
-        "toValue": 5
-    }, {
-        "date": "2009-10-02",
-        "value": 5,
-        "fromValue": 4,
-        "toValue": 6
-    }, {
-        "date": "2009-10-03",
-        "value": 15,
-        "fromValue": 12,
-        "toValue": 18
-    }, {
-        "date": "2009-10-04",
-        "value": 13,
-        "fromValue": 10.4,
-        "toValue": 15.6
-    }, {
-        "date": "2009-10-05",
-        "value": 17,
-        "fromValue": 13.6,
-        "toValue": 20.4
-    }, {
-        "date": "2009-10-06",
-        "value": 15,
-        "fromValue": 12,
-        "toValue": 18
-    }, {
-        "date": "2009-10-09",
-        "value": 19,
-        "fromValue": 15.2,
-        "toValue": 22.8
-    }, {
-        "date": "2009-10-10",
-        "value": 21,
-        "fromValue": 16.8,
-        "toValue": 25.2
-    }, {
-        "date": "2009-10-11",
-        "value": 20,
-        "fromValue": 16,
-        "toValue": 24
-    }, {
-        "date": "2009-10-12",
-        "value": 20,
-        "fromValue": 16,
-        "toValue": 24
-    }, {
-        "date": "2009-10-13",
-        "value": 19,
-        "fromValue": 15.2,
-        "toValue": 22.8
-    }, {
-        "date": "2009-10-16",
-        "value": 25,
-        "fromValue": 20,
-        "toValue": 30
-    }, {
-        "date": "2009-10-17",
-        "value": 24,
-        "fromValue": 19.2,
-        "toValue": 28.8
-    }, {
-        "date": "2009-10-18",
-        "value": 26,
-        "fromValue": 20.8,
-        "toValue": 31.2
-    }, {
-        "date": "2009-10-19",
-        "value": 27,
-        "fromValue": 21.6,
-        "toValue": 32.4
-    }, {
-        "date": "2009-10-20",
-        "value": 25,
-        "fromValue": 20,
-        "toValue": 30
-    }, {
-        "date": "2009-10-23",
-        "value": 29,
-        "fromValue": 23.2,
-        "toValue": 34.8
-    }, {
-        "date": "2009-10-24",
-        "value": 28,
-        "fromValue": 22.4,
-        "toValue": 33.6
-    }, {
-        "date": "2009-10-25",
-        "value": 30,
-        "fromValue": 24,
-        "toValue": 36
-    }, {
-        "date": "2009-10-26",
-        "value": 72,
-        "fromValue": 57.6,
-        "toValue": 86.4
-    }, {
-        "date": "2009-10-27",
-        "value": 43,
-        "fromValue": 34.4,
-        "toValue": 51.6
-    }, {
-        "date": "2009-10-30",
-        "value": 31,
-        "fromValue": 24.8,
-        "toValue": 37.2
-    }, {
-        "date": "2009-11-01",
-        "value": 30,
-        "fromValue": 24,
-        "toValue": 36
-    }, {
-        "date": "2009-11-02",
-        "value": 29,
-        "fromValue": 23.2,
-        "toValue": 34.8
-    }, {
-        "date": "2009-11-03",
-        "value": 27,
-        "fromValue": 21.6,
-        "toValue": 32.4
-    }, {
-        "date": "2009-11-04",
-        "value": 26,
-        "fromValue": 20.8,
-        "toValue": 31.2
-    }],
+    "marginRight": 80,
+    "dataProvider": chartData,
     "valueAxes": [{
-        "axisAlpha": 0,
-        "position": "left"
+        "position": "left",
+        "title": "Unique visitors"
     }],
     "graphs": [{
-        "id": "fromGraph",
-        "lineAlpha": 0,
-        "showBalloon": false,
-        "valueField": "fromValue",
-        "fillAlphas": 0
-    }, {
-        "fillAlphas": 0.2,
-        "fillToGraph": "fromGraph",
-        "lineAlpha": 0,
-        "showBalloon": false,
-        "valueField": "toValue"
-    }, {
-        "valueField": "value",
-        "balloonText":"<div style='margin:10px; text-align:left'><span style='font-size:11px'>allowed: [[fromValue]] - [[toValue]]</span><br><span style='font-size:18px'>Value:[[value]]</span></div>",
-        "fillAlphas": 0
+        "id": "g1",
+        "fillAlphas": 0.4,
+        "valueField": "visits",
+         "balloonText": "<div style='margin:5px; font-size:19px;'>Visits:<b>[[value]]</b></div>"
     }],
-    "chartCursor": {
-        "fullWidth": true,
-        "cursorAlpha": 0.05,
-        "valueLineEnabled":true,
-        "valueLineAlpha":0.5,
-        "valueLineBalloonEnabled":true
+    "chartScrollbar": {
+        "graph": "g1",
+        "scrollbarHeight": 80,
+        "backgroundAlpha": 0,
+        "selectedBackgroundAlpha": 0.1,
+        "selectedBackgroundColor": "#888888",
+        "graphFillAlpha": 0,
+        "graphLineAlpha": 0.5,
+        "selectedGraphFillAlpha": 0,
+        "selectedGraphLineAlpha": 1,
+        "autoGridCount": true,
+        "color": "#AAAAAA"
     },
-    "dataDateFormat": "YYYY-MM-DD",
+    "chartCursor": {
+        "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+        "cursorPosition": "mouse"
+    },
     "categoryField": "date",
     "categoryAxis": {
-     "position":"top",
-        "parseDates": true,
-        "axisAlpha": 0,
-        "minHorizontalGap": 25,
-        "gridAlpha": 0,
-        "tickLength": 0,
-        "dateFormats": [{
-            "period": 'fff',
-            "format": 'JJ:NN:SS'
-        }, {
-            "period": 'ss',
-            "format": 'JJ:NN:SS'
-        }, {
-            "period": 'mm',
-            "format": 'JJ:NN'
-        }, {
-            "period": 'hh',
-            "format": 'JJ:NN'
-        }, {
-            "period": 'DD',
-            "format": 'DD'
-        }, {
-            "period": 'WW',
-            "format": 'DD'
-        }, {
-            "period": 'MM',
-            "format": 'MMM'
-        }, {
-            "period": 'YYYY',
-            "format": 'YYYY'
-        }]
+        "minPeriod": "mm",
+        "parseDates": true
     },
-
-    "chartScrollbar":{
-
-    },
-
     "export": {
-        "enabled": true
+        "enabled": true,
+         "dateFormat": "YYYY-MM-DD HH:NN:SS"
     }
 });
 
 chart.addListener("dataUpdated", zoomChart);
-
-function zoomChart(){
-    chart.zoomToDates(new Date(2009,9,20, 15), new Date(2009,10,3,12));
+// when we apply theme, the dataUpdated event is fired even before we add listener, so
+// we need to call zoomChart here
+zoomChart();
+// this method is called when chart is first inited as we listen for "dataUpdated" event
+function zoomChart() {
+    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+    chart.zoomToIndexes(chartData.length - 250, chartData.length - 100);
 }
+function generateChartData() {
+    var chartData = [];
+    // current date
+    var firstDate = new Date();
+    // now set 500 minutes back
+    firstDate.setMinutes(firstDate.getDate() - 1000);
+
+    // and generate 500 data items
+    var visits = 600;
+    for (var i = 0; i < 500; i++) {
+        var newDate = new Date(firstDate);
+        // each time we add one minute
+        newDate.setMinutes(newDate.getMinutes() + i);
+        // some random number
+        visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+        // add data item to the array
+        chartData.push({
+            date: newDate,
+            visits: visits
+        });
+    }
+    return chartData;
 </script>
+
 <body>
 <div id="chartdiv"></div>
 </body>
