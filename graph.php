@@ -116,10 +116,12 @@ function generateChartData() {
         newDate.setMinutes(newDate.getMinutes() + i);
         // some random number
         visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+        w = <?php $arr0; ?>;
         // add data item to the array
         chartData.push({
             date: newDate,
-            visits: <?php $arr0; ?>
+            visits: w
         });
     }
     return chartData;
