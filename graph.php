@@ -116,26 +116,12 @@ function generateChartData() {
     // and generate 500 data items
     var visits = 500;
     for (var i = 0; i < 500; i++) {
-        // var newDate = new Date(firstDate);
-        // // each time we add one minute
-        // newDate.setMinutes(newDate.getMinutes() + i);
-        // // some random number
-        // visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-        // // add data item to the array
-
-        <?php  $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_array($check_q)) {
-                    // $i=0;
-                   // echo $array_out[] =$arr;
-                   // $i++;
-                  echo " chartData.push({"
-                  echo "date:"$arr0 = $arr[0]",";
-                  echo "visits: "$arr1 = $arr[1]-$result  ;
-                  echo "});";
-                  // echo $arr[$i++] ;
-                  // var_dump($arr);
-                  // print_r $arr = $row[1]; 
-                } ?>
+        var newDate = new Date(firstDate);
+        // each time we add one minute
+        newDate.setMinutes(newDate.getMinutes() + i);
+        // some random number
+        visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+        // add data item to the array
         chartData.push({
             date: newDate,
             visits: visits
