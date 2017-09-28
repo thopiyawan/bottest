@@ -486,11 +486,33 @@ if (!is_null($events['events'])) {
                         'type' => 'text',
                         'text' => 'คุณมีอายุครรภ์'.$answer4.'สัปดาห์'
                       ];
+    
                     $messages3 = [
-                        'type' => 'image',
-                        'originalContentUrl' =>   'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
-                        'previewImageUrl' =>   'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
-                      ];
+                                                              
+                                  'type' => 'template',
+                                  'altText' => 'template',
+                                  'template' => [
+                                      'type' => 'buttons',
+                                      'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg'
+                                      'title' => 'อากาศเป็นไงบ้าง',
+                                      'text' => 'อากาศ',
+                                      'actions' => [
+                                          [
+                                              'type' => 'postback',
+                                              'label' => 'good',
+                                              'data' => 'value'
+                                          ],
+                                          [
+                                              'type' => 'uri',
+                                              'label' => 'google',
+                                              'uri' => 'https://bottest14.herokuapp.com/week/graph.php'
+                                          ]
+                                      ]
+                                  ]
+                              ];
+
+
+        
          $des_preg = pg_query($dbconn,"SELECT  descript,img FROM pregnants WHERE  week = $answer4  ");
               while ($row = pg_fetch_row($des_preg)) {
                   echo $des = $row[0]; 
