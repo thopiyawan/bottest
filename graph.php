@@ -15,8 +15,8 @@ $user_id = pg_escape_string($user);
 
 
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($row = pg_fetch_array($check_q)) {
-                  echo $r[] =  $row;
+                while ($arr= pg_fetch_array($check_q)) {
+                  echo $arr[0] ;
                   // echo $sender = $row[1]; 
                 } 
 ?>
