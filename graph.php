@@ -21,7 +21,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    // $i++;
                   // echo $arr[0] ;
                   // var_dump($arr);
-                  echo $arr = $row[1]; 
+                  print_r $arr = $row[1]; 
                 } 
 ?>
 
