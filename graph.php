@@ -117,7 +117,7 @@ chart.addListener("dataUpdated", zoomChart);
 function zoomChart() {
     chart.zoomToDates(new Date(2012, 0, 3), new Date(2012, 0, 11));
 }
-</script>
+
 // generate some random data, quite different range
 function generateChartData() {
     var chartData = [];
