@@ -122,19 +122,51 @@ function zoomChart() {
 function generateChartData() {
     var chartData = [];
     // current date
-    var firstDate = new Date();
+
     // now set 500 minutes back
     firstDate.setMinutes(firstDate.getDate() - 1000);
 
-
-        a = "2012-01-03";
-    
-        // some random number
-        visits = 100;
-        // add data item to the array
         chartData.push({
-            "date": a,
-            "duration":  visits
+         {
+        "lineColor": "#b7e021",
+        "date": "2012-01-01",
+        "duration": 408
+    }, {
+        "date": "2012-01-02",
+        "duration": 482
+    }, {
+        "date": "2012-01-03",
+        "duration": 562
+    }, {
+        "date": "2012-01-04",
+        "duration": 379
+    }, {
+        "lineColor": "#fbd51a",
+        "date": "2012-01-05",
+        "duration": 501
+    }, {
+        "date": "2012-01-06",
+        "duration": 443
+    }, {
+        "date": "2012-01-07",
+        "duration": 405
+    }, {
+        "date": "2012-01-08",
+        "duration": 309,
+        "lineColor": "#2498d2"
+    }, {
+        "date": "2012-01-09",
+        "duration": 287
+    }, {
+        "date": "2012-01-10",
+        "duration": 485
+    }, {
+        "date": "2012-01-11",
+        "duration": 890
+    }, {
+        "date": "2012-01-12",
+        "duration": 810
+    }
         });
     
     return chartData;
