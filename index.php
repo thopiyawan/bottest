@@ -493,7 +493,7 @@ if (!is_null($events['events'])) {
                                   'altText' => 'template',
                                   'template' => [
                                       'type' => 'buttons',
-                                      'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg'
+                                      'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
                                       'title' => 'อากาศเป็นไงบ้าง',
                                       'text' => 'อากาศ',
                                       'actions' => [
