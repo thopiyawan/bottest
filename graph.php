@@ -136,8 +136,8 @@ function generateChartData() {
         visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
         // add data item to the array
         chartData.push({
-            "date": "2012-01-02",
-            "duration": 482
+            "date": "newDate",
+            "duration":  visits
         });
     }
     return chartData;
