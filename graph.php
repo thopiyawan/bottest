@@ -97,6 +97,8 @@ function zoomChart() {
     // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
     chart.zoomToIndexes(chartData.length - 250, chartData.length - 100);
 }
+
+// generate some random data, quite different range
 function generateChartData() {
     var chartData = [];
     // current date
@@ -105,7 +107,7 @@ function generateChartData() {
     firstDate.setMinutes(firstDate.getDate() - 1000);
 
     // and generate 500 data items
-    var visits = 600;
+    var visits = 500;
     for (var i = 0; i < 500; i++) {
         var newDate = new Date(firstDate);
         // each time we add one minute
@@ -119,6 +121,7 @@ function generateChartData() {
         });
     }
     return chartData;
+}
 </script>
 
 <body>
