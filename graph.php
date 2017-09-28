@@ -18,7 +18,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                 while ($arr= pg_fetch_array($check_q)) {
 
                   echo $arr[0] ;
-                  var_dump($arr)
+                  var_dump($arr);
                   // echo $sender = $row[1]; 
                 } 
 ?>
