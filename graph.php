@@ -25,7 +25,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    // echo $array_out[] =$arr;
                    // $i++;
                   echo $arr0 = $arr[0];
-                  echo $arr1 = $arr[1];
+                  echo $arr1 = $arr[1]-$arr0 ;
                   // echo $arr[$i++] ;
                   // var_dump($arr);
                   // print_r $arr = $row[1]; 
