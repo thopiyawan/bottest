@@ -12,7 +12,13 @@ $user = $_GET["data"];
 $user_id = pg_escape_string($user);
  // echo $user_id;
 
-
+$check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
+                while ($arr= pg_fetch_array($check)) {
+              
+                  echo $arr0 = $arr[0];
+                  echo $arr1 = $arr[1];
+         
+                } 
 
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
@@ -20,7 +26,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    // echo $array_out[] =$arr;
                    // $i++;
                   echo $arr0 = $arr[0];
-                  echo $arr1 = $arr[1];
+                  echo $arr1 = $arr[1]-$check;
                   // echo $arr[$i++] ;
                   // var_dump($arr);
                   // print_r $arr = $row[1]; 
@@ -116,12 +122,10 @@ function generateChartData() {
         newDate.setMinutes(newDate.getMinutes() + i);
         // some random number
         visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-
-        w = <?php $arr0; ?>;
         // add data item to the array
         chartData.push({
             date: newDate,
-            visits: w
+            visits: visits
         });
     }
     return chartData;
