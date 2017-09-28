@@ -1,7 +1,7 @@
 
  <?php
 $user_id = $_GET["data"];
- echo $user_id;
+ // echo $user_id;
 
    $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user_id  ");
               while ($row = pg_fetch_row($des_preg)) {
