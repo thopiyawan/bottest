@@ -1,9 +1,14 @@
 
  <?php
-$data1 = $_GET["data1"];
-$data2 = $_GET["data2"];
- echo $data1;
- echo $data2;
+$user_id = $_GET["data"];
+ echo $user_id;
+
+   $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user_id  ");
+              while ($row = pg_fetch_row($des_preg)) {
+                  echo $des = $row[0]; 
+                  echo $img = $row[1]; 
+ 
+                } 
 ?>
 
 <html>

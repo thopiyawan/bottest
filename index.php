@@ -497,15 +497,15 @@ if (!is_null($events['events'])) {
                                       'title' => 'ลูกน้อยของคุณ',
                                       'text' =>  'อายุ'.$answer4.'สัปดาห์',
                                       'actions' => [
-                                          // [
-                                          //     'type' => 'postback',
-                                          //     'label' => 'good',
-                                          //     'data' => 'value'
-                                          // ],
+                                          [
+                                              'type' => 'postback',
+                                              'label' => 'good',
+                                              'data' => 'value'
+                                          ],
                                           [
                                               'type' => 'uri',
                                               'label' => 'กราฟ',
-                                              'uri' => 'https://bottest14.herokuapp.com/graph.php'
+                                              'uri' => 'https://bottest14.herokuapp.com/graph.php?data='.$user_id
                                           ]
                                       ]
                                   ]
