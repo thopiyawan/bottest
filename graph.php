@@ -61,7 +61,74 @@ var chart = AmCharts.makeChart("chartdiv", {
         "position": "left",
         "title": "Unique visitors"
     }],
-    "graphs": [{
+  "graphs": [{
+        "id": "fromGraph",
+        "lineAlpha": 0,
+        "showBalloon": false,
+        "valueField": "fromValue",
+        "fillAlphas": 0
+    }, {
+        "fillAlphas": 0.2,
+        "fillToGraph": "fromGraph",
+        "lineAlpha": 0,
+        "showBalloon": false,
+        "valueField": "toValue"
+    }, {
+        "valueField": "value",
+        "balloonText":"<div style='margin:10px; text-align:left'><span style='font-size:11px'>allowed: [[fromValue]] - [[toValue]]</span><br><span style='font-size:18px'>Value:[[value]]</span></div>",
+        "fillAlphas": 0
+    }],
+    "chartCursor": {
+        "fullWidth": true,
+        "cursorAlpha": 0.05,
+        "valueLineEnabled":true,
+        "valueLineAlpha":0.5,
+        "valueLineBalloonEnabled":true
+    },
+    "dataDateFormat": "YYYY-MM-DD",
+    "categoryField": "date",
+    "categoryAxis": {
+     "position":"top",
+        "parseDates": true,
+        "axisAlpha": 0,
+        "minHorizontalGap": 25,
+        "gridAlpha": 0,
+        "tickLength": 0,
+        "dateFormats": [{
+            "period": 'fff',
+            "format": 'JJ:NN:SS'
+        }, {
+            "period": 'ss',
+            "format": 'JJ:NN:SS'
+        }, {
+            "period": 'mm',
+            "format": 'JJ:NN'
+        }, {
+            "period": 'hh',
+            "format": 'JJ:NN'
+        }, {
+            "period": 'DD',
+            "format": 'DD'
+        }, {
+            "period": 'WW',
+            "format": 'DD'
+        }, {
+            "period": 'MM',
+            "format": 'MMM'
+        }, {
+            "period": 'YYYY',
+            "format": 'YYYY'
+        }]
+    },
+
+    "chartScrollbar":{
+
+    },
+
+    "export": {
+        "enabled": true
+    }
+});   "graphs": [{
         "id": "g1",
         "fillAlphas": 0.4,
         "valueField": "visits",
