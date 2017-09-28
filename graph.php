@@ -125,7 +125,6 @@ function generateChartData() {
     var chartData = [];
   
         chartData.push({
-         {
         "lineColor": "#b7e021",
         "date": "2012-01-01",
         "duration": 408
@@ -164,8 +163,7 @@ function generateChartData() {
     }, {
         "date": "2012-01-12",
         "duration": 810
-    }
-        });
+    });
     
     return chartData;
 }
