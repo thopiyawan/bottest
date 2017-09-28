@@ -136,10 +136,10 @@ function generateChartData() {
                   // var_dump($arr);
                   // print_r $arr = $row[1]; 
                 } ?>
-        // chartData.push({
-        //     date: newDate,
-        //     visits: visits
-        // });
+        chartData.push({
+            date: newDate,
+            visits: visits
+        });
     }
     return chartData;
 }
