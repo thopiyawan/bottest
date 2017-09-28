@@ -15,11 +15,13 @@ $user_id = pg_escape_string($user);
 
 
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_assoc($check_q)) {
-                    $i=0;
+                while ($arr= pg_fetch_array($check_q)) {
+                    // $i=0;
                    // echo $array_out[] =$arr;
                    // $i++;
-                  echo $arr[$i++] ;
+                  echo $arr0 = $arr[0];
+                  echo $arr1 = $arr[1];
+                  // echo $arr[$i++] ;
                   // var_dump($arr);
                   // print_r $arr = $row[1]; 
                 } 
@@ -117,7 +119,7 @@ function generateChartData() {
         // add data item to the array
         chartData.push({
             date: newDate,
-            visits: visits
+            visits: <?php $arr0; ?>
         });
     }
     return chartData;
