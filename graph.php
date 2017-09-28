@@ -1,16 +1,29 @@
 
  <?php
 
- $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
- $dbconn = pg_pconnect($conn_string);
-$user_id = $_GET["data"];
+$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
+$dbconn = pg_pconnect($conn_string);
+if (!$dbconn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$user = $_GET["data"];
  // echo $user_id;
 
-   $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user_id  ");
-              while ($row = pg_fetch_row($des_preg)) {
-                  echo $des = $row[0]; 
-                  echo $img = $row[1]; 
+   // $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user  ");
+   //            while ($row = pg_fetch_row($des_preg)) {
+   //                echo $des = $row[0]; 
+   //                echo $img = $row[1]; 
  
+   //              }
+
+
+
+$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
+                while ($row = pg_fetch_row($check_q)) {
+                  echo $seqcode =  $row[0];
+                  echo $sender = $row[1]; 
                 } 
 ?>
 
