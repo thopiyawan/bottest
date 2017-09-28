@@ -60,7 +60,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     },
     "valueAxes": [{
         "position": "left",
-        "title": "ความแต่งต่างของน้ำหนัก"
+        "title": "weight"
     }],
     "graphs": [{
         "bullet": "square",
@@ -113,7 +113,7 @@ var chart = AmCharts.makeChart("chartdiv", {
 chart.addListener("dataUpdated", zoomChart);
 
 function zoomChart() {
-    chart.zoomToDates(new Date(2012, 0, 3), new Date(2012, 0, 11));
+    // chart.zoomToDates(new Date(2012, 0, 3), new Date(2012, 0, 11));
 }
 
 // generate some random data, quite different range
@@ -136,7 +136,7 @@ function generateChartData() {
 </script>
 
 <body>
-<?php   echo $arr1 ; ?>
+
 <div id="chartdiv"></div>
 
 </body>
