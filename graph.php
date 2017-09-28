@@ -40,66 +40,84 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 <style>
 #chartdiv {
-  width : 100%;
-  height  : 500px;
-}                               
+  width   : 100%;
+  height    : 500px;
+  font-size : 11px;
+}                            
 </style>
 <script>
-var chartData = generateChartData();
-
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
     "marginRight": 80,
     "dataProvider": chartData,
+    "balloon": {
+        "cornerRadius": 6,
+        "horizontalPadding": 15,
+        "verticalPadding": 10
+    },
     "valueAxes": [{
-        "position": "left",
-        "title": "Unique visitors"
+        "duration": "mm",
+        "durationUnits": {
+            "hh": "h ",
+            "mm": "min"
+        },
+        "axisAlpha": 0
     }],
     "graphs": [{
-        "id": "g1",
-        "fillAlphas": 0.4,
-        "valueField": "visits",
-         "balloonText": "<div style='margin:5px; font-size:19px;'>Visits:<b>[[value]]</b></div>"
+        "bullet": "square",
+        "bulletBorderAlpha": 1,
+        "bulletBorderThickness": 1,
+        "fillAlphas": 0.3,
+        "fillColorsField": "lineColor",
+        "legendValueText": "[[value]]",
+        "lineColorField": "lineColor",
+        "title": "duration",
+        "valueField": "duration"
     }],
     "chartScrollbar": {
-        "graph": "g1",
-        "scrollbarHeight": 80,
-        "backgroundAlpha": 0,
-        "selectedBackgroundAlpha": 0.1,
-        "selectedBackgroundColor": "#888888",
-        "graphFillAlpha": 0,
-        "graphLineAlpha": 0.5,
-        "selectedGraphFillAlpha": 0,
-        "selectedGraphLineAlpha": 1,
-        "autoGridCount": true,
-        "color": "#AAAAAA"
+
     },
     "chartCursor": {
-        "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
-        "cursorPosition": "mouse"
+        "categoryBalloonDateFormat": "YYYY MMM DD",
+        "cursorAlpha": 0,
+        "fullWidth": true
     },
+    "dataDateFormat": "YYYY-MM-DD",
     "categoryField": "date",
     "categoryAxis": {
-        "minPeriod": "mm",
-        "parseDates": true
+        "dateFormats": [{
+            "period": "DD",
+            "format": "DD"
+        }, {
+            "period": "WW",
+            "format": "MMM DD"
+        }, {
+            "period": "MM",
+            "format": "MMM"
+        }, {
+            "period": "YYYY",
+            "format": "YYYY"
+        }],
+        "parseDates": true,
+        "autoGridCount": false,
+        "axisColor": "#555555",
+        "gridAlpha": 0,
+        "gridCount": 50
     },
     "export": {
-        "enabled": true,
-         "dateFormat": "YYYY-MM-DD HH:NN:SS"
+        "enabled": true
     }
 });
 
-chart.addListener("dataUpdated", zoomChart);
-// when we apply theme, the dataUpdated event is fired even before we add listener, so
-// we need to call zoomChart here
-zoomChart();
-// this method is called when chart is first inited as we listen for "dataUpdated" event
-function zoomChart() {
-    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-    chart.zoomToIndexes(chartData.length - 250, chartData.length - 100);
-}
 
+
+chart.addListener("dataUpdated", zoomChart);
+
+function zoomChart() {
+    chart.zoomToDates(new Date(2012, 0, 3), new Date(2012, 0, 11));
+}
+</script>
 // generate some random data, quite different range
 function generateChartData() {
     var chartData = [];
