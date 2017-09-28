@@ -494,18 +494,18 @@ if (!is_null($events['events'])) {
                                   'template' => [
                                       'type' => 'buttons',
                                       'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$answer4 .'.jpg',
-                                      'title' => 'อากาศเป็นไงบ้าง',
-                                      'text' => 'อากาศ',
+                                      'title' => 'ลูกน้อยของคุณ',
+                                      'text' =>  'อายุ'.$answer4.'สัปดาห์',
                                       'actions' => [
-                                          [
-                                              'type' => 'postback',
-                                              'label' => 'good',
-                                              'data' => 'value'
-                                          ],
+                                          // [
+                                          //     'type' => 'postback',
+                                          //     'label' => 'good',
+                                          //     'data' => 'value'
+                                          // ],
                                           [
                                               'type' => 'uri',
-                                              'label' => 'google',
-                                              'uri' => 'https://bottest14.herokuapp.com/week/graph.php'
+                                              'label' => 'กราฟ',
+                                              'uri' => 'https://bottest14.herokuapp.com/graph.php'
                                           ]
                                       ]
                                   ]
