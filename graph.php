@@ -59,12 +59,8 @@ var chart = AmCharts.makeChart("chartdiv", {
         "verticalPadding": 10
     },
     "valueAxes": [{
-        "duration": "mm",
-        "durationUnits": {
-            "1": "",
-            "2": ""
-        },
-        "axisAlpha": 0
+        "position": "left",
+        "title": "Unique visitors"
     }],
     "graphs": [{
         "bullet": "square",
