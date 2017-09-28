@@ -60,7 +60,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     },
     "valueAxes": [{
         "position": "left",
-        "title": "Unique visitors"
+        "title": "ความแต่งต่างของน้ำหนัก"
     }],
     "graphs": [{
         "bullet": "square",
