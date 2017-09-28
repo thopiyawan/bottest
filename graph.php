@@ -25,7 +25,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    // echo $array_out[] =$arr;
                    // $i++;
                   $arr0 = $arr[0];
-                  echo $arr1 = $arr[1]-$result  ;
+                  echo $arr1 = $arr[1]-$result;
                   // echo $arr[$i++] ;
                   // var_dump($arr);
                   // print_r $arr = $row[1]; 
@@ -132,7 +132,9 @@ function generateChartData() {
 </script>
 
 <body>
+<?php   echo $arr1 = $arr[1]-$result; ?>
 <div id="chartdiv"></div>
+
 </body>
 </html>
 
