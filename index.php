@@ -164,7 +164,7 @@ if (!is_null($events['events'])) {
                 if($d_pre>=7){
                    $m_pre = ($month_today - $month)*4;
                    $w_pre =  $d_pre/7;
-                   $w_pre = number_format($w_pre);
+                   $w_pre = round($w_pre);
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
                    $re_date_pre = number_format($re_date_pre);
@@ -228,7 +228,7 @@ if (!is_null($events['events'])) {
                 if($d_pre>=7){
                    $m_pre = ($month_today - $month)*4;
                    $w_pre =  $d_pre/7;
-                   $w_pre = number_format($w_pre);
+                   $w_pre = round($w_pre);
                   /////คำตอบ/////
                    $re_date_pre =  $d_pre%7;
                    $re_date_pre = number_format($re_date_pre);
