@@ -126,20 +126,17 @@ function generateChartData() {
     // now set 500 minutes back
     firstDate.setMinutes(firstDate.getDate() - 1000);
 
-    // and generate 500 data items
-    var visits = 500;
-    for (var i = 0; i < 500; i++) {
-        var newDate = new Date(firstDate);
-        // each time we add one minute
-        newDate.setMinutes(newDate.getMinutes() + i);
+
+        a = "2012-01-03";
+    
         // some random number
-        visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+        visits = 100;
         // add data item to the array
         chartData.push({
-            "date": "newDate",
+            "date": a,
             "duration":  visits
         });
-    }
+    
     return chartData;
 }
 </script>
