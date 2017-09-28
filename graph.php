@@ -61,7 +61,7 @@ var chart = AmCharts.makeChart("chartdiv", {
     "valueAxes": [{
         "duration": "mm",
         "durationUnits": {
-            "0"
+            "hh"
         },
         "axisAlpha": 0
     }],
