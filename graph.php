@@ -59,7 +59,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "verticalPadding": 10
     },
     "valueAxes": [{
-        "duration": "m",
+        "duration": "mm",
         "durationUnits": {
             "hh"
         },
