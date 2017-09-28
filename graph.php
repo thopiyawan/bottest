@@ -121,13 +121,13 @@ function generateChartData() {
     var chartData = [];
   
         chartData.push({
-        "date": "2012-01-02",
+        "date": "2012-01-05",
         "duration": 482
     }, {
-        "date": "2012-01-03",
+        "date": "2012-01-21",
         "duration": 562
     }, {
-        "date": "2012-01-04",
+        "date": "2012-01-06",
         "duration": 379
     });
     
