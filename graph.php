@@ -123,11 +123,7 @@ function zoomChart() {
 // generate some random data, quite different range
 function generateChartData() {
     var chartData = [];
-    // current date
-
-    // now set 500 minutes back
-    firstDate.setMinutes(firstDate.getDate() - 1000);
-
+  
         chartData.push({
          {
         "lineColor": "#b7e021",
