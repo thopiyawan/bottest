@@ -9,9 +9,10 @@ if (!$dbconn) {
 
 
 $user = $_GET["data"];
+$user_id = pg_escape_string($user);
  // echo $user_id;
 
-   // $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user  ");
+   // $des_preg = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight  FROM history_preg WHERE user_id  = $user_id  ");
    //            while ($row = pg_fetch_row($des_preg)) {
    //                echo $des = $row[0]; 
    //                echo $img = $row[1]; 
@@ -20,7 +21,7 @@ $user = $_GET["data"];
 
 
 
-$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = $user  order by updated_at desc limit 1   ");
+$check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
                   echo $sender = $row[1]; 
