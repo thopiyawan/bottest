@@ -131,7 +131,8 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ(ตัวอย่างการพิมพ์ วันที่17 01 คือวันที่17 มกราคม)'
+                        'text' => 'ขอทราบครั้งสุดท้ายที่คุณมีประจำเดือนเพื่อคำนวณอายุครรภ์ค่ะ (กรุณาตอบประมาณวันที่และเดือนเป็นตัวเลขนะคะ เช่น 17 04 คือ วันที่ 17 เมษายน)
+'
                       ];
            $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008','','0009','0',NOW(),NOW())") or die(pg_errormessage());
 
@@ -306,48 +307,6 @@ if (!is_null($events['events'])) {
 
     }   
 
-
-    // if (is_numeric( $date) !== false && strlen($date) == 2 && strlen($month) == 2  ){      
-    //   if($date>31 && $date <=00 && $month >12 && $month<=00 ){
-    //       $replyToken = $event['replyToken'];
-    //              $messages = [
-    //                     'type' => 'text',
-    //                     'text' => 'คุณพิมพ์ไม่ถูกต้อง'
-    //                   ];  
-
-
-
-    //   }else{
-    //              $replyToken = $event['replyToken'];
-    //              $messages = [
-    //                     'type' => 'text',
-    //                     'text' => 'คุณพิมพ์ไม่ถูกต้อง'
-    //                   ]; 
-
-    //        } 
-    // }else{
-    //           $replyToken = $event['replyToken'];
-    //              $messages = [
-    //                     'type' => 'text',
-    //                     'text' => 'กรุณาพิมพ์ใหม่ตามนี้ 17 02(วันที่ เดือน)'
-    //                   ];  
-    //     }
-  
-
-// is_numeric($_msg) !== false && $seqcode == "0006"  && strlen($_msg) == 4 && $_msg < $curr_y && $_msg > "2500"
-
-
-
-    // $month_pre = ($month_today-$month)*4 ;
-  
-// number_format($number)
-
-//     if ($date>$date_today){
-//             $date_pre = $date-$date_today ;
-//         }else{
-//             $date_pre = $date_today-$date;
-//         }
-//     $month_pre = ($month_today-$month)*4 ;
   
       $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
