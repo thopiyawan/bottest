@@ -130,13 +130,14 @@ function generateChartData() {
     " <?php 
 
        while ($arr= pg_fetch_array($check_q)) {
-                  $arr0[] = $arr[0];
-                  $arr1[] = $arr[1]-$result;
-             
-       echo " chartData.push({
-        "date": "2012-01-10",
+                  $arr0 = $arr[0];
+                  $arr1 = $arr[1]-$result;
+
+      ?>"
+     "<?php        
+        echo " chartData.push({"date": "2012-01-10",
         "duration":"  $arr1
-         "});"
+        echo "});"
     
         }
 
