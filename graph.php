@@ -125,10 +125,9 @@ function generateChartData() {
 
 
     var chartData = [];
-    w =2 ;
         chartData.push({
         "date": "2012-01-10",
-        "duration": w
+        "duration": w1
     }, {
         "date": "2012-01-15",
         "duration": 562
