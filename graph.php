@@ -22,7 +22,7 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $arr0 = $arr[0];
-                  echo $arr1 = $arr[1]-$result;
+                  $arr1 = $arr[1]-$result;
                 
                 } 
 ?>
@@ -46,6 +46,10 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 }                            
 </style>
 <script>
+
+
+        w1 = <?php   $arr0; ?> ;
+        w2 = <?php   $arr1; ?>;
 var chartData = generateChartData();
 
 var chart = AmCharts.makeChart("chartdiv", {
