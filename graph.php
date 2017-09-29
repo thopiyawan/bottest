@@ -122,33 +122,46 @@ function zoomChart() {
 // generate some random data, quite different range
 function generateChartData() {
 
+// var myData=[<?php 
+// while($info=pg_fetch_array($data))
+//     echo $info['his_preg_week'].','; 
+// ?>];
+// <?php
+// $data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
 
+// echo myData;
+// ?>
+// var myLabels=[<?php 
+// while($info = pg_fetch_array($data))
+//     echo '"'.$info['his_preg_weight'].'",'; 
+// ?>];
 
+//  var mLabels = [2,5,10,60,90];
+//     var we = "<?php  $arr0; ?>";
 
-
-
-
-
-
-var myData=[<?php 
-while($info=pg_fetch_array($data))
-    echo $info['his_preg_week'].','; 
-?>];
-<?php
-$data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-
-echo myData;
-?>
 var myLabels=[<?php 
-while($info = pg_fetch_array($data))
-    echo '"'.$info['his_preg_weight'].'",'; 
+$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+
+foreach($results as $check_q){
+   $user =  $result['his_preg_week'];          
+   // $username = $result['his_preg_weight '];
+
+}
 ?>];
- var mLabels = [2,5,10,60,90];
-    var we = "<?php echo $arr0; ?>";
+// <?php  
+// $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+
+// foreach($results as $check_q){
+//    $user =  $result['his_preg_week'];          
+//    $username = $result['his_preg_weight '];
+
+// }
+
+// ?>
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
-        "duration": mLabels
+        "duration": myLabels
     });
     
     return chartData;
