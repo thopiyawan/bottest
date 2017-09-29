@@ -136,6 +136,8 @@ while($info=pg_fetch_array($data))
 ?>];
 <?php
 $data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+
+echo myData;
 ?>
 var myLabels=[<?php 
 while($info = pg_fetch_array($data))
@@ -155,8 +157,8 @@ while($info = pg_fetch_array($data))
 
 <body>
 
-<div id="chartdiv"></div>
-
+<!-- <div id="chartdiv"></div> -->
+<?php echo myData; ?>
 </body>
 </html>
 
