@@ -119,7 +119,7 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-          w1 = "<?php   $arr0; ?>" ;
+          w1 = "<?php   $arr0 = 15; ?>" ;
           w2 = "<?php   $arr1; ?>" ;
 
     var chartData = [];
