@@ -84,7 +84,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "cursorAlpha": 0,
         "fullWidth": true
     },
-    "dataDateFormat": "YYYY-MM-DD",
+    "dataDateFormat": "DD",
     "categoryField": "date",
     "categoryAxis": {
         "dateFormats": [{
@@ -145,7 +145,7 @@ while($info = pg_fetch_array($data))
     var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
-        "date": "2012-01-10",
+        "date": myData,
         "duration": myLabels
     });
     
