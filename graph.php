@@ -46,10 +46,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 }                            
 </style>
 <script>
-
-
-        w1 = <?php   $arr0; ?> ;
-        w2 = <?php   $arr1; ?>;
+    
 var chartData = generateChartData();
 
 var chart = AmCharts.makeChart("chartdiv", {
@@ -122,7 +119,8 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-
+          w1 = "<?php   $arr0; ?>" ;
+          w2 = "<?php   $arr1; ?>" ;
 
     var chartData = [];
         chartData.push({
