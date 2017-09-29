@@ -120,8 +120,8 @@ function zoomChart() {
 function generateChartData() {
     
     var chartData = [];
-        w = <?php  $arr0 = 1; ?> ;
-        w1 = <?php $arr1 =2; ?>;
+        w = <?php  $arr0 = "1"; ?> ;
+        w1 = <?php $arr1 = "2"; ?>;
         chartData.push({
         "date": "2012-01-01",
         "duration":  w1
