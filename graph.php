@@ -18,8 +18,8 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
                  $result = $row[0];
   
                 } 
- $arr0 = [] 
-  $arr1= [] 
+$arr0 = [] ;
+$arr1= [] ;
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $arr0[] = $arr[0];
