@@ -119,13 +119,12 @@ function zoomChart() {
 // generate some random data, quite different range
 function generateChartData() {
 
-   var w1 = <?php echo $arr1; ?>;
-   var w2 = <?php echo $arr1; ?>;
+
     var chartData = [];
-  
+    w =2 ;
         chartData.push({
         "date": "2012-01-10",
-        "duration": 4
+        "duration": w
     }, {
         "date": "2012-01-15",
         "duration": 562
