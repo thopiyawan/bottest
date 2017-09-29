@@ -143,12 +143,12 @@ var myLabels=[<?php
 while($info = pg_fetch_array($data))
     echo '"'.$info['his_preg_weight'].'",'; 
 ?>];
-
+ var mLabels = [2,5,10,60,90];
     var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
-        "duration": myLabels
+        "duration": mLabels
     });
     
     return chartData;
@@ -158,36 +158,7 @@ while($info = pg_fetch_array($data))
 <body>
 
 <!-- <div id="chartdiv"></div> -->
-<?php
-
-$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
-$dbconn = pg_pconnect($conn_string);
-if (!$dbconn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-
-$user = $_GET["data"];
-$user_id = pg_escape_string($user);
- // echo $user_id;
-
-$check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
-                while ($row= pg_fetch_row($check)) {
-              
-                 echo $result = $row[0];
-  
-                } 
-
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_array($check_q)) {
-                  $arr0 = $arr[0];
-                echo  $arr1 = $arr[1]-$result;
-                
-                } 
-
-
-?>
-
+<?php echo $arr0; ?>
 </body>
 </html>
 
