@@ -120,12 +120,6 @@ function zoomChart() {
 function generateChartData() {
     
     var chartData = [];
-        <?php $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_array($check_q)) {
-                  $arr0 = $arr[0];
-                  echo $arr1 = $arr[1]-$result;
-                
-                }  ?>
         w = <?php echo $arr0; ?>;
         w1 = <?php echo $arr1; ?>;
         chartData.push({
