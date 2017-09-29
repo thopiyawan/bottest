@@ -21,9 +21,8 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
 
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
-                  $arr0 = $arr[0];
-                  $arr1 = $arr[1]-$result;
-                
+                  $arr0[] = $arr[0];
+                  $arr1[] = $arr[1]-$result;
                 } 
 
 
@@ -123,7 +122,7 @@ function zoomChart() {
 function generateChartData() {
           // w1 = <?php   $data1; ?> ;
           // w2 = <?php   $data2; ?>;
-    var we = "<?php echo $arr0 = 522; ?>";
+    var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-10",
