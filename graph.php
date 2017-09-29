@@ -18,12 +18,11 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
                  $result = $row[0];
   
                 } 
-$arr0 = [] ;
-$arr1= [] ;
+
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
-                  $arr0[] = $arr[0];
-                  $arr1[] = $arr[1]-$result;
+                  $arr0 = $arr[0];
+                  $arr1 = $arr[1]-$result;
                 
                 } 
 
@@ -126,17 +125,22 @@ function generateChartData() {
           // w2 = <?php   $data2; ?>;
     var we = "<?php echo $arr0; ?>";
     var chartData = [];
-        chartData.push({
+
+
+    " <?php 
+
+       while ($arr= pg_fetch_array($check_q)) {
+                  $arr0[] = $arr[0];
+                  $arr1[] = $arr[1]-$result;
+             
+       echo " chartData.push({
         "date": "2012-01-10",
-        "duration": we
-    }, {
-        "date": "2012-01-15",
-        "duration": 562
-    }, {
-        "date": "2012-01-20",
-        "duration": 379
-    });
+        "duration":"  $arr1
+         "});"
     
+        }
+
+      ?> "
     return chartData;
 }
 </script>
