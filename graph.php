@@ -45,7 +45,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
   font-size : 11px;
 }                            
 </style>
-<script>
+<script type="text/javascript">
     
 var chartData = generateChartData();
 
@@ -119,13 +119,13 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-          w1 = "<?php   $arr0 = '15'; ?>" ;
-          w2 = "<?php   $arr1; ?>" ;
-
+          // w1 = <?php   $data1; ?> ;
+          // w2 = <?php   $data2; ?>;
+      var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-10",
-        "duration": w1
+        "duration": we
     }, {
         "date": "2012-01-15",
         "duration": 562
