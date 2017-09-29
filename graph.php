@@ -121,14 +121,43 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-          // w1 = <?php   $data1; ?> ;
-          // w2 = <?php   $data2; ?>;
+
+
+
+
+
+
+
+
+
+var myData=[<?php 
+while($info=pg_fetch_array($data))
+    echo $info[0].','; 
+?>];
+<?php
+$data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+?>
+var myLabels=[<?php 
+while($info = pg_fetch_array($data))
+    echo '"'.$info[1].'",'; 
+?>];
+
+
+
+$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+                while ($arr= pg_fetch_array($check_q)) {
+                  $arr0 = $arr[0];
+                  $arr1 = $arr[1]-$result;
+                
+                } 
+
+
     $i = 0;
-    var we[] = "<?php echo $arr0; ?>";
+    var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-10",
-        "duration": we[$i++]
+        "duration": we
     });
     
     return chartData;
