@@ -136,8 +136,8 @@ function generateChartData() {
       ?>"
      "<?php        
         echo " chartData.push({"date": "2012-01-10",
-        "duration":"  $arr1
-        echo "});"
+        "duration":" "<?php  $arr1  ?>";
+        echo "});";
     
         }
 
