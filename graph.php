@@ -167,7 +167,7 @@ foreach($results as $check_q){
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
-        "duration": <?php $val ?>
+        "duration": "<?php $val ?>"
     });
     
     return chartData;
