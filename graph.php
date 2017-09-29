@@ -143,7 +143,7 @@ function generateChartData() {
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
-        "duration": $arr0
+        "duration": we
     });    
     
     return chartData;
