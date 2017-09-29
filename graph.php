@@ -123,7 +123,7 @@ function generateChartData() {
         w = <?php echo $arr0; ?>;
         w1 = <?php echo $arr1; ?>;
         chartData.push({
-        "date": w,
+        "date": "2012-01-01",
         "duration":  w1
          });
     
