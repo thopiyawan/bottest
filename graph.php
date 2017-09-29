@@ -174,14 +174,14 @@ $user_id = pg_escape_string($user);
 $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
                 while ($row= pg_fetch_row($check)) {
               
-                 $result = $row[0];
+                 echo $result = $row[0];
   
                 } 
 
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $arr0 = $arr[0];
-                  $arr1 = $arr[1]-$result;
+                echo  $arr1 = $arr[1]-$result;
                 
                 } 
 
