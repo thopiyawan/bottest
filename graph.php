@@ -118,18 +118,20 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
+    
     var chartData = [];
-  
+        <?php $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+                while ($arr= pg_fetch_array($check_q)) {
+                  $arr0 = $arr[0];
+                  echo $arr1 = $arr[1]-$result;
+                
+                }  ?>
+        w = <?php echo $arr0; ?>;
+        w1 = <?php echo $arr1; ?>;
         chartData.push({
-        "date": "2012-01-10",
-        "duration": 482
-    }, {
-        "date": "2012-01-15",
-        "duration": 562
-    }, {
-        "date": "2012-01-20",
-        "duration": 379
-    });
+        "date": w,
+        "duration":  w1
+         });
     
     return chartData;
 }
