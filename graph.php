@@ -139,7 +139,7 @@ function generateChartData() {
 
 
 
-    var we = "<?php echo $arr0 = "400"; ?>";
+    var we = "<?php echo $arr0 = "400,300,500"; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
