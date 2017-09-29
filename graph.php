@@ -25,8 +25,8 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $arr1 = $arr[1]-$result;
                 
                 } 
-$data = array();
-          while($row = pg_fetch_assoc($check_q)) {
+          $data = array();
+          while($row = $check_q->fetch_assoc()) {
             $data[] = $row;
           }
           echo json_encode( $data );
