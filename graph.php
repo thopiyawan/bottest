@@ -158,7 +158,7 @@ while($info = pg_fetch_array($data))
 <body>
 
 <!-- <div id="chartdiv"></div> -->
-<?php echo myData; ?>
+<?php echo $arr0; ?>
 </body>
 </html>
 
