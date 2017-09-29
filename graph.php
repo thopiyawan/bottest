@@ -142,22 +142,11 @@ while($info = pg_fetch_array($data))
     echo '"'.$info[1].'",'; 
 ?>];
 
-
-
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_array($check_q)) {
-                  $arr0 = $arr[0];
-                  $arr1 = $arr[1]-$result;
-                
-                } 
-
-
-    $i = 0;
     var we = "<?php echo $arr0; ?>";
     var chartData = [];
         chartData.push({
         "date": "2012-01-10",
-        "duration": we
+        "duration": myLabels
     });
     
     return chartData;
