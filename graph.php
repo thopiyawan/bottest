@@ -145,7 +145,13 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 foreach($results as $check_q){
    $user =  $result['his_preg_week'];          
    // $username = $result['his_preg_weight '];
-
+ $val = array(
+        {
+        "date": "2012-01-01",
+        "duration": $user
+         }
+               );
+                array_push($data,$val);   
 }
 ?>];
 // <?php  
@@ -161,7 +167,7 @@ foreach($results as $check_q){
     var chartData = [];
         chartData.push({
         "date": "2012-01-01",
-        "duration": myLabels
+        "duration": <?php $val ?>
     });
     
     return chartData;
