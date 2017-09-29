@@ -125,7 +125,7 @@ function generateChartData() {
   
         chartData.push({
         "date": "2012-01-10",
-        "duration": <?php echo $arr1; ?>
+        "duration": 4
     }, {
         "date": "2012-01-15",
         "duration": 562
