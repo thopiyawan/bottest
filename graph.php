@@ -124,12 +124,13 @@ function generateChartData() {
 
 
 var c =[<?php 
-while($info=pg_fetch_array($data))
-    echo $info['his_preg_week'].','; 
+$data= [];
+while($info = pg_fetch_array($data))
+    $a =  $info['his_preg_week'].','; 
    $arrayg = array('date' => '2012-01-01' ,
                   'duration'=> '255' );
-
-
+  array_push($data,$arrayg); 
+echo $data;
 ?>];
 // <?php
 // $data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
