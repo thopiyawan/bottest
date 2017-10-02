@@ -30,7 +30,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 
                 }  array_push($a,$arrayName);  
 
-print_r($a)
+print_r($a);
 ?>
 
 
