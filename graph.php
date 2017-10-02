@@ -202,7 +202,7 @@ function generateChartData() {
     }]);
 
     return chartData;
-
+}
 </script>
 
 <body>
