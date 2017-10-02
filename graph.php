@@ -183,11 +183,9 @@ function generateChartData() {
       //     chartData.push(da);    
     
 
-
-
    var chartData = [];
 
-    chartData.push([{
+    chartData.push({
         "date": "1",
         "duration": 408
     }, {
@@ -199,7 +197,7 @@ function generateChartData() {
     }, {
         "date": "2012-01-04",
         "duration": 379
-    }]);
+    });
 
     return chartData;
 }
