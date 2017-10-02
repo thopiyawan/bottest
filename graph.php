@@ -30,7 +30,6 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                                       'duration'=> $weight);
                 }   
 $data = json_encode($arrayName);
-$data ;
 echo "var data = '$data';";
 ?>
 <!DOCTYPE html>
@@ -131,13 +130,13 @@ function generateChartData() {
         "date": "2012-01-04",
         "duration": 408
     }, {
-        "date": "2012-01-04",
+        "date": "2012-02-04",
         "duration": 482
     }, {
-        "date": "2012-01-04",
+        "date": "2012-03-04",
         "duration": 562
     }, {
-        "date": "2012-01-04",
+        "date": "2012-04-04",
         "duration": 379
     }]);
 
