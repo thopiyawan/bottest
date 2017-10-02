@@ -126,77 +126,23 @@ function zoomChart() {
 function generateChartData() {
 
 
-// var c =[<?php 
-// $data= [];
-// while($info = pg_fetch_array($check_q))
-//     $a =  $info['his_preg_week'].','; 
-//    $arrayg = array('date' => '2012-01-01' ,
-//                   'duration'=> '255' );
-//   array_push($data,$arrayg); 
-//   echo $data;
-// ?>];
-// <?php
-// $data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+   var chartData = [];
 
-// echo myData;
-// ?>
-// var myLabels=[<?php 
-// while($info = pg_fetch_array($data))
-//     echo '"'.$info['his_preg_weight'].'",'; 
-// ?>];
+    chartData.push([{
+        "date": "1",
+        "duration": 408
+    }, {
+        "date": "2",
+        "duration": 482
+    }, {
+        "date": "2",
+        "duration": 562
+    }, {
+        "date": "2012-01-04",
+        "duration": 379
+    }]);
 
-<?php
-
-$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
-$dbconn = pg_pconnect($conn_string);
-if (!$dbconn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-
-$user = $_GET["data"];
-$user_id = pg_escape_string($user);
- // echo $user_id;
-
-$check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
-                while ($row= pg_fetch_row($check)) {
-              
-                 $result = $row[0];
-  
-                } 
-
-$a =[];
-$arrayName=[];
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-                while ($arr= pg_fetch_array($check_q)) {
-                  $week = $arr[0];
-                  $weight = $arr[1]-$result;
-         
-                  $arrayName = array( 'date'     => '2012-01-06',
-                                      'duration' => $weight);
-                   $b = json_encode($arrayName);
-                   // echo "var data = '$b';";   
-                   // echo "var chartData = [];";                  
-                   // echo "chartData.push(data);";
-                }   
-                 $b = json_encode($arrayName);
-                   echo "var data = '$b';";   
-                   echo "var chartData = [];";                  
-                   echo "chartData.push(data);";
-                   echo "return chartData;";
-// $b = json_encode($arrayName);
-// echo $b ;
-// echo "var data = '$b';";
-?>;
-      // var chartData = [];
-      //     chartData.push(da);    
-    
-
-   // var chartData = [];
-
-   //  chartData.push(data);
-
-    // return chartData;
+    return chartData;
 }
 </script>
 
