@@ -124,21 +124,21 @@ function zoomChart() {
 // generate some random data, quite different range
 function generateChartData() {
 
-   var chartData = [];
+   var chartData = data;
 
-    chartData.push({
-        "date": "2012-01-04",
-        "duration": 408
-    }, {
-        "date": "2012-02-04",
-        "duration": 482
-    }, {
-        "date": "2012-03-04",
-        "duration": 562
-    }, {
-        "date": "2012-04-04",
-        "duration": 379
-    });
+    // chartData.push({
+    //     "date": "2012-01-04",
+    //     "duration": 408
+    // }, {
+    //     "date": "2012-02-04",
+    //     "duration": 482
+    // }, {
+    //     "date": "2012-03-04",
+    //     "duration": 562
+    // }, {
+    //     "date": "2012-04-04",
+    //     "duration": 379
+    // });
 
     return chartData;
 }
