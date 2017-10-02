@@ -26,7 +26,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $week = $arr[0];
                   $weight = $arr[1]-$result;
          
-                  $arrayName[] = array( 'date' => '2012-01-06',
+                  $arrayName[] = array( 'date' => $week,
                                       'duration'=> $weight);
                 }   
 $data = json_encode($arrayName);
@@ -129,9 +129,9 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
   
                 } 
 
-$a =[];
+
 $arrayName=[];
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}' order  order by his_preg_week  desc  ");
+$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}' order by his_preg_week  desc  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
                   $weight = $arr[1]-$result;
