@@ -19,14 +19,18 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
   
                 } 
 
+$a =[];
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
-                  $arr0 = $arr[0];
-                  $arr1 = $arr[1]-$result;
-                
-                } 
+                  $week = $arr[0];
+                  $weight = $arr[1]-$result;
+                  
+                  $arrayName = array( "date": "2012-01-11",
+                                      "duration": 890);
 
+                }  array_push($a,$arrayName);  
 
+echo $a;
 ?>
 
 
@@ -123,15 +127,15 @@ function zoomChart() {
 function generateChartData() {
 
 
-var c =[<?php 
-$data= [];
-while($info = pg_fetch_array($check_q))
-    $a =  $info['his_preg_week'].','; 
-   $arrayg = array('date' => '2012-01-01' ,
-                  'duration'=> '255' );
-  array_push($data,$arrayg); 
-echo $data;
-?>];
+// var c =[<?php 
+// $data= [];
+// while($info = pg_fetch_array($check_q))
+//     $a =  $info['his_preg_week'].','; 
+//    $arrayg = array('date' => '2012-01-01' ,
+//                   'duration'=> '255' );
+//   array_push($data,$arrayg); 
+//   echo $data;
+// ?>];
 // <?php
 // $data=pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
 
