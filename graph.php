@@ -52,7 +52,7 @@ echo "var data = '$data';";
 <script type="text/javascript">
     
 var chartData = generateChartData();
-console.log(chartData); 
+console.log(<?php echo $data ?>)
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
@@ -123,8 +123,6 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-<?php echo "var data = '$data';" ?>
-
    var chartData = data;
 
     // chartData.push({
