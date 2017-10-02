@@ -228,10 +228,10 @@ if (!$dbconn) {
 
 
 $data= [];
-while($info = pg_fetch_array($check_q))
+while($info = pg_fetch_array($check_q)){
     $a =  $info['his_preg_week'].','; 
    $arrayg = array('date' => '2012-01-01' ,
-                  'duration'=> '255' );
+                   'duration'=> '255' );}
   array_push($data,$arrayg); 
  echo $data;
 
