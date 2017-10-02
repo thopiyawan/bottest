@@ -179,10 +179,11 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    echo "var chartData = [];";                  
                    echo "chartData.push(data);";
                 }   
-                   $b = json_encode($arrayName);
+                 $b = json_encode($arrayName);
                    echo "var data = '$b';";   
                    echo "var chartData = [];";                  
-                   echo "chartData.push(data);";
+                   echo "chartData.push(  "date": "2012-01-08",
+        "duration": 309);";
                    echo " return chartData;";
 // $b = json_encode($arrayName);
 // echo $b ;
@@ -196,7 +197,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 
    //  chartData.push(data);
 
-    return we;
+    // return chartData;
 }
 </script>
 
