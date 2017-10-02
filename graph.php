@@ -178,7 +178,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    echo "var data = '$w';";   
                    echo "var chartData = [];";                  
                    echo "chartData.push( {'date'     => '2012-01-06',
-                                      'duration' => data });";
+                                          'duration' => data });";
                     echo "return chartData;";
 
                 }   
@@ -198,7 +198,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 
    //  chartData.push(data);
 
-    // return chartData;
+    return chartData;
 }
 </script>
 
