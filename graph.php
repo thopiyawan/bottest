@@ -179,9 +179,28 @@ $b = json_encode($arrayName);
 echo $b ;
 echo "var da = '$b';";
 ?>";
-      var chartData = [];
-          chartData.push(da);    
+      // var chartData = [];
+      //     chartData.push(da);    
     
+
+
+
+   var chartData = [];
+
+    chartData.push([{
+        "date": "1",
+        "duration": 408
+    }, {
+        "date": "2",
+        "duration": 482
+    }, {
+        "date": "2",
+        "duration": 562
+    }, {
+        "date": "2012-01-04",
+        "duration": 379
+    }]);
+
     return chartData;
 }
 </script>
