@@ -87,20 +87,14 @@ var chart = AmCharts.makeChart("chartdiv", {
         "fullWidth": true
     },
     "categoryField": "date",
-    "categoryAxis": {
-        "dateFormats": [{
-            "period": "DD",
-            "format": "DD"
-        }, {
-            "period": "WW",
-            "format": "MMM DD"
-        }, {
-            "period": "MM",
-            "format": "MMM"
-        }, {
-            "period": "YYYY",
-            "format": "YYYY"
-        }],
+     "categoryField": "country",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "labelRotation": 45
+  },
+  "export": {
+    "enabled": true
+  },
         "parseDates": true,
         "autoGridCount": false,
         "axisColor": "#555555",
