@@ -52,7 +52,7 @@ echo "var data = '$data';";
 <script type="text/javascript">
     
 var chartData = generateChartData();
-console.log(chartData) 
+console.log(chartData); 
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
