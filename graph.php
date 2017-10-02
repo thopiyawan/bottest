@@ -104,7 +104,6 @@ var chart = AmCharts.makeChart("chartdiv", {
 chart.addListener("dataUpdated", zoomChart);
 
 function zoomChart() {
-    chart.zoomToDates();
     // chart.zoomToDates(new Date(2012, 0, 3), new Date(2012, 0, 11));
 }
 
