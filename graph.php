@@ -180,9 +180,16 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
               
                 }   
                     echo "var chartData = [];"; 
-                     echo "chartData.push( {'date'     => '2012-01-06',
-                                          'duration' => 35 },{'date'     => '2012-01-06',
-                                          'duration' => 25 });";
+                               echo "chartData.push( {
+                                        "date": "2012-01-02",
+                                        "duration": 482
+                                    }, {
+                                        "date": "2012-01-03",
+                                        "duration": 562
+                                    }, {
+                                        "date": "2012-01-04",
+                                        "duration": 379
+                                     });";
                     echo "return chartData;";
 
                    // $b = json_encode($arrayName);
