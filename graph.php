@@ -144,7 +144,7 @@ function generateChartData() {
 //     echo '"'.$info['his_preg_weight'].'",'; 
 // ?>];
 
-    var we = "< <?php
+    var we = "<?php
 
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
 $dbconn = pg_pconnect($conn_string);
@@ -172,7 +172,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $weight = $arr[1]-$result;
          
                   $arrayName[] = array( 'date' => '2012-01-06',
-                                      'duration'=> $weight);
+                                        'duration'=> $weight);
                 }   
 $b = json_encode($arrayName);
 echo $b ;
