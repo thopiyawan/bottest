@@ -159,9 +159,9 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
 $b = json_encode($arrayName);
 
 ?>";
-    document.write(we);
+  
       var chartData = [];
-          chartData.push("<?php echo $b ?>");    
+          chartData.push(we);    
     
     return chartData;
 }
