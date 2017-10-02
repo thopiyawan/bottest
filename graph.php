@@ -86,7 +86,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "cursorAlpha": 0,
         "fullWidth": true
     },
-    "dataDateFormat": "DD",
+    "dataDateFormat": "YYYY-MM-DD",
     "categoryField": "date",
     "categoryAxis": {
         "dateFormats": [{
