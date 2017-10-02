@@ -155,13 +155,14 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $arrayName[] = array( 'date' => $week,
                                         'duration'=> $weight);
                 }  
-array_push($a,$arrayName);  
 
+array_push($a,$arrayName);  
+$b = json_encode($a)
 
 ?>";
      
       var chartData = [];
-          chartData.push( "<?php $arrayName ?>");    
+          chartData.push( "<?php $b ?>");    
     
     return chartData;
 }
