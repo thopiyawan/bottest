@@ -12,26 +12,26 @@ $user = $_GET["data"];
 $user_id = pg_escape_string($user);
  // echo $user_id;
 
-// $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
-//                 while ($row= pg_fetch_row($check)) {
+$check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
+                while ($row= pg_fetch_row($check)) {
               
-//                  $result = $row[0];
+                 $result = $row[0];
   
-//                 } 
+                } 
 
-// $a =[];
-// $arrayName=[];
-// $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
-//                 while ($arr= pg_fetch_array($check_q)) {
-//                   $week = $arr[0];
-//                   $weight = $arr[1]-$result;
+$a =[];
+$arrayName=[];
+$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+                while ($arr= pg_fetch_array($check_q)) {
+                  $week = $arr[0];
+                  $weight = $arr[1]-$result;
          
-//                   $arrayName[] = array( 'date' => '2012-01-06',
-//                                       'duration'=> $weight);
-//                 }   
-// $data = json_encode($arrayName);
-// $data ;
-// echo "var data = '$data';";
+                  $arrayName[] = array( 'date' => '2012-01-06',
+                                      'duration'=> $weight);
+                }   
+$data = json_encode($arrayName);
+$data ;
+echo "var data = '$data';";
 ?>
 <!DOCTYPE html>
 <html>
@@ -177,10 +177,10 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                 }   
 $b = json_encode($arrayName);
 echo $b ;
-echo "var data = '$data';";
+echo "var da = '$b';";
 ?>";
       var chartData = [];
-          chartData.push(data);    
+          chartData.push(da);    
     
     return chartData;
 }
