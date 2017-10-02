@@ -161,7 +161,7 @@ $b = json_encode($arrayName);
 ?>";
      
       var chartData = [];
-          chartData.push( "<?php $b ?>");    
+          chartData.push(we);    
     
     return chartData;
 }
