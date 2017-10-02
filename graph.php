@@ -178,9 +178,8 @@ $b = json_encode($arrayName);
 echo $b ;
 
 ?>";
-  
       var chartData = [];
-          chartData.push(we);    
+          chartData.push("<?php echo $b ?>");    
     
     return chartData;
 }
