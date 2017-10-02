@@ -20,6 +20,7 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
                 } 
 
 $a =[];
+$arrayName=[];
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
@@ -27,7 +28,6 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
          
                   $arrayName = array( 'date'=> $week,
                                       'duration'=> $weight);
-
                 }  
 array_push($a,$arrayName);  
 
