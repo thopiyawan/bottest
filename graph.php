@@ -88,12 +88,8 @@ var chart = AmCharts.makeChart("chartdiv", {
     },
     
     "categoryField": "date",
-    "categoryAxis": {
-    "gridPosition": "start",
-    "labelRotation": 45
-     },
-        "parseDates": true,
-        "autoGridCount": false,
+    
+      
         "axisColor": "#555555",
         "gridAlpha": 0,
         "gridCount": 50
