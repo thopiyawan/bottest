@@ -126,7 +126,7 @@ function generateChartData() {
 
    var chartData = [];
 
-    chartData.push([{
+    chartData.push({
         "date": "2012-01-04",
         "duration": 408
     }, {
@@ -138,7 +138,7 @@ function generateChartData() {
     }, {
         "date": "2012-04-04",
         "duration": 379
-    }]);
+    });
 
     return chartData;
 }
