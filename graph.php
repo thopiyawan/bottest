@@ -86,15 +86,22 @@ var chart = AmCharts.makeChart("chartdiv", {
         "cursorAlpha": 0,
         "fullWidth": true
     },
+    
     "categoryField": "date",
-     "categoryField": "country",
-  "categoryAxis": {
-    "gridPosition": "start",
-    "labelRotation": 45
-  },
-  "export": {
-    "enabled": true
-  },
+    "categoryAxis": {
+        "dateFormats": [{
+            "period": "DD",
+            "format": "DD"
+        }, {
+            "period": "WW",
+            "format": "MMM DD"
+        }, {
+            "period": "MM",
+            "format": "MMM"
+        }, {
+            "period": "YYYY",
+            "format": "YYYY"
+        }],
         "parseDates": true,
         "autoGridCount": false,
         "axisColor": "#555555",
@@ -138,7 +145,7 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
 
 $a =[];
 $arrayName=[];
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
+$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}' order  order by his_preg_week  desc  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
                   $weight = $arr[1]-$result;
