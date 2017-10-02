@@ -125,7 +125,7 @@ function zoomChart() {
 function generateChartData() {
 
 
-   var chartData = data;
+   var chartData = [];
 
     chartData.push({
         "date": "2012-01-04",
