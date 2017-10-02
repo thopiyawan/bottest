@@ -52,7 +52,7 @@ echo "var data = '$data';";
 <script type="text/javascript">
     
 var chartData = generateChartData();
-console.log(<?php echo $data ?>)
+
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
@@ -82,14 +82,14 @@ var chart = AmCharts.makeChart("chartdiv", {
 
     },
     "chartCursor": {
-        "categoryBalloonDateFormat": "YYYY MMM DD",
+        "categoryBalloonDateFormat": "week",
         "cursorAlpha": 0,
         "fullWidth": true
     },
     
     "categoryField": "date",
     
-      
+    "categoryAxis": {
         "axisColor": "#555555",
         "gridAlpha": 0,
         "gridCount": 50
