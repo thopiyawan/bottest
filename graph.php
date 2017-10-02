@@ -30,8 +30,8 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                                         'duration'=> $weight);
                 }  
 array_push($a,$arrayName);  
-
-print_r($a);
+$b = json_encode($a)
+print_r($b );
 ?>
 <!DOCTYPE html>
 <html>
