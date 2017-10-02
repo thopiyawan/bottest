@@ -178,7 +178,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                    echo "var data = '$b';";   
                    echo "var chartData = [];";                  
                    echo "chartData.push(data);";
-                    echo "chartData.push(data);";
+                   echo "chartData.push(data);";
 
                 }   
                    // $b = json_encode($arrayName);
