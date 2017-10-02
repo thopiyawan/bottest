@@ -125,7 +125,7 @@ function generateChartData() {
 
 var c =[<?php 
 $data= [];
-while($info = pg_fetch_array($data))
+while($info = pg_fetch_array($check_q))
     $a =  $info['his_preg_week'].','; 
    $arrayg = array('date' => '2012-01-01' ,
                   'duration'=> '255' );
