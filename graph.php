@@ -29,8 +29,9 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $arrayName[] = array( 'date' => '2012-01-06',
                                       'duration'=> $weight);
                 }   
-$b = json_encode($arrayName);
-echo $b ;
+$data = json_encode($arrayName);
+echo $data ;
+echo "var data = '$data';";
 ?>
 <!DOCTYPE html>
 <html>
@@ -179,7 +180,7 @@ echo $b ;
 
 ?>";
       var chartData = [];
-          chartData.push("<?php echo $b ?>");    
+          chartData.push(data);    
     
     return chartData;
 }
