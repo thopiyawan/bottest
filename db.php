@@ -98,17 +98,17 @@ if (!$dbconn) {
 // )";   
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-// $sql="CREATE TABLE history_preg(
-// his_preg_id SERIAL,
-// user_id  varchar(225),
-// his_preg_week  varchar(2),
-// his_preg_weight varchar(3)
-// -- his_preg_wc varchar(225)
-//  -- PRIMARY KEY(his_preg_id),
-//  -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
-//  -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
-//  )";   
-// pg_exec($dbconn, $sql) or die(pg_errormessage());
+$sql="CREATE TABLE history_preg(
+his_preg_id SERIAL,
+user_id  varchar(225),
+his_preg_week  varchar(2),
+his_preg_weight varchar(3)
+-- his_preg_wc varchar(225)
+ -- PRIMARY KEY(his_preg_id),
+ -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
+ -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
+ )";   
+pg_exec($dbconn, $sql) or die(pg_errormessage());
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -227,13 +227,6 @@ if (!$dbconn) {
 //                 } 
 
 
-$data= [];
-while($info = pg_fetch_array($check_q)){
-    $a =  $info['his_preg_week'].','; 
-   $arrayg = array('date' => '2012-01-01' ,
-                   'duration'=> '255' );}
-  array_push($data,$arrayg); 
- echo $data;
 
 
 

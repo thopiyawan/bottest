@@ -146,8 +146,8 @@ function generateChartData() {
 // ?>];
 
     var we = "<?php 
-          $a =[];
-   $arrayName=[];
+$a =[];
+$arrayName=[];
 $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}'  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
@@ -161,7 +161,7 @@ array_push($a,$arrayName);
 ?>";
      
       var chartData = [];
-          chartData.push(we);    
+          chartData.push( "<?php $arrayName ?>");    
     
     return chartData;
 }
