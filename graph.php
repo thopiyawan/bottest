@@ -123,7 +123,7 @@ function zoomChart() {
 
 // generate some random data, quite different range
 function generateChartData() {
-   var chartData = data;
+   var chartData = <?php echo $data ?>;
 
     // chartData.push({
     //     "date": "2012-01-04",
