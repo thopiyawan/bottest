@@ -26,7 +26,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                   $week = $arr[0];
                   $weight = $arr[1]-$result;
          
-                  $arrayName = array( 'date'=> $week,
+                  $arrayName[] = array( 'date'=> $week,
                                       'duration'=> $weight);
                 }  
 array_push($a,$arrayName);  
