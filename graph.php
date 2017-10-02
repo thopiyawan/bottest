@@ -125,7 +125,6 @@ function zoomChart() {
 // generate some random data, quite different range
 function generateChartData() {
 
-
    var chartData = [];
 
     chartData.push([{
