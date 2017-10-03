@@ -573,7 +573,7 @@ if (!is_null($events['events'])) {
                              ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
- }elseif ($d = "tue" && $h = "03:49" || strpos($_msg, 'ทดสอบวัน') !== false ) {
+ }elseif ($d = "tue" && $h = "03:47" && strpos($_msg, 'ทดสอบวัน') !== false ) {
       $replyToken = $event['replyToken'];
       $d = date("D");
       $h     = date("H:i");
