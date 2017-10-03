@@ -578,6 +578,21 @@ if (!is_null($events['events'])) {
           'type' => 'text',
           'text' => $text
         ];
+
+
+ if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'ทดสอบวัน') !== false) {
+      $replyToken = $event['replyToken'];
+      $text = date("D");
+      
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
+
+
+
+
+  
   }else {
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
