@@ -571,7 +571,7 @@ if (!is_null($events['events'])) {
  }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
       $replyToken = $event['replyToken'];
       $d = date("D");
-       $h     = date(“h:i”);
+       $h     = date("h:i");
       $messages = [
         'type' => 'text',
         'text' => $d.$h
