@@ -118,9 +118,9 @@ if (!$dbconn) {
 }
 
 
-$user = $_GET["data"];
+// $user = $_GET["data"];
 
-$user = 'U2dc636d2cd052e82c29f5284e00f69b9';
+$user = "U2dc636d2cd052e82c29f5284e00f69b9";
 $user_id = pg_escape_string($user);
  // echo $user_id;
 
