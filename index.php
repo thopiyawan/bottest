@@ -20,12 +20,17 @@ $_msg = $events['events'][0]['message']['text'];
 $user = $events['events'][0]['source']['userId'];
 $user_id = pg_escape_string($user);
 
+
+
 $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = '{$user_id}'  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
                   echo $sender = $row[2]; 
                 } 
-
+//****************ทดสอบ
+       $d = date("D");
+       $h = date("H:i");
+//****************ทดสอบ จบ
 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -568,10 +573,10 @@ if (!is_null($events['events'])) {
                              ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
- }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
+ }elseif ($d = "tue" && $h = "03:47" && strpos($_msg, 'ทดสอบวัน') !== false ) {
       $replyToken = $event['replyToken'];
       $d = date("D");
-       $h     = date("H:i");
+      $h     = date("H:i");
       $messages = [
         'type' => 'text',
         'text' => $d.$h
