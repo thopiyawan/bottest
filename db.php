@@ -101,7 +101,7 @@ if (!$dbconn) {
 $sql="CREATE TABLE history_preg(
 his_preg_id SERIAL,
 user_id  varchar(225),
-his_preg_week   integer(2),
+his_preg_week   integer,
 his_preg_weight varchar(3),
 -- his_preg_wc varchar(225)
  PRIMARY KEY(his_preg_id)
