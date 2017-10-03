@@ -580,7 +580,7 @@ if (!is_null($events['events'])) {
         ];
   }else {
    $replyToken = $event['replyToken'];
-      $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้างล่างด้วยนะคะ";
+      $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
           $messages = [
                  'type' => 'template',
                   'altText' => 'this is a confirm template',
