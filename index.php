@@ -570,11 +570,11 @@ if (!is_null($events['events'])) {
 
  }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
       $replyToken = $event['replyToken'];
-      $text = date("D");
-
+      $d = date("D");
+       $h     = date(“h:i”);
       $messages = [
         'type' => 'text',
-        'text' => $text
+        'text' => $d.$h
       ];
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
@@ -586,10 +586,6 @@ if (!is_null($events['events'])) {
           'text' => $text
         ];
 
-
-
-
-  
   }else {
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
