@@ -580,10 +580,10 @@ if (!is_null($events['events'])) {
         ];
 
 
- if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'ทดสอบวัน') !== false) {
+ }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
       $replyToken = $event['replyToken'];
       $text = date("D");
-      
+
       $messages = [
         'type' => 'text',
         'text' => $text
