@@ -568,7 +568,14 @@ if (!is_null($events['events'])) {
                              ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
+ }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
+      $replyToken = $event['replyToken'];
+      $text = date("D");
 
+      $messages = [
+        'type' => 'text',
+        'text' => $text
+      ];
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
      $replyToken = $event['replyToken'];
@@ -578,16 +585,6 @@ if (!is_null($events['events'])) {
           'type' => 'text',
           'text' => $text
         ];
-
-
- }elseif (strpos($_msg, 'ทดสอบวัน') !== false) {
-      $replyToken = $event['replyToken'];
-      $text = date("D");
-
-      $messages = [
-        'type' => 'text',
-        'text' => $text
-      ];
 
 
 
