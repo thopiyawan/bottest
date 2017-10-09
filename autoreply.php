@@ -7,7 +7,7 @@
 // $dbconn = pg_pconnect($conn_string);
 // //
 
-$access_token = 'jAhOdFXCh/DvBKGKzGH9gdl2io1agIcbwZMjIvu3zfHb+9Y+m9e+7GSKGf+rBHBp0IpGRLuT6W1wLOJSWQFAlnHT/KbDBpdpyDU4VTUdY6plmLgUjnHL5s6zcq9+GM/YaFBrun+Y9zkrs4NqvbemoQdB04t89/1O/w1cDnyilFU=';
+$access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrLnHCuu0Cv2fSbvwv0/xZqYw+TEjmmqW2mjC5NB9BcVGguZq3CIHX+Vt+fvPcNwtcT2ER0LLVXSwhNN4aVJT0Q08QdB04t89/1O/w1cDnyilFU=';
 
 // $content = file_get_contents('php://input');
 // // Parse JSON
