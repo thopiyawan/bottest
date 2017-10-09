@@ -28,44 +28,33 @@ $user_id = pg_escape_string($user);
        $h = date("H:i");
 //****************ทดสอบ จบ
 
-$u_id =[];
-
+$seqcode =[];
 $s =[];
-
-$check_q = pg_query($dbconn,"SELECT DISTINCT user_id   FROM user_data   ");
+$check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
-                  $u_id[] =  $row['user_id'];
+                  $seqcode[] =  $row['user_id'];
                 } 
-array_push( $s,$u_id);
+array_push( $s,$seqcode);
 print_r($s);
+
 
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
-       $p_week = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE   user_id = $userid    ");
-        while ($row = pg_fetch_row($p_week)) {
-                  echo $answer1 = $row[0]; 
-                } 
-           $messages = [
+ 
+        $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                     ];
-
-           $messages1 = [
-                        'type' => 'text',
-                        'text' => 'คุณมีอายุครรภ์'.$answer1.'สัปดาห์แล้วนะคะ:)'
-                      ];
-
-
+        
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $userid ,
-          'messages' => [$messages,$messages1],
+          'messages' => [$messages],
          ];
-
-      ]
+         
          error_log(json_encode($data));
          $post = json_encode($data);
          $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
