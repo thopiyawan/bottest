@@ -49,21 +49,35 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                 echo  $p_week =  $row[0]+1;
                 } 
  
-        $messages = [
-                        'type' => 'text',
-                        'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
-                    ];
-         $messages1 = [
+        $messages1 = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีอายุครรภ์'.$p_week.'สัปดาห์แล้วนะคะ'
-                    ];
-
-
-
+                     ];
+        $messages2 = [ 'type'=> 'image',
+                       'originalContentUrl'=> 'https://bottest14.herokuapp.com/week/'.$p_week.'.jpg',
+                       'previewImageUrl'=> 'https://bottest14.herokuapp.com/week/'.$p_week.'.jpg'
+                     ];
+      
+        $des_preg = pg_query($dbconn,"SELECT  descriptFROM pregnants WHERE  week = $p_week   ");
+              while ($row = pg_fetch_row($des_preg)) {
+                  echo $des = $row[0]; 
+ 
+                } 
+        $messages3 = [
+                        'type' => 'text',
+                        'text' =>  $des
+                     ];
+        $messages4 = [
+                        'type' => 'text',
+                        'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ?'
+                     ];
+ 
+                   
+             
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $userid ,
-          'messages' => [$messages,$messages1],
+          'messages' => [$messages1,$messages2,$messages3,$messages4],
          ];
          error_log(json_encode($data));
          $post = json_encode($data);
