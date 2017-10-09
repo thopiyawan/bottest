@@ -59,13 +59,6 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                       ];
 
 
-
-
-
-
-
-
-        
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $userid ,
