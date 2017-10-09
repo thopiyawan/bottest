@@ -73,12 +73,6 @@ for($x = 0; $x < $arrlength; $x++) {
          curl_close($ch);
          echo $result . "\r\n";
     
-
-
-
-
-
-
 }
 
  
