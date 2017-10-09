@@ -44,7 +44,7 @@ $check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
         
                 } 
         array_push( $s,$seqcode);
-print_r($s);
+echo $s;
 
 
 //*********//
