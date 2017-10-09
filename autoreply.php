@@ -38,8 +38,8 @@ $user_id = pg_escape_string($user);
 $seqcode =[];
 $check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
 
-            while ($row = pg_fetch_row($check_q)) {
-                  $seqcode=  $row[0];
+            while ($row = pg_fetch_array($check_q)) {
+                  $seqcode[] =  $row[0];
         
                 } 
 
