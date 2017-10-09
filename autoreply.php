@@ -49,7 +49,7 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-        $userid = $s[0][$x];
+        $userid = $s[0][1];
 
            $messages = [
                         'type' => 'text',
