@@ -45,7 +45,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
        $check_q = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE user_id = $userid  ");
 
-            while ($row = pg_fetch_assoc($check_q)) {
+            while ($row = pg_fetch_row($check_q)) {
                   $p_week =  $row['preg_week'];
                 } 
  
@@ -55,7 +55,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                     ];
          $messages1 = [
                         'type' => 'text',
-                        'text' => 'hi'.p_week
+                        'text' => 'hi'.$p_week
                     ];
 
 
