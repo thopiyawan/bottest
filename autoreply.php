@@ -43,20 +43,20 @@ $check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM user_data   ");
                   $seqcode[] =  $row['user_id'];
                 } 
 array_push( $s,$seqcode);
- $u= pg_escape_string($s);
-print_r($u);
+print_r($s);
 
 
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-        $userid = $s[$x];
+      echo   $userid = $s[0];
 
            $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                       ];
-         $user_id = pg_escape_string($userid); 
+         $user_id = pg_escape_string($userid);
+
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $user_id ,
