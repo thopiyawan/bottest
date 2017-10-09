@@ -576,7 +576,12 @@ if (!is_null($events['events'])) {
 
 }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
 
-      
+        $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
+
+                while ($row = pg_fetch_row($check_q)) {
+            
+                  echo $answer = $row[3];  
+                } 
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
