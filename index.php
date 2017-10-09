@@ -588,7 +588,7 @@ if (!is_null($events['events'])) {
                         'text' => $answer 
                       ];  
 
-    $q = pg_exec($dbconn, "UPDATE history_preg SET  his_preg_weight = $answer WHERE user_id = '{$user_id}' order by his_preg_id desc limit 1  ") or die(pg_errormessage());  
+    $q = pg_exec($dbconn, "UPDATE history_preg SET  his_preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
 
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0017"  )  {
