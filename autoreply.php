@@ -47,9 +47,9 @@ print_r($s);
 
 
 $arrlength = count($s);
-
+$x =0 ;
 for($x = 0; $x < $arrlength; $x++) {
-        echo $userid = $s[0][$x++];
+        echo $userid = $s[0][$x];
         
         $messages = [
                         'type' => 'text',
