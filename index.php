@@ -585,7 +585,7 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => $answer 
+                        'text' => 'ดึงกราฟ' 
                       ];  
 
     $q = pg_exec($dbconn, "UPDATE history_preg SET  his_preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
