@@ -44,7 +44,7 @@ $check_q = pg_query($dbconn,"SELECT sender_id FROM user_data   ");
 
 $types = array();
 
-while(($row =  pg_fetch_assoc($result))) {
+while(($row =  pg_fetch_assoc($check_q ))) {
     $types[] = $row['type'];
 }];
 echo $types;
