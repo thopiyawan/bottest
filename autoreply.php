@@ -45,10 +45,7 @@ $arrlength = count($s);
 for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
        $p_week = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE   user_id = $userid    ");
-
-            while ($row = pg_fetch_assoc($check_q)) {
-                  $u_id[] =  $row['user_id'];
-                } 
+    
            $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
