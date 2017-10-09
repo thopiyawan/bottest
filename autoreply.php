@@ -46,7 +46,7 @@ $types = array();
 
 while(($row =  pg_fetch_assoc($result))) {
     $types[] = $row['type'];
-}]
+}];
 echo $types;
 
 
