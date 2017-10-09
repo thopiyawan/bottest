@@ -42,7 +42,7 @@ $check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
                   $seqcode[] =  $row[0];
         
                 } 
-        array_push( $s,$seqcode)
+        array_push( $s,$seqcode);
  echo $s;
 
 
