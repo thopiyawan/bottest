@@ -39,7 +39,7 @@ $seqcode =[];
 $check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
 
             while ($row = pg_fetch_row($check_q)) {
-                  $seqcode=  $row[0][1];
+                  $seqcode=  $row[0];
         
                 } 
 
