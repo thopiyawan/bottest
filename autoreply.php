@@ -58,7 +58,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                        'previewImageUrl'=> 'https://bottest14.herokuapp.com/week/'.$p_week.'.jpg'
                      ];
       
-        $des_preg = pg_query($dbconn,"SELECT  descriptFROM pregnants WHERE  week = $p_week   ");
+        $des_preg = pg_query($dbconn,"SELECT  descript FROM pregnants WHERE  week = $p_week   ");
               while ($row = pg_fetch_row($des_preg)) {
                   echo $des = $row[0]; 
  
