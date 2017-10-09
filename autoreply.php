@@ -44,9 +44,9 @@ $arrlength = count($s);
 for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
        $user_id = pg_escape_string($userid);
-       $check_q = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE user_id = '{$user_id}'  ");
-            while ($row = pg_fetch_row($check_q)) {
-                echo  $p_week =  $row['preg_week'];
+       $check = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE user_id = '{$user_id}'  ");
+            while ($row = pg_fetch_row($check)) {
+                echo  $p_week =  $row[0];
                 } 
  
         // $messages = [
