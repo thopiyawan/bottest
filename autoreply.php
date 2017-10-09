@@ -48,6 +48,33 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
             while ($row = pg_fetch_row($check)) {
                 echo  $p_week =  $row[0]+1;
                 } 
+
+        if($p_week>=42){
+
+           $messages1 = [
+                        'type' => 'text',
+                        'text' => 'ลูกของุณคลอดแล้ว~'
+                     ];
+                             $url = 'https://api.line.me/v2/bot/message/push';
+             $data = [
+              'to' => $userid ,
+              'messages' => [$messages1],
+             ];
+             error_log(json_encode($data));
+             $post = json_encode($data);
+             $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+             $ch = curl_init($url);
+             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+             $result = curl_exec($ch);
+             curl_close($ch);
+             echo $result . "\r\n";
+
+
+        }else{
  
         $messages1 = [
                         'type' => 'text',
@@ -69,7 +96,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                      ];
         $messages4 = [
                         'type' => 'text',
-                        'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ?'
+                        'text' => 'สัปดาห์นี้คุณแม่มีน้ำหนักเท่าไรแล้วคะ?'
                      ];
  
                    
@@ -92,7 +119,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
          curl_close($ch);
          echo $result . "\r\n";
 
-
+        }
 
 }
 
