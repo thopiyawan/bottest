@@ -41,11 +41,17 @@ $check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
                   $seqcode[] =  $row['user_id'];
-        
                 } 
-        array_push( $s,$seqcode);
+array_push( $s,$seqcode);
 print_r($s);
 
+
+$arrlength = count($s);
+
+for($x = 0; $x < $arrlength; $x++) {
+    echo $cars[$x];
+
+}
 
 //*********//
 //query data , 
