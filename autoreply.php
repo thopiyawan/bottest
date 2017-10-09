@@ -99,7 +99,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                         'text' => 'สัปดาห์นี้คุณแม่มีน้ำหนักเท่าไรแล้วคะ?'
                      ];
 
-        $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017','','','0',NOW(),NOW())") or die(pg_errormessage()); 
+        $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017','','0000','0',NOW(),NOW())") or die(pg_errormessage()); 
         $q2 = pg_exec($dbconn, "INSERT INTO history_preg(user_id,his_preg_week,his_preg_weight )VALUES('{$user_id}',$p_week,'0') ") or die(pg_errormessage());        
              
          $url = 'https://api.line.me/v2/bot/message/push';
