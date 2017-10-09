@@ -48,13 +48,18 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                     ];
-        
+         $messages1 = [
+                        'type' => 'text',
+                        'text' => 'hihi'
+                    ];
+
+
+
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $userid ,
-          'messages' => [$messages],
+          'messages' => [$messages,$messages1],
          ];
-         
          error_log(json_encode($data));
          $post = json_encode($data);
          $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
