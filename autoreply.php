@@ -50,13 +50,21 @@ $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
         $userid = $s[0][$x];
-        $x++;
            $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                       ];
          $user_id = pg_escape_string($userid);
-         $url = 'https://api.line.me/v2/bot/message/push';
+        
+
+
+
+
+
+
+}
+
+ $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $user_id ,
           'messages' => [$messages],
@@ -73,14 +81,6 @@ for($x = 0; $x < $arrlength; $x++) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
-
-
-
-
-
-
-
-}
 
 //*********//
 //query data , 
