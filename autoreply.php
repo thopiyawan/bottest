@@ -49,7 +49,36 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-     print_r($s[$x]);
+        $userid = $s[$x];
+
+           $messages = [
+                        'type' => 'text',
+                        'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
+                      ];
+             
+         $url = 'https://api.line.me/v2/bot/message/push';
+         $data = [
+          'to' => $userid ,
+          'messages' => [$messages],
+         ];
+         error_log(json_encode($data));
+         $post = json_encode($data);
+         $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+         $ch = curl_init($url);
+         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+         $result = curl_exec($ch);
+         curl_close($ch);
+         echo $result . "\r\n";
+
+
+
+
+
+
 
 }
 
@@ -90,31 +119,6 @@ for($x = 0; $x < $arrlength; $x++) {
     //                     'type' => 'text',
     //                     'text' =>  $des
     //                   ];
-    //         $messages = [
-    //                     'type' => 'text',
-    //                     'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
-    //                   ];
-
-       
-
-             
-         // $url = 'https://api.line.me/v2/bot/message/push';
-         // $data = [
-         //  'to' => $userid ,
-         //  'messages' => [$messages],
-         // ];
-         // error_log(json_encode($data));
-         // $post = json_encode($data);
-         // $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-         // $ch = curl_init($url);
-         // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-         // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         // curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-         // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-         // curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-         // $result = curl_exec($ch);
-         // curl_close($ch);
-         // echo $result . "\r\n";
-
+ 
 
 ?>
