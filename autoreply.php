@@ -38,13 +38,10 @@ $user_id = pg_escape_string($user);
 
 $check_q = pg_query($dbconn,"SELECT sender_id FROM user_data   ");
 
-$types = array();
-
-while(($row =  pg_fetch_assoc($check_q ))) {
-    $types[] = $row[0];
-    print_r($types)  ;
-}
-
+            while ($row = pg_fetch_row($check_q)) {
+                  echo $seqcode =  $row[0];
+        
+                } 
 
 
 
