@@ -573,23 +573,7 @@ if (!is_null($events['events'])) {
                              ];   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', $height,'0015','0',NOW(),NOW())") or die(pg_errormessage()); 
 
- }elseif ($d = "tue" && $h = "03:47" && strpos($_msg, 'ทดสอบวัน') !== false ) {
-      $replyToken = $event['replyToken'];
-      $d = date("D");
-      $h     = date("H:i");
-      $messages = [
-        'type' => 'text',
-        'text' => $d.$h
-      ];
-}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
-    
-     $replyToken = $event['replyToken'];
-     // Build message to reply back
-      $text = "ฉันไม่เข้าใจค่ะ";
-      $messages = [
-          'type' => 'text',
-          'text' => $text
-        ];
+
 }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
 
       
@@ -632,7 +616,15 @@ if (!is_null($events['events'])) {
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 
-
+}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    
+     $replyToken = $event['replyToken'];
+     // Build message to reply back
+      $text = "ฉันไม่เข้าใจค่ะ";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ];
 
   }else {
    $replyToken = $event['replyToken'];
