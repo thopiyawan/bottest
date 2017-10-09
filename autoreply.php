@@ -55,10 +55,10 @@ for($x = 0; $x < $arrlength; $x++) {
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                       ];
-             
+         $user_id = pg_escape_string($userid); 
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
-          'to' => $userid ,
+          'to' => $user_id ,
           'messages' => [$messages],
          ];
          error_log(json_encode($data));
