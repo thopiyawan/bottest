@@ -238,7 +238,7 @@ if (!is_null($events['events'])) {
                    $re_date_pre =  $d_pre%7;
                    $re_date_pre = number_format($re_date_pre);
                    $re_week_pre = $m_pre+$w_pre;
-                     $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
+                   $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
 
     $replyToken = $event['replyToken'];
@@ -266,7 +266,7 @@ if (!is_null($events['events'])) {
                 }else{
                    $re_date_pre = $date_today- $date;
                    $re_week_pre = ($month_today - $month)*4; 
-                     $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
+                   $age_pre = 'คุณมีอายุครรภ์'. $re_week_pre.'สัปดาห์'. $re_date_pre .'วัน' ;
 
 
     $replyToken = $event['replyToken'];
@@ -590,6 +590,49 @@ if (!is_null($events['events'])) {
           'type' => 'text',
           'text' => $text
         ];
+}elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
+
+      
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'กราฟ'
+                      ];  
+
+
+    $q1 = pg_exec($dbconn, "UPDATE user_data SET  user_weight = $answer WHERE user_id = '{$user_id}' order by id desc limit 1  ") or die(pg_errormessage());   
+   
+
+
+  }elseif (is_numeric($_msg) !== false && $seqcode == "0017"  )  {
+                 $weight =  $_msg;
+                 $weight_mes = 'สัปดาห์นี้คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
+                 $replyToken = $event['replyToken'];
+                 $messages = [
+                                'type' => 'template',
+                                'altText' => 'this is a confirm template',
+                                'template' => [
+                                    'type' => 'confirm',
+                                    'text' =>  $weight_mes ,
+                                    'actions' => [
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ถูกต้อง',
+                                            'text' => 'น้ำหนักถูกต้อง'
+                                        ],
+                                        [
+                                            'type' => 'message',
+                                            'label' => 'ไม่ถูกต้อง',
+                                            'text' => 'ไม่ถูกต้อง'
+                                        ],
+                                    ]
+                                 ]     
+                             ];   
+
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
+
+
+
 
   }else {
    $replyToken = $event['replyToken'];
