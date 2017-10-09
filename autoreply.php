@@ -46,7 +46,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
        $user_id = pg_escape_string($userid);
        $check = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE user_id = '{$user_id}'  ");
             while ($row = pg_fetch_row($check)) {
-                echo  $p_week =  $row[0];
+                echo  $p_week =  $row[0]+1;
                 } 
  
         $messages = [
@@ -55,7 +55,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                     ];
          $messages1 = [
                         'type' => 'text',
-                        'text' => 'hi'.$p_week
+                        'text' => 'สัปดาห์นี้คุณมีอายุครรภ์'.$p_week.'สัปดาห์แล้วนะคะ'
                     ];
 
 
