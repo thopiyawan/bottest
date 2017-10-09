@@ -46,7 +46,7 @@ array_push( $s,$seqcode);
 print_r($s);
 
 
-$arrlength = count($s);
+echo $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
         $userid = $s[0][$x];
