@@ -43,7 +43,8 @@ $check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM user_data   ");
                   $seqcode[] =  $row['user_id'];
                 } 
 array_push( $s,$seqcode);
-print_r($s);
+ $u= pg_escape_string($s);
+print_r($u);
 
 
 $arrlength = count($s);
