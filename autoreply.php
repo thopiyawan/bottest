@@ -72,6 +72,7 @@ for($x = 0; $x < $arrlength; $x++) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
+         $x++;
     
 }
 
