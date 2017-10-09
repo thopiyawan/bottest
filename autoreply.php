@@ -55,16 +55,7 @@ for($x = 0; $x < $arrlength; $x++) {
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                       ];
         
-        
-
-
-
-
-
-
-}
-
- $url = 'https://api.line.me/v2/bot/message/push';
+    $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
           'to' => $userid  ,
           'messages' => [$messages],
@@ -81,7 +72,16 @@ for($x = 0; $x < $arrlength; $x++) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
+    
 
+
+
+
+
+
+}
+
+ 
 //*********//
 //query data , 
 
