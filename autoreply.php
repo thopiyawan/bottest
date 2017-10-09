@@ -36,7 +36,7 @@ $user_id = pg_escape_string($user);
 //****************ทดสอบ จบ
 
 
-$check_q = pg_query($dbconn,"SELECT sender_id FROM user_data   ");
+$check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
 
             while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
