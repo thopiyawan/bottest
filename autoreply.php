@@ -49,7 +49,7 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-    echo $cars[$x];
+    echo $s[$x];
 
 }
 
