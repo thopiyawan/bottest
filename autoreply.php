@@ -13,11 +13,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-$types = array();
 
-while(($row =  mysql_fetch_assoc($result))) {
-    $types[] = $row['type'];
-}
 
 $curr_years = date("Y");
 $curr_y = ($curr_years+ 543);
@@ -47,7 +43,7 @@ $types = array();
 while(($row =  pg_fetch_assoc($check_q ))) {
     $types[] = $row[0];
 }
-echo $types;
+print_r( $types);
 
 
 
