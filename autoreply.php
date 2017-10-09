@@ -31,7 +31,7 @@ $user_id = pg_escape_string($user);
 $u_id =[];
 $preg_week = [];
 $s =[];
-$p_week[];
+$p_week = [];
 $check_q = pg_query($dbconn,"SELECT DISTINCT user_id , preg_week  FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
