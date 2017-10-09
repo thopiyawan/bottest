@@ -47,7 +47,7 @@ $arrlength = count($s);
 
 for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
-       $p_week = $p_week[0][$x]+1;
+       $p_week = $p_week[0][$x];
         $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
@@ -55,7 +55,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
 
            $messages1 = [
                         'type' => 'text',
-                        'text' => 'คุณมีอายุครรภ์'.$p_week.'สัปดาห์แล้วนะคะ:)'
+                        'text' => 'คุณมีอายุครรภ์'.$p_week+1.'สัปดาห์แล้วนะคะ:)'
                       ];
 
 
