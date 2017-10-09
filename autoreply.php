@@ -29,26 +29,27 @@ $user_id = pg_escape_string($user);
 //****************ทดสอบ จบ
 
 $u_id =[];
-$preg_week = [];
+
 $s =[];
-$p_week = [];
-$check_q = pg_query($dbconn,"SELECT DISTINCT user_id , preg_week  FROM user_data   ");
+
+$check_q = pg_query($dbconn,"SELECT DISTINCT user_id   FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
                   $u_id[] =  $row['user_id'];
-                  $preg_week[] =  $row['preg_week'];
                 } 
 array_push( $s,$u_id);
-array_push( $p_week,$preg_week);
 print_r($s);
-print_r($p_week);
 
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength+1 ; $x++) {
        $userid = $s[0][$x];
-       $p_week = $p_week[0][$x];
-        $messages = [
+       $p_week = pg_query($dbconn,"SELECT preg_week FROM user_data WHERE   user_id = $userid    ");
+
+            while ($row = pg_fetch_assoc($check_q)) {
+                  $u_id[] =  $row['user_id'];
+                } 
+           $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
                     ];
