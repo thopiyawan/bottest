@@ -49,8 +49,8 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-       echo $userid = $s[$x];
-      
+       $userid = $s[0][$x];
+      print_r($userid)
         // $messages = [
         //                 'type' => 'text',
         //                 'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
