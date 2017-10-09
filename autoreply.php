@@ -49,7 +49,7 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-        $userid = $s[0][$x];
+        $userid = $s[0][$x++];
            $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
@@ -72,7 +72,7 @@ for($x = 0; $x < $arrlength; $x++) {
          $result = curl_exec($ch);
          curl_close($ch);
          echo $result . "\r\n";
-         $x++;
+
     
 }
 
