@@ -40,7 +40,7 @@ $s =[];
 $check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
-                  $seqcode[] =  $row['user_id'];
+                  $seqcode=  $row['user_id'];
                 } 
 array_push( $s,$seqcode);
 print_r($s);
@@ -49,7 +49,7 @@ print_r($s);
 $arrlength = count($s);
 
 for($x = 0; $x < $arrlength; $x++) {
-        $userid = $s[0][$x++];
+        $userid = $s[0][$x];
            $messages = [
                         'type' => 'text',
                         'text' => 'สัปดาห์นี้คุณมีน้ำหนักเท่าไรคะ'
