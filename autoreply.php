@@ -35,15 +35,15 @@ $user_id = pg_escape_string($user);
        $h = date("H:i");
 //****************ทดสอบ จบ
 
-
+$seqcode =[];
 $check_q = pg_query($dbconn,"SELECT user_id FROM user_data   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
                   $seqcode[] =  $row[0];
         
                 } 
-
- echo $seqcode;
+        array_push( $s,$seqcode)
+ echo $s;
 
 
 //*********//
