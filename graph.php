@@ -134,11 +134,20 @@ $arrayName=[];
 $check_q = pg_query($dbconn,"SELECT preg_week ,preg_weight FROM recordofpregnancy WHERE  user_id = '{$user_id}' order by preg_week  ASC  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
-                  $weight = $arr[1]-$result;
-         
+                  
+                  if ( $arr[1]>$result;){
+                        $weight = $arr[1]-$result;
+                  }else{
+                         $weight = $result>$arr[1];
+                  }
+
+                 
                   $arrayName[] = array( 'date' =>  $week ,
                                        'duration'=> $weight);
-                }    
+                }  
+
+
+
 echo $data = json_encode($arrayName);
 
  ?>;
