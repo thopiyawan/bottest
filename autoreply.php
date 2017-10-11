@@ -87,7 +87,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
       
         $des_preg = pg_query($dbconn,"SELECT  descript FROM pregnants WHERE  week = $p_week   ");
               while ($row = pg_fetch_row($des_preg)) {
-                  echo $des = $row[0]; 
+                  echo $des = $row[0];
  
                 } 
         $messages3 = [
