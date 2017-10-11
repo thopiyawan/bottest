@@ -125,20 +125,20 @@ if (!$dbconn) {
 //  )";   
 // pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-// $sql1="CREATE TABLE users(
-// id SERIAL,
-// user_id varchar(50),
-// user_age  varchar(3),
-// user_weight varchar(3),
-// user_height varchar(3),
-// preg_week  varchar(3),
-// status integer,
-// updated_at timestamp,
+$sql1="CREATE TABLE users(
+id SERIAL,
+user_id varchar(50),
+user_age  varchar(3),
+user_weight varchar(3),
+user_height varchar(3),
+preg_week  varchar(3),
+status integer,
+updated_at timestamp,
 
-// PRIMARY KEY(id)
+PRIMARY KEY(id)
 
-// )";   
-// pg_exec($dbconn, $sql1) or die(pg_errormessage());
+)";   
+pg_exec($dbconn, $sql1) or die(pg_errormessage());
 
 
 
@@ -267,8 +267,8 @@ if (!$dbconn) {
 //                   echo $sender = $row[1]; 
 //                 } 
 
-$q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('222','0000', '' ,'0000','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-echo $q;
+
+
 
 ?>
