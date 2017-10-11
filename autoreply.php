@@ -100,7 +100,7 @@ for($x = 0; $x < $arrlength+1 ; $x++) {
                      ];
 
         $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017','','0000','0',NOW(),NOW())") or die(pg_errormessage()); 
-        $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight,updated_at )VALUES('{$user_id}',$p_week,'0',  NOW()) ") or die(pg_errormessage());        
+        $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight)VALUES('{$user_id}',$p_week,'0') ") or die(pg_errormessage());        
              
          $url = 'https://api.line.me/v2/bot/message/push';
          $data = [
