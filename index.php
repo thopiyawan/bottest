@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
                       ];
            $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0008','','0009','0',NOW(),NOW())") or die(pg_errormessage());
 
-           $q1 = pg_exec($dbconn, "INSERT INTO user_data(user_id,user_age,user_weight,user_height,preg_week )VALUES('{$user_id}',$answer,'0','0','0') ") or die(pg_errormessage());   
+           $q1 = pg_exec($dbconn, "INSERT INTO users(user_id,user_age,user_weight,user_height,preg_week,status )VALUES('{$user_id}',$answer,'0','0','0','1') ") or die(pg_errormessage());   
 
 
 
