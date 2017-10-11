@@ -122,7 +122,7 @@ $user = $_GET["data"];
 $user_id = pg_escape_string($user);
  // echo $user_id;
 
-$check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '{$user_id}'  ");
+$check = pg_query($dbconn,"SELECT user_weight FROM users  WHERE  user_id = '{$user_id}'  ");
                 while ($row= pg_fetch_row($check)) {
               
                  $result = $row[0];
@@ -131,7 +131,7 @@ $check = pg_query($dbconn,"SELECT user_weight FROM user_data  WHERE  user_id = '
 
 
 $arrayName=[];
-$check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_preg  WHERE  user_id = '{$user_id}' order by his_preg_week  ASC  ");
+$check_q = pg_query($dbconn,"SELECT preg_week ,preg_weight FROM recordofpregnancy WHERE  user_id = '{$user_id}' order by preg_week  ASC  ");
                 while ($arr= pg_fetch_array($check_q)) {
                   $week = $arr[0];
                   $weight = $arr[1]-$result;
