@@ -36,7 +36,7 @@ print_r($s);
 
 $arrlength = count($s);
 
-for($x = 0; $x < $arrlength ; $x++) {
+for($x = 0; $x <= $arrlength ; $x++) {
        $userid = $s[0][$x];
        $user_id = pg_escape_string($userid);
        $check = pg_query($dbconn,"SELECT preg_week FROM users WHERE user_id = '{$user_id}'  ");
