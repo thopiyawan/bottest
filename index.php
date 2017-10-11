@@ -576,21 +576,21 @@ if (!is_null($events['events'])) {
 
 }elseif ($event['message']['text'] == "น้ำหนักถูกต้อง" ) {
 
-        // $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
+        $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
 
-        //         while ($row = pg_fetch_row($check_q)) {
+                while ($row = pg_fetch_row($check_q)) {
             
-        //           echo $answer = $row[3];  
-        //         } 
+                  echo $answer = $row[3];  
+                } 
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
                         'text' => 'ดึงกราฟ' 
                       ];  
 
-    // $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ORDER BY updated_at DESC LIMIT 1 ") or die(pg_errormessage());  
+    $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ORDER BY updated_at DESC LIMIT 1 ") or die(pg_errormessage());  
 
-    // $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0017"  )  {
                  $weight =  $_msg;
