@@ -137,10 +137,10 @@ $check_q = pg_query($dbconn,"SELECT preg_week ,preg_weight FROM recordofpregnanc
            
                         $weight = $arr[1]-$result;
 
-                        $x = abs($weight );
+                        $weight1 = abs($weight);
                  
                   $arrayName[] = array( 'date' =>  $week ,
-                                       'duration'=> $x);
+                                       'duration'=> $weight1);
                 }  
 
 
