@@ -112,20 +112,20 @@ if (!$dbconn) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$sql="CREATE TABLE RecordOfPregnancy(
-id SERIAL,
-user_id  varchar(50),
-preg_week  integer,
-preg_weight varchar(3),
-updated_at timestamp,
--- his_preg_wc varchar(225)
- PRIMARY KEY(id)
- -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
- -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
- )";   
-pg_exec($dbconn, $sql) or die(pg_errormessage());
+// $sql="CREATE TABLE RecordOfPregnancy(
+// id SERIAL,
+// user_id  varchar(50),
+// preg_week  integer,
+// preg_weight varchar(3),
+// updated_at timestamp,
+// -- his_preg_wc varchar(225)
+//  PRIMARY KEY(id)
+//  -- FOREIGN KEY (his_preg_week) REFERENCES Pregnancy_week_data(week_preg),
+//  -- FOREIGN KEY (user_id) REFERENCES users_data(user_id)
+//  )";   
+// pg_exec($dbconn, $sql) or die(pg_errormessage());
 
-$sql1="CREATE TABLE user_data(
+$sql1="CREATE TABLE users(
 id SERIAL,
 user_id varchar(50),
 user_age  varchar(3),
