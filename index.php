@@ -370,7 +370,7 @@ if (!is_null($events['events'])) {
                       ];  
 
 
-    $q1 = pg_exec($dbconn, "UPDATE user_data SET  user_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE users SET  user_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0012', '','0013','0',NOW(),NOW())") or die(pg_errormessage());
 
 
@@ -423,7 +423,7 @@ if (!is_null($events['events'])) {
 
     // $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
 
-    $q1 = pg_exec($dbconn, "UPDATE history_preg SET his_preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '','0015','0',NOW(),NOW())") or die(pg_errormessage());
 
 
@@ -462,11 +462,11 @@ if (!is_null($events['events'])) {
             
                   echo $answer = $row[3];  
                 } 
-    $q1 = pg_exec($dbconn, "UPDATE user_data SET user_height= $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
+    $q1 = pg_exec($dbconn, "UPDATE users SET user_height = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '$answer','0015','0',NOW(),NOW())") or die(pg_errormessage());
 
 
-    $check_q = pg_query($dbconn,"SELECT  user_age, user_weight ,user_height ,preg_week  FROM user_data WHERE  user_id = '{$user_id}' ");
+    $check_q = pg_query($dbconn,"SELECT  user_age, user_weight ,user_height ,preg_week  FROM users WHERE  user_id = '{$user_id}' ");
 
                 while ($row = pg_fetch_row($check_q)) {
                   echo $answer1 = $row[0]; 
@@ -588,7 +588,7 @@ if (!is_null($events['events'])) {
                         'text' => 'ดึงกราฟ' 
                       ];  
 
-    $q = pg_exec($dbconn, "UPDATE history_preg SET  his_preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
+    $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' order by updated_at desc limit 1") or die(pg_errormessage());  
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
