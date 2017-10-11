@@ -582,12 +582,8 @@ if (!is_null($events['events'])) {
             
                   echo $answer = $row[3];  
                 } 
-                 $replyToken = $event['replyToken'];
-                 $messages = [
-                        'type' => 'text',
-                        'text' => 'ดึงกราฟ' 
-                      ];  
-    $check = pg_query($dbconn,"SELECT preg_week FROM users WHERE user_id = '{$user_id}'  ");
+             
+        $check = pg_query($dbconn,"SELECT preg_week FROM recordofpregnancy WHERE user_id = '{$user_id}' order by updated_at desc limit 1 ");
             while ($row = pg_fetch_row($check)) {
                 echo  $p_week =  $row[0]+1;
                 } 
@@ -595,6 +591,13 @@ if (!is_null($events['events'])) {
     $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight,updated_at )VALUES('{$user_id}',$p_week,$answer ,  NOW()) ") or die(pg_errormessage());  
 
     $q2 = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
+
+
+        $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ดึงกราฟ' 
+                      ];  
 
   }elseif (is_numeric($_msg) !== false && $seqcode == "0017"  )  {
                  $weight =  $_msg;
