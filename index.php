@@ -584,21 +584,21 @@ if (!is_null($events['events'])) {
                         'text' => 'fgsbfgrsbfbfgrabgfbgfs gf'
                       ];  
 
-    $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
+    // $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at ,answer FROM sequentsteps  WHERE sender_id = '{$user_id}' order by updated_at desc limit 1   ");
 
-                while ($row = pg_fetch_row($check_q)) {
+    //             while ($row = pg_fetch_row($check_q)) {
             
-                  echo $answer = $row[3];  
-                } 
+    //               echo $answer = $row[3];  
+    //             } 
              
-    $check = pg_query($dbconn,"SELECT preg_week FROM recordofpregnancy WHERE user_id = '{$user_id}' order by updated_at desc limit 1 ");
-            while ($row = pg_fetch_row($check)) {
-                echo  $p_week =  $row[0]+1;
-                } 
-    // $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
-    $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight,updated_at )VALUES('{$user_id}',$p_week,$answer ,  NOW()) ") or die(pg_errormessage());  
+    // $check = pg_query($dbconn,"SELECT preg_week FROM recordofpregnancy WHERE user_id = '{$user_id}' order by updated_at desc limit 1 ");
+    //         while ($row = pg_fetch_row($check)) {
+    //             echo  $p_week =  $row[0]+1;
+    //             } 
+    // // $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
+    // $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight,updated_at )VALUES('{$user_id}',$p_week,$answer ,  NOW()) ") or die(pg_errormessage());  
 
-    $q2 = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
+    // $q2 = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 
 
