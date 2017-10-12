@@ -161,9 +161,10 @@ if (!is_null($events['events'])) {
     $date_today = date("d"); 
     $month_today = date("m");  
         
-
+    $m = $month_today- $month;
+    $m1 = abs($m);
     if (is_numeric($month) !== false &&is_numeric($date) !== false && strlen($date) == 2 && strlen($month) == 2  ) {
-        if($date<31 && $date >=0 && $month <12 && $month>=0 && $month<$month_today || ( $month== $month_today &&  $date< $date_today )){
+        if($date<31 && $date >=0 && $month <12 && $month>=0 && $m1<=9 || ( $month== $month_today &&  $date< $date_today )){
            if($date>$date_today){
                $d_pre = $date - $date_today;
                 if($d_pre>=7){
@@ -295,6 +296,7 @@ if (!is_null($events['events'])) {
            }
         
         }else{
+
           $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
