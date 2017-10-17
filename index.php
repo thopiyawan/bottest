@@ -163,7 +163,7 @@ if (!is_null($events['events'])) {
             $today_month= date("m") ;
             $today_day  = date("d") ;
           
-            if(($month>$today_month&& $month<=12 && $date<=31) || ($month==$today_month && $date>$today_day)  ){
+            if(($month>$today_month&& $month<=12 || $date<=31) || ($month==$today_month && $date>$today_day)  ){
                 $years = $today_years-1;
                 $strDate1 = $years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
@@ -198,7 +198,7 @@ if (!is_null($events['events'])) {
                       ];   
             
 
-            }elseif($month<$today_month && $month<=12 && $date<=31){
+            }elseif($month<$today_month && $month<=12 || $date<=31){
                 $strDate1 = $today_years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
 
