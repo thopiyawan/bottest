@@ -163,7 +163,7 @@ if (!is_null($events['events'])) {
             $today_month= date("m") ;
             $today_day  = date("d") ;
           
-            if($month>$today_month || ($month==$today_month && $date>$today_day) && $month<=12 && $date<=31 ){
+            if(($month>$today_month&& $month<=12 && $date<=31) || ($month==$today_month && $date>$today_day)  ){
                 $years = $today_years-1;
                 $strDate1 = $years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
