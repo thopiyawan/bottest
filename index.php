@@ -162,14 +162,14 @@ if (!is_null($events['events'])) {
             $today_years= date("Y") ;
             $today_month= date("m") ;
             $today_day  = date("d") ;
-
-            if($month>$today_month || ($month==$today_month && $date>$today_day)){
+          
+            if($month>$today_month || ($month==$today_month && $date>$today_day) && $month<=12 && $date<=31 ){
                 $years = $today_years-1;
                 $strDate1 = $years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
                 
                 $date_pre =  (strtotime($strDate2) - strtotime($strDate1))/( 60 * 60 * 24 );
-                  $week = $date_pre/7;
+                $week = $date_pre/7;
                 $week_preg = number_format($week);
                 $day = $date_pre%7;
                 $day_preg = number_format($day);
@@ -196,8 +196,9 @@ if (!is_null($events['events'])) {
                               ]
                           ]
                       ];   
+            
 
-            }else{
+            }elseif($month<$today_month && $month<=12 && $date<=31){
                 $strDate1 = $today_years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
 
@@ -229,6 +230,13 @@ if (!is_null($events['events'])) {
                             ]
                         ]
                     ];   
+            }else{
+               $replyToken = $event['replyToken'];
+                 $messages = [
+                        'type' => 'text',
+                        'text' => 'ดูเหมือนคุณจะพิมพ์ไม่ถูกต้อง'
+                      ];
+
             }
             //สร้า้ง function DateDiff โดยรับค่าวันที่เริ่มต้น $strDate1 และวันที่สิ้นสุด $strDate2 
             // function DateDiff($strDate1,$strDate2)
