@@ -167,8 +167,8 @@ if (!is_null($events['events'])) {
                 $years = $today_years-1;
                 $strDate1 = $years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
-             
-                $date_pre =  DateDiff($strDate1,$strDate2);
+                
+                $date_pre =  (strtotime($strDate2) - strtotime($strDate1))/( 60 * 60 * 24 );
                   $week = $date_pre/7;
                 $week_preg = number_format($week);
                 $day = $date_pre%7;
@@ -201,7 +201,7 @@ if (!is_null($events['events'])) {
                 $strDate1 = $today_years."-".$month."-".$date;
                 $strDate2=date("Y-m-d");
 
-                $date_pre =  DateDiff($strDate1,$strDate2);
+                $date_pre =  (strtotime($strDate2) - strtotime($strDate1))/( 60 * 60 * 24 );;
                 $week = $date_pre/7;
                 $week_preg = number_format($week);
                 $day = $date_pre%7;
@@ -231,16 +231,12 @@ if (!is_null($events['events'])) {
                     ];   
             }
             //สร้า้ง function DateDiff โดยรับค่าวันที่เริ่มต้น $strDate1 และวันที่สิ้นสุด $strDate2 
-            function DateDiff($strDate1,$strDate2)
-            {
-                //คำนวนหาวันที่โดยแปลงวันที่เป็นวินาที นำวินาทีวันที่สิ้นสุด - วินาทีวันที่เริ่มต้น  
-                //แล้วหารด้วย 86400 ( 1 วันมี 86400 วินาที ) จะได้จำนวนวัน
-              return (strtotime($strDate2) - strtotime($strDate1))/  ( 60 * 60 * 24 );
-            }
-             
-                    
-               
-
+            // function DateDiff($strDate1,$strDate2)
+            // {
+            //     //คำนวนหาวันที่โดยแปลงวันที่เป็นวินาที นำวินาทีวันที่สิ้นสุด - วินาทีวันที่เริ่มต้น  
+            //     //แล้วหารด้วย 86400 ( 1 วันมี 86400 วินาที ) จะได้จำนวนวัน
+            //   return (strtotime($strDate2) - strtotime($strDate1))/  ( 60 * 60 * 24 );
+            // }
   
       $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
