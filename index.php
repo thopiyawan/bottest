@@ -18,10 +18,11 @@ $curr_y = ($curr_years+ 543);
 
 $_msg = $events['events'][0]['message']['text'];
 $user = $events['events'][0]['source']['userId'];
+
 $user_id = pg_escape_string($user);
 
 
-
+  
 $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequentsteps  WHERE sender_id = '{$user_id}'  order by updated_at desc limit 1   ");
                 while ($row = pg_fetch_row($check_q)) {
                   echo $seqcode =  $row[0];
@@ -586,7 +587,28 @@ $replyToken = $event['replyToken'];
           'type' => 'text',
           'text' => $text
         ];
+  }elseif($events['events'][0]['message']['type'] == 'location') {
+    $address = $events['events'][0]['message']['type'] 
+  $replyToken = $event['replyToken'];
+     // Build message to reply back
+      $text = "ฉันไม่เข้าใจค่ะ";
+      $messages = [
+          'type' => 'text',
+          'text' => $address
+        ];
 
+// $location = $events['events'][0]['message']['type']; 
+// $user_id = pg_escape_string($user);
+
+
+//   "message": {
+//     "id": "325708",
+//     "type": "location",
+//     "title": "my location",
+//     "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
+//     "latitude": 35.65910807942215,
+//     "longitude": 139.70372892916203
+//   }
   }else {
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
