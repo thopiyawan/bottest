@@ -588,8 +588,8 @@ $replyToken = $event['replyToken'];
           'text' => $text
         ];
   }elseif($events['events'][0]['message']['type'] == 'location') {
-    $address = $events['events'][0]['message']['type'] ;
-  $replyToken = $event['replyToken'];
+    $address = $events['events'][0]['message']['address'] ;
+    $replyToken = $event['replyToken'];
      // Build message to reply back
       $text = "ฉันไม่เข้าใจค่ะ";
       $messages = [
