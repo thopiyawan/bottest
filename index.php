@@ -600,9 +600,9 @@ $replyToken = $event['replyToken'];
         ]; 
    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', '','0000','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-}elseif($event['message']['text'] == "หยุดการทำงาน" ){
+}elseif($event['message']['text'] == "Ramiหยุด" ){
       $replyToken = $event['replyToken'];
-      $text = "RAMIหยุดการทำงานให้คุณแล้วค่ะ";
+      $text = "RAMIหยุดการส่งข้อความให้คุณแล้วค่ะ";
       $messages = [
           'type' => 'text',
           'text' => $text
