@@ -584,7 +584,7 @@ $replyToken = $event['replyToken'];
           'type' => 'text',
           'text' => $text
         ]; 
-   $q1 = pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
+   // pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
