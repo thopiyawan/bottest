@@ -578,13 +578,13 @@ $replyToken = $event['replyToken'];
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 }elseif($event['message']['text'] == "หยุดการทำงาน" ){
-
+      $replyToken = $event['replyToken'];
       $text = "ฉันหยุดการทำงานให้คุณแล้ว";
       $messages = [
           'type' => 'text',
           'text' => $text
         ]; 
-   // pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
+   pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
@@ -595,6 +595,8 @@ $replyToken = $event['replyToken'];
           'type' => 'text',
           'text' => $text
         ];
+
+
   }elseif($events['events'][0]['message']['type'] == 'location') {
 
     $x_tra = str_replace("Unnamed Road","", $_msg);
