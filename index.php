@@ -584,7 +584,7 @@ $replyToken = $event['replyToken'];
           'type' => 'text',
           'text' => $text
         ]; 
-    $sql =pg_exec($dbconn,"DELETE FROM users,recordofpregnancy WHERE  user_id = '{$user_id}' ");
+    $sql =pg_exec($dbconn,"DELETE FROM users WHERE user_id = '{$user_id}' ");
    
 
 
