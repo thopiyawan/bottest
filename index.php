@@ -577,6 +577,14 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
+}elseif($event['message']['text'] == "หยุดการทำงาน" ){
+
+      $text = "ฉันหยุดการทำงานให้คุณแล้ว";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ]; 
+   $q1 = pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
@@ -613,15 +621,7 @@ $replyToken = $event['replyToken'];
 //     "latitude": 35.65910807942215,
 //     "longitude": 139.70372892916203
 //   }
-  }elseif($event['message']['text'] == "หยุดการทำงาน" ){
-
-      $text = "ฉันหยุดการทำงานให้คุณแล้ว";
-      $messages = [
-          'type' => 'text',
-          'text' => $text
-        ]; 
-   $q1 = pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
-
+ 
   }else {
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
