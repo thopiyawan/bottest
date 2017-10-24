@@ -91,7 +91,7 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ หากคุณสนใจในภายหลังให้พิมพ์ว่า ต้องการผู้ช่วย'
+                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) หากคุณสนใจในภายหลังให้พิมพ์ว่า"ต้องการผู้ช่วย"'
                       ];          
   
            
@@ -591,7 +591,14 @@ $replyToken = $event['replyToken'];
     $sql =pg_exec($dbconn,"DELETE FROM users WHERE user_id = '{$user_id}' ");
     $sql1 =pg_exec($dbconn,"DELETE FROM recordofpregnancy WHERE user_id = '{$user_id}' ");
    
-
+}elseif($event['message']['text'] == "x" ){
+      $replyToken = $event['replyToken'];
+      $text = "ออกจากการสอบถาม";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ]; 
+   $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', '','0000','0',NOW(),NOW())") or die(pg_errormessage()); 
 
 }elseif($event['message']['text'] == "หยุดการทำงาน" ){
       $replyToken = $event['replyToken'];
