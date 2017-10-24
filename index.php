@@ -607,7 +607,7 @@ $replyToken = $event['replyToken'];
         ];
 
 
-  }elseif($events['events'][0]['message']['type'] == 'location') {
+}elseif($events['events'][0]['message']['type'] == 'location') {
 
     $x_tra = str_replace("Unnamed Road","", $_msg);
     $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
