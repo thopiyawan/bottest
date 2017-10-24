@@ -596,7 +596,6 @@ $replyToken = $event['replyToken'];
     $address = $events['events'][0]['message']['address'] ;
     $replyToken = $event['replyToken'];
      // Build message to reply back
-      $text = "ฉันไม่เข้าใจค่ะ";
       $messages = [
           'type' => 'text',
           'text' => $address
@@ -614,6 +613,15 @@ $replyToken = $event['replyToken'];
 //     "latitude": 35.65910807942215,
 //     "longitude": 139.70372892916203
 //   }
+  }elseif($event['message']['text'] == "หยุดการทำงาน" ){
+
+      $text = "ฉันหยุดการทำงานให้คุณแล้ว";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ]; 
+   $q1 = pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
+
   }else {
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
