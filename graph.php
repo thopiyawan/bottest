@@ -30,7 +30,7 @@ $check_q = pg_query($dbconn,"SELECT his_preg_week ,his_preg_weight FROM history_
                                       'duration'=> $weight);
                 }   
 $data = json_encode($arrayName);
-echo "var data = '$data';";
+// echo "var data = '$data';";
 ?>
 <!DOCTYPE html>
 <html>

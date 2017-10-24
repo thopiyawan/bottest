@@ -28,6 +28,8 @@ $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequent
                   echo $seqcode =  $row[0];
                   echo $sender = $row[2]; 
                 } 
+
+// $check_user = pg_query($dbconn,"SELECT*FROM users  WHERE $user_id  = '{$user_id}' ");
 //****************ทดสอบ
        $d = date("D");
        $h = date("H:i");
@@ -40,7 +42,7 @@ if (!is_null($events['events'])) {
   // Reply only when message sent is in 'text' format
   if ($event['message']['text'] == "ต้องการผู้ช่วย") {
       $replyToken = $event['replyToken'];
-      $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยไหม";
+      $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยใช่ไหม";
       // $messages = [
       //   'type' => 'text',
       //   'text' => $text
@@ -89,7 +91,7 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ'
+                        'text' => 'ไว้โอกาสหน้าให้เราได้เป็นผู้ช่วยของคุณนะคะ:) ขอบคุณค่ะ หากคุณสนใจในภายหลังให้พิมพ์ว่า ต้องการผู้ช่วย'
                       ];          
   
            
@@ -550,6 +552,8 @@ $replyToken = $event['replyToken'];
                                   ]
                               ]; 
 
+
+
   }elseif (is_numeric($_msg) !== false && $seqcode == "0017"  )  {
                  $weight =  $_msg;
                  $weight_mes = 'สัปดาห์นี้คุณมีน้ำหนัก'.$weight.'กิโลกรัมถูกต้องหรือไม่คะ';
@@ -591,7 +595,7 @@ $replyToken = $event['replyToken'];
 
 }elseif($event['message']['text'] == "หยุดการทำงาน" ){
       $replyToken = $event['replyToken'];
-      $text = "ฉันหยุดการทำงานให้คุณแล้ว";
+      $text = "RAMIหยุดการทำงานให้คุณแล้วค่ะ";
       $messages = [
           'type' => 'text',
           'text' => $text
@@ -601,7 +605,7 @@ $replyToken = $event['replyToken'];
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
      $replyToken = $event['replyToken'];
-      $text = "ฉันไม่เข้าใจค่ะ";
+      $text = "ดิฉันไม่เข้าใจค่ะ";
       $messages = [
           'type' => 'text',
           'text' => $text
