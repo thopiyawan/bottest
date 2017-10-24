@@ -25,11 +25,12 @@ $access_token = 'GKg1wAZ/gjMr6yh3dGmPjuq8HnkDQEZsOdPEfyur3h7JmjdT2JihbEBHL6S4BrL
 
 $seqcode =[];
 $s =[];
-$check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM users   ");
+$check_q = pg_query($dbconn,"SELECT DISTINCT user_id FROM users WHERE status = 1   ");
 
             while ($row = pg_fetch_assoc($check_q)) {
                   $seqcode[] =  $row['user_id'];
                 } 
+                
 array_push( $s,$seqcode);
 print_r($s);
 

@@ -588,6 +588,11 @@ $replyToken = $event['replyToken'];
           'text' => $text
         ];
   }elseif($events['events'][0]['message']['type'] == 'location') {
+
+    $x_tra = str_replace("Unnamed Road","", $_msg);
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $json= file_get_contents($url);
+    $events = json_decode($json, true);
     $address = $events['events'][0]['message']['address'] ;
     $replyToken = $event['replyToken'];
      // Build message to reply back
