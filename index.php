@@ -577,15 +577,15 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-}elseif($event['message']['text'] == "ลบข้อมูล" ){
+}elseif($event['message']['text'] == "Clear" ){
       $replyToken = $event['replyToken'];
       $text = "cleared!";
       $messages = [
           'type' => 'text',
           'text' => $text
         ]; 
-    $sql2 ="DELETE FROM users,recordofpregnancy WHERE  user_id = '{$user_id}' ";
-    $result = pg_query($sql2);
+    $sql =pg_exec($dbconn,"DELETE FROM users,recordofpregnancy WHERE  user_id = '{$user_id}' ");
+   
 
 
 }elseif($event['message']['text'] == "หยุดการทำงาน" ){
