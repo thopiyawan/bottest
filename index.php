@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
  // Loop through each event
  foreach ($events['events'] as $event) {
   // Reply only when message sent is in 'text' format
-  if (strpos($_msg, 'hello') !== false || strpos($_msg, 'สวัสดี') !== false || strpos($_msg, 'หวัดดี') !== false) {
+  if ($event['message']['text'] == "ต้องการผู้ช่วย") {
       $replyToken = $event['replyToken'];
       $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยไหม";
       // $messages = [
@@ -577,6 +577,17 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
+}elseif($event['message']['text'] == "clear" ){
+      $replyToken = $event['replyToken'];
+      $text = "cleared!";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ]; 
+    $sql2 ="DELETE FROM users,recordofpregnancy WHERE  user_id = '{$user_id}' ";
+    $result = pg_query($sql2);
+
+
 }elseif($event['message']['text'] == "หยุดการทำงาน" ){
       $replyToken = $event['replyToken'];
       $text = "ฉันหยุดการทำงานให้คุณแล้ว";
@@ -589,7 +600,6 @@ $replyToken = $event['replyToken'];
 }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
      $replyToken = $event['replyToken'];
-     // Build message to reply back
       $text = "ฉันไม่เข้าใจค่ะ";
       $messages = [
           'type' => 'text',
