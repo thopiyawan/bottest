@@ -594,8 +594,8 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> 'description',
-            'text'=> 'description',
+            'title'=> $_msg,
+            'text'=>  $title,
             'actions'=> [
                 // [
                 //     'type'=> 'postback',
