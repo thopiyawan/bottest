@@ -571,7 +571,6 @@ $replyToken = $event['replyToken'];
 }elseif(strpos($_msg, 'แพ้ท้อง')!== false )  {
     $replyToken = $event['replyToken'];
     // $x_tra = str_replace("","", $_msg);
-    $_msg ='แพ้ท้อง';
     $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$_msg;
     // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
@@ -595,7 +594,7 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> 'description',
+            'title'=> $title,
             'text'=> 'description',
             'actions'=> [
                 // [
@@ -611,7 +610,7 @@ $messages = [
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> 'http://example.com/page/111'
+                    'uri'=> $link
                 ]
             ]
           ],
