@@ -595,23 +595,23 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  'description',
+            'title'=> 'description',
             'text'=> 'description',
             'actions'=> [
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'link',
-                //     'data'=> $link2
-                // ],
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'Add to cart',
-                //    'data'=> 'action=add&itemid=111'
-                // ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'link',
+                    'data'=> 'link'
+                ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Add to cart',
+                   'data'=> 'action=add&itemid=111'
+                ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> $link2
+                    'uri'=> 'http://example.com/page/111'
                 ]
             ]
           ],
@@ -620,20 +620,20 @@ $messages = [
             'title'=>  'description',
             'text'=> 'description',
             'actions'=> [
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'link',
-                //     'data'=>  $link3
-                // ],
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'Add to cart',
-                //    'data'=> 'action=add&itemid=111'
-                // ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'link',
+                    'data'=>  'link'
+                ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Add to cart',
+                   'data'=> 'action=add&itemid=111'
+                ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> '$link3'
+                    'uri'=> 'http://example.com/page/111'
                 ]
             ]
           ]
