@@ -570,7 +570,7 @@ $replyToken = $event['replyToken'];
 
 }else if (strpos($_msg, 'แพ้ท้อง')!== false )  {
     $replyToken = $event['replyToken'];
-    $x_tra = str_replace("","", $_msg);
+    // $x_tra = str_replace("","", $_msg);
 
    //  $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
    //  $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
@@ -613,59 +613,60 @@ $replyToken = $event['replyToken'];
    //      ]
    //  ];
 
-
-  $messages = [
-    'type'=> 'template',
-    'altText'=> 'this is a carousel template',
-    'template'=> [
-        'type'=> 'carousel',
-        'columns'=> [
-            [
-              'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-              'title'=> 'hi',
-              'text'=> 'hi1',
-              'actions'=> [
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'uri'=> 'hi2'
-                  ],
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'uri'=> 'hi3'
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'uri'=> 'hi4'
-                  ]
-              ]
-            ],
-            [
-              'thumbnailImageUrl' => 'https://example.com/bot/images/item2.jpg',
-              'title'=> 'hi5',
-              'text'=> 'hi6',
-              'actions'=> [
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'data'=> 'hi7'
-                  ],
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'data'=> 'hi8'
-                  ],
-                  [
-                      'type'=> 'uri',
-                      'label'=> 'View detail',
-                      'uri'=> 'hi9'
-                  ]
-              ]
+$messages = [
+  'type'=> 'template',
+  'altText'=> 'this is a carousel template',
+  'template'=> [
+      'type'=> 'carousel',
+      'columns'=> [
+          [
+            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+            'title'=> 'this is menu',
+            'text'=> 'description',
+            'actions'=> [
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Buy',
+                    'data'=> 'action=buy&itemid=111'
+                ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Add to cart',
+                   'data'=> 'action=add&itemid=111'
+                ],
+                [
+                    'type'=> 'uri',
+                    'label'=> 'View detail',
+                    'uri'=> 'http://example.com/page/111'
+                ]
             ]
-        ]
-    ]
-  ]];
+          ],
+          [
+            [
+            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+            'title'=> 'this is menu',
+            'text'=> 'description',
+            'actions'=> [
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Buy',
+                    'data'=> 'action=buy&itemid=111'
+                ],
+                [
+                    'type'=> 'postback',
+                    'label'=> 'Add to cart',
+                   'data'=> 'action=add&itemid=111'
+                ],
+                [
+                    'type'=> 'uri',
+                    'label'=> 'View detail',
+                    'uri'=> 'http://example.com/page/111'
+                ]
+            ]
+          ]
+      ]
+  ]
+]
 
 
 }elseif($event['message']['text'] == "Clear" ){
