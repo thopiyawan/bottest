@@ -665,7 +665,7 @@ $replyToken = $event['replyToken'];
             ]
         ]
     ]
-  ];
+  ]];
 
 
 }elseif($event['message']['text'] == "Clear" ){
