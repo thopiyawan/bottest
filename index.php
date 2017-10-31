@@ -568,102 +568,104 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-}else if (strpos($_msg, 'แพ้ท้อง') !== false || strpos($_msg, 'ตั้งครรภ์') !== false || strpos($_msg, 'คนท้อง') !== false || strpos($_msg, 'ปวดท้อง') !== false || strpos($_msg, 'ท้องแข็ง') !== false || strpos($_msg, 'กิน') !== false || strpos($_msg, 'ทาน') !== false || strpos($_msg, 'ดื่ม') !== false || strpos($_msg, 'ฝากครรภ์') !== false || strpos($_msg, 'หมอ') !== false || strpos($_msg, 'ยา') !== false || strpos($_msg, 'สมุนไพร') !== false  )  {
+}else if (strpos($_msg, 'แพ้ท้อง') )  {
     $replyToken = $event['replyToken'];
     $x_tra = str_replace("","", $_msg);
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $json= file_get_contents($url);
-    $json= file_get_contents($url2);
+
+   //  $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+   //  $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+   //  $json= file_get_contents($url);
+   //  $json= file_get_contents($url2);
     
-    $events = json_decode($json, true);
-    $title= $events['items'][0]['title'];
-    $title2= $events['items'][1]['title'];
-    $title3= $events['items'][2]['title'];
+   //  $events = json_decode($json, true);
+   //  $title= $events['items'][0]['title'];
+   //  $title2= $events['items'][1]['title'];
+   //  $title3= $events['items'][2]['title'];
     
-    $link = $events['items'][0]['link'];
-    $link2 = $events['items'][1]['link'];
-    $link3 = $events['items'][2]['link'];
+   //  $link = $events['items'][0]['link'];
+   //  $link2 = $events['items'][1]['link'];
+   //  $link3 = $events['items'][2]['link'];
   
-   $messages = [
-        'type' => 'template',
-        'altText' => 'template',
-        'template' => [
-            'type' => 'buttons',
-            'title' =>  $x_tra,
-            'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
-            'actions' => [
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์',
-                    'uri' => $link
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์ที่2',
-                    'uri' => $link2
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์ที่3',
-                    'uri' => $link3
-                ]
+   // $messages = [
+   //      'type' => 'template',
+   //      'altText' => 'template',
+   //      'template' => [
+   //          'type' => 'buttons',
+   //          'title' =>  $x_tra,
+   //          'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
+   //          'actions' => [
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์',
+   //                  'uri' => $link
+   //              ],
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์ที่2',
+   //                  'uri' => $link2
+   //              ],
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์ที่3',
+   //                  'uri' => $link3
+   //              ]
+   //          ]
+   //      ]
+   //  ];
+
+
+  $messages = [
+    'type'=> 'template',
+    'altText'=> 'this is a carousel template',
+    'template'=> [
+        'type'=> 'carousel',
+        'columns'=> [
+            [
+              'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+              'title'=> 'hi',
+              'text'=> 'hi1',
+              'actions'=> [
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'uri'=> 'hi2'
+                  ],
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'uri'=> 'hi3'
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'uri'=> 'hi4'
+                  ]
+              ]
+            ],
+            [
+              'thumbnailImageUrl' => 'https://example.com/bot/images/item2.jpg',
+              'title'=> 'hi5',
+              'text'=> 'hi6',
+              'actions'=> [
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'data'=> 'hi7'
+                  ],
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'data'=> 'hi8'
+                  ],
+                  [
+                      'type'=> 'uri',
+                      'label'=> 'View detail',
+                      'uri'=> 'hi9'
+                  ]
+              ]
             ]
         ]
-    ];
-  // $messages = [
-  //   'type'=> 'template',
-  //   'altText'=> 'this is a carousel template',
-  //   'template'=> [
-  //       'type'=> 'carousel',
-  //       'columns'=> [
-  //           [
-  //             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-  //             'title'=> $x_tra,
-  //             'text'=> $title,
-  //             'actions'=> [
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'uri'=> $link
-  //                 ],
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'uri'=> $link
-  //                 ],
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'uri'=> $link
-  //                 ]
-  //             ]
-  //           ],
-  //           [
-  //             'thumbnailImageUrl' => 'https://example.com/bot/images/item2.jpg',
-  //             'title'=> $x_tra,
-  //             'text'=> $title,
-  //             'actions'=> [
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'data'=> $link
-  //                 ],
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'data'=> $link
-  //                 ],
-  //                 [
-  //                     'type'=> 'uri',
-  //                     'label'=> 'View detail',
-  //                     'uri'=> $link
-  //                 ]
-  //             ]
-  //           ]
-  //       ]
-  //   ]
-  // ];
+    ]
+  ];
 
 
 }elseif($event['message']['text'] == "Clear" ){
@@ -695,7 +697,7 @@ $replyToken = $event['replyToken'];
    pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 }elseif($event['message']['text'] == "Ramiทำงาน" ){
       $replyToken = $event['replyToken'];
-      $text = "RAMIหยุดการส่งข้อความให้คุณแล้วค่ะ";
+      $text = "RAMIจะกลับมาส่งข้อความให้คุณอีกครั้ง";
       $messages = [
           'type' => 'text',
           'text' => $text
