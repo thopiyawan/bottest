@@ -595,7 +595,7 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  $title3,
+            'title'=>  $title2,
             'text'=> 'description',
             'actions'=> [
                 // [
@@ -617,7 +617,7 @@ $messages = [
           ],
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>   $title3,
+            'title'=>   $title2,
             'text'=> 'description',
             'actions'=> [
                 // [
