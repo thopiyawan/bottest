@@ -670,10 +670,10 @@ $replyToken = $event['replyToken'];
 // ];
 $messages = [
           'type' => 'text',
-          'text' => $text
+          'text' => 'แพ้ท้องเหรอออ'
         ]; 
 
-        
+
 }elseif($event['message']['text'] == "Clear" ){
       $replyToken = $event['replyToken'];
       $text = "cleared!";
