@@ -568,78 +568,78 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-}elseif(strpos($_msg, 'แพ้ท้อง')!== false )  {
-    $replyToken = $event['replyToken'];
-    // $x_tra = str_replace("","", $_msg);
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$_msg;
-    // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $json= file_get_contents($url);
-    // $json= file_get_contents($url2);
+// }elseif(strpos($_msg, 'แพ้ท้อง')!== false )  {
+//     $replyToken = $event['replyToken'];
+//     // $x_tra = str_replace("","", $_msg);
+//     $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$_msg;
+//     // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+//     $json= file_get_contents($url);
+//     // $json= file_get_contents($url2);
     
-    $events = json_decode($json, true);
-    $title= $events['items'][0]['title'];
-    $title2= $events['items'][1]['title'];
-    $title3= $events['items'][2]['title'];
+//     $events = json_decode($json, true);
+//     $title= $events['items'][0]['title'];
+//     $title2= $events['items'][1]['title'];
+//     $title3= $events['items'][2]['title'];
     
-    $link = $events['items'][0]['link'];
-    $link2 = $events['items'][1]['link'];
-    $link3 = $events['items'][2]['link'];
+//     $link = $events['items'][0]['link'];
+//     $link2 = $events['items'][1]['link'];
+//     $link3 = $events['items'][2]['link'];
   
 
-$messages = [
-  'type'=> 'template',
-  'altText'=> 'this is a carousel template',
-  'template'=> [
-      'type'=> 'carousel',
-      'columns'=> [
-          [
-            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> $_msg,
-            'text'=>  $title,
-            'actions'=> [
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'link',
-                //     'data'=> 'link'
-                // ],
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'Add to cart',
-                //    'data'=> 'action=add&itemid=111'
-                // ],
-                [
-                    'type'=> 'uri',
-                    'label'=> 'View detail',
-                    'uri'=> $link
-                ]
-            ]
-          ],
-          [
-            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  $_msg,
-            'text'=> $title2,
-            'actions'=> [
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'link',
-                //     'data'=>  'link'
-                // ],
-                // [
-                //     'type'=> 'postback',
-                //     'label'=> 'Add to cart',
-                //    'data'=> 'action=add&itemid=111'
-                // ],
-                [
-                    'type'=> 'uri',
-                    'label'=> 'View detail',
-                    'uri'=> $link2
-                ]
-            ]
-          ]
-      ]
-  ]
+// $messages = [
+//   'type'=> 'template',
+//   'altText'=> 'this is a carousel template',
+//   'template'=> [
+//       'type'=> 'carousel',
+//       'columns'=> [
+//           [
+//             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+//             'title'=> $_msg,
+//             'text'=>  $title,
+//             'actions'=> [
+//                 // [
+//                 //     'type'=> 'postback',
+//                 //     'label'=> 'link',
+//                 //     'data'=> 'link'
+//                 // ],
+//                 // [
+//                 //     'type'=> 'postback',
+//                 //     'label'=> 'Add to cart',
+//                 //    'data'=> 'action=add&itemid=111'
+//                 // ],
+//                 [
+//                     'type'=> 'uri',
+//                     'label'=> 'View detail',
+//                     'uri'=> $link
+//                 ]
+//             ]
+//           ],
+//           [
+//             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+//             'title'=>  $_msg,
+//             'text'=> $title2,
+//             'actions'=> [
+//                 // [
+//                 //     'type'=> 'postback',
+//                 //     'label'=> 'link',
+//                 //     'data'=>  'link'
+//                 // ],
+//                 // [
+//                 //     'type'=> 'postback',
+//                 //     'label'=> 'Add to cart',
+//                 //    'data'=> 'action=add&itemid=111'
+//                 // ],
+//                 [
+//                     'type'=> 'uri',
+//                     'label'=> 'View detail',
+//                     'uri'=> $link2
+//                 ]
+//             ]
+//           ]
+//       ]
+//   ]
 
-];
+// ];
 
 
 
