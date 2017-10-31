@@ -616,8 +616,8 @@ $messages = [
           ],
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  'description',
-            'text'=> 'description',
+            'title'=>  $_msg,
+            'text'=> $title2,
             'actions'=> [
                 // [
                 //     'type'=> 'postback',
@@ -632,7 +632,7 @@ $messages = [
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> 'http://example.com/page/111'
+                    'uri'=> $link2
                 ]
             ]
           ]
