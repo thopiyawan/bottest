@@ -570,12 +570,12 @@ $replyToken = $event['replyToken'];
 
 }else if (strpos($_msg, 'แพ้ท้อง')!== false )  {
     $replyToken = $event['replyToken'];
-    $x_tra = $_msg;
+    // $x_tra = str_replace("","", $_msg);
 
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$_msg;
+    // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
-    $json= file_get_contents($url2);
+    // $json= file_get_contents($url2);
     
     $events = json_decode($json, true);
     $title= $events['items'][0]['title'];
