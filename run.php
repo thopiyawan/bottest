@@ -6,20 +6,22 @@
   $replyToken = $event['replyToken'];
     $x_tra = 'แพ้ท้อง';
     $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json1= file_get_contents($url);
-    $json2= file_get_contents($url2);
+    // $json2= file_get_contents($url2);
     var_dump($json1);
     
-    // $events = json_decode($json, true);
-    // $title= $events['items'][0]['title'];
-    // $title2= $events['items'][1]['title'];
-    // $title3= $events['items'][2]['title'];
-    
-    // $link = $events['items'][0]['link'];
-    // $link2 = $events['items'][1]['link'];
-    // $link3 = $events['items'][2]['link'];
-  
+    $events = json_decode($json, true);
+    $title= $events['items'][0]['title'];
+     $title2= $events['items'][1]['title'];
+     $title3= $events['items'][2]['title'];
+
+
+    $link = $events['items'][0]['link'];
+    $link2 = $events['items'][1]['link'];
+    $link3 = $events['items'][2]['link'];
+    echo $title;
+    echo $link;
    // $messages = [
    //      'type' => 'template',
    //      'altText' => 'template',
