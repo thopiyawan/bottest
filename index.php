@@ -598,16 +598,16 @@ $messages = [
             'title'=> 'description',
             'text'=> 'description',
             'actions'=> [
-                [
-                    'type'=> 'postback',
-                    'label'=> 'link',
-                    'data'=> 'link'
-                ],
-                [
-                    'type'=> 'postback',
-                    'label'=> 'Add to cart',
-                   'data'=> 'action=add&itemid=111'
-                ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'link',
+                //     'data'=> 'link'
+                // ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'Add to cart',
+                //    'data'=> 'action=add&itemid=111'
+                // ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
@@ -620,16 +620,16 @@ $messages = [
             'title'=>  'description',
             'text'=> 'description',
             'actions'=> [
-                [
-                    'type'=> 'postback',
-                    'label'=> 'link',
-                    'data'=>  'link'
-                ],
-                [
-                    'type'=> 'postback',
-                    'label'=> 'Add to cart',
-                   'data'=> 'action=add&itemid=111'
-                ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'link',
+                //     'data'=>  'link'
+                // ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'Add to cart',
+                //    'data'=> 'action=add&itemid=111'
+                // ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
