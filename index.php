@@ -570,48 +570,22 @@ $replyToken = $event['replyToken'];
 
 }else if (strpos($_msg, 'แพ้ท้อง')!== false )  {
     $replyToken = $event['replyToken'];
-    // $x_tra = str_replace("","", $_msg);
+    $x_tra = str_replace("","", $_msg);
 
-   //  $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-   //  $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-   //  $json= file_get_contents($url);
-   //  $json= file_get_contents($url2);
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $json= file_get_contents($url);
+    $json= file_get_contents($url2);
     
-   //  $events = json_decode($json, true);
-   //  $title= $events['items'][0]['title'];
-   //  $title2= $events['items'][1]['title'];
-   //  $title3= $events['items'][2]['title'];
+    $events = json_decode($json, true);
+    $title= $events['items'][0]['title'];
+    $title2= $events['items'][1]['title'];
+    $title3= $events['items'][2]['title'];
     
-   //  $link = $events['items'][0]['link'];
-   //  $link2 = $events['items'][1]['link'];
-   //  $link3 = $events['items'][2]['link'];
+    $link = $events['items'][0]['link'];
+    $link2 = $events['items'][1]['link'];
+    $link3 = $events['items'][2]['link'];
   
-   // $messages = [
-   //      'type' => 'template',
-   //      'altText' => 'template',
-   //      'template' => [
-   //          'type' => 'buttons',
-   //          'title' =>  $x_tra,
-   //          'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
-   //          'actions' => [
-   //              [
-   //                  'type' => 'uri',
-   //                  'label' => 'ไปยังลิงค์',
-   //                  'uri' => $link
-   //              ],
-   //              [
-   //                  'type' => 'uri',
-   //                  'label' => 'ไปยังลิงค์ที่2',
-   //                  'uri' => $link2
-   //              ],
-   //              [
-   //                  'type' => 'uri',
-   //                  'label' => 'ไปยังลิงค์ที่3',
-   //                  'uri' => $link3
-   //              ]
-   //          ]
-   //      ]
-   //  ];
 
 $messages = [
   'type'=> 'template',
@@ -621,13 +595,13 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> 'this is menu',
+            'title'=> $title,
             'text'=> 'description',
             'actions'=> [
                 [
                     'type'=> 'postback',
-                    'label'=> 'Buy',
-                    'data'=> 'action=buy&itemid=111'
+                    'label'=> 'link',
+                    'data'=> $link
                 ],
                 [
                     'type'=> 'postback',
@@ -643,13 +617,13 @@ $messages = [
           ],
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> 'this is menu',
+            'title'=>  $title2,
             'text'=> 'description',
             'actions'=> [
                 [
                     'type'=> 'postback',
-                    'label'=> 'Buy',
-                    'data'=> 'action=buy&itemid=111'
+                    'label'=> 'link',
+                    'data'=>  $link2
                 ],
                 [
                     'type'=> 'postback',
