@@ -29,7 +29,7 @@ $check_q = pg_query($dbconn,"SELECT seqcode, sender_id ,updated_at  FROM sequent
                   echo $sender = $row[2]; 
                 } 
 
-// $check_user = pg_query($dbconn,"SELECT*FROM users  WHERE $user_id  = '{$user_id}' ");
+
 //****************ทดสอบ
        $d = date("D");
        $h = date("H:i");
@@ -43,10 +43,7 @@ if (!is_null($events['events'])) {
   if ($event['message']['text'] == "ต้องการผู้ช่วย") {
       $replyToken = $event['replyToken'];
       $text = "สวัสดีค่ะ คุณสนใจมีผู้ช่วยใช่ไหม";
-      // $messages = [
-      //   'type' => 'text',
-      //   'text' => $text
-      // ];
+   
         $messages = [
        'type' => 'template',
         'altText' => 'this is a confirm template',
@@ -241,13 +238,6 @@ if (!is_null($events['events'])) {
                       ];
 
             }
-            //สร้า้ง function DateDiff โดยรับค่าวันที่เริ่มต้น $strDate1 และวันที่สิ้นสุด $strDate2 
-            // function DateDiff($strDate1,$strDate2)
-            // {
-            //     //คำนวนหาวันที่โดยแปลงวันที่เป็นวินาที นำวินาทีวันที่สิ้นสุด - วินาทีวันที่เริ่มต้น  
-            //     //แล้วหารด้วย 86400 ( 1 วันมี 86400 วินาที ) จะได้จำนวนวัน
-            //   return (strtotime($strDate2) - strtotime($strDate1))/  ( 60 * 60 * 24 );
-            // }
   
       $url = 'https://api.line.me/v2/bot/message/reply';
          $data = [
@@ -353,11 +343,8 @@ if (!is_null($events['events'])) {
                  $replyToken = $event['replyToken'];
                  $messages = [
                         'type' => 'text',
-                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร ส่วนสูง160)'
+                        'text' => 'ขออนุญาตถามส่วนสูงปัจจุบันของคุณค่ะ (กรุณาตอบเป็นตัวเลขในหน่วยเซ็นติเมตร)'
                       ];  
-
-
-    // $q1 = pg_exec($dbconn, "UPDATE user_data SET preg_week = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
 
     $q1 = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());   
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0014', '','0015','0',NOW(),NOW())") or die(pg_errormessage());
@@ -523,7 +510,7 @@ if (!is_null($events['events'])) {
             while ($row = pg_fetch_row($check)) {
                 echo  $p_week =  $row[0]+1;
                 } 
-    // // $q = pg_exec($dbconn, "UPDATE recordofpregnancy SET preg_weight = $answer WHERE user_id = '{$user_id}' ") or die(pg_errormessage());  
+
     $q2 = pg_exec($dbconn, "INSERT INTO recordofpregnancy(user_id, preg_week, preg_weight,updated_at )VALUES('{$user_id}',$p_week,$answer ,  NOW()) ") or die(pg_errormessage());  
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0000', '' ,'0000','0',NOW(),NOW())") or die(pg_errormessage()); 
@@ -581,6 +568,104 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
+}else if (strpos($_msg, 'แพ้ท้อง') !== false || strpos($_msg, 'ตั้งครรภ์') !== false || strpos($_msg, 'คนท้อง') !== false || strpos($_msg, 'ปวดท้อง') !== false || strpos($_msg, 'ท้องแข็ง') !== false || strpos($_msg, 'กิน') !== false || strpos($_msg, 'ทาน') !== false || strpos($_msg, 'ดื่ม') !== false || strpos($_msg, 'ฝากครรภ์') !== false || strpos($_msg, 'หมอ') !== false || strpos($_msg, 'ยา') !== false || strpos($_msg, 'สมุนไพร') !== false  )  {
+    $replyToken = $event['replyToken'];
+    $x_tra = str_replace("","", $_msg);
+    $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+    $json= file_get_contents($url);
+    $json= file_get_contents($url2);
+    
+    $events = json_decode($json, true);
+    $title= $events['items'][0]['title'];
+    $title2= $events['items'][1]['title'];
+    $title3= $events['items'][2]['title'];
+    
+    $link = $events['items'][0]['link'];
+    $link2 = $events['items'][1]['link'];
+    $link3 = $events['items'][2]['link'];
+  
+   $messages = [
+        'type' => 'template',
+        'altText' => 'template',
+        'template' => [
+            'type' => 'buttons',
+            'title' =>  $x_tra,
+            'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
+            'actions' => [
+                [
+                    'type' => 'uri',
+                    'label' => 'ไปยังลิงค์',
+                    'uri' => $link
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'ไปยังลิงค์ที่2',
+                    'uri' => $link2
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'ไปยังลิงค์ที่3',
+                    'uri' => $link3
+                ]
+            ]
+        ]
+    ];
+  // $messages = [
+  //   'type'=> 'template',
+  //   'altText'=> 'this is a carousel template',
+  //   'template'=> [
+  //       'type'=> 'carousel',
+  //       'columns'=> [
+  //           [
+  //             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
+  //             'title'=> $x_tra,
+  //             'text'=> $title,
+  //             'actions'=> [
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'uri'=> $link
+  //                 ],
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'uri'=> $link
+  //                 ],
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'uri'=> $link
+  //                 ]
+  //             ]
+  //           ],
+  //           [
+  //             'thumbnailImageUrl' => 'https://example.com/bot/images/item2.jpg',
+  //             'title'=> $x_tra,
+  //             'text'=> $title,
+  //             'actions'=> [
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'data'=> $link
+  //                 ],
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'data'=> $link
+  //                 ],
+  //                 [
+  //                     'type'=> 'uri',
+  //                     'label'=> 'View detail',
+  //                     'uri'=> $link
+  //                 ]
+  //             ]
+  //           ]
+  //       ]
+  //   ]
+  // ];
+
+
 }elseif($event['message']['text'] == "Clear" ){
       $replyToken = $event['replyToken'];
       $text = "cleared!";
@@ -608,16 +693,14 @@ $replyToken = $event['replyToken'];
           'text' => $text
         ]; 
    pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
-
-}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
-    
-     $replyToken = $event['replyToken'];
-      $text = "ดิฉันไม่เข้าใจค่ะ";
+}elseif($event['message']['text'] == "Ramiทำงาน" ){
+      $replyToken = $event['replyToken'];
+      $text = "RAMIหยุดการส่งข้อความให้คุณแล้วค่ะ";
       $messages = [
           'type' => 'text',
           'text' => $text
-        ];
-
+        ]; 
+   pg_exec($dbconn, "UPDATE users SET status= 1 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 
 }elseif($events['events'][0]['message']['type'] == 'location') {
 
@@ -645,6 +728,16 @@ $replyToken = $event['replyToken'];
 //     "latitude": 35.65910807942215,
 //     "longitude": 139.70372892916203
 //   }
+
+}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    
+      $replyToken = $event['replyToken'];
+      $text = "ดิฉันไม่เข้าใจค่ะ";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ];
+
  
   }else {
    $replyToken = $event['replyToken'];
@@ -670,14 +763,7 @@ $replyToken = $event['replyToken'];
                   ]
               ]; 
      $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());         
-    // $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());
-    // }else{
-    //   $replyToken = $event['replyToken'];
-    //   $text = "ฉันไม่เข้าใจค่ะ";
-    //   $messages = [
-    //       'type' => 'text',
-    //       'text' => $text
-    //     ];
+
   }
   
 
