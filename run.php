@@ -9,8 +9,8 @@
     $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json1= file_get_contents($url);
     $json2= file_get_contents($url2);
-    var_dump($json1);
-    var_dump($json2);
+    print_r($json1);
+    
     // $events = json_decode($json, true);
     // $title= $events['items'][0]['title'];
     // $title2= $events['items'][1]['title'];
@@ -20,32 +20,32 @@
     // $link2 = $events['items'][1]['link'];
     // $link3 = $events['items'][2]['link'];
   
-   $messages = [
-        'type' => 'template',
-        'altText' => 'template',
-        'template' => [
-            'type' => 'buttons',
-            'title' =>  $x_tra,
-            'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
-            'actions' => [
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์',
-                    'uri' => $link
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์ที่2',
-                    'uri' => $link2
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => 'ไปยังลิงค์ที่3',
-                    'uri' => $link3
-                ]
-            ]
-        ]
-    ];
+   // $messages = [
+   //      'type' => 'template',
+   //      'altText' => 'template',
+   //      'template' => [
+   //          'type' => 'buttons',
+   //          'title' =>  $x_tra,
+   //          'text' =>   'สามารถกดดูข้อมูลจากลิงค์ด้านล่างได้เลยค่ะ',
+   //          'actions' => [
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์',
+   //                  'uri' => $link
+   //              ],
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์ที่2',
+   //                  'uri' => $link2
+   //              ],
+   //              [
+   //                  'type' => 'uri',
+   //                  'label' => 'ไปยังลิงค์ที่3',
+   //                  'uri' => $link3
+   //              ]
+   //          ]
+   //      ]
+   //  ];
 
 // $strFileName = "autoreply.php";
 
