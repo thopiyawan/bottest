@@ -568,10 +568,10 @@ $replyToken = $event['replyToken'];
 
     $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0017', $weight,'','0',NOW(),NOW())") or die(pg_errormessage()); 
 
-}else if (strpos($_msg, 'แพ้ท้อง')!== false )  {
+}elseif(strpos($_msg, 'แพ้ท้อง')!== false )  {
     $replyToken = $event['replyToken'];
     // $x_tra = str_replace("","", $_msg);
-
+    $_msg ='แพ้ท้อง';
     $url = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:e_gyj6qnxr8&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$_msg;
     // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json= file_get_contents($url);
@@ -595,13 +595,13 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> $title,
+            'title'=> $title2,
             'text'=> 'description',
             'actions'=> [
                 [
                     'type'=> 'postback',
                     'label'=> 'link',
-                    'data'=> $link
+                    'data'=> $link2
                 ],
                 [
                     'type'=> 'postback',
@@ -617,13 +617,13 @@ $messages = [
           ],
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  $title2,
+            'title'=>  $title3,
             'text'=> 'description',
             'actions'=> [
                 [
                     'type'=> 'postback',
                     'label'=> 'link',
-                    'data'=>  $link2
+                    'data'=>  $link3
                 ],
                 [
                     'type'=> 'postback',
