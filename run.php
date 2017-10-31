@@ -9,7 +9,7 @@
     $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
     $json1= file_get_contents($url);
     $json2= file_get_contents($url2);
-    print_r($json1);
+    var_dump($json1);
     
     // $events = json_decode($json, true);
     // $title= $events['items'][0]['title'];
