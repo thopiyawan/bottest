@@ -595,45 +595,45 @@ $messages = [
       'columns'=> [
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=> 'description',
+            'title'=>  $title3,
             'text'=> 'description',
             'actions'=> [
-                [
-                    'type'=> 'postback',
-                    'label'=> 'link',
-                    'data'=> $link2
-                ],
-                [
-                    'type'=> 'postback',
-                    'label'=> 'Add to cart',
-                   'data'=> 'action=add&itemid=111'
-                ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'link',
+                //     'data'=> $link2
+                // ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'Add to cart',
+                //    'data'=> 'action=add&itemid=111'
+                // ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> 'http://example.com/page/111'
+                    'uri'=> $link2
                 ]
             ]
           ],
           [
             'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
-            'title'=>  'description',
+            'title'=>   $title3,
             'text'=> 'description',
             'actions'=> [
-                [
-                    'type'=> 'postback',
-                    'label'=> 'link',
-                    'data'=>  $link3
-                ],
-                [
-                    'type'=> 'postback',
-                    'label'=> 'Add to cart',
-                   'data'=> 'action=add&itemid=111'
-                ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'link',
+                //     'data'=>  $link3
+                // ],
+                // [
+                //     'type'=> 'postback',
+                //     'label'=> 'Add to cart',
+                //    'data'=> 'action=add&itemid=111'
+                // ],
                 [
                     'type'=> 'uri',
                     'label'=> 'View detail',
-                    'uri'=> 'http://example.com/page/111'
+                    'uri'=> '$link3'
                 ]
             ]
           ]
@@ -717,7 +717,7 @@ $messages = [
         ];
 
  
-  }else {
+}else{
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
           $messages = [
