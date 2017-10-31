@@ -21,6 +21,8 @@
     $link2 = $events['items'][1]['link'];
     $link3 = $events['items'][2]['link'];
 
+    echo $title;
+    echo $link;
     var_dump($events);
     // echo $title;
     // echo $link;
