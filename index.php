@@ -593,7 +593,7 @@ $messages = [
       'type'=> 'carousel',
       'columns'=> [
           [
-            'thumbnailImageUrl'=> '//ptcdn.info/pantip/pantip_logo_02.png',
+            'thumbnailImageUrl'=> 'https://ptcdn.info/pantip/pantip_logo_02.png',
             'title'=> $_msg,
             'text'=>  $title,
             'actions'=> [
@@ -615,7 +615,7 @@ $messages = [
             ]
           ],
           [
-            'thumbnailImageUrl'=> '//ptcdn.info/pantip/pantip_logo_02.png',
+            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
             'title'=>  $_msg,
             'text'=> $title2,
             'actions'=> [
@@ -637,7 +637,7 @@ $messages = [
             ]
           ],
           [
-            'thumbnailImageUrl'=> '//ptcdn.info/pantip/pantip_logo_02.png',
+            'thumbnailImageUrl'=> 'https://example.com/bot/images/item1.jpg',
             'title'=>  $_msg,
             'text'=> $title3,
             'actions'=> [
