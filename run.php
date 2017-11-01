@@ -23,7 +23,7 @@
     $link2 = $events['items'][1]['link'];
     $link3 = $events['items'][2]['link'];
 
-    $pic = $events['items'][0]['og:image'];
+    $pic = $events['items'][0]['cse_image'][0]['src'];
      echo $title;
     echo $link;
 
@@ -32,7 +32,7 @@ echo  $pic;
 
 
     
-    var_dump($events);
+  //  var_dump($events);
     // echo $title;
     // echo $link;
    // $messages = [
