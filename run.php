@@ -23,7 +23,7 @@
     $link2 = $events['items'][1]['link'];
     $link3 = $events['items'][2]['link'];
 
-    $pic = $events['cse_image'][0]['src'];
+    $pic = $events['items'];
      echo $title;
     echo $link;
 
