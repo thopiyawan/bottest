@@ -23,11 +23,11 @@
     $link2 = $events['items'][1]['link'];
     $link3 = $events['items'][2]['link'];
 
-    $pic = $events['items'][0]['cse_image'][0]['src'];
+    $pic = $events['cse_image'][0]['src'];
      echo $title;
     echo $link;
 
-echo  $pic;
+var_dump($pic);
 
 
 
