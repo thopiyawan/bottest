@@ -19,6 +19,8 @@ if (!$dbconn) {
 //ดึงข้อมูล ID มาจาก Databases
 $objQuery = mysql_query("SELECT * FROM users where ID_STD = $ID ") or die(mysql_error());
 $objResult = mysql_fetch_array($objQuery);
+
+echo "hellooo";
 //นำเอาตัวแปร มาแปลงเป็น json แล้วส่งออก
 echo json_encode($objResult);
 
