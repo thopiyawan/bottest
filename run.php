@@ -3,31 +3,52 @@
 <?php 
 
 
+$ID=$_GET['id'];
+
+if($ID==''){
+exit();
+}
+
+$conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
+$dbconn = pg_pconnect($conn_string);
+if (!$dbconn) {
+    die("Connection failed: " . mysqli_connect_error());
+    exit();
+}
+
+//ดึงข้อมูล ID มาจาก Databases
+$objQuery = mysql_query("SELECT * FROM TB_STD where ID_STD = $ID ") or die(mysql_error());
+$objResult = mysql_fetch_array($objQuery);
+//นำเอาตัวแปร มาแปลงเป็น json แล้วส่งออก
+echo json_encode($objResult);
 
 
-  $replyToken = $event['replyToken'];
-    $x_tra = 'แพ้ท้อง';
-    $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
-    // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
-    $json= file_get_contents($url);
-    // $json2= file_get_contents($url2);
-    // var_dump($json1);
+
+
+
+//   $replyToken = $event['replyToken'];
+//     $x_tra = 'แพ้ท้อง';
+//     $url = 'https://www.googleapis.com/customsearch/v1?&cx=011030528095328264272:_0c9oat4ztq&key=AIzaSyBgzyv2TiMpaZxxthxX1jYNdskfxi7ah_4&q='.$x_tra;
+//     // $url2 = 'https://www.googleapis.com/customsearch/v1?&cx=014388729015054466439:gqr4m9bfx0i&key=AIzaSyDmVU8aawr5mNpqbiUdYMph8r7K-siKn-0&q='.$x_tra;
+//     $json= file_get_contents($url);
+//     // $json2= file_get_contents($url2);
+//     // var_dump($json1);
     
-    $events = json_decode($json, true);
-    $title= $events['items'][0]['title'];
-    $title2= $events['items'][1]['title'];
-    $title3= $events['items'][2]['title'];
+//     $events = json_decode($json, true);
+//     $title= $events['items'][0]['title'];
+//     $title2= $events['items'][1]['title'];
+//     $title3= $events['items'][2]['title'];
 
 
-    $link = $events['items'][0]['link'];
-    $link2 = $events['items'][1]['link'];
-    $link3 = $events['items'][2]['link'];
+//     $link = $events['items'][0]['link'];
+//     $link2 = $events['items'][1]['link'];
+//     $link3 = $events['items'][2]['link'];
 
-    $pic = $events['items'][0];
-     echo $title;
-    echo $link;
+//     $pic = $events['items'][0];
+//      echo $title;
+//     echo $link;
 
-var_dump($pic);
+// var_dump($pic);
 
 
 
@@ -242,9 +263,6 @@ var_dump($pic);
 
 
 ?>
-//Uaafbb71ac91f028b6db1e6151d9db31b แนน
-//U2dc636d2cd052e82c29f5284e00f69b9 เราเอง
-//U7b12240413f5497290de34cd5fdf6fea ดร.
 
 
 
@@ -255,152 +273,6 @@ var_dump($pic);
   2.  Add the last code into the BODY of your HTML document  -->
 
 <!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
-
-<HEAD>
-
-<SCRIPT LANGUAGE="JavaScript">
-<!-- Original:  Ronnie T. Moore, Editor -->
-<!-- Web Site:  JavaScript Source Code 3000 -->
-
-<! >
-<! >
-
-<!-- Begin
-function isValidDate(dateStr) {
-// Date validation function courtesty of 
-// Sandeep V. Tamhankar (stamhankar@hotmail.com) -->
-
-// Checks for the following valid date formats:
-// MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
-
-var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/; // requires 4 digit year
-
-var matchArray = dateStr.match(datePat); // is the format ok?
-if (matchArray == null) {
-alert("Date is not in a valid format.")
-return false;
-}
-month = matchArray[1]; // parse date into variables
-day = matchArray[3];
-year = matchArray[4];
-if (month < 1 || month > 12) { // check month range
-alert("Month must be between 1 and 12.");
-return false;
-}
-if (day < 1 || day > 31) {
-alert("Day must be between 1 and 31.");
-return false;
-}
-if ((month==4 || month==6 || month==9 || month==11) && day==31) {
-alert("Month "+month+" doesn't have 31 days!")
-return false;
-}
-if (month == 2) { // check for february 29th
-var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-if (day>29 || (day==29 && !isleap)) {
-alert("February " + year + " doesn't have " + day + " days!");
-return false;
-   }
-}
-return true;
-}
-
-function dispDate(dateObj) {
-month = dateObj.getMonth()+1;
-month = (month < 10) ? "0" + month : month;
-
-day   = dateObj.getDate();
-day = (day < 10) ? "0" + day : day;
-
-year  = dateObj.getYear();
-if (year < 2000) year += 1900;
-
-return (month + "/" + day + "/" + year);
-}
-
-function pregnancyCalc(pregform) {
-menstrual = new Date(); // creates new date objects
-ovulation = new Date();
-duedate = new Date();
-today = new Date();
-cycle = 0, luteal = 0; // sets variables to invalid state ==> 0
-
-if (isValidDate(pregform.menstrual.value)) { // Validates menstual date 
-menstrualinput = new Date(pregform.menstrual.value);
-menstrual.setTime(menstrualinput.getTime())
-}
-else return false; // otherwise exits
-
-cycle = (pregform.cycle.value == "" ? 28 : pregform.cycle.value); // defaults to 28
-// validates cycle range, from 22 to 45
-if (pregform.cycle.value != "" && (pregform.cycle.value < 22 || pregform.cycle.value > 45)) {
-alert("Your cycle length is either too short or too long for \n"
-+ "calculations to be very accurate!  We will still try to \n"
-+ "complete the calculation with the figure you entered. ");
-}
-
-luteal = (pregform.luteal.value == "" ? 14 : pregform.luteal.value); // defaults to 14
-// validates luteal range, from 9 to 16
-if (pregform.luteal.value != "" && (pregform.luteal.value < 9 || pregform.luteal.value > 16)) {
-alert("Your luteal phase length is either too short or too long for \n"
-+ "calculations to be very accurate!  We will still try to complete \n"
-+ "the calculation with the figure you entered. ");
-}
-
-// sets ovulation date to menstrual date + cycle days - luteal days
-// the '*86400000' is necessary because date objects track time
-// in milliseconds;  86400000 milliseconds equals one day
-ovulation.setTime(menstrual.getTime() + (cycle*86400000) - (luteal*86400000));
-pregform.conception.value = dispDate(ovulation);
-
-// sets due date to ovulation date plus 266 days
-duedate.setTime(ovulation.getTime() + 266*86400000);
-pregform.duedate.value = dispDate(duedate);
-
-// sets fetal age to 14 + 266 (pregnancy time) - time left
-var fetalage = 14 + 266 - ((duedate - today) / 86400000);
-weeks = parseInt(fetalage / 7); // sets weeks to whole number of weeks
-days = Math.floor(fetalage % 7); // sets days to the whole number remainder
-
-// fetal age message, automatically includes 's' on week and day if necessary
-fetalage = weeks + " week" + (weeks > 1 ? "s" : "") + ", " + days + " days";
-pregform.fetalage.value = fetalage;
-
-return false; // form should never submit, returns false
-}
-//  End -->
-</script>
-</HEAD>
-
-<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
-
-<BODY>
-
-<center>
-<form onSubmit="return pregnancyCalc(this);">
-<table>
-<tr><td>
-<pre>
-Last Menstrual Period:        <input type=text name=menstrual value="" size=10 maxlength=10>
-                              (MM/DD/YYYY format)
-
-Average Length of Cycles:     <input type=text name=cycle value="" size=3 maxlength=3> (22 to 45)
-                              (defaults to 28)
-
-Average Luteal Phase Length:  <input type=text name=luteal value="" size=3 maxlength=3> (9 to 16)
-                              (defaults to 14)
-
-<center><input type=submit value="Calculate!"></center>
-
-Estimated Conception:         <input type=text name=conception value="" size=20>
-Estimated Due Date:           <input type=text name=duedate value="" size=20>
-Estimated Fetal Age:          <input type=text name=fetalage value="" size=20>
-</pre>
-</td></tr>
-</table>
-</form>
-</center>
-
 
  
 
