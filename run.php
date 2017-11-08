@@ -8,7 +8,7 @@ $id =$_GET['id'];
 // if($id ==''){
 // exit();
 // }
-
+$user_id = pg_escape_string($id);
 $conn_string = "host=ec2-54-163-233-201.compute-1.amazonaws.com port=5432 dbname=dchdrsngrf50pd user=njppbbukwreesq password=c6b890bd6e0dccc4a5db3308869ba5e2735fe0e5df7a3f0de6f114cc24752e04";
 $dbconn = pg_pconnect($conn_string);
 if (!$dbconn) {
@@ -17,10 +17,7 @@ if (!$dbconn) {
 
 
 $objQuery = pg_query($dbconn,"SELECT * FROM users WHERE user_id = '{$user_id}'  ");
-                while ($row = pg_fetch_row($check_q)) {
-                  echo $seqcode =  $row[0];
-                  echo $sender = $row[2]; 
-                } 
+            
 $objResult = pg_fetch_array($objQuery);
 
 //ดึงข้อมูล ID มาจาก Databases
