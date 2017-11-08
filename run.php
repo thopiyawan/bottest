@@ -3,9 +3,9 @@
 <?php 
 
 
-$ID=$_GET['id'];
+$id =$_GET['id'];
 
-if($ID==''){
+if($id ==''){
 exit();
 }
 
@@ -17,7 +17,7 @@ if (!$dbconn) {
 }
 
 //ดึงข้อมูล ID มาจาก Databases
-$objQuery = mysql_query("SELECT * FROM users where ID_STD = $ID ") or die(mysql_error());
+$objQuery = mysql_query("SELECT * FROM users where user_id = $ID ") or die(mysql_error());
 $objResult = mysql_fetch_array($objQuery);
 
 echo "hellooo";
