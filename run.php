@@ -15,13 +15,21 @@ if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+$objQuery = pg_query($dbconn,"SELECT * FROM users WHERE user_id = '{$user_id}'  ");
+                while ($row = pg_fetch_row($check_q)) {
+                  echo $seqcode =  $row[0];
+                  echo $sender = $row[2]; 
+                } 
+$objResult = pg_fetch_array($objQuery);
+
 //ดึงข้อมูล ID มาจาก Databases
 // $objQuery = mysql_query("SELECT * FROM users where user_id = $ID ") or die(mysql_error());
 // $objResult = mysql_fetch_array($objQuery);
 
-echo "hellooo";
+// echo "hellooo";
 //นำเอาตัวแปร มาแปลงเป็น json แล้วส่งออก
-// echo json_encode($objResult);
+echo json_encode($objResult);
 
 
 
