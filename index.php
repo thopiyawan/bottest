@@ -767,7 +767,7 @@ $messages = [
                                       'type' => 'buttons',
                                       'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$p_week .'.jpg',
                                       'title' => 'ท่าออกกำลังกายไหนที่คุณแม่ตั้งครรภ์ไม่ควรออก?',
-                                      'text' =>  '',
+                                      'text' =>  'เลือกตอบ1คำตอบ',
                                       'actions' => [
                                           [
                                               'type' => 'postback',
