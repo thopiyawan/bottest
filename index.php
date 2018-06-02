@@ -744,24 +744,25 @@ $messages = [
                                       'text' =>  'เลือกตอบ1คำตอบ',
                                       'actions' => [
                                           [
-                                              'type' => 'postback',
-                                              'label' => 'good',
-                                              'data' => 'value'
+                                            'type' => 'message',
+                                            'label' => 'กระโดด',
+                                            'text' => 'กระโดด'
                                           ],
                                           [
-                                              'type' => 'uri',
-                                              'label' => 'กราฟ',
-                                              'uri' => 'https://bottest14.herokuapp.com/graph.php?data='.$user_id
+                                            'type' => 'message',
+                                            'label' => 'โยคะ',
+                                            'text' => 'โยคะ'
                                           ]
                                       ]
                                   ]
                               ]; 
-
+    
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','4000', '','4001','0',NOW(),NOW())") or die(pg_errormessage()); 
 //       $messages = [
 //           'type' => 'text',
 //           'text' => $text
 //         ]; 
-   pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
+//    pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 ///////////////////////////////////////////////////////////////////////// 
     }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
@@ -795,7 +796,7 @@ $messages = [
                   ]
               ]; 
      $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());         
-
+     
   }
   
 
