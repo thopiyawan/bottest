@@ -727,8 +727,44 @@ $messages = [
 //     "latitude": 35.65910807942215,
 //     "longitude": 139.70372892916203
 //   }
-
-}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    
+///////////////////reward/////////////////////////////////////////////
+}elseif($event['message']['text'] == "quiz" ){
+      $replyToken = $event['replyToken'];
+    
+//       $text = "RAMIหยุดการส่งข้อความให้คุณแล้วค่ะ";
+    
+     $messages = [                            
+                                  'type' => 'template',
+                                  'altText' => 'template',
+                                  'template' => [
+                                      'type' => 'buttons',
+                                      'thumbnailImageUrl' => 'https://bottest14.herokuapp.com/week/'.$p_week .'.jpg',
+                                      'title' => 'ท่าออกกำลังกายไหนที่คุณแม่ตั้งครรภ์ไม่ควรออก?',
+                                      'text' =>  'เลือกตอบ1คำตอบ',
+                                      'actions' => [
+                                          [
+                                            'type' => 'message',
+                                            'label' => 'กระโดด',
+                                            'text' => 'กระโดด'
+                                          ],
+                                          [
+                                            'type' => 'message',
+                                            'label' => 'โยคะ',
+                                            'text' => 'โยคะ'
+                                          ]
+                                      ]
+                                  ]
+                              ]; 
+    
+    $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','4000', '','4001','0',NOW(),NOW())") or die(pg_errormessage()); 
+//       $messages = [
+//           'type' => 'text',
+//           'text' => $text
+//         ]; 
+//    pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
+///////////////////////////////////////////////////////////////////////// 
+    }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
     
       $replyToken = $event['replyToken'];
       $text = "ดิฉันไม่เข้าใจค่ะ";
@@ -736,8 +772,6 @@ $messages = [
           'type' => 'text',
           'text' => $text
         ];
-
- 
 }else{
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
@@ -762,7 +796,7 @@ $messages = [
                   ]
               ]; 
      $q = pg_exec($dbconn, "INSERT INTO sequentsteps(sender_id,seqcode,answer,nextseqcode,status,created_at,updated_at )VALUES('{$user_id}','0004','','0006','0',NOW(),NOW())") or die(pg_errormessage());         
-
+     
   }
   
 
