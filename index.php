@@ -727,15 +727,6 @@ $messages = [
 //     "latitude": 35.65910807942215,
 //     "longitude": 139.70372892916203
 //   }
-
-}elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
-    
-      $replyToken = $event['replyToken'];
-      $text = "ดิฉันไม่เข้าใจค่ะ";
-      $messages = [
-          'type' => 'text',
-          'text' => $text
-        ];
     
 ///////////////////reward/////////////////////////////////////////////
 }elseif($event['message']['text'] == "quiz" ){
@@ -798,6 +789,14 @@ $messages = [
 //         ]; 
    pg_exec($dbconn, "UPDATE users SET status= 0 WHERE user_id = '{$user_id}' ") or die(pg_errormessage());
 ///////////////////////////////////////////////////////////////////////// 
+    }elseif ($event['type'] == 'message' && $event['message']['type'] == 'text'){
+    
+      $replyToken = $event['replyToken'];
+      $text = "ดิฉันไม่เข้าใจค่ะ";
+      $messages = [
+          'type' => 'text',
+          'text' => $text
+        ];
 }else{
    $replyToken = $event['replyToken'];
       $text = "หากคุณสนใจให้ดิฉันเป็นผู้ช่วยอัตโนมัติของคุณ โปรดกดยืนยันด้านล่างด้วยนะคะ";
